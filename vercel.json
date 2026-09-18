@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "name": "istaroth-ai",
+  "cleanUrls": true,
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/$1"
+    }
+  ]
+}

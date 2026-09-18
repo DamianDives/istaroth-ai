@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BidIntel Case Study — IstarothAI</title>
+  <meta name="description" content="How IstarothAI built BidIntel: an AI-assisted construction precon leveling platform that normalizes bids, catches scope exclusions, and protects contractor margins.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Ambient Glow & Dual-Beam Lighting -->
+  <div class="ambient-glow"></div>
+  <div class="hero-dual-beams">
+    <div class="beam-cyan-left"></div>
+    <div class="beam-amber-right"></div>
+  </div>
+
+  <!-- Floating Capsule Navigation Bar -->
+  <div class="site-nav-wrapper">
+    <nav class="site-nav-capsule" id="navbar">
+      <a href="index.html" class="nav-brand">
+        <svg width="28" height="28" viewBox="0 0 36 36" fill="none">
+          <circle cx="18" cy="18" r="15" stroke="rgba(255,255,255,0.18)" stroke-width="2"/>
+          <path d="M18 3C26.2843 3 33 9.71573 33 18C33 26.2843 26.2843 33 18 33" stroke="url(#cyan-grad)" stroke-width="2.5" stroke-linecap="round"/>
+          <circle cx="18" cy="18" r="5" fill="url(#cyan-grad)"/>
+          <defs>
+            <linearGradient id="cyan-grad" x1="18" y1="3" x2="33" y2="33" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#00F2FE"/>
+              <stop offset="1" stop-color="#8A3FFC"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <span>Istaroth<span class="brand-dot">AI</span></span>
+      </a>
+
+      <ul class="nav-menu">
+        <li><a href="what-we-do.html">What we do</a></li>
+        <li><a href="our-approach.html">Our approach</a></li>
+        <li><a href="work.html" class="active">Work</a></li>
+        <li><a href="about-us.html">About us</a></li>
+        <li><a href="contact-us.html">Contact</a></li>
+      </ul>
+
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <a href="contact-us.html" class="button-gradient">Let's talk</a>
+      </div>
+    </nav>
+  </div>
+
+  <main style="position: relative; z-index: 2; padding-top: 100px;">
+    <div class="container">
+      
+      <!-- Back to Work Link -->
+      <div style="margin-bottom: 24px;">
+        <a href="work.html" style="color: var(--text-muted); text-decoration: none; font-size: 14px; display: inline-flex; align-items: center; gap: 8px;">
+          ← Back to all projects
+        </a>
+      </div>
+
+      <!-- Case Study Hero -->
+      <div class="hero-editorial-wrap" style="max-width: 100%;">
+        <div class="pill-badge">
+          <span class="live-beacon"></span>
+          <span>REFERENCE PLATFORM 01 • PROOF OF CAPABILITY</span>
+        </div>
+
+        <h1 style="font-size: clamp(38px, 5.5vw, 68px); letter-spacing: -0.04em; font-weight: 800; line-height: 1.1;">
+          BidIntel — Construction Precon <br>
+          <span class="gradient-accent-text">&amp; Leveling Copilot.</span>
+        </h1>
+
+        <p class="hero-editorial-lead" style="max-width: 900px;">
+          Eliminating the "cheapest bid" trap in commercial construction. BidIntel normalizes complex subcontractor quotes, detects hidden scope exclusions, uncovers unquoted GST, and equips estimators with an evidence-backed intelligence engine before contracts are awarded.
+        </p>
+
+        <!-- Signature Metadata Bar -->
+        <div class="case-study-meta-bar">
+          <div class="meta-pill-item">
+            <span class="meta-pill-label">REFERENCE DEPLOYMENT</span>
+            <span class="meta-pill-value">BidIntel Precon</span>
+          </div>
+          <div class="meta-pill-item">
+            <span class="meta-pill-label">SERVICE DEMONSTRATED</span>
+            <span class="meta-pill-value">Vector RAG &amp; Leveling</span>
+          </div>
+          <div class="meta-pill-item">
+            <span class="meta-pill-label">TARGET ENTERPRISES</span>
+            <span class="meta-pill-value">Commercial GCs &amp; EPCs</span>
+          </div>
+          <div class="meta-pill-item">
+            <span class="meta-pill-label">DEPLOYMENT STATUS</span>
+            <span class="meta-pill-value" style="color: var(--emerald); display: flex; align-items: center; gap: 6px;">
+              <span class="live-beacon"></span> Production Live
+            </span>
+          </div>
+          <div class="meta-pill-item">
+            <span class="meta-pill-label">LIVE PLATFORM</span>
+            <span class="meta-pill-value">
+              <a href="bidintel.html" id="bidintel-direct-link">Launch Platform ↗</a>
+            </span>
+          </div>
+        </div>
+
+        <!-- Action CTAs -->
+        <div style="display: flex; gap: 16px; margin-bottom: 50px; flex-wrap: wrap;">
+          <a href="bidintel.html" class="button-gradient" style="padding: 14px 32px; font-size: 15px;">
+            Launch Live Platform ↗
+          </a>
+          <a href="bidintel.html" class="button-outline" style="padding: 14px 28px; font-size: 15px;">
+            Open Leveling Simulator Console
+          </a>
+        </div>
+      </div>
+
+      <!-- High-Fidelity macOS Browser Frame (Matching CosmiFin on Cosmiron) -->
+      <div class="macos-browser-frame" style="margin-bottom: 80px;">
+        <div class="macos-browser-header">
+          <div class="macos-traffic-lights">
+            <span class="traffic-light red"></span>
+            <span class="traffic-light yellow"></span>
+            <span class="traffic-light green"></span>
+          </div>
+          <div class="macos-address-bar">
+            <span>🔒</span>
+            <span>https://bidintel.istaroth.ai/projects/commercial-tower-b/leveling-matrix</span>
+          </div>
+          <div style="font-family: var(--font-mono); font-size: 11px; color: var(--cyan);">
+            ACTIVE COPILOT SESSION
+          </div>
+        </div>
+
+        <div class="macos-browser-body">
+          <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 24px;">
+            
+            <!-- Left: Leveling Matrix Table -->
+            <div>
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+                <div>
+                  <h4 style="font-size: 18px; margin-bottom: 4px;">Electrical & Substation Package (BOQ Rev 3.2)</h4>
+                  <span style="font-size: 12px; color: var(--text-muted);">Budget Baseline: ₹8.50 Cr • 3 Subcontractor Quotes Analyzed</span>
+                </div>
+                <span class="pill-badge" style="background: rgba(16, 185, 129, 0.1); color: var(--emerald);">Normalized 100%</span>
+              </div>
+
+              <table class="bids-table-styled" style="width: 100%;">
+                <thead>
+                  <tr>
+                    <th>Vendor</th>
+                    <th>Quoted Base</th>
+                    <th>Scope Exclusions Flagged</th>
+                    <th>Tax Adjustments</th>
+                    <th>Normalized Exposure</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="vendor-highlight">Subcontractor Alpha</td>
+                    <td>₹8.40 Cr</td>
+                    <td><span class="status-badge ok">✓ Complete Scope</span></td>
+                    <td style="color: var(--text-muted);">GST Included</td>
+                    <td style="font-family: var(--font-mono); font-weight: 700; color: var(--emerald);">₹8.40 Cr</td>
+                  </tr>
+                  <tr>
+                    <td class="vendor-highlight">Voltas MEP</td>
+                    <td>₹8.10 Cr</td>
+                    <td><span class="status-badge warn">⚠ Missing Crane Rigging (+₹25L)</span></td>
+                    <td style="color: var(--text-muted);">GST Included</td>
+                    <td style="font-family: var(--font-mono); font-weight: 700;">₹8.35 Cr</td>
+                  </tr>
+                  <tr style="background: rgba(244, 63, 94, 0.05);">
+                    <td class="vendor-highlight" style="color: var(--rose);">L&amp;T Electricals (Sub-tier)</td>
+                    <td style="text-decoration: line-through; color: var(--text-dim);">₹7.95 Cr</td>
+                    <td><span class="status-badge danger">❌ Testing, Commissioning &amp; Cabling Omitted</span></td>
+                    <td style="color: var(--rose); font-weight: 600;">18% GST Excluded (+₹1.43 Cr)</td>
+                    <td style="font-family: var(--font-mono); font-weight: 700; color: var(--rose);">₹9.78 Cr</td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <div style="background: rgba(255, 255, 255, 0.02); border: 1px solid var(--border-hairline); border-radius: 10px; padding: 16px; margin-top: 16px; font-size: 13px; color: var(--text-muted); display: flex; justify-content: space-between;">
+                <span>Audit Note: Subcontractor 3 looked ₹45L cheaper on paper, but had <strong>₹1.83 Cr in hidden liabilities</strong>.</span>
+                <span style="color: var(--emerald); font-weight: 600;">Margin Saved: ₹1.38 Cr</span>
+              </div>
+            </div>
+
+            <!-- Right: Estimator Copilot Window -->
+            <div style="background: #101522; border: 1px solid var(--border-light); border-radius: 14px; padding: 20px; display: flex; flex-direction: column; justify-content: space-between;">
+              <div>
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--border-hairline);">
+                  <div style="display: flex; align-items: center; gap: 8px;">
+                    <span class="live-beacon"></span>
+                    <strong style="font-size: 14px;">Estimator Copilot</strong>
+                  </div>
+                  <span class="mono-text" style="font-size: 11px; color: var(--cyan);">GPT-4o &amp; Claude 3.5</span>
+                </div>
+
+                <div class="copilot-bubble" style="margin-bottom: 14px;">
+                  <div class="copilot-title">
+                    <span>⚡ Critical Scope Gap Alert</span>
+                  </div>
+                  <p style="font-size: 12.5px; line-height: 1.5; color: var(--text-main); margin: 0;">
+                    "Vendor C's quote page 14 note 3 excludes 18% GST and high-voltage substation commissioning. If you award at ₹7.95 Cr, you will suffer a ₹1.83 Cr cost overrun during execution."
+                  </p>
+                </div>
+
+                <div style="background: rgba(0, 242, 254, 0.04); border: 1px solid rgba(0, 242, 254, 0.2); border-radius: 8px; padding: 12px; font-size: 12px; margin-bottom: 14px;">
+                  <strong style="color: var(--cyan);">Recommended Award:</strong> Subcontractor Alpha at ₹8.40 Cr. Clean scope, verified GST compliance, and locked warranty clauses.
+                </div>
+              </div>
+
+              <div style="display: flex; flex-direction: column; gap: 8px;">
+                <a href="bidintel.html" class="button-gradient" style="font-size: 12px; padding: 10px; width: 100%; text-align: center;">
+                  Open Live Project in Next.js ↗
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- Problem vs Solution Deep Dive -->
+      <section style="margin-bottom: 80px;">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
+          
+          <div style="background: rgba(244, 63, 94, 0.03); border: 1px solid rgba(244, 63, 94, 0.2); border-radius: 20px; padding: 36px;">
+            <span class="friction-tag">The Industry Challenge</span>
+            <h3 style="font-size: 26px; margin: 12px 0 16px; color: #FDA4AF;">The ₹1.8 Cr "Cheapest Bid" Scope Trap</h3>
+            <p style="color: var(--text-muted); font-size: 15px; line-height: 1.7; margin-bottom: 16px;">
+              In commercial construction, preconstruction teams manage dozens of trade packages—from HVAC and electrical to structural glazing. Every subcontractor submits proposals in different PDF formats, riddled with obscure exclusions and fine print.
+            </p>
+            <p style="color: var(--text-muted); font-size: 15px; line-height: 1.7;">
+              Because estimators are pressed against submission deadlines, bids are often awarded based on bottom-line numbers. Six months into project execution, variation orders and missing scopes wipe out contractor profit margins.
+            </p>
+          </div>
+
+          <div style="background: rgba(0, 242, 254, 0.03); border: 1px solid rgba(0, 242, 254, 0.2); border-radius: 20px; padding: 36px;">
+            <span class="velocity-tag">The Istaroth Solution</span>
+            <h3 style="font-size: 26px; margin: 12px 0 16px; color: #7DD3FC;">Autonomous Precon Leveling &amp; Intelligence</h3>
+            <p style="color: var(--text-muted); font-size: 15px; line-height: 1.7; margin-bottom: 16px;">
+              BidIntel ingests vendor quote PDFs, structural BOQs, and addenda. It extracts every line item, normalizes terms across all bidders, and detects excluded taxes, unquoted freight, and omitted testing protocols.
+            </p>
+            <p style="color: var(--text-muted); font-size: 15px; line-height: 1.7;">
+              The platform equips estimators with an interactive AI copilot that cites exact PDF page numbers, calculates normalized true costs, and prepares board-ready bid leveling spreadsheets in minutes.
+            </p>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Architecture & Tech Stack -->
+      <section style="margin-bottom: 80px;">
+        <div class="section-head">
+          <span class="section-eyebrow">Enterprise Architecture</span>
+          <h2 class="section-headline">Built for scale, compliance, and multi-tenant security.</h2>
+          <p class="section-subtext">BidIntel was engineered as a modern enterprise SaaS using cutting-edge full-stack architecture.</p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;">
+          <div class="ownership-card" style="padding: 24px;">
+            <h4 style="font-size: 18px; margin-bottom: 8px; color: var(--cyan);">Next.js 16 App Router</h4>
+            <p style="font-size: 13.5px; color: var(--text-muted); line-height: 1.6;">
+              React 19 Server Components, streaming SSR, and micro-frontend performance for instantaneous page rendering.
+            </p>
+          </div>
+
+          <div class="ownership-card" style="padding: 24px;">
+            <h4 style="font-size: 18px; margin-bottom: 8px; color: var(--cyan);">Supabase Auth &amp; RLS</h4>
+            <p style="font-size: 13.5px; color: var(--text-muted); line-height: 1.6;">
+              PostgreSQL Row Level Security ensures complete data isolation between general contractors and subcontractors.
+            </p>
+          </div>
+
+          <div class="ownership-card" style="padding: 24px;">
+            <h4 style="font-size: 18px; margin-bottom: 8px; color: var(--cyan);">Estimator AI Copilot</h4>
+            <p style="font-size: 13.5px; color: var(--text-muted); line-height: 1.6;">
+              Custom RAG pipeline indexing BOQs and vendor quote attachments with verifiable page-level evidence citations.
+            </p>
+          </div>
+
+          <div class="ownership-card" style="padding: 24px;">
+            <h4 style="font-size: 18px; margin-bottom: 8px; color: var(--cyan);">Procore &amp; ERP Sync</h4>
+            <p style="font-size: 13.5px; color: var(--text-muted); line-height: 1.6;">
+              Bidirectional webhooks connecting directly to Procore, Autodesk Construction Cloud, and enterprise SAP.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Quantified Business Impact -->
+      <section style="background: var(--bg-surface); border: 1px solid var(--border-light); border-radius: 24px; padding: 60px; margin-bottom: 80px;">
+        <div style="text-align: center; max-width: 600px; margin: 0 auto 48px;">
+          <span class="pill-badge" style="margin-bottom: 12px;">Quantified Results</span>
+          <h3 style="font-size: 34px;">Measurable Enterprise ROI</h3>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; text-align: center;">
+          <div>
+            <div style="font-family: var(--font-editorial); font-size: 48px; font-weight: 800; color: var(--cyan);">94%</div>
+            <div style="font-size: 14px; color: var(--text-muted); margin-top: 6px;">Scope Exclusion Catch Rate</div>
+          </div>
+          <div>
+            <div style="font-family: var(--font-editorial); font-size: 48px; font-weight: 800; color: var(--emerald);">10x</div>
+            <div style="font-size: 14px; color: var(--text-muted); margin-top: 6px;">Faster Precon Leveling Cycle</div>
+          </div>
+          <div>
+            <div style="font-family: var(--font-editorial); font-size: 48px; font-weight: 800; color: var(--violet);">₹1.8 Cr</div>
+            <div style="font-size: 14px; color: var(--text-muted); margin-top: 6px;">Average Cost Leakage Avoided</div>
+          </div>
+          <div>
+            <div style="font-family: var(--font-editorial); font-size: 48px; font-weight: 800; color: var(--amber);">100%</div>
+            <div style="font-size: 14px; color: var(--text-muted); margin-top: 6px;">Audit-Ready Board Documentation</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Enterprise Capability Takeaway (How This Applies to You) -->
+      <section style="background: var(--bg-surface); border: 1px solid var(--border-light); border-radius: 24px; padding: 50px; margin-bottom: 60px; text-align: center;">
+        <div style="max-width: 760px; margin: 0 auto;">
+          <div class="pill-badge" style="margin-bottom: 12px;">
+            <span class="live-beacon"></span>
+            <span>HOW THIS APPLIES TO YOUR ENTERPRISE</span>
+          </div>
+          <h3 style="font-size: 32px; margin-bottom: 14px;">Need a Sovereign Precon AI Engine for Your Tenders?</h3>
+          <p style="color: var(--text-muted); font-size: 15.5px; line-height: 1.7; margin-bottom: 28px;">
+            BidIntel is a working proof of capability. When you partner with IstarothAI, we build, fine-tune, and deploy a bespoke precon leveling engine directly into your private VPC or cloud environment. It connects to your existing Procore or SAP workflows, handles your specific trade packages, and transfers 100% IP ownership to your firm.
+          </p>
+          <a href="contact-us.html" class="button-gradient" style="padding: 13px 32px; font-size: 14px;">
+            Commission a Precon Diagnostic for Your Team →
+          </a>
+        </div>
+      </section>
+
+      <!-- Next Project Navigation -->
+      <div style="display: flex; justify-content: space-between; align-items: center; padding: 40px 0; border-top: 1px solid var(--border-hairline); margin-bottom: 40px;">
+        <a href="work.html" style="color: var(--text-muted); text-decoration: none; font-size: 14px;">← All Projects</a>
+        <a href="work-yardsync.html" class="button-outline">Next Case Study: YardSync Operations Platform →</a>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer-cosmiron">
+    <div class="container">
+      <div class="footer-sub">
+        <span>&copy; 2026 IstarothAI. BidIntel Precon Intelligence.</span>
+        <a href="contact-us.html" style="color: var(--cyan); text-decoration: none;">Request a Private Demo →</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

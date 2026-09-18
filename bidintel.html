@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BidIntel — Interactive Preconstruction Leveling Console | Istaroth.ai</title>
+  <meta name="description" content="BidIntel AI-assisted construction bid intelligence console. Normalize subcontractor proposals, expose scope gaps, and protect contractor margins.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      background-color: #07090F;
+    }
+    .app-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+    .top-subnav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border-light);
+      margin-bottom: 24px;
+    }
+    .subnav-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .back-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 13px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: var(--transition);
+    }
+    .back-link:hover {
+      color: var(--cyan);
+    }
+    .demo-pill {
+      background: rgba(0, 242, 254, 0.1);
+      border: 1px solid rgba(0, 242, 254, 0.3);
+      color: var(--cyan);
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .project-header-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 24px 32px;
+      margin-bottom: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .metrics-summary-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-bottom: 24px;
+    }
+    .metric-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-sm);
+      padding: 18px 20px;
+    }
+    .metric-card-label {
+      font-size: 12px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      letter-spacing: 0.05em;
+      margin-bottom: 6px;
+    }
+    .metric-card-val {
+      font-family: var(--font-editorial);
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--text-pure);
+    }
+    .workspace-split {
+      display: grid;
+      grid-template-columns: 2.2fr 1fr;
+      gap: 24px;
+    }
+    .sheet-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+    }
+    .sheet-controls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 24px;
+      border-bottom: 1px solid var(--border-hairline);
+      background: rgba(255, 255, 255, 0.01);
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .tab-filters {
+      display: flex;
+      gap: 8px;
+    }
+    .tab-btn {
+      background: transparent;
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-pill);
+      padding: 6px 14px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .tab-btn.active, .tab-btn:hover {
+      background: rgba(0, 242, 254, 0.1);
+      border-color: var(--cyan);
+      color: var(--cyan);
+    }
+    .leveling-table-wrap {
+      overflow-x: auto;
+    }
+    .leveling-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    .leveling-table th {
+      background: #0B0F19;
+      padding: 14px 16px;
+      text-align: left;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--border-light);
+    }
+    .leveling-table td {
+      padding: 16px;
+      border-bottom: 1px solid var(--border-hairline);
+    }
+    .leveling-table tr:hover td {
+      background: rgba(255, 255, 255, 0.02);
+    }
+    .badge-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 3px 10px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 700;
+      cursor: pointer;
+      user-select: none;
+      transition: var(--transition);
+    }
+    .badge-included { background: rgba(16, 185, 129, 0.15); color: var(--emerald); border: 1px solid rgba(16, 185, 129, 0.3); }
+    .badge-excluded { background: rgba(244, 63, 94, 0.15); color: var(--rose); border: 1px solid rgba(244, 63, 94, 0.3); }
+    .badge-unclear { background: rgba(245, 158, 11, 0.15); color: var(--amber); border: 1px solid rgba(245, 158, 11, 0.3); }
+    
+    .copilot-sidebar {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .copilot-chat-feed {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      max-height: 520px;
+      overflow-y: auto;
+    }
+    .chat-bubble {
+      padding: 14px 16px;
+      border-radius: var(--radius-sm);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+    .chat-bubble.assistant {
+      background: rgba(0, 242, 254, 0.05);
+      border: 1px solid rgba(0, 242, 254, 0.2);
+      color: var(--text-main);
+    }
+    .chat-bubble.user {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-hairline);
+      color: var(--text-pure);
+      align-self: flex-end;
+    }
+    .quick-prompt-btn {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-xs);
+      padding: 10px 14px;
+      font-size: 12px;
+      color: var(--text-muted);
+      text-align: left;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .quick-prompt-btn:hover {
+      background: rgba(0, 242, 254, 0.08);
+      border-color: var(--cyan);
+      color: var(--text-pure);
+    }
+    .evidence-box {
+      background: #07090F;
+      border-left: 3px solid var(--rose);
+      padding: 10px 12px;
+      border-radius: 4px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      margin-top: 8px;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="app-container">
+    
+    <!-- Top Subnav -->
+    <div class="top-subnav">
+      <div class="subnav-left">
+        <a href="index.html" class="back-link">
+          ← Back to Istaroth.ai
+        </a>
+        <span style="color: var(--text-dim);">|</span>
+        <strong style="font-family: var(--font-editorial); font-size: 18px; color: var(--text-pure);">
+          BidIntel<span style="color: var(--cyan);">.ai</span>
+        </strong>
+        <span class="demo-pill">Interactive Demo Environment</span>
+      </div>
+
+      <div>
+        <a href="index.html#work" class="button-outline" style="font-size: 12px; padding: 8px 18px;">
+          Product Overview
+        </a>
+      </div>
+    </div>
+
+    <!-- Active Pursuit Header -->
+    <div class="project-header-card">
+      <div>
+        <div style="font-size: 12px; font-family: var(--font-mono); color: var(--cyan); margin-bottom: 6px;">
+          PROJECT RMC-2608 • HEALTHCARE OUTPATIENT
+        </div>
+        <h1 style="font-size: 28px; margin-bottom: 6px;">Riverfront Medical Center</h1>
+        <p style="font-size: 14px; color: var(--text-muted);">
+          Package: <strong>26 00 00 - Electrical Systems</strong> • Due Date: 18 Sep 2026 • BOQ Rev: 3.2
+        </p>
+      </div>
+
+      <div style="display: flex; gap: 12px;">
+        <button class="button-gradient" id="btn-run-leveling" style="font-size: 13px; padding: 10px 22px;">
+          ⚡ Re-Normalize Bids
+        </button>
+      </div>
+    </div>
+
+    <!-- 4 High-Impact Metrics -->
+    <div class="metrics-summary-grid">
+      <div class="metric-card">
+        <div class="metric-card-label">Lowest Quoted Bid</div>
+        <div class="metric-card-val" style="color: var(--text-muted); text-decoration: line-through;">$795,000</div>
+        <div style="font-size: 12px; color: var(--rose); margin-top: 4px;">Summit Power (Deceptive Low)</div>
+      </div>
+
+      <div class="metric-card">
+        <div class="metric-card-label">True Normalized Lowest</div>
+        <div class="metric-card-val" style="color: var(--emerald);">$840,000</div>
+        <div style="font-size: 12px; color: var(--emerald); margin-top: 4px;">Atlas Electrical (Full Scope)</div>
+      </div>
+
+      <div class="metric-card">
+        <div class="metric-card-label">Identified Cost Exposure</div>
+        <div class="metric-card-val" style="color: var(--rose);">+$183,100</div>
+        <div style="font-size: 12px; color: var(--text-muted); margin-top: 4px;">Unquoted GST + Scope Gaps</div>
+      </div>
+
+      <div class="metric-card">
+        <div class="metric-card-label">Copilot Scope Audit</div>
+        <div class="metric-card-val" style="color: var(--cyan);">2 Critical Gaps</div>
+        <div style="font-size: 12px; color: var(--text-muted); margin-top: 4px;">Evidence linked from proposals</div>
+      </div>
+    </div>
+
+    <!-- Workspace Split: Leveling Sheet Left + Estimator Copilot Right -->
+    <div class="workspace-split">
+      
+      <!-- Leveling Sheet -->
+      <div class="sheet-card">
+        <div class="sheet-controls">
+          <div>
+            <span style="font-weight: 700; font-size: 15px;">Bid-Leveling Matrix</span>
+            <span style="font-size: 12px; color: var(--text-muted); margin-left: 8px;">(Click badges to toggle status)</span>
+          </div>
+
+          <div class="tab-filters">
+            <button class="tab-btn active" data-filter="ALL">All Items</button>
+            <button class="tab-btn" data-filter="DIFFERENCES">Differences Only</button>
+            <button class="tab-btn" data-filter="EXCLUDED">Exclusions</button>
+          </div>
+        </div>
+
+        <div class="leveling-table-wrap">
+          <table class="leveling-table" id="leveling-matrix">
+            <thead>
+              <tr>
+                <th style="width: 28%;">Scope Requirement</th>
+                <th style="width: 24%;">
+                  Atlas Electrical
+                  <div style="color: var(--text-muted); font-size: 11px; text-transform: none;">Quoted: $840,000</div>
+                </th>
+                <th style="width: 24%;">
+                  VoltWorks Cont.
+                  <div style="color: var(--text-muted); font-size: 11px; text-transform: none;">Quoted: $810,000</div>
+                </th>
+                <th style="width: 24%;">
+                  Summit Power
+                  <div style="color: var(--text-muted); font-size: 11px; text-transform: none;">Quoted: $795,000</div>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr data-has-diff="true">
+                <td>
+                  <strong>Temporary Power</strong>
+                  <div style="font-size: 11px; color: var(--text-muted);">Spec 26 05 00, pg 18</div>
+                </td>
+                <td><span class="badge-status badge-included">✓ INCLUDED</span></td>
+                <td><span class="badge-status badge-included">✓ INCLUDED</span></td>
+                <td>
+                  <span class="badge-status badge-excluded">✕ EXCLUDED</span>
+                  <div style="font-size: 11px; color: var(--rose); margin-top: 4px;">+$18,000 Adj.</div>
+                </td>
+              </tr>
+
+              <tr data-has-diff="true">
+                <td>
+                  <strong>Testing & Commissioning</strong>
+                  <div style="font-size: 11px; color: var(--text-muted);">Specification 26 08 00</div>
+                </td>
+                <td><span class="badge-status badge-included">✓ INCLUDED</span></td>
+                <td>
+                  <span class="badge-status badge-excluded">✕ EXCLUDED</span>
+                  <div style="font-size: 11px; color: var(--rose); margin-top: 4px;">+$25,000 Adj.</div>
+                </td>
+                <td>
+                  <span class="badge-status badge-unclear">? UNCLEAR</span>
+                  <div style="font-size: 11px; color: var(--amber); margin-top: 4px;">+$22,000 Exposure</div>
+                </td>
+              </tr>
+
+              <tr data-has-diff="true">
+                <td>
+                  <strong>Taxes, GST & Duties</strong>
+                  <div style="font-size: 11px; color: var(--text-muted);">Commercial Terms §4</div>
+                </td>
+                <td><span class="badge-status badge-included">✓ INCLUDED</span></td>
+                <td><span class="badge-status badge-included">✓ INCLUDED</span></td>
+                <td>
+                  <span class="badge-status badge-excluded">✕ EXCLUDED</span>
+                  <div style="font-size: 11px; color: var(--rose); margin-top: 4px;">+18% GST ($143,100)</div>
+                </td>
+              </tr>
+
+              <tr data-has-diff="true">
+                <td>
+                  <strong>Addendum 04 Ack.</strong>
+                  <div style="font-size: 11px; color: var(--text-muted);">Emergency generator feed</div>
+                </td>
+                <td><span class="badge-status badge-included">✓ ACKNOWLEDGED</span></td>
+                <td><span class="badge-status badge-included">✓ ACKNOWLEDGED</span></td>
+                <td><span class="badge-status badge-unclear">? NOT REFERENCED</span></td>
+              </tr>
+
+              <tr data-has-diff="false">
+                <td>
+                  <strong>Lighting Fixtures E601</strong>
+                  <div style="font-size: 11px; color: var(--text-muted);">Schedule compliance</div>
+                </td>
+                <td><span class="badge-status badge-included">✓ INCLUDED</span></td>
+                <td><span class="badge-status badge-included">✓ INCLUDED</span></td>
+                <td><span class="badge-status badge-included">✓ INCLUDED</span></td>
+              </tr>
+
+              <tr data-has-diff="false">
+                <td>
+                  <strong>Fire Alarm System 28 31</strong>
+                  <div style="font-size: 11px; color: var(--text-muted);">Coordination note</div>
+                </td>
+                <td><span class="badge-status badge-included">✓ INCLUDED</span></td>
+                <td><span class="badge-status badge-included">✓ INCLUDED</span></td>
+                <td><span class="badge-status badge-included">✓ INCLUDED</span></td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr style="background: #090E1A; font-weight: 700; border-top: 2px solid var(--border-light);">
+                <td>
+                  <strong style="font-size: 14px;">TRUE NORMALIZED BID</strong>
+                  <div style="font-size: 11px; color: var(--text-muted);">Base Bid + Scope Adjustments</div>
+                </td>
+                <td style="color: var(--emerald); font-family: var(--font-mono); font-size: 16px;">
+                  $840,000
+                  <div style="font-size: 11px; color: var(--emerald); font-weight: 500;">★ Recommended Award</div>
+                </td>
+                <td style="font-family: var(--font-mono); font-size: 16px;">
+                  $835,000
+                  <div style="font-size: 11px; color: var(--text-muted); font-weight: 500;">+$25k Adjustments</div>
+                </td>
+                <td style="color: var(--rose); font-family: var(--font-mono); font-size: 16px;">
+                  $978,100
+                  <div style="font-size: 11px; color: var(--rose); font-weight: 500;">+$183.1k Exposure</div>
+                </td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+
+      <!-- Estimator Copilot Sidebar -->
+      <div class="copilot-sidebar">
+        <div>
+          <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px;">
+            <span class="live-beacon"></span>
+            <strong style="font-family: var(--font-editorial); font-size: 16px;">Estimator Copilot</strong>
+          </div>
+          <p style="font-size: 12px; color: var(--text-muted);">AI proposal intelligence & evidence engine</p>
+        </div>
+
+        <div class="copilot-chat-feed" id="copilot-feed">
+          <div class="chat-bubble assistant">
+            <strong>Copilot Analysis Ready:</strong>
+            <p style="margin-top: 4px;">
+              I have leveled 3 proposals for <strong>26 00 00 - Electrical</strong>. Although <strong>Summit Power</strong> quoted $795k ($45k below Atlas), they omitted 18% GST and Temporary Power.
+            </p>
+            <div class="evidence-box">
+              <strong>Evidence (Summit Proposal §3):</strong><br>
+              "Excludes: All site temporary power connections, water, sales tax & local duties."
+            </div>
+          </div>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <button class="quick-prompt-btn" id="prompt-gst">
+            ⚡ Show GST & Tax Exposure Breakdown
+          </button>
+          <button class="quick-prompt-btn" id="prompt-clarification">
+            📝 Draft Clarification Request to Summit Power
+          </button>
+          <button class="quick-prompt-btn" id="prompt-export">
+            📊 Export Normalized Comparison Sheet (PDF)
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <script>
+    // Tab Filter Logic
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    const tableRows = document.querySelectorAll('#leveling-matrix tbody tr');
+
+    tabButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        tabButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.getAttribute('data-filter');
+
+        tableRows.forEach(row => {
+          if (filter === 'ALL') {
+            row.style.display = '';
+          } else if (filter === 'DIFFERENCES') {
+            row.style.display = row.getAttribute('data-has-diff') === 'true' ? '' : 'none';
+          } else if (filter === 'EXCLUDED') {
+            row.style.display = row.innerHTML.includes('EXCLUDED') ? '' : 'none';
+          }
+        });
+      });
+    });
+
+    // Copilot Prompts
+    const feed = document.getElementById('copilot-feed');
+    
+    document.getElementById('prompt-gst').addEventListener('click', () => {
+      addMessage('Show GST & Tax Exposure Breakdown', 'user');
+      setTimeout(() => {
+        addMessage(`
+          <strong>Tax Exposure Summary:</strong><br>
+          • <strong>Atlas Electrical:</strong> 18% GST Included in base $840k.<br>
+          • <strong>VoltWorks:</strong> Tax Included in base $810k.<br>
+          • <strong>Summit Power Systems:</strong> GST Excluded (§3.4). Adding 18% ($143,100) brings base to $938,100 before testing fees.
+        `, 'assistant');
+      }, 600);
+    });
+
+    document.getElementById('prompt-clarification').addEventListener('click', () => {
+      addMessage('Draft Clarification Request to Summit Power', 'user');
+      setTimeout(() => {
+        addMessage(`
+          <strong>Draft Clarification (RFI #EL-04):</strong><br>
+          <em>"Dear Priya Shah, regarding your quotation for Riverfront Medical Center: Please confirm if Temporary Power per Spec 26 05 00 and Testing & Commissioning are included in your base bid of $795,000, or provide separate line-item pricing by Sept 12."</em>
+        `, 'assistant');
+      }, 600);
+    });
+
+    document.getElementById('prompt-export').addEventListener('click', () => {
+      addMessage('Export Normalized Comparison Sheet', 'user');
+      setTimeout(() => {
+        addMessage(`
+          ✓ <strong>Export Generated:</strong> <code>RMC_260000_Leveling_Matrix.xlsx</code> generated with audit evidence links and normalized totals ready for contractor review.
+        `, 'assistant');
+      }, 500);
+    });
+
+    function addMessage(html, type) {
+      const b = document.createElement('div');
+      b.className = `chat-bubble ${type}`;
+      b.innerHTML = html;
+      feed.appendChild(b);
+      feed.scrollTop = feed.scrollHeight;
+    }
+  </script>
+</body>
+</html>

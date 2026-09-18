@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YardSync — Autonomous Gate, Weighbridge & Inbound Logistics | IstarothAI</title>
+  <meta name="description" content="YardSync autonomous yard management, WhatsApp driver intake, RS232 weighbridge sync, and automatic Goods Receipt Note (GRN) generator.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      background-color: #06090F;
+    }
+    .yardsync-shell {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 20px 28px;
+    }
+    .top-toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border-light);
+      margin-bottom: 24px;
+    }
+    .toolbar-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .stats-bar {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .stat-widget {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-sm);
+      padding: 16px 20px;
+    }
+    .stat-widget-lbl {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+    .stat-widget-val {
+      font-family: var(--font-editorial);
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--text-pure);
+    }
+    .layout-main {
+      display: grid;
+      grid-template-columns: 1.4fr 1.6fr;
+      gap: 24px;
+    }
+    .panel-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .panel-title-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border-hairline);
+    }
+    .weighbridge-scale-display {
+      background: #020408;
+      border: 2px solid var(--border-light);
+      border-radius: var(--radius-sm);
+      padding: 20px;
+      text-align: center;
+      position: relative;
+      box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.9);
+    }
+    .scale-digits {
+      font-family: var(--font-mono);
+      font-size: 42px;
+      font-weight: 800;
+      color: var(--cyan);
+      letter-spacing: 0.05em;
+      text-shadow: 0 0 20px rgba(0, 242, 254, 0.6);
+    }
+    .scale-tare-net {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1px solid var(--border-hairline);
+      font-size: 13px;
+    }
+    .truck-queue-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    .truck-queue-table th {
+      text-align: left;
+      padding: 10px 12px;
+      font-size: 11px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--border-light);
+    }
+    .truck-queue-table td {
+      padding: 12px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    }
+    .truck-row {
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .truck-row:hover, .truck-row.selected {
+      background: rgba(0, 242, 254, 0.05);
+    }
+    .gatepass-receipt {
+      background: #05070D;
+      border: 1px dashed var(--border-light);
+      border-radius: var(--radius-sm);
+      padding: 20px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      line-height: 1.6;
+    }
+    .receipt-header {
+      text-align: center;
+      padding-bottom: 12px;
+      border-bottom: 1px dashed var(--border-hairline);
+      margin-bottom: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="yardsync-shell">
+    
+    <!-- Top Toolbar -->
+    <div class="top-toolbar">
+      <div class="toolbar-brand">
+        <a href="index.html" class="back-link" style="color: var(--text-muted); text-decoration: none; font-size: 13px;">
+          ← Back to Istaroth.ai
+        </a>
+        <span style="color: var(--text-dim);">|</span>
+        <strong style="font-family: var(--font-editorial); font-size: 18px; color: var(--text-pure);">
+          YardSync<span style="color: var(--cyan);">.io</span>
+        </strong>
+        <span class="pill-badge" style="padding: 2px 10px; font-size: 11px;">
+          <span class="live-beacon"></span> Gate Terminal 02 • Active
+        </span>
+      </div>
+
+      <div style="display: flex; gap: 12px;">
+        <span class="mono-text" style="font-size: 12px; color: var(--emerald); align-self: center;">
+          RS232 IoT Scale: CONNECTED (9600 BAUD)
+        </span>
+      </div>
+    </div>
+
+    <!-- Stats Bar -->
+    <div class="stats-bar">
+      <div class="stat-widget">
+        <div class="stat-widget-lbl">Vehicles Processed Today</div>
+        <div class="stat-widget-val">48 Trucks</div>
+        <div style="font-size: 12px; color: var(--emerald); margin-top: 4px;">↑ 100% Paperless GRN</div>
+      </div>
+
+      <div class="stat-widget">
+        <div class="stat-widget-lbl">Average Gate Turnaround</div>
+        <div class="stat-widget-val" style="color: var(--cyan);">11m 42s</div>
+        <div style="font-size: 12px; color: var(--text-muted); margin-top: 4px;">Baseline was 75 mins</div>
+      </div>
+
+      <div class="stat-widget">
+        <div class="stat-widget-lbl">Weight Variance Detected</div>
+        <div class="stat-widget-val" style="color: var(--amber);">0.18%</div>
+        <div style="font-size: 12px; color: var(--emerald); margin-top: 4px;">Within ±0.5% tolerance</div>
+      </div>
+
+      <div class="stat-widget">
+        <div class="stat-widget-lbl">ERP Sync Status</div>
+        <div class="stat-widget-val" style="color: var(--emerald);">Tally / SAP</div>
+        <div style="font-size: 12px; color: var(--emerald); margin-top: 4px;">Auto-Posting Active</div>
+      </div>
+    </div>
+
+    <!-- Main Workspace -->
+    <div class="layout-main">
+      
+      <!-- Left Column: Inbound Queue & WhatsApp Intake Simulator -->
+      <div class="panel-card">
+        <div class="panel-title-bar">
+          <div>
+            <h3 style="font-size: 18px;">Inbound Queue & WhatsApp Intake</h3>
+            <div style="font-size: 12px; color: var(--text-muted);">Select a vehicle to inspect or trigger scale capture</div>
+          </div>
+          <button class="button-outline" id="btn-simulate-arrival" style="font-size: 12px; padding: 6px 14px;">
+            + Simulate Truck Arrival
+          </button>
+        </div>
+
+        <table class="truck-queue-table">
+          <thead>
+            <tr>
+              <th>Vehicle #</th>
+              <th>Vendor / Material</th>
+              <th>Challan Wt</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="truck-table-body">
+            <tr class="truck-row selected" data-vehicle="MH-12-Q-8821" data-vendor="Prime Metallurgy Ltd" data-po="PO-892" data-material="TMT Rebar 16mm Fe-550" data-challan="27,650 kg" data-gross="41,850 kg" data-tare="14,200 kg" data-driver="Suresh Yadav (98201-99201)">
+              <td><strong>MH-12-Q-8821</strong></td>
+              <td>Prime Metallurgy Ltd<br><span style="font-size: 11px; color: var(--text-dim);">PO #892</span></td>
+              <td class="mono-text">27,650 kg</td>
+              <td><span class="status-badge ok">ON WEIGHBRIDGE</span></td>
+            </tr>
+            <tr class="truck-row" data-vehicle="KA-04-E-4102" data-vendor="National Cement Group" data-po="PO-904" data-material="Grade 53 OPC Cement" data-challan="32,000 kg" data-gross="48,200 kg" data-tare="16,200 kg" data-driver="Ramesh Patil (98450-11223)">
+              <td><strong>KA-04-E-4102</strong></td>
+              <td>National Cement Group<br><span style="font-size: 11px; color: var(--text-dim);">PO #904</span></td>
+              <td class="mono-text">32,000 kg</td>
+              <td><span class="status-badge warn">OCR VERIFIED</span></td>
+            </tr>
+            <tr class="truck-row" data-vehicle="TS-07-UA-9011" data-vendor="JSW Steel Infra" data-po="PO-911" data-material="Structural MS Angles" data-challan="18,400 kg" data-gross="29,800 kg" data-tare="11,400 kg" data-driver="Bikram Singh (98111-22334)">
+              <td><strong>TS-07-UA-9011</strong></td>
+              <td>JSW Steel Infra<br><span style="font-size: 11px; color: var(--text-dim);">PO #911</span></td>
+              <td class="mono-text">18,400 kg</td>
+              <td><span class="status-badge ok">GATE PASS ISSUED</span></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- WhatsApp Driver Intake Card -->
+        <div style="background: rgba(0, 242, 254, 0.03); border: 1px solid rgba(0, 242, 254, 0.15); border-radius: var(--radius-sm); padding: 16px;">
+          <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+            <span style="font-size: 16px;">📱</span>
+            <strong>WhatsApp Driver Webhook Intake</strong>
+          </div>
+          <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 12px;">
+            Driver <span id="lbl-driver-name">Suresh Yadav</span> uploaded Delivery Challan photo via WhatsApp at 23:42. Multimodal OCR parsed 100% of line items matching Purchase Order.
+          </p>
+          <div style="font-family: var(--font-mono); font-size: 11px; color: var(--cyan); background: #04070D; padding: 10px; border-radius: 4px;">
+            <code>E-WAY: 291049281920 • PO: #892 • MATERIAL: TMT REBAR 16MM • DECLARED: 27,650 KG</code>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Weighbridge IoT Digital Scale & Gate Pass Engine -->
+      <div class="panel-card">
+        <div class="panel-title-bar">
+          <div>
+            <h3 style="font-size: 18px;">Live Weighbridge Scale Terminal</h3>
+            <div style="font-size: 12px; color: var(--text-muted);">Direct serial port capture from Avery Weigh-Tronix indicator</div>
+          </div>
+          <button class="button-gradient" id="btn-capture-weight" style="font-size: 12px; padding: 8px 18px;">
+            ⚡ Capture Scale Reading
+          </button>
+        </div>
+
+        <!-- Scale Display -->
+        <div class="weighbridge-scale-display">
+          <div style="font-size: 11px; font-family: var(--font-mono); color: var(--text-dim); margin-bottom: 4px;">
+            LIVE DIGITAL SCALE OUTPUT (RS-232 COM1)
+          </div>
+          <div class="scale-digits" id="live-scale-gross">41,850 KG</div>
+          <div style="font-size: 11px; color: var(--emerald); margin-top: 4px;">STABLE WEIGHT REGISTERED</div>
+
+          <div class="scale-tare-net">
+            <div>
+              <div style="color: var(--text-muted);">Tare (Empty Truck)</div>
+              <strong style="color: var(--text-pure);" id="live-scale-tare">14,200 kg</strong>
+            </div>
+            <div>
+              <div style="color: var(--text-muted);">Calculated Net Weight</div>
+              <strong style="color: var(--cyan); font-size: 16px;" id="live-scale-net">27,650 kg</strong>
+            </div>
+            <div>
+              <div style="color: var(--text-muted);">Challan vs Scale Diff</div>
+              <strong style="color: var(--emerald);" id="live-scale-diff">0.00% (Exact)</strong>
+            </div>
+          </div>
+        </div>
+
+        <!-- Digital Gate Pass & ERP Sync Preview -->
+        <div class="gatepass-receipt">
+          <div class="receipt-header">
+            <strong style="font-size: 14px; color: var(--text-pure);">ISTAROTH YARDSYNC • DIGITAL GATE PASS</strong>
+            <div style="color: var(--text-muted); font-size: 11px;">Plant Location: Industrial Corridor 04 • Gate 02</div>
+          </div>
+          <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
+            <span>GATE PASS #:</span> <strong id="gp-number" style="color: var(--cyan);">YS-2026-9024</strong>
+          </div>
+          <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
+            <span>VEHICLE NO:</span> <strong id="gp-vehicle">MH-12-Q-8821</strong>
+          </div>
+          <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
+            <span>VENDOR:</span> <strong id="gp-vendor">Prime Metallurgy Ltd (PO #892)</strong>
+          </div>
+          <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
+            <span>MATERIAL:</span> <strong id="gp-material">TMT Rebar 16mm Fe-550</strong>
+          </div>
+          <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
+            <span>NET WEIGHT VERIFIED:</span> <strong style="color: var(--emerald);" id="gp-net">27,650 KG</strong>
+          </div>
+          <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
+            <span>ERP STATUS:</span> <strong style="color: var(--emerald);">GRN #9024 AUTO-POSTED TO TALLY</strong>
+          </div>
+          <div style="margin-top: 14px; padding-top: 10px; border-top: 1px dashed var(--border-hairline); display: flex; justify-content: space-between; align-items: center;">
+            <span style="color: var(--text-muted);">QR Code: <code>YS9024_AUTH_VERIFIED</code></span>
+            <button class="button-outline" id="btn-print-gatepass" style="font-size: 11px; padding: 6px 14px;">
+              Print / WhatsApp Pass
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <script>
+    // Truck Selection Logic
+    const rows = document.querySelectorAll('.truck-row');
+    rows.forEach(row => {
+      row.addEventListener('click', () => {
+        rows.forEach(r => r.classList.remove('selected'));
+        row.classList.add('selected');
+
+        const vehicle = row.getAttribute('data-vehicle');
+        const vendor = row.getAttribute('data-vendor');
+        const po = row.getAttribute('data-po');
+        const material = row.getAttribute('data-material');
+        const gross = row.getAttribute('data-gross');
+        const tare = row.getAttribute('data-tare');
+        const challan = row.getAttribute('data-challan');
+        const driver = row.getAttribute('data-driver');
+
+        document.getElementById('lbl-driver-name').textContent = driver;
+        document.getElementById('live-scale-gross').textContent = gross.toUpperCase();
+        document.getElementById('live-scale-tare').textContent = tare;
+        document.getElementById('gp-vehicle').textContent = vehicle;
+        document.getElementById('gp-vendor').textContent = `${vendor} (${po})`;
+        document.getElementById('gp-material').textContent = material;
+        
+        // Calculate net
+        const grossNum = parseInt(gross.replace(/\D/g, ''));
+        const tareNum = parseInt(tare.replace(/\D/g, ''));
+        const netNum = grossNum - tareNum;
+        const netStr = `${netNum.toLocaleString('en-IN')} kg`;
+        
+        document.getElementById('live-scale-net').textContent = netStr;
+        document.getElementById('gp-net').textContent = netStr.toUpperCase();
+      });
+    });
+
+    // Simulated Scale Capture
+    document.getElementById('btn-capture-weight').addEventListener('click', () => {
+      const btn = document.getElementById('btn-capture-weight');
+      btn.textContent = 'Reading RS232...';
+      btn.disabled = true;
+
+      setTimeout(() => {
+        btn.textContent = '✓ Weight Locked';
+        alert('Weighbridge scale reading captured and verified against Delivery Challan! Gate pass YS-2026-9024 authorized.');
+        setTimeout(() => {
+          btn.textContent = '⚡ Capture Scale Reading';
+          btn.disabled = false;
+        }, 1500);
+      }, 700);
+    });
+
+    // Simulate New Truck Arrival
+    document.getElementById('btn-simulate-arrival').addEventListener('click', () => {
+      alert('Simulated: New truck DL-01-AX-9922 arrived at Gate 02. Driver scanned WhatsApp QR code. Delivery challan parsed!');
+    });
+
+    document.getElementById('btn-print-gatepass').addEventListener('click', () => {
+      alert('Digital Gate Pass and QR code dispatched to driver Suresh Yadav via WhatsApp!');
+    });
+  </script>
+
+</body>
+</html>

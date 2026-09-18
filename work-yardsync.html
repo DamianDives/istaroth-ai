@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YardSync Case Study — IstarothAI</title>
+  <meta name="description" content="How IstarothAI engineered YardSync: an automated factory gate & weighbridge logistics platform that slashed truck detention times from 75 to 12 minutes.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Ambient Glow & Dual-Beam Lighting -->
+  <div class="ambient-glow"></div>
+  <div class="hero-dual-beams">
+    <div class="beam-cyan-left"></div>
+    <div class="beam-amber-right"></div>
+  </div>
+
+  <!-- Floating Capsule Navigation Bar -->
+  <div class="site-nav-wrapper">
+    <nav class="site-nav-capsule" id="navbar">
+      <a href="index.html" class="nav-brand">
+        <svg width="28" height="28" viewBox="0 0 36 36" fill="none">
+          <circle cx="18" cy="18" r="15" stroke="rgba(255,255,255,0.18)" stroke-width="2"/>
+          <path d="M18 3C26.2843 3 33 9.71573 33 18C33 26.2843 26.2843 33 18 33" stroke="url(#cyan-grad)" stroke-width="2.5" stroke-linecap="round"/>
+          <circle cx="18" cy="18" r="5" fill="url(#cyan-grad)"/>
+          <defs>
+            <linearGradient id="cyan-grad" x1="18" y1="3" x2="33" y2="33" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#00F2FE"/>
+              <stop offset="1" stop-color="#8A3FFC"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <span>Istaroth<span class="brand-dot">AI</span></span>
+      </a>
+
+      <ul class="nav-menu">
+        <li><a href="what-we-do.html">What we do</a></li>
+        <li><a href="our-approach.html">Our approach</a></li>
+        <li><a href="work.html" class="active">Work</a></li>
+        <li><a href="about-us.html">About us</a></li>
+        <li><a href="contact-us.html">Contact</a></li>
+      </ul>
+
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <a href="contact-us.html" class="button-gradient">Let's talk</a>
+      </div>
+    </nav>
+  </div>
+
+  <main style="position: relative; z-index: 2; padding-top: 100px;">
+    <div class="container">
+      
+      <!-- Back to Work Link -->
+      <div style="margin-bottom: 24px;">
+        <a href="work.html" style="color: var(--text-muted); text-decoration: none; font-size: 14px; display: inline-flex; align-items: center; gap: 8px;">
+          ← Back to all projects
+        </a>
+      </div>
+
+      <!-- Case Study Hero -->
+      <div class="hero-editorial-wrap" style="max-width: 100%;">
+        <div class="pill-badge">
+          <span class="live-beacon"></span>
+          <span>REFERENCE PLATFORM 02 • PROOF OF CAPABILITY</span>
+        </div>
+
+        <h1 style="font-size: clamp(38px, 5.5vw, 68px); letter-spacing: -0.04em; font-weight: 800; line-height: 1.1;">
+          YardSync — Automated Inbound <br>
+          <span class="gradient-accent-text">Yard &amp; Weighbridge Flow.</span>
+        </h1>
+
+        <p class="hero-editorial-lead" style="max-width: 900px;">
+          Transforming factory gate logjams into frictionless autonomous checkpoints. YardSync couples WhatsApp driver intake, computer vision delivery challan OCR, and serial weighbridge scales to cut truck turnaround from 75 minutes to 12 minutes.
+        </p>
+
+        <!-- Signature Metadata Bar -->
+        <div class="case-study-meta-bar">
+          <div class="meta-pill-item">
+            <span class="meta-pill-label">REFERENCE DEPLOYMENT</span>
+            <span class="meta-pill-value">YardSync Platform</span>
+          </div>
+          <div class="meta-pill-item">
+            <span class="meta-pill-label">SERVICE DEMONSTRATED</span>
+            <span class="meta-pill-value">IoT Edge &amp; Gate Automation</span>
+          </div>
+          <div class="meta-pill-item">
+            <span class="meta-pill-label">TARGET ENTERPRISES</span>
+            <span class="meta-pill-value">Steel, Cement &amp; Logistics</span>
+          </div>
+          <div class="meta-pill-item">
+            <span class="meta-pill-label">DEPLOYMENT STATUS</span>
+            <span class="meta-pill-value" style="color: var(--emerald); display: flex; align-items: center; gap: 6px;">
+              <span class="live-beacon"></span> Live Operational Console
+            </span>
+          </div>
+          <div class="meta-pill-item">
+            <span class="meta-pill-label">LIVE INSTANCE</span>
+            <span class="meta-pill-value">
+              <a href="yardsync.html">Launch Yard Console ↗</a>
+            </span>
+          </div>
+        </div>
+
+        <!-- Action CTAs -->
+        <div style="display: flex; gap: 16px; margin-bottom: 50px; flex-wrap: wrap;">
+          <a href="yardsync.html" class="button-gradient" style="padding: 14px 32px; font-size: 15px;">
+            🚀 Open Live YardSync Platform ↗
+          </a>
+          <a href="contact-us.html" class="button-outline" style="padding: 14px 28px; font-size: 15px;">
+            Book Yard Audit Call
+          </a>
+        </div>
+      </div>
+
+      <!-- High-Fidelity macOS Browser Frame (Modeled on Cosmiron ResRishti) -->
+      <div class="macos-browser-frame" style="margin-bottom: 80px;">
+        <div class="macos-browser-header">
+          <div class="macos-traffic-lights">
+            <span class="traffic-light red"></span>
+            <span class="traffic-light yellow"></span>
+            <span class="traffic-light green"></span>
+          </div>
+          <div class="macos-address-bar">
+            <span>🔒</span>
+            <span>https://yardsync.istaroth.ai/dispatch/gate-02/telemetry</span>
+          </div>
+          <div style="font-family: var(--font-mono); font-size: 11px; color: var(--emerald);">
+            SCALE STATUS: ONLINE (RS-232 9600 BAUD)
+          </div>
+        </div>
+
+        <div class="macos-browser-body">
+          <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 24px;">
+            
+            <!-- Left: Active Inbound Stream -->
+            <div>
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+                <div>
+                  <h4 style="font-size: 18px; margin-bottom: 4px;">Inbound Queue • Factory North Gate</h4>
+                  <span style="font-size: 12px; color: var(--text-muted);">Real-time ANPR Camera &amp; Weighbridge Telemetry</span>
+                </div>
+                <span class="pill-badge" style="background: rgba(16, 185, 129, 0.1); color: var(--emerald);">12s Avg Processing</span>
+              </div>
+
+              <div style="display: flex; flex-direction: column; gap: 12px;">
+                <div style="background: #101522; border: 1px solid var(--border-light); border-radius: 12px; padding: 18px;">
+                  <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                    <span style="font-weight: 700; color: var(--text-pure); font-size: 15px;">Carrier Vehicle #KA-04-MB-4821 (Multi-Axle Truck)</span>
+                    <span class="badge-status ok">✓ Gate Pass #YS-9024 Issued</span>
+                  </div>
+                  <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; font-size: 12.5px; color: var(--text-muted);">
+                    <div>Material: <strong style="color: var(--text-pure);">TMT Rebar (Fe 550D)</strong></div>
+                    <div>Gross Wt: <strong style="color: var(--cyan); font-family: var(--font-mono);">41,850 kg</strong></div>
+                    <div>PO Match: <strong style="color: var(--emerald);">PO #4110 (100%)</strong></div>
+                  </div>
+                  <div style="margin-top: 12px; font-size: 12px; color: var(--text-dim); display: flex; justify-content: space-between;">
+                    <span>Intake Source: WhatsApp Bot (+91 98450 XXXXX)</span>
+                    <span style="color: var(--cyan);">Tally GRN #GRN-9024 Auto-Posted</span>
+                  </div>
+                </div>
+
+                <div style="background: rgba(255, 255, 255, 0.02); border: 1px solid var(--border-hairline); border-radius: 12px; padding: 16px;">
+                  <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                    <span style="font-weight: 700; color: var(--text-muted);">Truck KA-04-E-4419 (Ashok Leyland 3520)</span>
+                    <span class="badge-status warn">Scale Taring in Progress</span>
+                  </div>
+                  <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; font-size: 12.5px; color: var(--text-muted);">
+                    <div>Material: Structural Angles</div>
+                    <div>Scale Reading: <span style="font-family: var(--font-mono); color: var(--amber);">32,180 kg</span></div>
+                    <div>Challan OCR: Verified (24.2 MT)</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right: Weighbridge & OCR Status -->
+            <div style="background: #101522; border: 1px solid var(--border-light); border-radius: 14px; padding: 20px; display: flex; flex-direction: column; justify-content: space-between;">
+              <div>
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--border-hairline);">
+                  <strong style="font-size: 14px;">Yard Operational Core</strong>
+                  <span class="mono-text" style="font-size: 11px; color: var(--emerald);">99.98% UPTIME</span>
+                </div>
+
+                <div style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 20px;">
+                  <div style="background: rgba(255,255,255,0.02); padding: 10px; border-radius: 8px; border: 1px solid var(--border-hairline); font-size: 12px;">
+                    <div style="color: var(--text-dim); margin-bottom: 4px;">WEIGHBRIDGE I/O</div>
+                    <div style="color: var(--cyan); font-family: var(--font-mono); font-weight: 700;">Avery Weigh-Tronix (E1205) Connected</div>
+                  </div>
+
+                  <div style="background: rgba(255,255,255,0.02); padding: 10px; border-radius: 8px; border: 1px solid var(--border-hairline); font-size: 12px;">
+                    <div style="color: var(--text-dim); margin-bottom: 4px;">OCR VISION ENGINE</div>
+                    <div style="color: var(--text-pure); font-weight: 600;">Delivery Challan Line Parsing (0.8s)</div>
+                  </div>
+
+                  <div style="background: rgba(255,255,255,0.02); padding: 10px; border-radius: 8px; border: 1px solid var(--border-hairline); font-size: 12px;">
+                    <div style="color: var(--text-dim); margin-bottom: 4px;">ERP WEBHOOK</div>
+                    <div style="color: var(--emerald); font-weight: 600;">SAP / Tally Prime REST Bridge</div>
+                  </div>
+                </div>
+              </div>
+
+              <a href="yardsync.html" class="button-gradient" style="font-size: 13px; padding: 12px; width: 100%; text-align: center;">
+                Launch Live Yard Console →
+              </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- Problem vs Solution Breakdown -->
+      <section style="margin-bottom: 80px;">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
+          
+          <div style="background: rgba(244, 63, 94, 0.03); border: 1px solid rgba(244, 63, 94, 0.2); border-radius: 20px; padding: 36px;">
+            <span class="friction-tag">The Yard Bottleneck</span>
+            <h3 style="font-size: 26px; margin: 12px 0 16px; color: #FDA4AF;">75-Minute Gate Delays &amp; Forged Slips</h3>
+            <p style="color: var(--text-muted); font-size: 15px; line-height: 1.7; margin-bottom: 16px;">
+              Manufacturing plants receive 100+ trucks daily. Drivers arrive with paper delivery challans that are dog-eared, ink-stained, or illegible. Security personnel write down details by hand in physical paper registers.
+            </p>
+            <p style="color: var(--text-muted); font-size: 15px; line-height: 1.7;">
+              Operators then re-type weights from the weighbridge terminal into spreadsheets. Discrepancies between vendor-claimed weight and scale weight lead to bitter disputes, vehicle detention fines, and inventory leakage.
+            </p>
+          </div>
+
+          <div style="background: rgba(0, 242, 254, 0.03); border: 1px solid rgba(0, 242, 254, 0.2); border-radius: 20px; padding: 36px;">
+            <span class="velocity-tag">The YardSync Engine</span>
+            <h3 style="font-size: 26px; margin: 12px 0 16px; color: #7DD3FC;">Sub-90 Second Autonomous Gate Clearance</h3>
+            <p style="color: var(--text-muted); font-size: 15px; line-height: 1.7; margin-bottom: 16px;">
+              Truck drivers send a WhatsApp message with their delivery challan as they approach. Computer vision extracts the PO number, vendor name, material line items, and quantities instantly.
+            </p>
+            <p style="color: var(--text-muted); font-size: 15px; line-height: 1.7;">
+              As the vehicle rolls onto the weighbridge, YardSync captures gross weight directly over RS-232, checks for tolerance limits against the PO, and auto-prints or texts a digital QR gate pass in under 90 seconds.
+            </p>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Quantified Results -->
+      <section style="background: var(--bg-surface); border: 1px solid var(--border-light); border-radius: 24px; padding: 60px; margin-bottom: 80px;">
+        <div style="text-align: center; max-width: 600px; margin: 0 auto 48px;">
+          <span class="pill-badge" style="margin-bottom: 12px;">Operational Outcomes</span>
+          <h3 style="font-size: 34px;">Yard Velocity by the Numbers</h3>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; text-align: center;">
+          <div>
+            <div style="font-family: var(--font-editorial); font-size: 48px; font-weight: 800; color: var(--cyan);">84%</div>
+            <div style="font-size: 14px; color: var(--text-muted); margin-top: 6px;">Reduction in Gate Detention Time</div>
+          </div>
+          <div>
+            <div style="font-family: var(--font-editorial); font-size: 48px; font-weight: 800; color: var(--emerald);">12 min</div>
+            <div style="font-size: 14px; color: var(--text-muted); margin-top: 6px;">Average Total Truck Turnaround</div>
+          </div>
+          <div>
+            <div style="font-family: var(--font-editorial); font-size: 48px; font-weight: 800; color: var(--violet);">100%</div>
+            <div style="font-size: 14px; color: var(--text-muted); margin-top: 6px;">Automated Weighbridge Logging</div>
+          </div>
+          <div>
+            <div style="font-family: var(--font-editorial); font-size: 48px; font-weight: 800; color: var(--amber);">Zero</div>
+            <div style="font-size: 14px; color: var(--text-muted); margin-top: 6px;">Manual Data Entry into ERPs</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Enterprise Capability Takeaway (How This Applies to You) -->
+      <section style="background: var(--bg-surface); border: 1px solid var(--border-light); border-radius: 24px; padding: 50px; margin-bottom: 60px; text-align: center;">
+        <div style="max-width: 760px; margin: 0 auto;">
+          <div class="pill-badge" style="margin-bottom: 12px;">
+            <span class="live-beacon"></span>
+            <span>HOW THIS APPLIES TO YOUR ENTERPRISE</span>
+          </div>
+          <h3 style="font-size: 32px; margin-bottom: 14px;">Need Hardware-Grade Gate Automation for Your Plants?</h3>
+          <p style="color: var(--text-muted); font-size: 15.5px; line-height: 1.7; margin-bottom: 28px;">
+            YardSync demonstrates how IstarothAI bridges harsh industrial hardware (RS-232 scales, ANPR cameras, boom barriers) with corporate ERPs like SAP and Tally. We build custom on-prem edge deployments that operate even during cloud network blackouts, with 100% enterprise IP transfer.
+          </p>
+          <a href="contact-us.html" class="button-gradient" style="padding: 13px 32px; font-size: 14px;">
+            Commission a Plant Gate Diagnostic →
+          </a>
+        </div>
+      </section>
+
+      <!-- Next Project Navigation -->
+      <div style="display: flex; justify-content: space-between; align-items: center; padding: 40px 0; border-top: 1px solid var(--border-hairline); margin-bottom: 40px;">
+        <a href="work-bidintel.html" style="color: var(--text-muted); text-decoration: none; font-size: 14px;">← Previous: BidIntel Precon AI</a>
+        <a href="work-ledgerflow.html" class="button-outline">Next Case Study: LedgerFlow AP Engine →</a>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer-cosmiron">
+    <div class="container">
+      <div class="footer-sub">
+        <span>&copy; 2026 IstarothAI. YardSync Industrial Logistics.</span>
+        <a href="contact-us.html" style="color: var(--cyan); text-decoration: none;">Request a Plant Demonstration →</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

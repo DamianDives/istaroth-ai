@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LedgerFlow — Autonomous 3-Way Invoice Matching & AP Reconciliation | IstarothAI</title>
+  <meta name="description" content="LedgerFlow autonomous 3-way matching between vendor tax invoices, purchase orders, and warehouse gate receipts. Eliminates duplicate billings and syncs to ERP.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      background-color: #060910;
+    }
+    .ledgerflow-shell {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 20px 28px;
+    }
+    .top-toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border-light);
+      margin-bottom: 24px;
+    }
+    .stats-bar {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .stat-widget {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-sm);
+      padding: 16px 20px;
+    }
+    .stat-widget-lbl {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+    .stat-widget-val {
+      font-family: var(--font-editorial);
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--text-pure);
+    }
+    .layout-main {
+      display: grid;
+      grid-template-columns: 1.1fr 1.9fr;
+      gap: 24px;
+    }
+    .panel-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .invoice-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    .invoice-table th {
+      text-align: left;
+      padding: 10px 12px;
+      font-size: 11px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--border-light);
+    }
+    .invoice-table td {
+      padding: 12px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    }
+    .invoice-row {
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .invoice-row:hover, .invoice-row.selected {
+      background: rgba(16, 185, 129, 0.06);
+    }
+    .match-trio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+    .trio-box {
+      background: #080C16;
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-sm);
+      padding: 16px;
+      font-size: 12px;
+    }
+    .trio-title {
+      font-weight: 700;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 10px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid var(--border-hairline);
+    }
+    .trio-line {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 6px;
+      color: var(--text-muted);
+    }
+    .discrepancy-callout {
+      background: rgba(244, 63, 94, 0.06);
+      border-left: 3px solid var(--rose);
+      border-radius: var(--radius-xs);
+      padding: 14px 16px;
+      font-size: 13px;
+      margin-bottom: 18px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="ledgerflow-shell">
+    
+    <!-- Top Toolbar -->
+    <div class="top-toolbar">
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <a href="index.html" class="back-link" style="color: var(--text-muted); text-decoration: none; font-size: 13px;">
+          ← Back to Istaroth.ai
+        </a>
+        <span style="color: var(--text-dim);">|</span>
+        <strong style="font-family: var(--font-editorial); font-size: 18px; color: var(--text-pure);">
+          LedgerFlow<span style="color: var(--emerald);">.ai</span>
+        </strong>
+        <span class="pill-badge" style="background: rgba(16, 185, 129, 0.1); color: var(--emerald); border-color: rgba(16, 185, 129, 0.3); padding: 2px 10px; font-size: 11px;">
+          <span class="live-beacon"></span> 3-Way Match Engine Active
+        </span>
+      </div>
+
+      <div style="display: flex; gap: 12px;">
+        <span class="mono-text" style="font-size: 12px; color: var(--cyan); align-self: center;">
+          ERP Link: Tally Prime & SAP S/4HANA (Online)
+        </span>
+      </div>
+    </div>
+
+    <!-- Stats Bar -->
+    <div class="stats-bar">
+      <div class="stat-widget">
+        <div class="stat-widget-lbl">Invoices Reconciled This Month</div>
+        <div class="stat-widget-val">412 Bills</div>
+        <div style="font-size: 12px; color: var(--emerald); margin-top: 4px;">Totaling ₹3.84 Crores</div>
+      </div>
+
+      <div class="stat-widget">
+        <div class="stat-widget-lbl">Automated 3-Way Match Rate</div>
+        <div class="stat-widget-val" style="color: var(--emerald);">94.2%</div>
+        <div style="font-size: 12px; color: var(--text-muted); margin-top: 4px;">Zero human touchpoints</div>
+      </div>
+
+      <div class="stat-widget">
+        <div class="stat-widget-lbl">Discrepancies Intercepted</div>
+        <div class="stat-widget-val" style="color: var(--rose);">₹14.6 Lakhs</div>
+        <div style="font-size: 12px; color: var(--rose); margin-top: 4px;">Prevented overpayments</div>
+      </div>
+
+      <div class="stat-widget">
+        <div class="stat-widget-lbl">Average Settlement Velocity</div>
+        <div class="stat-widget-val" style="color: var(--cyan);">1.8 Days</div>
+        <div style="font-size: 12px; color: var(--text-muted); margin-top: 4px;">Industry avg is 21 days</div>
+      </div>
+    </div>
+
+    <!-- Main Workspace -->
+    <div class="layout-main">
+      
+      <!-- Left Column: Invoice Inward Queue -->
+      <div class="panel-card">
+        <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 12px; border-bottom: 1px solid var(--border-hairline);">
+          <div>
+            <h3 style="font-size: 17px;">Incoming Vendor Invoices</h3>
+            <div style="font-size: 12px; color: var(--text-muted);">Select an invoice to run 3-way matching</div>
+          </div>
+          <button class="button-outline" id="btn-upload-inv" style="font-size: 12px; padding: 6px 14px;">
+            + Ingest Bill
+          </button>
+        </div>
+
+        <table class="invoice-table">
+          <thead>
+            <tr>
+              <th>Vendor</th>
+              <th>Inv #</th>
+              <th>Amount</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="invoice-tbody">
+            <tr class="invoice-row selected" data-vendor="Prime Metallurgy Ltd" data-inv="INV-2026-9024" data-amount="₹14,93,100" data-po="PO-892" data-grn="GRN-9024" data-match="CLEAN">
+              <td><strong>Prime Metallurgy Ltd</strong><br><span style="font-size: 11px; color: var(--text-muted);">TMT Rebar 16mm</span></td>
+              <td class="mono-text">#9024</td>
+              <td class="mono-text">₹14.93L</td>
+              <td><span class="status-badge ok">100% MATCH</span></td>
+            </tr>
+
+            <tr class="invoice-row" data-vendor="National Cement Group" data-inv="INV-2026-4410" data-amount="₹15,36,000" data-po="PO-904" data-grn="GRN-8812" data-match="PRICE_CREEP">
+              <td><strong>National Cement Group</strong><br><span style="font-size: 11px; color: var(--text-muted);">53 Grade Cement</span></td>
+              <td class="mono-text">#4410</td>
+              <td class="mono-text">₹15.36L</td>
+              <td><span class="status-badge danger">PRICE CREEP</span></td>
+            </tr>
+
+            <tr class="invoice-row" data-vendor="Apex Structural Steel" data-inv="INV-2026-3109" data-amount="₹9,84,000" data-po="PO-911" data-grn="GRN-9102" data-match="CLEAN">
+              <td><strong>Apex Structural Steel</strong><br><span style="font-size: 11px; color: var(--text-muted);">MS Angles & Joists</span></td>
+              <td class="mono-text">#3109</td>
+              <td class="mono-text">₹9.84L</td>
+              <td><span class="status-badge ok">100% MATCH</span></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div style="background: rgba(16, 185, 129, 0.04); border: 1px solid rgba(16, 185, 129, 0.2); border-radius: var(--radius-sm); padding: 14px;">
+          <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 6px;">
+            <span style="color: var(--emerald);">✓</span>
+            <strong style="font-size: 13px; color: var(--text-pure);">YardSync Physical Integration Active</strong>
+          </div>
+          <p style="font-size: 12px; color: var(--text-muted); line-height: 1.5;">
+            Verified physical deliveries from the gate (scale weighbridge records & truck number plates) are cross-referenced in real-time against supplier invoices.
+          </p>
+        </div>
+      </div>
+
+      <!-- Right Column: 3-Way Match Verification & ERP Payout Engine -->
+      <div class="panel-card">
+        <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 12px; border-bottom: 1px solid var(--border-hairline);">
+          <div>
+            <h3 style="font-size: 17px;" id="match-header-title">3-Way Match Verification: Prime Metallurgy Ltd</h3>
+            <div style="font-size: 12px; color: var(--text-muted);">Comparing Vendor Tax Invoice vs Purchase Order vs YardSync Delivery Slip</div>
+          </div>
+          <span class="status-badge ok" id="match-badge-status">100% VERIFIED</span>
+        </div>
+
+        <!-- The 3 Pillars Side-by-Side -->
+        <div class="match-trio-grid">
+          <div class="trio-box">
+            <div class="trio-title" style="color: var(--cyan);">1. Vendor Tax Invoice</div>
+            <div class="trio-line"><span>Invoice No:</span> <strong id="trio-inv-num">#INV-9024</strong></div>
+            <div class="trio-line"><span>Billed Net Wt:</span> <strong id="trio-inv-wt">27,650 kg</strong></div>
+            <div class="trio-line"><span>Unit Rate:</span> <strong id="trio-inv-rate">₹54,000 / ton</strong></div>
+            <div class="trio-line"><span>Total Billed:</span> <strong id="trio-inv-total" style="color: var(--text-pure);">₹14,93,100</strong></div>
+          </div>
+
+          <div class="trio-box">
+            <div class="trio-title" style="color: var(--violet);">2. Approved PO</div>
+            <div class="trio-line"><span>PO Number:</span> <strong id="trio-po-num">PO-892</strong></div>
+            <div class="trio-line"><span>Ordered Wt:</span> <strong>28,000 kg</strong></div>
+            <div class="trio-line"><span>Approved Rate:</span> <strong id="trio-po-rate">₹54,000 / ton</strong></div>
+            <div class="trio-line"><span>Payment Terms:</span> <strong>Net 30 Days</strong></div>
+          </div>
+
+          <div class="trio-box">
+            <div class="trio-title" style="color: var(--emerald);">3. YardSync Gate Slip</div>
+            <div class="trio-line"><span>Receipt GRN:</span> <strong id="trio-grn-num">GRN-9024</strong></div>
+            <div class="trio-line"><span>Gate Gross:</span> <strong>41,850 kg</strong></div>
+            <div class="trio-line"><span>Gate Tare:</span> <strong>14,200 kg</strong></div>
+            <div class="trio-line"><span>Actual Verified:</span> <strong id="trio-grn-net" style="color: var(--emerald);">27,650 kg</strong></div>
+          </div>
+        </div>
+
+        <!-- Discrepancy Callout (Dynamic) -->
+        <div class="discrepancy-callout" id="discrepancy-alert" style="display: none;">
+          <strong style="color: var(--rose); font-size: 14px;">⚠️ Price Surcharge Flagged by Discrepancy Guardrail:</strong>
+          <p style="color: var(--text-main); margin-top: 4px; font-size: 12px;">
+            Vendor UltraTech Cement billed at <strong>₹480 / bag</strong>, but approved Purchase Order (PO #904) locks price at <strong>₹450 / bag</strong>. Overcharge of <strong>₹96,000</strong> detected. Automated Debit Note generated.
+          </p>
+        </div>
+
+        <div style="background: #04070D; border: 1px solid var(--border-hairline); border-radius: var(--radius-sm); padding: 18px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+            <span style="font-weight: 700; font-size: 14px;">Automated Settlement Actions</span>
+            <span class="mono-text" style="font-size: 11px; color: var(--emerald);">TALLY XML PAYLOAD READY</span>
+          </div>
+          <div style="display: flex; gap: 12px;">
+            <button class="button-gradient" id="btn-approve-payment" style="font-size: 13px; padding: 10px 22px;">
+              ✓ Authorize Bank Payout Batch
+            </button>
+            <button class="button-outline" id="btn-sync-tally" style="font-size: 13px; padding: 10px 20px;">
+              Sync Voucher to Tally / SAP
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <script>
+    const invRows = document.querySelectorAll('.invoice-row');
+    
+    invRows.forEach(row => {
+      row.addEventListener('click', () => {
+        invRows.forEach(r => r.classList.remove('selected'));
+        row.classList.add('selected');
+
+        const vendor = row.getAttribute('data-vendor');
+        const inv = row.getAttribute('data-inv');
+        const amount = row.getAttribute('data-amount');
+        const po = row.getAttribute('data-po');
+        const grn = row.getAttribute('data-grn');
+        const match = row.getAttribute('data-match');
+
+        document.getElementById('match-header-title').textContent = `3-Way Match Verification: ${vendor}`;
+        document.getElementById('trio-inv-num').textContent = inv;
+        document.getElementById('trio-inv-total').textContent = amount;
+        document.getElementById('trio-po-num').textContent = po;
+        document.getElementById('trio-grn-num').textContent = grn;
+
+        const alertBox = document.getElementById('discrepancy-alert');
+        const badge = document.getElementById('match-badge-status');
+
+        if (match === 'PRICE_CREEP') {
+          alertBox.style.display = 'block';
+          badge.className = 'status-badge danger';
+          badge.textContent = 'PRICE DISCREPANCY';
+          document.getElementById('trio-inv-rate').textContent = '₹480 / bag (PO: ₹450)';
+          document.getElementById('trio-po-rate').textContent = '₹450 / bag (Locked)';
+        } else {
+          alertBox.style.display = 'none';
+          badge.className = 'status-badge ok';
+          badge.textContent = '100% VERIFIED';
+          document.getElementById('trio-inv-rate').textContent = '₹54,000 / ton';
+          document.getElementById('trio-po-rate').textContent = '₹54,000 / ton';
+        }
+      });
+    });
+
+    document.getElementById('btn-approve-payment').addEventListener('click', () => {
+      alert('Payment Batch Authorized: NEFT/RTGS payment file generated for HDFC Bank corporate portal. Clean 3-way match verified with zero discrepancies!');
+    });
+
+    document.getElementById('btn-sync-tally').addEventListener('click', () => {
+      alert('Voucher Auto-Posted: Journal entry and vendor bill passed to Tally Prime & SAP S/4HANA via XML API!');
+    });
+
+    document.getElementById('btn-upload-inv').addEventListener('click', () => {
+      alert('Simulated: Vendor PDF bill "Schneider_Electrical_Inv_8812.pdf" received from accounts@istaroth.ai. OCR parsed 24 line items in 1.4 seconds!');
+    });
+  </script>
+
+</body>
+</html>

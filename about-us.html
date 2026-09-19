@@ -4,153 +4,244 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About Us — IstarothAI</title>
-  <meta name="description" content="The story behind IstarothAI: an applied AI engineering and venture studio transforming enterprise workflows into autonomous velocity.">
-  
-  <!-- Fonts -->
+  <meta name="description" content="The story behind IstarothAI: an applied AI engineering studio transforming legacy enterprise workflows into sovereign, autonomous velocity.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700;800&display=swap" rel="stylesheet">
-  
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-  <!-- Ambient Glow & Dual-Beam Lighting -->
-  <div class="ambient-glow"></div>
-  <div class="hero-dual-beams">
-    <div class="beam-cyan-left"></div>
-    <div class="beam-amber-right"></div>
-  </div>
+<!-- ═══ NAVBAR ═══ -->
+<div class="nav-wrap">
+  <nav class="nav" id="navbar">
+    <a href="index.html" class="nav-brand">
+      <svg class="nav-logo" viewBox="0 0 32 32" fill="none">
+        <circle cx="16" cy="16" r="13" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"/>
+        <path d="M16 3C22.627 3 28 8.373 28 15C28 21.627 22.627 27 16 27" stroke="url(#g_abt)" stroke-width="2" stroke-linecap="round"/>
+        <circle cx="16" cy="16" r="4.5" fill="url(#g_abt)"/>
+        <defs>
+          <linearGradient id="g_abt" x1="16" y1="3" x2="28" y2="28" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#38BDF8"/><stop offset="1" stop-color="#8B5CF6"/>
+          </linearGradient>
+        </defs>
+      </svg>
+      <span>Istaroth<span class="ai-c">AI</span></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="what-we-do.html">What we do</a></li>
+      <li><a href="our-approach.html">Our approach</a></li>
+      <li><a href="work.html">Work</a></li>
+      <li><a href="about-us.html" class="active">About us</a></li>
+      <li><a href="contact-us.html">Contact</a></li>
+    </ul>
+    <a href="contact-us.html" class="nav-btn">Let's talk</a>
+    <button class="ham" id="ham" aria-label="Toggle Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+</div>
 
-  <!-- Floating Capsule Navigation Bar -->
-  <div class="site-nav-wrapper">
-    <nav class="site-nav-capsule" id="navbar">
-      <a href="index.html" class="nav-brand">
-        <svg width="28" height="28" viewBox="0 0 36 36" fill="none">
-          <circle cx="18" cy="18" r="15" stroke="rgba(255,255,255,0.18)" stroke-width="2"/>
-          <path d="M18 3C26.2843 3 33 9.71573 33 18C33 26.2843 26.2843 33 18 33" stroke="url(#cyan-grad)" stroke-width="2.5" stroke-linecap="round"/>
-          <circle cx="18" cy="18" r="5" fill="url(#cyan-grad)"/>
-          <defs>
-            <linearGradient id="cyan-grad" x1="18" y1="3" x2="33" y2="33" gradientUnits="userSpaceOnUse">
-              <stop stop-color="#00F2FE"/>
-              <stop offset="1" stop-color="#8A3FFC"/>
-            </linearGradient>
-          </defs>
-        </svg>
-        <span>Istaroth<span class="brand-dot">AI</span></span>
-      </a>
+<!-- Mobile Drawer -->
+<div class="drawer" id="drawer">
+  <a href="what-we-do.html">What we do</a>
+  <a href="our-approach.html">Our approach</a>
+  <a href="work.html">Work</a>
+  <a href="about-us.html" class="active">About us</a>
+  <a href="contact-us.html">Contact</a>
+  <a href="contact-us.html" class="d-cta">Let's talk →</a>
+</div>
 
-      <ul class="nav-menu">
-        <li><a href="what-we-do.html">What we do</a></li>
-        <li><a href="our-approach.html">Our approach</a></li>
-        <li><a href="work.html">Work</a></li>
-        <li><a href="about-us.html" class="active">About us</a></li>
-        <li><a href="contact-us.html">Contact</a></li>
-      </ul>
+<main>
 
-      <div style="display: flex; align-items: center; gap: 12px;">
-        <a href="contact-us.html" class="button-gradient">Let's talk</a>
-      </div>
-    </nav>
-  </div>
-
-  <main style="position: relative; z-index: 2; padding-top: 120px;">
+  <!-- ═══ PAGE HERO ═══ -->
+  <section class="page-hero">
+    <div class="page-ambient"></div>
     <div class="container">
-      
-      <!-- Subpage Header -->
-      <div class="subpage-hero">
-        <div class="hero-editorial-wrap">
-          <div class="pill-badge">
-            <span class="live-beacon"></span>
-            <span>WHO WE ARE</span>
-          </div>
-
-          <h1 class="hero-main-title">
-            The studio mastering <br>
-            <span class="gradient-accent-text">operational velocity.</span>
-          </h1>
-
-          <p class="hero-editorial-lead">
-            Named after the mythological sovereign of time and continuity, Istaroth was founded on a simple truth: the greatest tax on enterprise growth isn't capital — it is the time lost to human friction in legacy workflows.
-          </p>
-        </div>
+      <div class="sr" style="margin-bottom:18px;">
+        <span class="badge badge-c"><span class="live-beacon"></span> Studio Identity</span>
       </div>
+      <h1 class="sr d1">
+        Mastering enterprise<br>
+        <span class="grad">operational velocity.</span>
+      </h1>
+      <p class="sr d2">
+        Named after the sovereign ruler of time and continuity, Istaroth was founded on a simple truth: the greatest invisible tax on enterprise scale is human latency in deterministic workflows.
+      </p>
+    </div>
+  </section>
 
-      <!-- Story & Philosophy -->
-      <div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 48px; margin: 60px 0; align-items: center;">
+  <!-- Moving Marquee Ticker -->
+  <div class="ticker-wrap">
+    <div class="ticker-track">
+      <div class="ticker-item"><span class="dot"></span><strong>100%</strong> Sovereign Code Ownership</div>
+      <div class="ticker-item"><span class="dot"></span><strong>Zero</strong> Vendor Lock-in</div>
+      <div class="ticker-item"><span class="dot"></span><strong>99.4%</strong> Extraction Precision</div>
+      <div class="ticker-item"><span class="dot"></span><strong>3</strong> Deployed Production Platforms</div>
+      <div class="ticker-item"><span class="dot"></span><strong>Private VPC</strong> Enterprise Security</div>
+      <!-- Duplicate for loop -->
+      <div class="ticker-item"><span class="dot"></span><strong>100%</strong> Sovereign Code Ownership</div>
+      <div class="ticker-item"><span class="dot"></span><strong>Zero</strong> Vendor Lock-in</div>
+      <div class="ticker-item"><span class="dot"></span><strong>99.4%</strong> Extraction Precision</div>
+      <div class="ticker-item"><span class="dot"></span><strong>3</strong> Deployed Production Platforms</div>
+      <div class="ticker-item"><span class="dot"></span><strong>Private VPC</strong> Enterprise Security</div>
+    </div>
+  </div>
+
+  <!-- ═══ MISSION & STORY ═══ -->
+  <section style="padding: 70px 0 90px;">
+    <div class="container">
+      <div class="about-hero-grid sr">
+        
         <div>
-          <span class="section-eyebrow">Our Mission</span>
-          <h2 style="font-size: 32px; margin: 12px 0 20px;">We replace administrative latency with mathematical speed.</h2>
-          <p style="color: var(--text-muted); font-size: 15px; line-height: 1.7; margin-bottom: 16px;">
-            In high-stakes industries like preconstruction, industrial manufacturing, and supply chain logistics, companies generate mountains of unstructured documentation: 300-page vendor proposals, handwritten gate challans, and fragmented ERP receipts.
+          <span class="badge badge-v" style="margin-bottom:14px;">Our Mission</span>
+          <h2 style="font-size:clamp(26px,3.5vw,42px);margin:14px 0 20px;line-height:1.18;">
+            We replace administrative latency with mathematical speed.
+          </h2>
+          <p style="color:var(--text-400);font-size:15px;line-height:1.7;margin-bottom:18px;">
+            In high-stakes industries like preconstruction, bulk manufacturing, and commercial logistics, teams drown in unstructured documentation: 300-page subcontractor PDF proposals, handwritten weighbridge gate slips, and fragmented invoice receipts.
           </p>
-          <p style="color: var(--text-muted); font-size: 15px; line-height: 1.7; margin-bottom: 16px;">
-            Traditional consultants offer slide decks; SaaS vendors offer rigid tools that demand months of retraining. Istaroth operates as an applied engineering partner: we construct bespoke autonomous systems and proprietary software that fit like a glove around your existing operational reality.
+          <p style="color:var(--text-400);font-size:15px;line-height:1.7;margin-bottom:18px;">
+            Generic SaaS platforms offer rigid forms that demand months of retraining. Consulting firms offer slide decks that gather dust. Istaroth operates as an elite engineering partner: we design and construct bespoke autonomous systems that integrate directly into your active hardware, databases, and ERPs.
           </p>
-          <div style="display: flex; gap: 24px; margin-top: 24px;">
-            <div>
-              <div style="font-size: 32px; font-weight: 800; color: var(--cyan);">100%</div>
-              <div style="font-size: 13px; color: var(--text-muted);">Deterministic Code</div>
+          <div class="about-stats">
+            <div class="about-stat-box">
+              <div class="val" data-count="100">100%</div>
+              <div class="lbl">Deterministic</div>
             </div>
-            <div>
-              <div style="font-size: 32px; font-weight: 800; color: var(--emerald);">3 Live</div>
-              <div style="font-size: 13px; color: var(--text-muted);">Deployed Platforms</div>
+            <div class="about-stat-box">
+              <div class="val" data-count="3">3</div>
+              <div class="lbl">Live Systems</div>
             </div>
-            <div>
-              <div style="font-size: 32px; font-weight: 800; color: var(--violet);">&lt; 90s</div>
-              <div style="font-size: 13px; color: var(--text-muted);">Gate Turnaround</div>
+            <div class="about-stat-box">
+              <div class="val">&lt; 90s</div>
+              <div class="lbl">Mean Turnaround</div>
             </div>
           </div>
         </div>
 
-        <div style="background: var(--bg-surface); border: 1px solid var(--border-light); border-radius: 24px; padding: 40px; box-shadow: 0 20px 50px rgba(0,0,0,0.5);">
-          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 20px;">
-            <span class="live-beacon"></span>
-            <strong style="font-size: 16px; color: var(--text-pure);">The 4 Guiding Tenets</strong>
-          </div>
-          <div style="display: flex; flex-direction: column; gap: 16px; font-size: 14px; color: var(--text-muted);">
-            <div>
-              <strong style="color: var(--cyan); display: block; margin-bottom: 4px;">1. Dedicated Specialists</strong>
-              We write production code directly into your stack alongside your frontline domain experts.
+        <div class="card" style="padding: 36px 30px;">
+          <div style="font-family:var(--mono);font-size:11px;color:var(--cyan);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:14px;">The Studio Ethos</div>
+          <h3 style="font-size:22px;margin-bottom:14px;color:var(--text-100);">Engineering first. Speculation zero.</h3>
+          <p style="font-size:14px;color:var(--text-400);line-height:1.68;margin-bottom:20px;">
+            We don't do proof-of-concepts that end as prototypes. Every system we architect is built with production telemetry, failover circuits, and enterprise SLA guarantees from day one.
+          </p>
+          <div style="display:flex;flex-direction:column;gap:12px;font-size:13.5px;color:var(--text-200);">
+            <div style="display:flex;align-items:center;gap:10px;">
+              <span style="color:var(--emerald);">✓</span>
+              <span>Full source code and model weights transferred to client</span>
             </div>
-            <div>
-              <strong style="color: var(--cyan); display: block; margin-bottom: 4px;">2. Upfront Clarity</strong>
-              We map every edge case and legacy API quirk before committing a single architectural decision.
+            <div style="display:flex;align-items:center;gap:10px;">
+              <span style="color:var(--emerald);">✓</span>
+              <span>Direct access to lead systems architects, not account managers</span>
             </div>
-            <div>
-              <strong style="color: var(--cyan); display: block; margin-bottom: 4px;">3. AI Orchestration</strong>
-              We align models, serial hardware, and enterprise ERPs into single-button autonomous actions.
-            </div>
-            <div>
-              <strong style="color: var(--cyan); display: block; margin-bottom: 4px;">4. Effortless Outputs</strong>
-              We ship tested, live platforms you can operate and inspect on day one.
+            <div style="display:flex;align-items:center;gap:10px;">
+              <span style="color:var(--emerald);">✓</span>
+              <span>Bi-weekly production sprint demonstrations</span>
             </div>
           </div>
         </div>
+
       </div>
-
-      <!-- CTA -->
-      <section style="background: linear-gradient(135deg, rgba(0, 242, 254, 0.08) 0%, rgba(138, 63, 252, 0.08) 100%); border: 1px solid var(--border-light); border-radius: 28px; padding: 60px; text-align: center; margin-bottom: 80px;">
-        <h2 style="font-size: 36px; margin-bottom: 16px;">Ready to reclaim operational velocity?</h2>
-        <p style="color: var(--text-muted); font-size: 16px; max-width: 600px; margin: 0 auto 32px;">
-          Talk directly with an Istaroth systems architect. We’ll analyze your biggest operational bottleneck in a 30-minute diagnostic.
-        </p>
-        <a href="contact-us.html" class="button-gradient" style="padding: 16px 36px; font-size: 15px;">Book a Diagnostic Call →</a>
-      </section>
-
     </div>
-  </main>
+  </section>
 
-  <!-- Footer -->
-  <footer class="footer-cosmiron">
+  <!-- ═══ PRINCIPLES GRID ═══ -->
+  <section class="sec-why">
     <div class="container">
-      <div class="footer-sub">
-        <span>&copy; 2026 IstarothAI. Operational Mastery Over Time.</span>
-        <a href="work.html" style="color: var(--cyan); text-decoration: none;">Explore Deployed Systems →</a>
+      <div class="sec-head sr">
+        <span class="badge badge-c">Operating Principles</span>
+        <h2>Why enterprises partner with Istaroth.</h2>
+        <p>Four structural guarantees that define every system deployment we undertake.</p>
+      </div>
+
+      <div class="grid-4-why">
+        <div class="why-card sr d1">
+          <div class="why-num">PRINCIPLE 01</div>
+          <div class="why-title">Bespoke Architecture</div>
+          <p class="why-desc">No pre-packaged SaaS limitations. We engineer the exact pipelines, schemas, and integrations your operation demands.</p>
+        </div>
+        <div class="why-card sr d2">
+          <div class="why-num">PRINCIPLE 02</div>
+          <div class="why-title">Complete Sovereignty</div>
+          <p class="why-desc">Your models and data remain air-gapped in your private VPC. You own 100% of the IP, weights, and codebase.</p>
+        </div>
+        <div class="why-card sr d3">
+          <div class="why-num">PRINCIPLE 03</div>
+          <div class="why-title">Zero Hallucination</div>
+          <p class="why-desc">Mission-critical systems require deterministic verification. Mathematical integrity is mathematically audited at every step.</p>
+        </div>
+        <div class="why-card sr d4">
+          <div class="why-num">PRINCIPLE 04</div>
+          <div class="why-title">Continuous SRE</div>
+          <p class="why-desc">We don't hand off and disappear. Our engineering team monitors live telemetry, model drift, and uptime around the clock.</p>
+        </div>
       </div>
     </div>
-  </footer>
+  </section>
 
-  <script src="app.js"></script>
+  <!-- ═══ CTA BLOCK ═══ -->
+  <section class="sec-cta">
+    <div class="container">
+      <div class="cta-box sr">
+        <span class="badge badge-c" style="margin-bottom:18px;"><span class="dot dot-c"></span>Engineering Partnership</span>
+        <h2>Ready to eliminate operational latency?</h2>
+        <p>Schedule a technical discovery session directly with our lead architects. We'll map your highest-friction workflows and estimate tangible ROI.</p>
+        <div class="cta-acts">
+          <a href="contact-us.html" class="btn btn-p">Book Discovery Session →</a>
+          <a href="work.html" class="btn btn-g">Explore Reference Systems</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="f-brand">Istaroth<span>AI</span></div>
+        <p class="f-tag">Engineering bespoke autonomous intelligence systems for mission-critical enterprise operations.</p>
+        <div class="f-status">
+          <span class="dot dot-g"></span>
+          <span>All 3 Production Systems Online</span>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h6>Reference Systems</h6>
+        <ul>
+          <li><a href="bidintel.html">BidIntel Precon ↗</a></li>
+          <li><a href="yardsync.html">YardSync Logistics ↗</a></li>
+          <li><a href="ledgerflow.html">LedgerFlow Audit ↗</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h6>Studio</h6>
+        <ul>
+          <li><a href="what-we-do.html">What We Do</a></li>
+          <li><a href="our-approach.html">Our Approach</a></li>
+          <li><a href="work.html">Selected Work</a></li>
+          <li><a href="about-us.html">About Us</a></li>
+          <li><a href="contact-us.html">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h6>Connect</h6>
+        <ul>
+          <li><a href="mailto:reddykarthik370@gmail.com">reddykarthik370@gmail.com</a></li>
+          <li><a href="contact-us.html">Request Systems Audit</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-btm">
+      <span>© 2026 IstarothAI. Autonomous Systems Engineering Studio.</span>
+      <span>All systems sovereign. Zero vendor lock-in.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="app.js"></script>
 </body>
 </html>

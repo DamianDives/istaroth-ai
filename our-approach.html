@@ -7,269 +7,226 @@
   <meta name="description" content="Discover how IstarothAI turns enterprise friction into autonomous speed: our 4-stage engineering protocol and sovereign operating partnership model.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+<div class="nav-wrap">
+  <nav class="nav" id="navbar">
+    <a href="index.html" class="nav-brand">
+      <svg class="nav-logo" viewBox="0 0 32 32" fill="none">
+        <circle cx="16" cy="16" r="13" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"/>
+        <path d="M16 3C22.627 3 28 8.373 28 15C28 21.627 22.627 27 16 27" stroke="url(#g1)" stroke-width="2" stroke-linecap="round"/>
+        <circle cx="16" cy="16" r="4.5" fill="url(#g1)"/>
+        <defs><linearGradient id="g1" x1="16" y1="3" x2="28" y2="28" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#38BDF8"/><stop offset="1" stop-color="#8B5CF6"/>
+        </linearGradient></defs>
+      </svg>
+      <span>Istaroth<span class="ai-c">AI</span></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="what-we-do.html">What we do</a></li>
+      <li><a href="our-approach.html" class="active">Our approach</a></li>
+      <li><a href="work.html">Work</a></li>
+      <li><a href="about-us.html">About us</a></li>
+      <li><a href="contact-us.html">Contact</a></li>
+    </ul>
+    <a href="contact-us.html" class="nav-btn">Let's talk</a>
+    <button class="ham" id="ham" aria-label="Menu"><span></span><span></span><span></span></button>
+  </nav>
+</div>
+<div class="drawer" id="drawer">
+  <a href="what-we-do.html">What we do</a>
+  <a href="our-approach.html">Our approach</a>
+  <a href="work.html">Work</a>
+  <a href="about-us.html">About us</a>
+  <a href="contact-us.html">Contact</a>
+  <a href="contact-us.html" class="d-cta">Let's talk →</a>
+</div>
 
-  <!-- ═══ NAVBAR ═══ -->
-  <div class="nav-wrapper">
-    <nav class="navbar" id="navbar">
-      <a href="index.html" class="nav-brand">
-        <svg class="nav-logo" viewBox="0 0 32 32" fill="none">
-          <circle cx="16" cy="16" r="13" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"/>
-          <path d="M16 3C22.627 3 28 8.373 28 15C28 21.627 22.627 27 16 27" stroke="url(#ng2)" stroke-width="2.2" stroke-linecap="round"/>
-          <circle cx="16" cy="16" r="4.5" fill="url(#ng2)"/>
-          <defs>
-            <linearGradient id="ng2" x1="16" y1="3" x2="28" y2="28" gradientUnits="userSpaceOnUse">
-              <stop stop-color="#38BDF8"/><stop offset="1" stop-color="#8B5CF6"/>
-            </linearGradient>
-          </defs>
-        </svg>
-        <span>Istaroth<span class="ai">AI</span></span>
-      </a>
-      <ul class="nav-links">
-        <li><a href="what-we-do.html">What we do</a></li>
-        <li><a href="our-approach.html" class="active">Our approach</a></li>
-        <li><a href="work.html">Work</a></li>
-        <li><a href="about-us.html">About us</a></li>
-        <li><a href="contact-us.html">Contact</a></li>
-      </ul>
-      <a href="contact-us.html" class="nav-cta">Let's talk</a>
-      <button class="nav-burger" id="nav-burger" aria-label="Open menu">
-        <span></span><span></span><span></span>
-      </button>
-    </nav>
+<main>
+
+<section class="page-hero">
+  <div class="page-ambient"></div>
+  <div class="container">
+    <div class="sr" style="margin-bottom:18px;">
+      <span class="badge badge-c">Engineering Protocol • Methodology</span>
+    </div>
+    <h1 class="sr d1">Rigorous engineering.<br><span class="grad">Zero speculative guesswork.</span></h1>
+    <p class="sr d2">We bridge the gap between speculative AI research and industrial-grade production code through a structured 4-stage engineering protocol built for sovereign enterprise deployment.</p>
   </div>
-  <div class="nav-drawer" id="nav-drawer">
-    <a href="what-we-do.html">What we do</a>
-    <a href="our-approach.html">Our approach</a>
-    <a href="work.html">Work</a>
-    <a href="about-us.html">About us</a>
-    <a href="contact-us.html">Contact</a>
-    <a href="contact-us.html" class="drawer-cta">Let's talk →</a>
+</section>
+
+<!-- Moving Marquee Ticker -->
+<div class="ticker-wrap">
+  <div class="ticker-track">
+    <div class="ticker-item"><span class="dot"></span><strong>Phase 01:</strong> 2-Week Operational Audit</div>
+    <div class="ticker-item"><span class="dot"></span><strong>Phase 02:</strong> 3-Week Sandbox Prototype</div>
+    <div class="ticker-item"><span class="dot"></span><strong>Phase 03:</strong> 4-Week Production Cutover</div>
+    <div class="ticker-item"><span class="dot"></span><strong>Phase 04:</strong> Continuous Enterprise SRE</div>
+    <div class="ticker-item"><span class="dot"></span><strong>Guarantee:</strong> Zero Speculative Slide Decks</div>
+    <!-- Loop duplicate -->
+    <div class="ticker-item"><span class="dot"></span><strong>Phase 01:</strong> 2-Week Operational Audit</div>
+    <div class="ticker-item"><span class="dot"></span><strong>Phase 02:</strong> 3-Week Sandbox Prototype</div>
+    <div class="ticker-item"><span class="dot"></span><strong>Phase 03:</strong> 4-Week Production Cutover</div>
+    <div class="ticker-item"><span class="dot"></span><strong>Phase 04:</strong> Continuous Enterprise SRE</div>
+    <div class="ticker-item"><span class="dot"></span><strong>Guarantee:</strong> Zero Speculative Slide Decks</div>
   </div>
+</div>
 
-  <main>
+<!-- TIMELINE -->
+<section class="sec-approach">
+  <div class="container">
+    <div class="sec-head sr">
+      <span class="badge badge-c">The 4-Stage Protocol</span>
+      <h2>A disciplined path to autonomous operations.</h2>
+      <p>Every engagement follows this exact lifecycle — no shortcuts, no speculation, no scope creep.</p>
+    </div>
+    <div class="timeline">
 
-    <!-- ═══ PAGE HERO ═══ -->
-    <section class="page-hero" style="position:relative;overflow:hidden;">
-      <div class="page-glow"></div>
-      <div class="container">
-        <div class="reveal">
-          <span class="badge badge-cyan">Engineering Protocol • Methodology</span>
-        </div>
-        <h1 class="reveal reveal-d1">
-          Rigorous engineering.<br>
-          <span class="grad-text">Zero speculative guesswork.</span>
-        </h1>
-        <p class="reveal reveal-d2">
-          We bridge the gap between speculative AI research and industrial-grade production code through a structured 4-stage engineering protocol built for sovereign enterprise deployment.
-        </p>
-      </div>
-    </section>
-
-    <!-- ═══ TIMELINE ═══ -->
-    <section class="approach-section">
-      <div class="container">
-        <div class="section-head reveal">
-          <span class="badge badge-cyan">The 4-Stage Protocol</span>
-          <h2>A disciplined path to autonomous operations.</h2>
-          <p>Every engagement follows this exact lifecycle — no shortcuts, no speculation, no scope creep.</p>
-        </div>
-
-        <div class="timeline">
-
-          <div class="tl-item reveal">
-            <div class="tl-marker">01</div>
-            <div class="tl-content">
-              <div class="tl-meta">Phase 01 • 2 Weeks</div>
-              <h3>Operational Discovery</h3>
-              <p>We map manual bottlenecks, physical workflows, and legacy data structures. We interview operators, inspect messy unstructured inputs, and establish quantitative acceptance criteria before a single line of code is written.</p>
-              <div class="tl-deliverable">
-                <span>Deliverable:</span>
-                <strong>Technical Architecture Spec &amp; Feasibility Score</strong>
-              </div>
-            </div>
-          </div>
-
-          <div class="tl-item reveal">
-            <div class="tl-marker">02</div>
-            <div class="tl-content">
-              <div class="tl-meta">Phase 02 • 3 Weeks</div>
-              <h3>Sandbox &amp; Validation</h3>
-              <p>We engineer a high-fidelity prototype operating on real anonymized data schemas. Subsystem models are benchmarked for precision, inference latency, and edge fallback behavior before any production exposure.</p>
-              <div class="tl-deliverable">
-                <span>Deliverable:</span>
-                <strong>Working Sandbox Prototype &amp; Test Suite</strong>
-              </div>
-            </div>
-          </div>
-
-          <div class="tl-item reveal">
-            <div class="tl-marker">03</div>
-            <div class="tl-content">
-              <div class="tl-meta">Phase 03 • 4 Weeks</div>
-              <h3>Production Cutover</h3>
-              <p>We deploy directly into your cloud VPC or on-premise infrastructure. Hardware sensors, ERP endpoints, and operator dashboards are bridged with automated human-in-the-loop safeguards for zero-risk go-live.</p>
-              <div class="tl-deliverable">
-                <span>Deliverable:</span>
-                <strong>Live Industrial Production Cutover</strong>
-              </div>
-            </div>
-          </div>
-
-          <div class="tl-item reveal">
-            <div class="tl-marker">04</div>
-            <div class="tl-content">
-              <div class="tl-meta">Phase 04 • Continuous</div>
-              <h3>Autonomous MLOps</h3>
-              <p>Autonomous health monitoring, data drift prevention, model fine-tuning, and dedicated engineering support to ensure 99.9% operational reliability without internal dev overhead. Your system keeps getting smarter.</p>
-              <div class="tl-deliverable">
-                <span>Deliverable:</span>
-                <strong>Telemetry Dashboard &amp; 99.9% Uptime SLA</strong>
-              </div>
-            </div>
-          </div>
-
+      <div class="tl sr">
+        <div class="tl-marker">01</div>
+        <div class="tl-body">
+          <div class="tl-meta">Phase 01 • 2 Weeks</div>
+          <h3>Operational Discovery</h3>
+          <p>We map manual bottlenecks, physical workflows, and legacy data structures. We interview operators, inspect messy unstructured inputs, and establish quantitative acceptance criteria before a single line of code is written.</p>
+          <div class="tl-del"><span>Deliverable:</span><strong>Technical Architecture Spec &amp; Feasibility Score</strong></div>
         </div>
       </div>
-    </section>
 
-    <!-- ═══ PARTNERSHIP MODEL ═══ -->
-    <section class="ownership-section">
-      <div class="container">
-        <div class="section-head reveal">
-          <span class="badge badge-violet">Operating Partnership</span>
-          <h2>One unified partnership. Complete alignment.</h2>
-          <p>We divide responsibilities cleanly so your executive team stays focused on growth while our engineers orchestrate all technical complexity.</p>
-        </div>
-
-        <div class="ownership-grid">
-
-          <!-- What You Own -->
-          <div class="ownership-card reveal">
-            <div class="ownership-card-head">
-              <h3>What You Own</h3>
-              <span class="badge badge-cyan">The Business</span>
-            </div>
-            <div class="ownership-rows">
-              <div class="ownership-row">
-                <span class="check-icon">✓</span>
-                <div>
-                  <strong>100% Intellectual Property &amp; Codebase Ownership</strong>
-                  <p>All repositories, custom pipelines, fine-tuned weights, and schemas are transferred directly to your organization. Zero per-seat SaaS lock-in.</p>
-                </div>
-              </div>
-              <div class="ownership-row">
-                <span class="check-icon">✓</span>
-                <div>
-                  <strong>Operational Acceptance Criteria &amp; Domain Authority</strong>
-                  <p>You define success standards, accuracy thresholds, and business rules tailored to your estimators, warehouse crews, and controllers.</p>
-                </div>
-              </div>
-              <div class="ownership-row">
-                <span class="check-icon">✓</span>
-                <div>
-                  <strong>Strategic Commercial Rollout &amp; Governance</strong>
-                  <p>Your leadership guides rollout priorities and workflow change management across departments without touching low-level plumbing.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- What We Own -->
-          <div class="ownership-card ours reveal reveal-d1">
-            <div class="ownership-card-head">
-              <h3 style="color: var(--cyan);">What We Own</h3>
-              <span class="badge badge-cyan">The Engineering</span>
-            </div>
-            <div class="ownership-rows">
-              <div class="ownership-row">
-                <span class="check-icon">✓</span>
-                <div>
-                  <strong>AI System Architecture &amp; Model Orchestration</strong>
-                  <p>We evaluate, benchmark, fine-tune, and containerize the optimal vision, OCR, and reasoning models for your specific data domain.</p>
-                </div>
-              </div>
-              <div class="ownership-row">
-                <span class="check-icon">✓</span>
-                <div>
-                  <strong>Hardware &amp; Legacy ERP System Integration</strong>
-                  <p>We build robust bidirectional connectors to physical scale indicators, CCTV cameras, and legacy enterprise systems — SAP, Tally, SQL.</p>
-                </div>
-              </div>
-              <div class="ownership-row">
-                <span class="check-icon">✓</span>
-                <div>
-                  <strong>Autonomous MLOps, Monitoring &amp; Reliability</strong>
-                  <p>Continuous pipeline supervision, drift alerting, latency optimizations, and an ironclad 99.9% operational uptime guarantee.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
+      <div class="tl sr">
+        <div class="tl-marker">02</div>
+        <div class="tl-body">
+          <div class="tl-meta">Phase 02 • 3 Weeks</div>
+          <h3>Sandbox &amp; Validation</h3>
+          <p>We engineer a high-fidelity prototype operating on real anonymized data schemas. Subsystem models are benchmarked for precision, inference latency, and edge fallback behavior before any production exposure.</p>
+          <div class="tl-del"><span>Deliverable:</span><strong>Working Sandbox Prototype &amp; Test Suite</strong></div>
         </div>
       </div>
-    </section>
 
-    <!-- ═══ CTA ═══ -->
-    <section class="section-cta">
-      <div class="container">
-        <div class="cta-box reveal">
-          <span class="badge badge-cyan" style="margin-bottom: 22px; display: inline-flex;">
-            <span class="pulse pulse-cyan"></span>Start The Process
-          </span>
-          <h2>Ready to initiate a discovery?</h2>
-          <p>Talk directly with a systems architect. We'll analyze your operational bottlenecks in a 30-minute technical session.</p>
-          <div class="cta-actions">
-            <a href="contact-us.html" class="btn-primary">Initiate an Architecture Diagnostic →</a>
-          </div>
+      <div class="tl sr">
+        <div class="tl-marker">03</div>
+        <div class="tl-body">
+          <div class="tl-meta">Phase 03 • 4 Weeks</div>
+          <h3>Production Cutover</h3>
+          <p>We deploy directly into your cloud VPC or on-premise infrastructure. Hardware sensors, ERP endpoints, and operator dashboards are bridged with automated human-in-the-loop safeguards for zero-risk go-live.</p>
+          <div class="tl-del"><span>Deliverable:</span><strong>Live Industrial Production Cutover</strong></div>
         </div>
       </div>
-    </section>
 
-  </main>
-
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div>
-          <div class="footer-brand-name">Istaroth<span>AI</span></div>
-          <p class="footer-tagline">Applied AI and autonomous systems engineering studio for mission-critical enterprise operations.</p>
-          <div class="footer-status"><span class="pulse pulse-green"></span> Production Systems Active</div>
-        </div>
-        <div class="footer-col">
-          <h6>Selected Work</h6>
-          <ul>
-            <li><a href="work.html">Reference Systems Overview</a></li>
-            <li><a href="bidintel.html">BidIntel Platform ↗</a></li>
-            <li><a href="yardsync.html">YardSync Platform ↗</a></li>
-            <li><a href="ledgerflow.html">LedgerFlow Platform ↗</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h6>Studio</h6>
-          <ul>
-            <li><a href="what-we-do.html">What We Do</a></li>
-            <li><a href="our-approach.html">Our Approach</a></li>
-            <li><a href="work.html">Selected Work</a></li>
-            <li><a href="about-us.html">About Us</a></li>
-            <li><a href="contact-us.html">Contact Us</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h6>Contact</h6>
-          <ul><li><a href="mailto:reddykarthik370@gmail.com">reddykarthik370@gmail.com</a></li></ul>
+      <div class="tl sr">
+        <div class="tl-marker">04</div>
+        <div class="tl-body">
+          <div class="tl-meta">Phase 04 • Continuous</div>
+          <h3>Autonomous MLOps</h3>
+          <p>Autonomous health monitoring, data drift prevention, model fine-tuning, and dedicated engineering support ensuring 99.9% operational reliability without internal dev overhead.</p>
+          <div class="tl-del"><span>Deliverable:</span><strong>Telemetry Dashboard &amp; 99.9% Uptime SLA</strong></div>
         </div>
       </div>
-      <div class="footer-bottom">
-        <span>© 2026 IstarothAI. Autonomous Systems Engineering Studio.</span>
-        <span>All systems sovereign. Zero vendor lock-in.</span>
+
+    </div>
+  </div>
+</section>
+
+<!-- OWNERSHIP -->
+<section class="sec-own">
+  <div class="container">
+    <div class="sec-head sr">
+      <span class="badge badge-v">Operating Partnership</span>
+      <h2>One unified partnership. Complete alignment.</h2>
+      <p>We divide responsibilities cleanly so your team stays focused on growth while our engineers handle all technical complexity.</p>
+    </div>
+    <div class="own-grid">
+      <div class="own-card sr">
+        <div class="own-head">
+          <h3>What You Own</h3>
+          <span class="badge badge-c">The Business</span>
+        </div>
+        <div class="own-rows">
+          <div class="own-row"><span class="check">✓</span><div>
+            <strong>100% IP &amp; Codebase Ownership</strong>
+            <p>All repositories, pipelines, fine-tuned weights, and schemas transferred directly to your organization. Zero per-seat SaaS lock-in.</p>
+          </div></div>
+          <div class="own-row"><span class="check">✓</span><div>
+            <strong>Operational Acceptance Criteria &amp; Domain Authority</strong>
+            <p>You define success standards, accuracy thresholds, and business rules for your estimators, warehouse crews, and controllers.</p>
+          </div></div>
+          <div class="own-row"><span class="check">✓</span><div>
+            <strong>Strategic Rollout &amp; Governance</strong>
+            <p>Your leadership guides rollout priorities and workflow change management across departments — without touching low-level plumbing.</p>
+          </div></div>
+        </div>
+      </div>
+      <div class="own-card ours sr d1">
+        <div class="own-head">
+          <h3 style="color:var(--cyan);">What We Own</h3>
+          <span class="badge badge-c">The Engineering</span>
+        </div>
+        <div class="own-rows">
+          <div class="own-row"><span class="check">✓</span><div>
+            <strong>AI System Architecture &amp; Model Orchestration</strong>
+            <p>We evaluate, benchmark, fine-tune, and containerize the optimal vision, OCR, and reasoning models for your specific data domain.</p>
+          </div></div>
+          <div class="own-row"><span class="check">✓</span><div>
+            <strong>Hardware &amp; Legacy ERP Integration</strong>
+            <p>Robust bidirectional connectors to physical scale indicators, CCTV cameras, and enterprise systems — SAP, Tally, SQL.</p>
+          </div></div>
+          <div class="own-row"><span class="check">✓</span><div>
+            <strong>Autonomous MLOps, Monitoring &amp; Reliability</strong>
+            <p>Continuous pipeline supervision, drift alerting, latency optimizations, and an ironclad 99.9% operational uptime guarantee.</p>
+          </div></div>
+        </div>
       </div>
     </div>
-  </footer>
+  </div>
+</section>
 
-  <script src="app.js"></script>
+<!-- CTA -->
+<section class="sec-cta">
+  <div class="container">
+    <div class="cta-box sr">
+      <span class="badge badge-c" style="margin-bottom:20px;display:inline-flex;"><span class="dot dot-c"></span>Start The Process</span>
+      <h2>Ready to initiate a discovery?</h2>
+      <p>Talk directly with a systems architect. We'll analyze your operational bottlenecks in a focused 30-minute technical session.</p>
+      <div class="cta-acts">
+        <a href="contact-us.html" class="btn btn-p">Initiate an Architecture Diagnostic →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="f-brand">Istaroth<span>AI</span></div>
+        <p class="f-tag">Applied AI and autonomous systems engineering studio for mission-critical enterprise operations.</p>
+        <div class="f-status"><span class="dot dot-g"></span>Production Systems Active</div>
+      </div>
+      <div class="footer-col"><h6>Selected Work</h6><ul>
+        <li><a href="bidintel.html">BidIntel Platform ↗</a></li>
+        <li><a href="yardsync.html">YardSync Platform ↗</a></li>
+        <li><a href="ledgerflow.html">LedgerFlow Platform ↗</a></li>
+      </ul></div>
+      <div class="footer-col"><h6>Studio</h6><ul>
+        <li><a href="what-we-do.html">What We Do</a></li>
+        <li><a href="our-approach.html">Our Approach</a></li>
+        <li><a href="work.html">Selected Work</a></li>
+        <li><a href="about-us.html">About Us</a></li>
+        <li><a href="contact-us.html">Contact Us</a></li>
+      </ul></div>
+      <div class="footer-col"><h6>Contact</h6><ul>
+        <li><a href="mailto:reddykarthik370@gmail.com">reddykarthik370@gmail.com</a></li>
+      </ul></div>
+    </div>
+    <div class="foot-btm">
+      <span>© 2026 IstarothAI. Autonomous Systems Engineering Studio.</span>
+      <span>All systems sovereign. Zero vendor lock-in.</span>
+    </div>
+  </div>
+</footer>
+<script src="app.js"></script>
 </body>
 </html>

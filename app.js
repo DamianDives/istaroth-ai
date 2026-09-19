@@ -1,103 +1,160 @@
 /* ==========================================================================
-   ISTAROTH.AI — App JS
-   Scroll reveal, stat counters, mobile drawer, navbar scroll effect
+   ISTAROTH.AI — Dynamic Interaction Controller
+   Scroll reveal, stat counter rollups, mobile drawer, navbar effects,
+   card mouse light glow
    ========================================================================== */
 
-/* ─── Scroll Reveal ─────────────────────────────────────────────────── */
-(function initReveal() {
-  const els = document.querySelectorAll('.reveal');
-  if (!els.length) return;
+document.addEventListener('DOMContentLoaded', () => {
+  /* ─── Scroll Reveal (with instant viewport reveal & fallback) ────── */
+  function initReveal() {
+    const revealEls = document.querySelectorAll('.sr, .reveal');
+    if (!revealEls.length) return;
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
-        observer.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+    // Check if IntersectionObserver is supported
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add('in', 'visible');
+            observer.unobserve(e.target);
+          }
+        });
+      }, {
+        threshold: 0.05,
+        rootMargin: '0px 0px 50px 0px' // trigger slightly before it comes into view
+      });
 
-  els.forEach(el => observer.observe(el));
-})();
+      revealEls.forEach((el) => {
+        // If element is already in viewport on load, show immediately
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight) {
+          el.classList.add('in', 'visible');
+        } else {
+          observer.observe(el);
+        }
+      });
 
-/* ─── Navbar Scroll Effect ─────────────────────────────────────────── */
-(function initNavbar() {
-  const navbar = document.getElementById('navbar');
-  if (!navbar) return;
-
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 40) {
-      navbar.classList.add('scrolled');
+      // Safety timeout: ensure everything reveals after 1.2s max in case of lag/slow scroll
+      setTimeout(() => {
+        revealEls.forEach(el => el.classList.add('in', 'visible'));
+      }, 1200);
     } else {
-      navbar.classList.remove('scrolled');
+      revealEls.forEach(el => el.classList.add('in', 'visible'));
     }
-  }, { passive: true });
-})();
+  }
+  initReveal();
 
-/* ─── Mobile Drawer ─────────────────────────────────────────────────── */
-(function initDrawer() {
-  const burger = document.getElementById('nav-burger');
-  const drawer = document.getElementById('nav-drawer');
-  if (!burger || !drawer) return;
+  /* ─── Navbar Scroll Blur Effect ─────────────────────────────────── */
+  function initNavbar() {
+    const navbar = document.getElementById('navbar') || document.querySelector('.nav');
+    if (!navbar) return;
 
-  burger.addEventListener('click', () => {
-    const isOpen = drawer.classList.toggle('open');
-    burger.classList.toggle('open', isOpen);
-    document.body.style.overflow = isOpen ? 'hidden' : '';
-  });
+    const handleScroll = () => {
+      if (window.scrollY > 30) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    };
 
-  // Close on link click
-  drawer.querySelectorAll('a').forEach(a => {
-    a.addEventListener('click', () => {
-      drawer.classList.remove('open');
-      burger.classList.remove('open');
-      document.body.style.overflow = '';
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+  }
+  initNavbar();
+
+  /* ─── Mobile Drawer Toggle (Handles both #ham and #nav-burger) ─── */
+  function initDrawer() {
+    const burger = document.getElementById('ham') || document.getElementById('nav-burger');
+    const drawer = document.getElementById('drawer') || document.getElementById('nav-drawer');
+    if (!burger || !drawer) return;
+
+    burger.addEventListener('click', () => {
+      const isOpen = drawer.classList.toggle('open');
+      burger.classList.toggle('open', isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
     });
-  });
-})();
 
-/* ─── Stat Counter Rollup ───────────────────────────────────────────── */
-(function initCounters() {
-  const counters = document.querySelectorAll('[data-count]');
-  if (!counters.length) return;
+    // Close when clicking any link in drawer
+    drawer.querySelectorAll('a').forEach((a) => {
+      a.addEventListener('click', () => {
+        drawer.classList.remove('open');
+        burger.classList.remove('open');
+        document.body.style.overflow = '';
+      });
+    });
+  }
+  initDrawer();
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (!e.isIntersecting) return;
-      const el = e.target;
+  /* ─── Stat Counter Rollup ───────────────────────────────────────── */
+  function initCounters() {
+    const counters = document.querySelectorAll('[data-count]');
+    if (!counters.length) return;
+
+    const runCount = (el) => {
       const target = parseFloat(el.dataset.count);
-      const duration = 1800;
+      if (isNaN(target)) return;
+      const duration = 1600;
       const isDecimal = target % 1 !== 0;
       const start = performance.now();
 
       function tick(now) {
         const elapsed = now - start;
         const progress = Math.min(elapsed / duration, 1);
-        // ease out quad
-        const eased = 1 - (1 - progress) * (1 - progress);
+        const eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
         const current = eased * target;
-        el.textContent = isDecimal
-          ? current.toFixed(1)
-          : Math.floor(current).toString();
-        if (progress < 1) requestAnimationFrame(tick);
-        else el.textContent = isDecimal ? target.toFixed(1) : Math.floor(target).toString();
+        el.textContent = isDecimal ? current.toFixed(1) : Math.floor(current).toString();
+        if (progress < 1) {
+          requestAnimationFrame(tick);
+        } else {
+          el.textContent = isDecimal ? target.toFixed(1) : target.toString();
+        }
       }
-
       requestAnimationFrame(tick);
-      observer.unobserve(el);
-    });
-  }, { threshold: 0.5 });
+    };
 
-  counters.forEach(el => observer.observe(el));
-})();
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            runCount(e.target);
+            observer.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.2 });
 
-/* ─── Active Nav Link ───────────────────────────────────────────────── */
-(function setActiveLink() {
-  const path = window.location.pathname.split('/').pop() || 'index.html';
-  document.querySelectorAll('.nav-links a').forEach(a => {
-    const href = a.getAttribute('href');
-    if (href === path || (path === '' && href === 'index.html')) {
-      a.classList.add('active');
+      counters.forEach((el) => observer.observe(el));
+    } else {
+      counters.forEach(runCount);
     }
-  });
-})();
+  }
+  initCounters();
+
+  /* ─── Active Navbar Link ────────────────────────────────────────── */
+  function initActiveNav() {
+    const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('.nav-links a, .nav-menu a, .drawer a').forEach((a) => {
+      const href = a.getAttribute('href');
+      if (href === currentPath || (currentPath === '' && href === 'index.html')) {
+        a.classList.add('active');
+      } else {
+        a.classList.remove('active');
+      }
+    });
+  }
+  initActiveNav();
+
+  /* ─── Subtle Card Mouse Spotlight Effect (Cosmiron aesthetic) ─── */
+  function initCardSpotlight() {
+    const cards = document.querySelectorAll('.card, .p-card, .why-card, .practice-card');
+    cards.forEach((card) => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        card.style.setProperty('--mouse-x', `${x}px`);
+        card.style.setProperty('--mouse-y', `${y}px`);
+      });
+    });
+  }
+  initCardSpotlight();
+});

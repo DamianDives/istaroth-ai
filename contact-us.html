@@ -7,160 +7,188 @@
   <meta name="description" content="Connect directly with IstarothAI systems architects to evaluate operational bottlenecks and explore autonomous AI deployments.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-  <!-- ═══ NAVBAR ═══ -->
-  <div class="nav-wrapper">
-    <nav class="navbar" id="navbar">
-      <a href="index.html" class="nav-brand">
-        <svg class="nav-logo" viewBox="0 0 32 32" fill="none">
-          <circle cx="16" cy="16" r="13" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"/>
-          <path d="M16 3C22.627 3 28 8.373 28 15C28 21.627 22.627 27 16 27" stroke="url(#ng4)" stroke-width="2.2" stroke-linecap="round"/>
-          <circle cx="16" cy="16" r="4.5" fill="url(#ng4)"/>
-          <defs>
-            <linearGradient id="ng4" x1="16" y1="3" x2="28" y2="28" gradientUnits="userSpaceOnUse">
-              <stop stop-color="#38BDF8"/><stop offset="1" stop-color="#8B5CF6"/>
-            </linearGradient>
-          </defs>
-        </svg>
-        <span>Istaroth<span class="ai">AI</span></span>
-      </a>
-      <ul class="nav-links">
-        <li><a href="what-we-do.html">What we do</a></li>
-        <li><a href="our-approach.html">Our approach</a></li>
-        <li><a href="work.html">Work</a></li>
-        <li><a href="about-us.html">About us</a></li>
-        <li><a href="contact-us.html" class="active">Contact</a></li>
-      </ul>
-      <a href="contact-us.html" class="nav-cta">Let's talk</a>
-      <button class="nav-burger" id="nav-burger" aria-label="Open menu">
-        <span></span><span></span><span></span>
-      </button>
-    </nav>
-  </div>
-  <div class="nav-drawer" id="nav-drawer">
-    <a href="what-we-do.html">What we do</a>
-    <a href="our-approach.html">Our approach</a>
-    <a href="work.html">Work</a>
-    <a href="about-us.html">About us</a>
-    <a href="contact-us.html">Contact</a>
-    <a href="contact-us.html" class="drawer-cta">Let's talk →</a>
-  </div>
+<!-- ═══ NAVBAR ═══ -->
+<div class="nav-wrap">
+  <nav class="nav" id="navbar">
+    <a href="index.html" class="nav-brand">
+      <svg class="nav-logo" viewBox="0 0 32 32" fill="none">
+        <circle cx="16" cy="16" r="13" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"/>
+        <path d="M16 3C22.627 3 28 8.373 28 15C28 21.627 22.627 27 16 27" stroke="url(#g_con)" stroke-width="2" stroke-linecap="round"/>
+        <circle cx="16" cy="16" r="4.5" fill="url(#g_con)"/>
+        <defs>
+          <linearGradient id="g_con" x1="16" y1="3" x2="28" y2="28" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#38BDF8"/><stop offset="1" stop-color="#8B5CF6"/>
+          </linearGradient>
+        </defs>
+      </svg>
+      <span>Istaroth<span class="ai-c">AI</span></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="what-we-do.html">What we do</a></li>
+      <li><a href="our-approach.html">Our approach</a></li>
+      <li><a href="work.html">Work</a></li>
+      <li><a href="about-us.html">About us</a></li>
+      <li><a href="contact-us.html" class="active">Contact</a></li>
+    </ul>
+    <a href="contact-us.html" class="nav-btn">Let's talk</a>
+    <button class="ham" id="ham" aria-label="Toggle Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+</div>
 
-  <main>
+<!-- Mobile Drawer -->
+<div class="drawer" id="drawer">
+  <a href="what-we-do.html">What we do</a>
+  <a href="our-approach.html">Our approach</a>
+  <a href="work.html">Work</a>
+  <a href="about-us.html">About us</a>
+  <a href="contact-us.html" class="active">Contact</a>
+  <a href="contact-us.html" class="d-cta">Let's talk →</a>
+</div>
 
-    <!-- Page Hero -->
-    <section class="page-hero" style="position:relative;overflow:hidden;padding-bottom:40px;">
-      <div class="page-glow"></div>
-      <div class="container">
-        <div class="reveal">
-          <span class="badge badge-cyan">Direct Engagement • Discovery</span>
-        </div>
-        <h1 class="reveal reveal-d1">
-          Let's discuss<br>
-          <span class="grad-text">your operations.</span>
-        </h1>
-        <p class="reveal reveal-d2">
-          Have an operational bottleneck ready for autonomous intelligence? Reach out directly — you'll speak with a systems architect, not a sales rep.
-        </p>
-      </div>
-    </section>
+<main>
 
-    <!-- Contact Layout -->
+  <!-- ═══ PAGE HERO ═══ -->
+  <section class="page-hero">
+    <div class="page-ambient"></div>
     <div class="container">
-      <div class="contact-layout">
+      <div class="sr" style="margin-bottom:18px;">
+        <span class="badge badge-c"><span class="live-beacon"></span> Direct Architecture Engagement</span>
+      </div>
+      <h1 class="sr d1">
+        Let's discuss<br>
+        <span class="grad">your enterprise operations.</span>
+      </h1>
+      <p class="sr d2">
+        Have an operational bottleneck ready for autonomous intelligence? Reach out directly — you'll speak directly with a systems architect, never an account manager.
+      </p>
+    </div>
+  </section>
 
-        <!-- Sidebar -->
-        <div class="contact-sidebar reveal">
+  <!-- Moving Marquee Ticker -->
+  <div class="ticker-wrap">
+    <div class="ticker-track">
+      <div class="ticker-item"><span class="dot"></span><strong>Response SLA:</strong> Under 24 Hours</div>
+      <div class="ticker-item"><span class="dot"></span><strong>Direct Access:</strong> Senior Systems Architects</div>
+      <div class="ticker-item"><span class="dot"></span><strong>Sovereignty:</strong> Private VPC &amp; Strict NDA</div>
+      <div class="ticker-item"><span class="dot"></span><strong>Feasibility:</strong> 30-Min Technical Audit</div>
+      <!-- Loop duplicate -->
+      <div class="ticker-item"><span class="dot"></span><strong>Response SLA:</strong> Under 24 Hours</div>
+      <div class="ticker-item"><span class="dot"></span><strong>Direct Access:</strong> Senior Systems Architects</div>
+      <div class="ticker-item"><span class="dot"></span><strong>Sovereignty:</strong> Private VPC &amp; Strict NDA</div>
+      <div class="ticker-item"><span class="dot"></span><strong>Feasibility:</strong> 30-Min Technical Audit</div>
+    </div>
+  </div>
 
-          <div class="contact-card">
-            <div class="contact-card-label">Email</div>
-            <a href="mailto:reddykarthik370@gmail.com">reddykarthik370@gmail.com</a>
-          </div>
+  <!-- ═══ CONTACT LAYOUT ═══ -->
+  <div class="container">
+    <div class="contact-wrap">
 
-          <div class="contact-card">
-            <div class="contact-card-label">Response Time</div>
-            <p>Within 24 hours on business days. Priority response for time-sensitive production bottlenecks.</p>
-          </div>
+      <!-- Sidebar Info Cards -->
+      <div class="c-sidebar sr">
 
-          <div class="contact-card">
-            <div class="contact-card-label">What Happens Next</div>
-            <p>You'll be connected directly with a senior systems architect — no junior sales intermediary. We'll evaluate your operational setup in a 30-minute technical session.</p>
-          </div>
-
-          <div class="contact-card">
-            <div class="contact-card-label">Current System Status</div>
-            <div style="display:flex;align-items:center;gap:8px;margin-top:4px;">
-              <span class="pulse pulse-green"></span>
-              <span style="font-family:var(--font-mono);font-size:12px;color:var(--emerald);">All 3 production systems online</span>
-            </div>
-          </div>
-
-          <a href="contact-us.html" class="btn-ghost" style="width:100%;justify-content:center;margin-top:4px;">
-            Open form fullscreen ↗
+        <div class="c-card">
+          <div class="c-label">Direct Studio Email</div>
+          <a href="mailto:reddykarthik370@gmail.com" style="font-family:var(--mono);font-size:13px;font-weight:600;word-break:break-all;">
+            reddykarthik370@gmail.com
           </a>
         </div>
 
-        <!-- Form -->
-        <div class="form-wrap reveal reveal-d1">
-          <iframe
-            src="https://docs.google.com/forms/d/e/1FAIpQLScz3sQmmuGnA24tXPdjW7Km66ONxlTHQUsdd7hx0tH_u8hjRw/viewform?embedded=true"
-            width="100%"
-            height="720"
-            frameborder="0"
-            marginheight="0"
-            marginwidth="0"
-            title="IstarothAI Contact Form"
-            style="border:none;width:100%;min-height:720px;display:block;"
-          >Loading…</iframe>
+        <div class="c-card">
+          <div class="c-label">Response Time</div>
+          <p>Within 24 hours on business days. Priority response for mission-critical production bottlenecks.</p>
         </div>
 
+        <div class="c-card">
+          <div class="c-label">What To Expect Next</div>
+          <p>You'll be scheduled into a 30-minute technical session with our lead systems architects to evaluate data structures, edge constraints, and timeline feasibility.</p>
+        </div>
+
+        <div class="c-card">
+          <div class="c-label">System Telemetry Status</div>
+          <div style="display:flex;align-items:center;gap:8px;margin-top:6px;">
+            <span class="dot dot-g"></span>
+            <span style="font-family:var(--mono);font-size:12px;color:var(--emerald);">All 3 reference platforms online</span>
+          </div>
+        </div>
+
+        <div class="c-card" style="background:rgba(56,189,248,0.04);border-color:rgba(56,189,248,0.2);">
+          <div class="c-label" style="color:var(--cyan);">Confidentiality Guarantee</div>
+          <p style="font-size:12.5px;color:var(--text-400);">All proprietary schema details and operational data shared are held under strict mutual NDA standards.</p>
+        </div>
+
+      </div>
+
+      <!-- Inbound Google Form Embed -->
+      <div class="c-form sr d1">
+        <iframe
+          src="https://docs.google.com/forms/d/e/1FAIpQLScz3sQmmuGnA24tXPdjW7Km66ONxlTHQUsdd7hx0tH_u8hjRw/viewform?embedded=true"
+          width="100%"
+          height="760"
+          frameborder="0"
+          marginheight="0"
+          marginwidth="0"
+          title="IstarothAI Contact Form"
+          style="border:none;width:100%;min-height:760px;display:block;"
+        >Loading inquiry form…</iframe>
+      </div>
+
+    </div>
+  </div>
+
+</main>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="f-brand">Istaroth<span>AI</span></div>
+        <p class="f-tag">Engineering bespoke autonomous intelligence systems for mission-critical enterprise operations.</p>
+        <div class="f-status">
+          <span class="dot dot-g"></span>
+          <span>All 3 Production Systems Online</span>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h6>Reference Systems</h6>
+        <ul>
+          <li><a href="bidintel.html">BidIntel Precon ↗</a></li>
+          <li><a href="yardsync.html">YardSync Logistics ↗</a></li>
+          <li><a href="ledgerflow.html">LedgerFlow Audit ↗</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h6>Studio</h6>
+        <ul>
+          <li><a href="what-we-do.html">What We Do</a></li>
+          <li><a href="our-approach.html">Our Approach</a></li>
+          <li><a href="work.html">Selected Work</a></li>
+          <li><a href="about-us.html">About Us</a></li>
+          <li><a href="contact-us.html">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h6>Connect</h6>
+        <ul>
+          <li><a href="mailto:reddykarthik370@gmail.com">reddykarthik370@gmail.com</a></li>
+          <li><a href="contact-us.html">Request Systems Audit</a></li>
+        </ul>
       </div>
     </div>
-
-  </main>
-
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div>
-          <div class="footer-brand-name">Istaroth<span>AI</span></div>
-          <p class="footer-tagline">Applied AI and autonomous systems engineering studio for mission-critical enterprise operations.</p>
-          <div class="footer-status"><span class="pulse pulse-green"></span> Production Systems Active</div>
-        </div>
-        <div class="footer-col">
-          <h6>Selected Work</h6>
-          <ul>
-            <li><a href="work.html">Reference Systems Overview</a></li>
-            <li><a href="bidintel.html">BidIntel Platform ↗</a></li>
-            <li><a href="yardsync.html">YardSync Platform ↗</a></li>
-            <li><a href="ledgerflow.html">LedgerFlow Platform ↗</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h6>Studio</h6>
-          <ul>
-            <li><a href="what-we-do.html">What We Do</a></li>
-            <li><a href="our-approach.html">Our Approach</a></li>
-            <li><a href="work.html">Selected Work</a></li>
-            <li><a href="about-us.html">About Us</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h6>Contact</h6>
-          <ul><li><a href="mailto:reddykarthik370@gmail.com">reddykarthik370@gmail.com</a></li></ul>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <span>© 2026 IstarothAI. Autonomous Systems Engineering Studio.</span>
-        <span>All systems sovereign. Zero vendor lock-in.</span>
-      </div>
+    <div class="foot-btm">
+      <span>© 2026 IstarothAI. Autonomous Systems Engineering Studio.</span>
+      <span>All systems sovereign. Zero vendor lock-in.</span>
     </div>
-  </footer>
+  </div>
+</footer>
 
-  <script src="app.js"></script>
+<script src="app.js"></script>
 </body>
 </html>

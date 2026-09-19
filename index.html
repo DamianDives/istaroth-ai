@@ -5,37 +5,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>IstarothAI — Autonomous Systems for Enterprise Operations</title>
   <meta name="description" content="IstarothAI engineers bespoke autonomous AI systems for mission-critical operations: preconstruction bid leveling, unattended factory weighbridges, and autonomous financial reconciliation.">
-  
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700;800&display=swap" rel="stylesheet">
-  
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-  <!-- Ambient Illumination Backgrounds -->
-  <div class="ambient-glow-top"></div>
-  <div class="ambient-beam-left"></div>
-  <div class="ambient-beam-right"></div>
-
-  <!-- Floating Island Capsule Navigation -->
-  <div class="nav-island-wrapper">
-    <nav class="nav-island" id="navbar">
+  <!-- ═══ NAVBAR ═══ -->
+  <div class="nav-wrapper">
+    <nav class="navbar" id="navbar">
       <a href="index.html" class="nav-brand">
-        <svg class="brand-glyph" viewBox="0 0 36 36" fill="none">
-          <circle cx="18" cy="18" r="15" stroke="rgba(255,255,255,0.18)" stroke-width="2"/>
-          <path d="M18 3C26.2843 3 33 9.71573 33 18C33 26.2843 26.2843 33 18 33" stroke="url(#cyan-grad)" stroke-width="2.5" stroke-linecap="round"/>
-          <circle cx="18" cy="18" r="5" fill="url(#cyan-grad)"/>
+        <svg class="nav-logo" viewBox="0 0 32 32" fill="none">
+          <circle cx="16" cy="16" r="13" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"/>
+          <path d="M16 3C22.627 3 28 8.373 28 15C28 21.627 22.627 27 16 27" stroke="url(#ng)" stroke-width="2.2" stroke-linecap="round"/>
+          <circle cx="16" cy="16" r="4.5" fill="url(#ng)"/>
           <defs>
-            <linearGradient id="cyan-grad" x1="18" y1="3" x2="33" y2="33" gradientUnits="userSpaceOnUse">
-              <stop stop-color="#00F2FE"/>
-              <stop offset="1" stop-color="#8B5CF6"/>
+            <linearGradient id="ng" x1="16" y1="3" x2="28" y2="28" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#38BDF8"/><stop offset="1" stop-color="#8B5CF6"/>
             </linearGradient>
           </defs>
         </svg>
-        <span>Istaroth<span style="color: var(--cyan);">AI</span></span>
+        <span>Istaroth<span class="ai">AI</span></span>
       </a>
 
       <ul class="nav-links">
@@ -46,373 +37,312 @@
         <li><a href="contact-us.html">Contact</a></li>
       </ul>
 
-      <div class="nav-actions">
-        <a href="contact-us.html" class="button-gradient" style="padding: 10px 22px; font-size: 13.5px; border-radius: 9999px;">Let's talk</a>
-      </div>
+      <a href="contact-us.html" class="nav-cta">Let's talk</a>
+      <button class="nav-burger" id="nav-burger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
     </nav>
   </div>
 
+  <!-- Mobile Drawer -->
+  <div class="nav-drawer" id="nav-drawer">
+    <a href="what-we-do.html">What we do</a>
+    <a href="our-approach.html">Our approach</a>
+    <a href="work.html">Work</a>
+    <a href="about-us.html">About us</a>
+    <a href="contact-us.html">Contact</a>
+    <a href="contact-us.html" class="drawer-cta">Let's talk →</a>
+  </div>
+
   <main>
-    <!-- HERO SECTION (Cosmiron Style: Minimal, Spacious, Bold) -->
-    <section class="hero-sovereign" style="padding-top: 140px; padding-bottom: 90px;">
+
+    <!-- ═══ HERO ═══ -->
+    <section class="hero">
+      <div class="hero-top-glow"></div>
       <div class="container">
-        <div class="hero-content" style="max-width: 860px; margin: 0 auto; text-align: center;">
-          
-          <div class="badge-pill" style="margin-bottom: 24px;">
-            <span class="beacon-dot"></span>
-            <span>YOUR AUTONOMOUS SYSTEMS PARTNER</span>
+        <div class="hero-eyebrow reveal">
+          <span class="badge badge-cyan"><span class="pulse pulse-cyan"></span>Your Autonomous Systems Partner</span>
+        </div>
+
+        <h1 class="reveal reveal-d1">
+          Empowering operations with AI<br>
+          <span class="grad-text">from concept to completion.</span>
+        </h1>
+
+        <p class="hero-sub reveal reveal-d2">
+          We design, build, and deploy production-grade autonomous intelligence that transforms enterprise physical and financial workflows.
+        </p>
+
+        <div class="hero-actions reveal reveal-d3">
+          <a href="work.html" class="btn-primary">Explore Our Work →</a>
+          <a href="contact-us.html" class="btn-ghost">Let's talk</a>
+        </div>
+      </div>
+
+      <!-- Fan Glow (Cosmiron-Inspired, IstarothAI Colors) -->
+      <div class="hero-bottom">
+        <div class="hero-cone-glow"></div>
+        <div class="stats-strip container">
+          <div class="stat-item">
+            <div class="stat-num" data-count="99.4">0</div>
+            <div class="stat-label">% Bid Accuracy</div>
           </div>
-
-          <h1 class="hero-headline" style="font-size: clamp(40px, 5.5vw, 68px); letter-spacing: -0.04em; line-height: 1.1; margin-bottom: 24px;">
-            Empowering operations with AI <br>
-            <span class="gradient-accent">from concept to completion.</span>
-          </h1>
-
-          <p class="hero-subhead" style="font-size: clamp(17px, 1.8vw, 20px); color: var(--text-muted); line-height: 1.6; max-width: 720px; margin: 0 auto 36px;">
-            We design, build, and deploy production-grade autonomous intelligence that transforms enterprise physical and financial workflows.
-          </p>
-
-          <div class="hero-cta-group" style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
-            <a href="#selected-work" class="btn-primary" style="padding: 14px 34px; font-size: 15px; border-radius: 9999px;">
-              Explore Our Work →
-            </a>
-            <a href="contact-us.html" class="btn-secondary" style="padding: 14px 30px; font-size: 15px; border-radius: 9999px;">
-              Let's talk
-            </a>
+          <div class="stat-item">
+            <div class="stat-num">&lt; 1s</div>
+            <div class="stat-label">Invoice Matching Latency</div>
           </div>
-
+          <div class="stat-item">
+            <div class="stat-num" data-count="3">0</div>
+            <div class="stat-label">Live Production Systems</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">99.9%</div>
+            <div class="stat-label">Operational Uptime SLA</div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- SECTION 2: HOW WE WORK (Cosmiron 4-Card Process) -->
-    <section id="how-we-work" style="padding: 60px 0 100px; border-top: 1px solid var(--border-subtle);">
+    <!-- ═══ HOW WE WORK — 4 Cosmiron-Style Process Cards ═══ -->
+    <section class="section-process">
       <div class="container">
-        
-        <div style="text-align: center; max-width: 720px; margin: 0 auto 60px;">
-          <div class="badge-pill" style="margin-bottom: 14px;">
-            <span class="beacon-dot"></span>
-            <span>HOW WE WORK</span>
-          </div>
-          <h2 style="font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.03em; margin-bottom: 16px;">
-            From concept to autonomous operations.
-          </h2>
-          <p style="color: var(--text-muted); font-size: 16px; line-height: 1.6;">
-            A disciplined, four-stage lifecycle designed for precision, velocity, and complete enterprise sovereignty.
-          </p>
+        <div class="section-head reveal">
+          <span class="badge badge-cyan">How We Work</span>
+          <h2>From concept to autonomous operations.</h2>
+          <p>A disciplined, four-stage lifecycle engineered for precision, velocity, and complete enterprise sovereignty.</p>
         </div>
 
-        <div class="process-grid-cosmiron">
-          
-          <!-- Card 1 -->
-          <div class="cosmiron-card">
-            <div class="card-step-badge">STAGE 01</div>
+        <div class="process-grid">
+
+          <div class="process-card reveal reveal-d1">
+            <div class="card-stage-num">Stage 01</div>
+            <div class="card-stage-label"><span class="pulse pulse-cyan"></span>2 Weeks</div>
             <h3>Discovery &amp; Workflow Audit</h3>
-            <p style="color: var(--text-muted); font-size: 14px; line-height: 1.6; margin-bottom: 24px;">
-              We analyze your raw operational data to pinpoint high-ROI automation vectors and failure modes.
-            </p>
-            <ul>
-              <li><span class="check-icon">✓</span> Operational workflow audit</li>
-              <li><span class="check-icon">✓</span> Feasibility &amp; ROI quantification</li>
+            <p>We analyze your raw operational data to pinpoint high-ROI automation vectors, failure modes, and legacy system constraints.</p>
+            <ul class="card-bullets">
+              <li>Operational workflow audit</li>
+              <li>Feasibility &amp; ROI quantification</li>
             </ul>
           </div>
 
-          <!-- Card 2 -->
-          <div class="cosmiron-card">
-            <div class="card-step-badge">STAGE 02</div>
+          <div class="process-card reveal reveal-d2">
+            <div class="card-stage-num">Stage 02</div>
+            <div class="card-stage-label"><span class="pulse pulse-cyan"></span>3 Weeks</div>
             <h3>Custom AI Architecture</h3>
-            <p style="color: var(--text-muted); font-size: 14px; line-height: 1.6; margin-bottom: 24px;">
-              We architect deterministic models and domain pipelines tailored specifically to your enterprise data.
-            </p>
-            <ul>
-              <li><span class="check-icon">✓</span> Multimodal vision &amp; OCR models</li>
-              <li><span class="check-icon">✓</span> Mathematical constraint solvers</li>
+            <p>We architect deterministic models and domain pipelines tailored specifically to your enterprise data schema and throughput.</p>
+            <ul class="card-bullets">
+              <li>Multimodal vision &amp; OCR models</li>
+              <li>Mathematical constraint solvers</li>
             </ul>
           </div>
 
-          <!-- Card 3 -->
-          <div class="cosmiron-card">
-            <div class="card-step-badge">STAGE 03</div>
+          <div class="process-card reveal reveal-d3">
+            <div class="card-stage-num">Stage 03</div>
+            <div class="card-stage-label"><span class="pulse pulse-cyan"></span>4 Weeks</div>
             <h3>Production Deployment</h3>
-            <p style="color: var(--text-muted); font-size: 14px; line-height: 1.6; margin-bottom: 24px;">
-              Direct integration into your private VPC, ERP backends, and physical hardware with zero downtime.
-            </p>
-            <ul>
-              <li><span class="check-icon">✓</span> Sovereign private VPC deployment</li>
-              <li><span class="check-icon">✓</span> Hardware RS-232 &amp; ERP bridges</li>
+            <p>Direct integration into your private VPC, ERP backends, and physical hardware with zero downtime and full operator handoff.</p>
+            <ul class="card-bullets">
+              <li>Sovereign private VPC deployment</li>
+              <li>Hardware RS-232 &amp; ERP bridges</li>
             </ul>
           </div>
 
-          <!-- Card 4 -->
-          <div class="cosmiron-card">
-            <div class="card-step-badge">STAGE 04</div>
-            <h3>Support &amp; Growth</h3>
-            <p style="color: var(--text-muted); font-size: 14px; line-height: 1.6; margin-bottom: 24px;">
-              Continuous 24/7 SLA telemetry, drift detection, and latency tuning that compound ROI over time.
-            </p>
-            <ul>
-              <li><span class="check-icon">✓</span> 24/7 real-time observability</li>
-              <li><span class="check-icon">✓</span> Continuous model latency tuning</li>
+          <div class="process-card reveal reveal-d4">
+            <div class="card-stage-num">Stage 04</div>
+            <div class="card-stage-label"><span class="pulse pulse-cyan"></span>Continuous</div>
+            <h3>Autonomous MLOps &amp; Growth</h3>
+            <p>24/7 telemetry, drift detection, and continuous latency tuning that compound your ROI and protect operational reliability.</p>
+            <ul class="card-bullets">
+              <li>24/7 real-time observability</li>
+              <li>Continuous model latency tuning</li>
             </ul>
           </div>
 
         </div>
-
       </div>
     </section>
 
-    <!-- SECTION 3: SELECTED WORK (Cosmiron Showcase Cards) -->
-    <section id="selected-work" style="padding: 60px 0 100px; border-top: 1px solid var(--border-subtle);">
+    <!-- ═══ SELECTED WORK — Alternating Showcase Cards ═══ -->
+    <section class="section-showcase" id="selected-work">
       <div class="container">
-        
-        <div style="text-align: center; max-width: 760px; margin: 0 auto 60px;">
-          <div class="badge-pill" style="margin-bottom: 14px;">
-            <span class="beacon-dot"></span>
-            <span>SELECTED WORK</span>
-          </div>
-          <h2 style="font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.03em; margin-bottom: 16px;">
-            Systems delivering measurable enterprise impact.
-          </h2>
-          <p style="color: var(--text-muted); font-size: 16px; line-height: 1.6;">
-            Explore our flagship production platforms engineered for complex industrial and commercial workflows.
-          </p>
+        <div class="section-head reveal">
+          <span class="badge badge-cyan">Selected Work</span>
+          <h2>Systems delivering measurable enterprise impact.</h2>
+          <p>Flagship production platforms engineered for complex industrial and commercial workflows.</p>
         </div>
 
-        <!-- SHOWCASE 01: BidIntel -->
-        <div class="work-card-showcase">
-          <div class="work-card-content">
-            <div class="work-card-header-tags">
-              <span class="pill-badge" style="background: rgba(0, 242, 254, 0.1); color: var(--cyan); border-color: rgba(0, 242, 254, 0.3); font-size: 11px;">
-                CASE STUDY • PRECONSTRUCTION AI
-              </span>
-              <span class="pill-badge" style="background: rgba(16, 185, 129, 0.1); color: var(--emerald); border-color: rgba(16, 185, 129, 0.3); font-size: 11px;">
-                <span class="live-beacon"></span> Production Live
-              </span>
+        <!-- BidIntel -->
+        <div class="showcase-item reveal">
+          <div class="showcase-content">
+            <div class="showcase-tags">
+              <span class="tag tag-cyan">Preconstruction AI</span>
+              <span class="badge badge-green"><span class="pulse pulse-green"></span>Production Live</span>
             </div>
-
-            <h3 class="work-card-title">BidIntel — Precon Intelligence &amp; Leveling</h3>
-            
-            <p class="work-card-subhead">
-              Autonomous subcontractor bid leveling platform that extracts line items from complex PDF tenders, catches hidden scope exclusions, and protects contractor margins before award.
-            </p>
-
-            <div class="work-card-partners">
-              <strong>Domain:</strong> Commercial EPCs &amp; General Contractors &nbsp;•&nbsp; <strong>Capability:</strong> Automated BOQ &amp; Scope Normalization
+            <h3>BidIntel — Precon Intelligence &amp; Leveling</h3>
+            <p>Autonomous subcontractor bid leveling platform that extracts line items from complex PDF tenders, catches hidden scope exclusions, and protects contractor margins before award.</p>
+            <div class="showcase-domain">
+              <strong>Domain:</strong> Commercial EPCs &amp; General Contractors &nbsp;•&nbsp;
+              <strong>Capability:</strong> Automated BOQ &amp; Scope Normalization
             </div>
-
-            <div class="work-card-phases">
-              <span class="work-phase-pill">Multimodal Vision</span>
-              <span class="work-phase-pill">Document AI</span>
-              <span class="work-phase-pill">PostgreSQL RLS</span>
-              <span class="work-phase-pill">Next.js 16</span>
+            <div class="tech-row">
+              <span class="chip">Multimodal Vision</span>
+              <span class="chip">Document AI</span>
+              <span class="chip">PostgreSQL RLS</span>
+              <span class="chip">Next.js</span>
             </div>
-
-            <div class="work-card-actions">
-              <a href="work-bidintel.html" class="button-gradient" style="padding: 12px 28px; font-size: 14px; border-radius: 9999px;">
-                View Case Study →
-              </a>
-              <a href="bidintel.html" class="button-outline" style="padding: 12px 24px; font-size: 14px; border-radius: 9999px;">
-                Launch Live Demo ↗
-              </a>
+            <div class="showcase-actions">
+              <a href="work-bidintel.html" class="btn-primary">View Case Study →</a>
+              <a href="bidintel.html" class="btn-ghost">Launch Demo ↗</a>
             </div>
           </div>
 
-          <!-- Right: macOS Browser Frame Preview -->
-          <div class="macos-browser-frame" style="box-shadow: 0 20px 50px rgba(0,0,0,0.5);">
-            <div class="macos-browser-header">
-              <div class="macos-traffic-lights">
-                <span class="traffic-light red"></span>
-                <span class="traffic-light yellow"></span>
-                <span class="traffic-light green"></span>
-              </div>
-              <div class="macos-address-bar">
-                <span>🔒</span>
-                <span>https://bidintel.istaroth.ai/leveling-matrix</span>
-              </div>
-              <div style="font-family: var(--font-mono); font-size: 11px; color: var(--emerald);">
-                ● 99.4% ACCURACY
-              </div>
+          <div class="app-frame">
+            <div class="frame-bar">
+              <div class="frame-dots"><span class="dot dot-r"></span><span class="dot dot-y"></span><span class="dot dot-g"></span></div>
+              <div class="frame-url">🔒 bidintel.istaroth.ai/leveling-matrix</div>
+              <span class="frame-stat fval-green">● 99.4% ACC</span>
             </div>
-            <div class="macos-browser-body" style="padding: 24px; background: rgba(5, 7, 14, 0.95);">
-              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+            <div class="frame-body">
+              <div class="frame-header-row">
                 <div>
-                  <div style="font-size: 15px; font-weight: 700; color: var(--text-pure);">Commercial Electrical Package</div>
-                  <div style="font-size: 12px; color: var(--text-dim); margin-top: 2px;">BOQ Rev 3.2 • Budget: ₹8.50 Cr</div>
+                  <div class="frame-title">Commercial Electrical Package</div>
+                  <div class="frame-sub">BOQ Rev 3.2 • Budget: ₹8.50 Cr</div>
                 </div>
-                <span class="pill-badge" style="background: rgba(16, 185, 129, 0.1); color: var(--emerald); font-size: 11px;">Normalized</span>
+                <span class="frame-chip chip-green">Normalized</span>
               </div>
-              <div style="background: rgba(255, 255, 255, 0.02); border: 1px solid var(--border-subtle); border-radius: 8px; padding: 14px; margin-bottom: 14px;">
-                <div style="display: flex; justify-content: space-between; font-size: 13px; margin-bottom: 6px;">
-                  <span style="color: var(--text-muted);">Subcontractor Alpha</span>
-                  <span style="color: var(--emerald); font-weight: 700;">Verified Proposal</span>
-                </div>
-                <div style="display: flex; justify-content: space-between; font-size: 13px;">
-                  <span style="color: var(--text-muted);">Subcontractor Beta</span>
-                  <span style="color: var(--rose); font-weight: 700;">Scope Exclusions Flagged</span>
-                </div>
+              <div class="frow">
+                <span class="frow-label">Subcontractor Alpha</span>
+                <span class="frow-val fval-green">✓ Verified Proposal</span>
               </div>
-              <div style="font-size: 12px; color: var(--cyan); display: flex; align-items: center; gap: 6px;">
-                <span class="beacon-dot"></span> Copilot flagged 18% unquoted GST on page 14
+              <div class="frow">
+                <span class="frow-label">Subcontractor Beta</span>
+                <span class="frow-val fval-red">⚠ Scope Exclusions Flagged</span>
+              </div>
+              <div class="frow">
+                <span class="frow-label">Subcontractor Gamma</span>
+                <span class="frow-val fval-cyan">Awaiting Clarification</span>
+              </div>
+              <div class="frame-log">
+                <span class="pulse pulse-cyan" style="width:5px;height:5px;"></span>
+                Copilot flagged 18% unquoted GST on page 14
               </div>
             </div>
           </div>
         </div>
 
-        <!-- SHOWCASE 02: YardSync -->
-        <div class="work-card-showcase">
-          <div class="work-card-content">
-            <div class="work-card-header-tags">
-              <span class="pill-badge" style="background: rgba(16, 185, 129, 0.1); color: var(--emerald); border-color: rgba(16, 185, 129, 0.3); font-size: 11px;">
-                CASE STUDY • INDUSTRIAL IOT &amp; VISION
-              </span>
-              <span class="pill-badge" style="background: rgba(16, 185, 129, 0.1); color: var(--emerald); border-color: rgba(16, 185, 129, 0.3); font-size: 11px;">
-                <span class="live-beacon"></span> Gate 02 Online
-              </span>
+        <!-- YardSync -->
+        <div class="showcase-item flip reveal">
+          <div class="showcase-content">
+            <div class="showcase-tags">
+              <span class="tag tag-green">Industrial IoT &amp; Vision</span>
+              <span class="badge badge-green"><span class="pulse pulse-green"></span>Gate 02 Online</span>
             </div>
-
-            <h3 class="work-card-title">YardSync — Autonomous Gate &amp; Scale</h3>
-            
-            <p class="work-card-subhead">
-              Unattended factory gate and weighbridge automation integrating ANPR license plate recognition, RS-232 serial scale capture, and WhatsApp driver check-ins to eliminate vehicle detention.
-            </p>
-
-            <div class="work-card-partners">
-              <strong>Domain:</strong> Industrial Plants &amp; Bulk Terminals &nbsp;•&nbsp; <strong>Capability:</strong> Real-Time ANPR &amp; Serial RS-232 Ingress
+            <h3>YardSync — Autonomous Gate &amp; Scale</h3>
+            <p>Unattended factory gate and weighbridge automation integrating ANPR license plate recognition, RS-232 serial scale capture, and WhatsApp driver check-ins to eliminate vehicle detention.</p>
+            <div class="showcase-domain">
+              <strong>Domain:</strong> Industrial Plants &amp; Bulk Terminals &nbsp;•&nbsp;
+              <strong>Capability:</strong> Real-Time ANPR &amp; Serial RS-232 Ingress
             </div>
-
-            <div class="work-card-phases">
-              <span class="work-phase-pill">Edge IoT</span>
-              <span class="work-phase-pill">ANPR Vision</span>
-              <span class="work-phase-pill">RS-232 Serial Bridge</span>
-              <span class="work-phase-pill">ERP Sync</span>
+            <div class="tech-row">
+              <span class="chip">Edge IoT</span>
+              <span class="chip">ANPR Vision</span>
+              <span class="chip">RS-232 Bridge</span>
+              <span class="chip">ERP Sync</span>
             </div>
-
-            <div class="work-card-actions">
-              <a href="work-yardsync.html" class="button-gradient" style="padding: 12px 28px; font-size: 14px; border-radius: 9999px;">
-                View Case Study →
-              </a>
-              <a href="yardsync.html" class="button-outline" style="padding: 12px 24px; font-size: 14px; border-radius: 9999px;">
-                Explore Console ↗
-              </a>
+            <div class="showcase-actions">
+              <a href="work-yardsync.html" class="btn-primary">View Case Study →</a>
+              <a href="yardsync.html" class="btn-ghost">Explore Console ↗</a>
             </div>
           </div>
 
-          <!-- Right: macOS Browser Frame Preview -->
-          <div class="macos-browser-frame" style="box-shadow: 0 20px 50px rgba(0,0,0,0.5);">
-            <div class="macos-browser-header">
-              <div class="macos-traffic-lights">
-                <span class="traffic-light red"></span>
-                <span class="traffic-light yellow"></span>
-                <span class="traffic-light green"></span>
-              </div>
-              <div class="macos-address-bar">
-                <span>🔒</span>
-                <span>https://yardsync.istaroth.ai/gate-02</span>
-              </div>
-              <div style="font-family: var(--font-mono); font-size: 11px; color: var(--cyan);">
-                RS-232 CONNECTED
-              </div>
+          <div class="app-frame">
+            <div class="frame-bar">
+              <div class="frame-dots"><span class="dot dot-r"></span><span class="dot dot-y"></span><span class="dot dot-g"></span></div>
+              <div class="frame-url">🔒 yardsync.istaroth.ai/gate-02</div>
+              <span class="frame-stat fval-cyan">RS-232 LIVE</span>
             </div>
-            <div class="macos-browser-body" style="padding: 24px; background: rgba(5, 7, 14, 0.95);">
-              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+            <div class="frame-body">
+              <div class="frame-header-row">
                 <div>
-                  <div style="font-size: 15px; font-weight: 700; color: var(--text-pure);">Vehicle Plate: KA-04-MB-4821</div>
-                  <div style="font-size: 12px; color: var(--text-dim); margin-top: 2px;">Multi-Axle Carrier • Challan Verified</div>
+                  <div class="frame-title">Vehicle: KA-04-MB-4821</div>
+                  <div class="frame-sub">Multi-Axle Carrier • Challan Verified</div>
                 </div>
-                <span class="pill-badge" style="background: rgba(16, 185, 129, 0.1); color: var(--emerald); font-size: 11px;">Gate Slip Issued</span>
+                <span class="frame-chip chip-green">Gate Slip Issued</span>
               </div>
-              <div style="background: rgba(255, 255, 255, 0.02); border: 1px solid var(--border-subtle); border-radius: 8px; padding: 14px; margin-bottom: 14px;">
-                <div style="display: flex; justify-content: space-between; font-size: 13px; margin-bottom: 6px;">
-                  <span style="color: var(--text-muted);">Gross Weight (Scale 01)</span>
-                  <span style="color: var(--cyan); font-weight: 700;">41,850 kg</span>
-                </div>
-                <div style="display: flex; justify-content: space-between; font-size: 13px;">
-                  <span style="color: var(--text-muted);">Challan Match (PO #4110)</span>
-                  <span style="color: var(--emerald); font-weight: 700;">✓ 100% Tolerance OK</span>
-                </div>
+              <div class="frow">
+                <span class="frow-label">Gross Weight (Scale 01)</span>
+                <span class="frow-val fval-cyan">41,850 kg</span>
               </div>
-              <div style="font-size: 12px; color: var(--emerald); display: flex; align-items: center; gap: 6px;">
-                <span class="beacon-dot"></span> Check-in completed in 45 seconds via WhatsApp Bot
+              <div class="frow">
+                <span class="frow-label">Challan Match (PO #4110)</span>
+                <span class="frow-val fval-green">✓ 100% Tolerance OK</span>
+              </div>
+              <div class="frow">
+                <span class="frow-label">ERP Sync Status</span>
+                <span class="frow-val fval-green">Posted to SAP</span>
+              </div>
+              <div class="frame-log">
+                <span class="pulse pulse-green" style="width:5px;height:5px;"></span>
+                Check-in completed in 45 seconds via WhatsApp Bot
               </div>
             </div>
           </div>
         </div>
 
-        <!-- SHOWCASE 03: LedgerFlow -->
-        <div class="work-card-showcase">
-          <div class="work-card-content">
-            <div class="work-card-header-tags">
-              <span class="pill-badge" style="background: rgba(139, 92, 246, 0.1); color: var(--violet); border-color: rgba(139, 92, 246, 0.3); font-size: 11px;">
-                CASE STUDY • FINANCIAL RECONCILIATION
-              </span>
-              <span class="pill-badge" style="background: rgba(139, 92, 246, 0.1); color: var(--violet); border-color: rgba(139, 92, 246, 0.3); font-size: 11px;">
-                <span class="live-beacon" style="background: var(--violet); box-shadow: 0 0 8px var(--violet);"></span> SAP Synced
-              </span>
+        <!-- LedgerFlow -->
+        <div class="showcase-item reveal">
+          <div class="showcase-content">
+            <div class="showcase-tags">
+              <span class="tag tag-violet">Financial Reconciliation</span>
+              <span class="badge badge-violet"><span class="pulse pulse-violet"></span>SAP Synced</span>
             </div>
-
-            <h3 class="work-card-title">LedgerFlow — Autonomous 3-Way AP Audit</h3>
-            
-            <p class="work-card-subhead">
-              Autonomous accounts payable 3-way matching engine cross-referencing vendor invoices, purchase orders, and warehouse receipts with sub-second latency and zero margin leakage.
-            </p>
-
-            <div class="work-card-partners">
-              <strong>Domain:</strong> Enterprise Finance &amp; AP Controllers &nbsp;•&nbsp; <strong>Capability:</strong> Sub-second 3-Way Line Matching
+            <h3>LedgerFlow — Autonomous 3-Way AP Audit</h3>
+            <p>Autonomous accounts payable 3-way matching engine cross-referencing vendor invoices, purchase orders, and warehouse receipts with sub-second latency and zero margin leakage.</p>
+            <div class="showcase-domain">
+              <strong>Domain:</strong> Enterprise Finance &amp; AP Controllers &nbsp;•&nbsp;
+              <strong>Capability:</strong> Sub-second 3-Way Line Matching
             </div>
-
-            <div class="work-card-phases">
-              <span class="work-phase-pill">Financial AI</span>
-              <span class="work-phase-pill">SAP S/4HANA</span>
-              <span class="work-phase-pill">Tally Prime</span>
-              <span class="work-phase-pill">Fraud Prevention</span>
+            <div class="tech-row">
+              <span class="chip">Financial AI</span>
+              <span class="chip">SAP S/4HANA</span>
+              <span class="chip">Tally Prime</span>
+              <span class="chip">Fraud Prevention</span>
             </div>
-
-            <div class="work-card-actions">
-              <a href="work-ledgerflow.html" class="button-gradient" style="padding: 12px 28px; font-size: 14px; border-radius: 9999px;">
-                View Case Study →
-              </a>
-              <a href="ledgerflow.html" class="button-outline" style="padding: 12px 24px; font-size: 14px; border-radius: 9999px;">
-                Explore Console ↗
-              </a>
+            <div class="showcase-actions">
+              <a href="work-ledgerflow.html" class="btn-primary">View Case Study →</a>
+              <a href="ledgerflow.html" class="btn-ghost">Explore Console ↗</a>
             </div>
           </div>
 
-          <!-- Right: macOS Browser Frame Preview -->
-          <div class="macos-browser-frame" style="box-shadow: 0 20px 50px rgba(0,0,0,0.5);">
-            <div class="macos-browser-header">
-              <div class="macos-traffic-lights">
-                <span class="traffic-light red"></span>
-                <span class="traffic-light yellow"></span>
-                <span class="traffic-light green"></span>
-              </div>
-              <div class="macos-address-bar">
-                <span>🔒</span>
-                <span>https://ledgerflow.istaroth.ai/3-way-audit</span>
-              </div>
-              <div style="font-family: var(--font-mono); font-size: 11px; color: var(--violet);">
-                ERP BRIDGE ACTIVE
-              </div>
+          <div class="app-frame">
+            <div class="frame-bar">
+              <div class="frame-dots"><span class="dot dot-r"></span><span class="dot dot-y"></span><span class="dot dot-g"></span></div>
+              <div class="frame-url">🔒 ledgerflow.istaroth.ai/3-way-audit</div>
+              <span class="frame-stat fval-violet">ERP BRIDGE ACTIVE</span>
             </div>
-            <div class="macos-browser-body" style="padding: 24px; background: rgba(5, 7, 14, 0.95);">
-              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+            <div class="frame-body">
+              <div class="frame-header-row">
                 <div>
-                  <div style="font-size: 15px; font-weight: 700; color: var(--text-pure);">Invoice #TS-49210</div>
-                  <div style="font-size: 12px; color: var(--text-dim); margin-top: 2px;">Supplier Pack A • Line-Item Match Cleared</div>
+                  <div class="frame-title">Invoice #TS-49210</div>
+                  <div class="frame-sub">Supplier Pack A • Line-Item Match Cleared</div>
                 </div>
-                <span class="pill-badge" style="background: rgba(139, 92, 246, 0.1); color: var(--violet); font-size: 11px;">Cleared</span>
+                <span class="frame-chip chip-violet">Cleared</span>
               </div>
-              <div style="background: rgba(255, 255, 255, 0.02); border: 1px solid var(--border-subtle); border-radius: 8px; padding: 14px; margin-bottom: 14px;">
-                <div style="display: flex; justify-content: space-between; font-size: 13px; margin-bottom: 6px;">
-                  <span style="color: var(--text-muted);">Purchase Order #4110</span>
-                  <span style="color: var(--emerald); font-weight: 700;">✓ 100% Rate Match</span>
-                </div>
-                <div style="display: flex; justify-content: space-between; font-size: 13px;">
-                  <span style="color: var(--text-muted);">Warehouse GRN #9024</span>
-                  <span style="color: var(--emerald); font-weight: 700;">✓ 42,800 kg Weighed</span>
-                </div>
+              <div class="frow">
+                <span class="frow-label">Purchase Order #4110</span>
+                <span class="frow-val fval-green">✓ 100% Rate Match</span>
               </div>
-              <div style="font-size: 12px; color: var(--violet); display: flex; align-items: center; gap: 6px;">
-                <span class="beacon-dot" style="background: var(--violet); box-shadow: 0 0 6px var(--violet);"></span> SAP Voucher #PV-8812 automatically posted in 0.8s
+              <div class="frow">
+                <span class="frow-label">Warehouse GRN #9024</span>
+                <span class="frow-val fval-green">✓ 42,800 kg Weighed</span>
+              </div>
+              <div class="frow">
+                <span class="frow-label">Fraud Signals</span>
+                <span class="frow-val fval-green">None Detected</span>
+              </div>
+              <div class="frame-log">
+                <span class="pulse pulse-violet" style="width:5px;height:5px;"></span>
+                SAP Voucher #PV-8812 auto-posted in 0.8s
               </div>
             </div>
           </div>
@@ -421,166 +351,79 @@
       </div>
     </section>
 
-    <!-- SECTION 4: WHY ISTAROTH (Cosmiron Section 4: Operating Principles) -->
-    <section id="why-istaroth" style="padding: 60px 0 100px; border-top: 1px solid var(--border-subtle);">
+    <!-- ═══ WHY ISTAROTH ═══ -->
+    <section class="section-why">
       <div class="container">
-        
-        <div style="text-align: center; max-width: 760px; margin: 0 auto 50px;">
-          <div class="badge-pill" style="margin-bottom: 14px;">
-            <span class="beacon-dot"></span>
-            <span>WHY ISTAROTH</span>
-          </div>
-          <h2 style="font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.03em; margin-bottom: 16px;">
-            Why forward-thinking enterprises partner with us.
-          </h2>
-          <p style="color: var(--text-muted); font-size: 16px; line-height: 1.6;">
-            We build sovereign enterprise software assets, not disposable AI wrappers.
-          </p>
+        <div class="section-head reveal">
+          <span class="badge badge-violet">Why IstarothAI</span>
+          <h2>Why forward-thinking enterprises partner with us.</h2>
+          <p>We build sovereign enterprise software assets, not disposable AI wrappers.</p>
         </div>
 
-        <div class="principles-grid-cosmiron">
-          
-          <!-- Card 1 -->
-          <div class="principle-card">
-            <div class="principle-num">01 / TEAM</div>
+        <div class="principles-grid">
+          <div class="principle-card reveal reveal-d1">
+            <div class="principle-num">01 / Team</div>
             <div class="principle-title">Dedicated Specialists</div>
-            <div class="principle-desc">
-              Direct access to senior AI engineers and systems architects from day one. No junior intermediaries or account managers.
-            </div>
+            <p class="principle-desc">Direct access to senior AI engineers from day one. No junior intermediaries, no account managers obscuring progress.</p>
           </div>
-
-          <!-- Card 2 -->
-          <div class="principle-card">
-            <div class="principle-num">02 / ARCHITECTURE</div>
+          <div class="principle-card reveal reveal-d2">
+            <div class="principle-num">02 / Architecture</div>
             <div class="principle-title">Deterministic Precision</div>
-            <div class="principle-desc">
-              Mathematical constraint solvers ensuring zero hallucinations on high-stakes operational numbers and contracts.
-            </div>
+            <p class="principle-desc">Mathematical constraint solvers ensuring zero hallucinations on high-stakes operational numbers and complex contract data.</p>
           </div>
-
-          <!-- Card 3 -->
-          <div class="principle-card">
-            <div class="principle-num">03 / SOVEREIGNTY</div>
+          <div class="principle-card reveal reveal-d3">
+            <div class="principle-num">03 / Sovereignty</div>
             <div class="principle-title">100% Client Ownership</div>
-            <div class="principle-desc">
-              Complete source code, custom pipelines, and IP ownership. Zero vendor lock-in or recurring per-seat SaaS tax.
-            </div>
+            <p class="principle-desc">Complete source code, custom pipelines, and IP ownership transferred to you. Zero vendor lock-in or recurring per-seat SaaS tax.</p>
           </div>
-
-          <!-- Card 4 -->
-          <div class="principle-card">
-            <div class="principle-num">04 / RELIABILITY</div>
+          <div class="principle-card reveal reveal-d4">
+            <div class="principle-num">04 / Reliability</div>
             <div class="principle-title">Mission-Critical Core</div>
-            <div class="principle-desc">
-              Industrial-grade fail-safes designed for 24/7 continuous operation across physical docks and ERP backends.
-            </div>
+            <p class="principle-desc">Industrial-grade fail-safes designed for 24/7 continuous operation across physical docks and ERP financial backends.</p>
           </div>
-
         </div>
-
       </div>
     </section>
 
-    <!-- SECTION 5: FINAL CTA BOX (Cosmiron Style) -->
-    <section style="padding: 0 20px 80px;">
+    <!-- ═══ CTA ═══ -->
+    <section class="section-cta">
       <div class="container">
-        <div class="cosmiron-cta-box">
-          <div class="badge-pill" style="margin-bottom: 20px; display: inline-flex;">
-            <span class="beacon-dot"></span>
-            <span>GET IN TOUCH</span>
+        <div class="cta-box reveal">
+          <span class="badge badge-cyan" style="margin-bottom: 22px; display: inline-flex;">
+            <span class="pulse pulse-cyan"></span>Get in Touch
+          </span>
+          <h2>Ready to eliminate your operational bottlenecks?</h2>
+          <p>Let's discuss how bespoke autonomous intelligence can elevate your team's accuracy and protect your bottom line.</p>
+          <div class="cta-actions">
+            <a href="contact-us.html" class="btn-primary">Let's talk →</a>
+            <a href="work.html" class="btn-ghost">View all work</a>
           </div>
-
-          <h2 style="font-size: clamp(34px, 4.5vw, 52px); letter-spacing: -0.035em; font-weight: 800; line-height: 1.15; margin-bottom: 18px;">
-            Ready to eliminate your operational bottlenecks?
-          </h2>
-
-          <p style="color: var(--text-muted); font-size: 17px; line-height: 1.6; max-width: 600px; margin: 0 auto 36px;">
-            Let's discuss how bespoke autonomous intelligence can elevate your team's accuracy and protect your bottom line.
-          </p>
-
-          <a href="contact-us.html" class="button-gradient" style="padding: 16px 42px; font-size: 15px; border-radius: 9999px; text-decoration: none; display: inline-block;">
-            Let's talk →
-          </a>
         </div>
       </div>
     </section>
 
   </main>
 
-  <!-- DIAGNOSTIC MODAL -->
-  <div class="modal-backdrop" id="diagnostic-modal">
-    <div class="modal-surface">
-      <button class="modal-close-btn" id="close-modal-btn">&times;</button>
-      
-      <div style="margin-bottom: 24px;">
-        <div class="badge-pill" style="margin-bottom: 8px;">
-          <span class="beacon-dot"></span>
-          <span>ARCHITECTURAL INTAKE</span>
-        </div>
-        <h3 style="font-size: 26px; margin-top: 8px;">Initiate an Operational Audit</h3>
-        <p style="font-size: 14px; color: var(--text-muted); margin-top: 4px;">
-          Talk directly with an Istaroth systems architect. We’ll analyze your operational bottlenecks in a 30-minute technical session.
-        </p>
-      </div>
-
-      <form id="audit-form" onsubmit="handleAuditSubmit(event)">
-        <div class="form-field">
-          <label for="audit-name">Full Name</label>
-          <input type="text" id="audit-name" class="input-dark" placeholder="e.g. Vikramaditya Rao" required>
-        </div>
-
-        <div class="form-field">
-          <label for="audit-email">Work Email</label>
-          <input type="email" id="audit-email" class="input-dark" placeholder="vikram@enterprise.com" required>
-        </div>
-
-        <div class="form-field">
-          <label for="audit-focus">Operational Bottleneck Domain</label>
-          <select id="audit-focus" class="input-dark" style="background: #0A0F22;">
-            <option value="bidintel">Construction Precon &amp; Leveling (BidIntel)</option>
-            <option value="yardsync">Factory Gate &amp; Weighbridge Logistics (YardSync)</option>
-            <option value="ledgerflow">Autonomous 3-Way Invoice Matching (LedgerFlow)</option>
-            <option value="custom">Custom Enterprise AI Integration</option>
-          </select>
-        </div>
-
-        <button type="submit" class="btn-primary" id="audit-submit-btn" style="width: 100%; padding: 14px; margin-top: 8px; border-radius: 9999px;">
-          Submit Diagnostic Request →
-        </button>
-
-        <div id="audit-feedback" style="font-family: var(--font-mono); font-size: 12.5px; color: var(--emerald); display: none; text-align: center; margin-top: 14px;">
-          ✓ Intake confirmed. An Istaroth systems architect will reach out within 24 hours.
-        </div>
-      </form>
-    </div>
-  </div>
-
-  <!-- SITE FOOTER (Cosmiron Style) -->
+  <!-- ═══ FOOTER ═══ -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-grid">
         <div>
-          <div style="font-family: var(--font-editorial); font-size: 24px; font-weight: 800; margin-bottom: 12px;">
-            Istaroth<span style="color: var(--cyan);">AI</span>
-          </div>
-          <p style="color: var(--text-muted); font-size: 14px; line-height: 1.6; max-width: 320px;">
-            Applied AI and autonomous systems engineering studio for mission-critical enterprise operations.
-          </p>
-          <div style="font-family: var(--font-mono); font-size: 11px; color: var(--emerald); margin-top: 16px;">
-            <span class="beacon-dot"></span> PRODUCTION SYSTEMS ACTIVE
+          <div class="footer-brand-name">Istaroth<span>AI</span></div>
+          <p class="footer-tagline">Applied AI and autonomous systems engineering studio for mission-critical enterprise operations.</p>
+          <div class="footer-status">
+            <span class="pulse pulse-green"></span> Production Systems Active
           </div>
         </div>
-
         <div class="footer-col">
           <h6>Selected Work</h6>
           <ul>
             <li><a href="work-bidintel.html">BidIntel Precon Study</a></li>
-            <li><a href="bidintel.html">BidIntel Live Platform ↗</a></li>
+            <li><a href="bidintel.html">BidIntel Platform ↗</a></li>
             <li><a href="work-yardsync.html">YardSync Gate Study</a></li>
             <li><a href="work-ledgerflow.html">LedgerFlow AP Study</a></li>
           </ul>
         </div>
-
         <div class="footer-col">
           <h6>Studio</h6>
           <ul>
@@ -591,7 +434,6 @@
             <li><a href="contact-us.html">Contact Us</a></li>
           </ul>
         </div>
-
         <div class="footer-col">
           <h6>Contact</h6>
           <ul>
@@ -599,9 +441,8 @@
           </ul>
         </div>
       </div>
-
       <div class="footer-bottom">
-        <span>&copy; 2026 IstarothAI. Autonomous Systems Engineering Studio.</span>
+        <span>© 2026 IstarothAI. Autonomous Systems Engineering Studio.</span>
         <span>All systems sovereign. Zero vendor lock-in.</span>
       </div>
     </div>

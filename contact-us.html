@@ -3,41 +3,31 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact &amp; Architecture Intake — IstarothAI</title>
+  <title>Contact — IstarothAI</title>
   <meta name="description" content="Connect directly with IstarothAI systems architects to evaluate operational bottlenecks and explore autonomous AI deployments.">
-  
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
-  
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-  <!-- Ambient Illumination Backgrounds -->
-  <div class="ambient-glow-top"></div>
-  <div class="ambient-beam-left"></div>
-  <div class="ambient-beam-right"></div>
-
-  <!-- Floating Island Capsule Navigation -->
-  <div class="nav-island-wrapper">
-    <nav class="nav-island" id="navbar">
+  <!-- ═══ NAVBAR ═══ -->
+  <div class="nav-wrapper">
+    <nav class="navbar" id="navbar">
       <a href="index.html" class="nav-brand">
-        <svg class="brand-glyph" viewBox="0 0 36 36" fill="none">
-          <circle cx="18" cy="18" r="15" stroke="rgba(255,255,255,0.18)" stroke-width="2"/>
-          <path d="M18 3C26.2843 3 33 9.71573 33 18C33 26.2843 26.2843 33 18 33" stroke="url(#cyan-grad)" stroke-width="2.5" stroke-linecap="round"/>
-          <circle cx="18" cy="18" r="5" fill="url(#cyan-grad)"/>
+        <svg class="nav-logo" viewBox="0 0 32 32" fill="none">
+          <circle cx="16" cy="16" r="13" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"/>
+          <path d="M16 3C22.627 3 28 8.373 28 15C28 21.627 22.627 27 16 27" stroke="url(#ng4)" stroke-width="2.2" stroke-linecap="round"/>
+          <circle cx="16" cy="16" r="4.5" fill="url(#ng4)"/>
           <defs>
-            <linearGradient id="cyan-grad" x1="18" y1="3" x2="33" y2="33" gradientUnits="userSpaceOnUse">
-              <stop stop-color="#00F2FE"/>
-              <stop offset="1" stop-color="#8A3FFC"/>
+            <linearGradient id="ng4" x1="16" y1="3" x2="28" y2="28" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#38BDF8"/><stop offset="1" stop-color="#8B5CF6"/>
             </linearGradient>
           </defs>
         </svg>
-        <span>Istaroth<span style="color: var(--cyan);">AI</span></span>
+        <span>Istaroth<span class="ai">AI</span></span>
       </a>
-
       <ul class="nav-links">
         <li><a href="what-we-do.html">What we do</a></li>
         <li><a href="our-approach.html">Our approach</a></li>
@@ -45,115 +35,127 @@
         <li><a href="about-us.html">About us</a></li>
         <li><a href="contact-us.html" class="active">Contact</a></li>
       </ul>
-
-      <div class="nav-actions">
-        <a href="contact-us.html" class="button-gradient" style="padding: 10px 22px; font-size: 13.5px; border-radius: 9999px;">Let's talk</a>
-      </div>
+      <a href="contact-us.html" class="nav-cta">Let's talk</a>
+      <button class="nav-burger" id="nav-burger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
     </nav>
   </div>
+  <div class="nav-drawer" id="nav-drawer">
+    <a href="what-we-do.html">What we do</a>
+    <a href="our-approach.html">Our approach</a>
+    <a href="work.html">Work</a>
+    <a href="about-us.html">About us</a>
+    <a href="contact-us.html">Contact</a>
+    <a href="contact-us.html" class="drawer-cta">Let's talk →</a>
+  </div>
 
-  <main style="position: relative; z-index: 2; padding-top: 130px; padding-bottom: 90px;">
-    <div class="container">
-      
-      <!-- Subpage Header -->
-      <div class="reveal-on-scroll" style="text-align: center; max-width: 820px; margin: 0 auto 36px;">
-        <div class="badge-pill" style="margin-bottom: 20px;">
-          <span class="beacon-dot"></span>
-          <span>DIRECT ENGAGEMENT • DISCOVERY</span>
+  <main>
+
+    <!-- Page Hero -->
+    <section class="page-hero" style="position:relative;overflow:hidden;padding-bottom:40px;">
+      <div class="page-glow"></div>
+      <div class="container">
+        <div class="reveal">
+          <span class="badge badge-cyan">Direct Engagement • Discovery</span>
         </div>
-
-        <h1 style="font-size: clamp(38px, 5.5vw, 64px); letter-spacing: -0.04em; font-weight: 800; line-height: 1.1; margin-bottom: 20px;">
-          Let's discuss your operations.
+        <h1 class="reveal reveal-d1">
+          Let's discuss<br>
+          <span class="grad-text">your operations.</span>
         </h1>
-
-        <p style="font-size: clamp(16px, 1.8vw, 19px); color: var(--text-muted); line-height: 1.6; max-width: 680px; margin: 0 auto 24px;">
-          Have an operational bottleneck ready for autonomous intelligence? Reach out directly via our official intake form below or email our team.
+        <p class="reveal reveal-d2">
+          Have an operational bottleneck ready for autonomous intelligence? Reach out directly — you'll speak with a systems architect, not a sales rep.
         </p>
+      </div>
+    </section>
 
-        <!-- Direct Email Pill -->
-        <div style="display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;">
-          <a href="mailto:reddykarthik370@gmail.com" class="button-outline" style="padding: 12px 28px; font-size: 15px; border-radius: 9999px; text-decoration: none; display: inline-flex; align-items: center; gap: 10px; color: var(--text-pure); border-color: rgba(0, 242, 254, 0.3); background: rgba(0, 242, 254, 0.05);">
-            <span style="color: var(--cyan);">✉</span>
-            <span>reddykarthik370@gmail.com</span>
+    <!-- Contact Layout -->
+    <div class="container">
+      <div class="contact-layout">
+
+        <!-- Sidebar -->
+        <div class="contact-sidebar reveal">
+
+          <div class="contact-card">
+            <div class="contact-card-label">Email</div>
+            <a href="mailto:reddykarthik370@gmail.com">reddykarthik370@gmail.com</a>
+          </div>
+
+          <div class="contact-card">
+            <div class="contact-card-label">Response Time</div>
+            <p>Within 24 hours on business days. Priority response for time-sensitive production bottlenecks.</p>
+          </div>
+
+          <div class="contact-card">
+            <div class="contact-card-label">What Happens Next</div>
+            <p>You'll be connected directly with a senior systems architect — no junior sales intermediary. We'll evaluate your operational setup in a 30-minute technical session.</p>
+          </div>
+
+          <div class="contact-card">
+            <div class="contact-card-label">Current System Status</div>
+            <div style="display:flex;align-items:center;gap:8px;margin-top:4px;">
+              <span class="pulse pulse-green"></span>
+              <span style="font-family:var(--font-mono);font-size:12px;color:var(--emerald);">All 3 production systems online</span>
+            </div>
+          </div>
+
+          <a href="contact-us.html" class="btn-ghost" style="width:100%;justify-content:center;margin-top:4px;">
+            Open form fullscreen ↗
           </a>
         </div>
-      </div>
 
-      <!-- Live Embedded Google Form Container (Real Form, Zero 404s) -->
-      <div class="reveal-on-scroll" style="max-width: 800px; margin: 0 auto 30px; border-radius: 24px; overflow: hidden; background: #ffffff; border: 1px solid rgba(255, 255, 255, 0.15); box-shadow: 0 30px 90px rgba(0,0,0,0.7);">
-        <iframe 
-          src="https://docs.google.com/forms/d/e/1FAIpQLScz3sQmmuGnA24tXPdjW7Km66ONxlTHQUsdd7hx0tH_u8hjRw/viewform?embedded=true" 
-          width="100%" 
-          height="920" 
-          frameborder="0" 
-          marginheight="0" 
-          marginwidth="0"
-          id="google-form-iframe"
-          style="border: none; width: 100%; height: 920px; display: block;"
-        >Loading IstarothAI Google Form…</iframe>
-      </div>
+        <!-- Form -->
+        <div class="form-wrap reveal reveal-d1">
+          <iframe
+            src="https://docs.google.com/forms/d/e/1FAIpQLScz3sQmmuGnA24tXPdjW7Km66ONxlTHQUsdd7hx0tH_u8hjRw/viewform?embedded=true"
+            width="100%"
+            height="720"
+            frameborder="0"
+            marginheight="0"
+            marginwidth="0"
+            title="IstarothAI Contact Form"
+            style="border:none;width:100%;min-height:720px;display:block;"
+          >Loading…</iframe>
+        </div>
 
-      <div style="text-align: center; margin-bottom: 60px;">
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLScz3sQmmuGnA24tXPdjW7Km66ONxlTHQUsdd7hx0tH_u8hjRw/viewform" target="_blank" class="button-outline" style="padding: 10px 24px; font-size: 13.5px; border-radius: 9999px; text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">
-          <span>Open Form in Fullscreen Tab</span>
-          <span style="color: var(--cyan);">↗</span>
-        </a>
       </div>
-
     </div>
+
   </main>
 
-  <!-- Consistent Corporate Footer -->
-  <footer class="footer-corporate">
+  <footer class="site-footer">
     <div class="container">
       <div class="footer-grid">
-        <div class="footer-col-brand">
-          <a href="index.html" class="nav-brand" style="margin-bottom: 16px;">
-            <svg class="brand-glyph" viewBox="0 0 36 36" fill="none">
-              <circle cx="18" cy="18" r="15" stroke="rgba(255,255,255,0.18)" stroke-width="2"/>
-              <path d="M18 3C26.2843 3 33 9.71573 33 18C33 26.2843 26.2843 33 18 33" stroke="url(#cyan-grad)" stroke-width="2.5" stroke-linecap="round"/>
-              <circle cx="18" cy="18" r="5" fill="url(#cyan-grad)"/>
-            </svg>
-            <span>Istaroth<span style="color: var(--cyan);">AI</span></span>
-          </a>
-          <p class="footer-bio">Applied AI and autonomous systems engineering studio for mission-critical enterprise operations.</p>
-          <div class="footer-status-pill">
-            <span class="live-dot-green"></span>
-            PRODUCTION SYSTEMS ACTIVE
-          </div>
+        <div>
+          <div class="footer-brand-name">Istaroth<span>AI</span></div>
+          <p class="footer-tagline">Applied AI and autonomous systems engineering studio for mission-critical enterprise operations.</p>
+          <div class="footer-status"><span class="pulse pulse-green"></span> Production Systems Active</div>
         </div>
-
         <div class="footer-col">
-          <div class="footer-heading">Selected Work</div>
-          <ul class="footer-links">
+          <h6>Selected Work</h6>
+          <ul>
             <li><a href="work.html">Reference Systems Overview</a></li>
-            <li><a href="bidintel.html">BidIntel Precon Platform ↗</a></li>
-            <li><a href="yardsync.html">YardSync Gate Platform ↗</a></li>
-            <li><a href="ledgerflow.html">LedgerFlow AP Platform ↗</a></li>
+            <li><a href="bidintel.html">BidIntel Platform ↗</a></li>
+            <li><a href="yardsync.html">YardSync Platform ↗</a></li>
+            <li><a href="ledgerflow.html">LedgerFlow Platform ↗</a></li>
           </ul>
         </div>
-
         <div class="footer-col">
-          <div class="footer-heading">Studio</div>
-          <ul class="footer-links">
+          <h6>Studio</h6>
+          <ul>
             <li><a href="what-we-do.html">What We Do</a></li>
             <li><a href="our-approach.html">Our Approach</a></li>
             <li><a href="work.html">Selected Work</a></li>
             <li><a href="about-us.html">About Us</a></li>
-            <li><a href="contact-us.html">Contact Us</a></li>
           </ul>
         </div>
-
         <div class="footer-col">
-          <div class="footer-heading">Contact</div>
-          <ul class="footer-links">
-            <li><a href="mailto:reddykarthik370@gmail.com">reddykarthik370@gmail.com</a></li>
-          </ul>
+          <h6>Contact</h6>
+          <ul><li><a href="mailto:reddykarthik370@gmail.com">reddykarthik370@gmail.com</a></li></ul>
         </div>
       </div>
-
       <div class="footer-bottom">
-        <span>&copy; 2026 IstarothAI. Autonomous Systems Engineering Studio.</span>
+        <span>© 2026 IstarothAI. Autonomous Systems Engineering Studio.</span>
         <span>All systems sovereign. Zero vendor lock-in.</span>
       </div>
     </div>

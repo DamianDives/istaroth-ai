@@ -4,40 +4,30 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Our Approach — IstarothAI</title>
-  <meta name="description" content="Discover how IstarothAI turns enterprise friction into autonomous speed: our 4-stage engineering protocol and operating partnership model.">
-  
-  <!-- Fonts -->
+  <meta name="description" content="Discover how IstarothAI turns enterprise friction into autonomous speed: our 4-stage engineering protocol and sovereign operating partnership model.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
-  
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-  <!-- Ambient Glow & Lighting -->
-  <div class="ambient-glow-top"></div>
-  <div class="ambient-beam-left"></div>
-  <div class="ambient-beam-right"></div>
-
-  <!-- Floating Island Capsule Navigation Bar -->
-  <div class="nav-island-wrapper">
-    <nav class="nav-island" id="navbar">
+  <!-- ═══ NAVBAR ═══ -->
+  <div class="nav-wrapper">
+    <nav class="navbar" id="navbar">
       <a href="index.html" class="nav-brand">
-        <svg class="brand-glyph" viewBox="0 0 36 36" fill="none">
-          <circle cx="18" cy="18" r="15" stroke="rgba(255,255,255,0.18)" stroke-width="2"/>
-          <path d="M18 3C26.2843 3 33 9.71573 33 18C33 26.2843 26.2843 33 18 33" stroke="url(#cyan-grad)" stroke-width="2.5" stroke-linecap="round"/>
-          <circle cx="18" cy="18" r="5" fill="url(#cyan-grad)"/>
+        <svg class="nav-logo" viewBox="0 0 32 32" fill="none">
+          <circle cx="16" cy="16" r="13" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"/>
+          <path d="M16 3C22.627 3 28 8.373 28 15C28 21.627 22.627 27 16 27" stroke="url(#ng2)" stroke-width="2.2" stroke-linecap="round"/>
+          <circle cx="16" cy="16" r="4.5" fill="url(#ng2)"/>
           <defs>
-            <linearGradient id="cyan-grad" x1="18" y1="3" x2="33" y2="33" gradientUnits="userSpaceOnUse">
-              <stop stop-color="#00F2FE"/>
-              <stop offset="1" stop-color="#8A3FFC"/>
+            <linearGradient id="ng2" x1="16" y1="3" x2="28" y2="28" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#38BDF8"/><stop offset="1" stop-color="#8B5CF6"/>
             </linearGradient>
           </defs>
         </svg>
-        <span>Istaroth<span style="color: var(--cyan);">AI</span></span>
+        <span>Istaroth<span class="ai">AI</span></span>
       </a>
-
       <ul class="nav-links">
         <li><a href="what-we-do.html">What we do</a></li>
         <li><a href="our-approach.html" class="active">Our approach</a></li>
@@ -45,139 +35,141 @@
         <li><a href="about-us.html">About us</a></li>
         <li><a href="contact-us.html">Contact</a></li>
       </ul>
-
-      <div class="nav-actions">
-        <a href="contact-us.html" class="button-gradient" style="padding: 10px 22px; font-size: 13.5px; border-radius: 9999px;">Let's talk</a>
-      </div>
+      <a href="contact-us.html" class="nav-cta">Let's talk</a>
+      <button class="nav-burger" id="nav-burger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
     </nav>
   </div>
+  <div class="nav-drawer" id="nav-drawer">
+    <a href="what-we-do.html">What we do</a>
+    <a href="our-approach.html">Our approach</a>
+    <a href="work.html">Work</a>
+    <a href="about-us.html">About us</a>
+    <a href="contact-us.html">Contact</a>
+    <a href="contact-us.html" class="drawer-cta">Let's talk →</a>
+  </div>
 
-  <main style="position: relative; z-index: 2; padding-top: 130px; padding-bottom: 90px;">
-    <div class="container">
-      
-      <!-- Subpage Header -->
-      <div class="reveal-on-scroll" style="text-align: center; max-width: 820px; margin: 0 auto 50px;">
-        <div class="badge-pill" style="margin-bottom: 20px;">
-          <span class="beacon-dot"></span>
-          <span>ENGINEERING PROTOCOL • METHODOLOGY</span>
+  <main>
+
+    <!-- ═══ PAGE HERO ═══ -->
+    <section class="page-hero" style="position:relative;overflow:hidden;">
+      <div class="page-glow"></div>
+      <div class="container">
+        <div class="reveal">
+          <span class="badge badge-cyan">Engineering Protocol • Methodology</span>
         </div>
-
-        <h1 style="font-size: clamp(38px, 5vw, 62px); letter-spacing: -0.04em; font-weight: 800; line-height: 1.1; margin-bottom: 20px;">
-          Rigorous engineering. <br>
-          <span class="gradient-accent">Zero speculative guesswork.</span>
+        <h1 class="reveal reveal-d1">
+          Rigorous engineering.<br>
+          <span class="grad-text">Zero speculative guesswork.</span>
         </h1>
-
-        <p style="font-size: clamp(16px, 1.8vw, 18.5px); color: var(--text-muted); line-height: 1.6; max-width: 720px; margin: 0 auto;">
-          We bridge the gap between speculative AI research and industrial-grade production code through a structured 4-stage engineering protocol designed for sovereign enterprise deployment.
+        <p class="reveal reveal-d2">
+          We bridge the gap between speculative AI research and industrial-grade production code through a structured 4-stage engineering protocol built for sovereign enterprise deployment.
         </p>
       </div>
+    </section>
 
-      <!-- The 4-Stage Protocol (Spacious, Animated, Connected) -->
-      <div class="protocol-grid-cosmiron">
-        
-        <div class="protocol-card card-spotlight reveal-on-scroll stagger-1">
-          <div class="protocol-num">01</div>
-          <div class="protocol-pill">PHASE 01 • 2 WEEKS</div>
-          <h3 class="protocol-card-title">Operational Discovery</h3>
-          <p class="protocol-card-desc">
-            We map manual bottlenecks, physical workflows, and legacy data structures. We interview operators, inspect messy unstructured inputs, and establish quantitative acceptance criteria.
-          </p>
-          <div class="protocol-card-deliverable">
-            <span>Deliverable:</span>
-            <strong>Technical Architecture Spec &amp; Feasibility Score</strong>
-          </div>
+    <!-- ═══ TIMELINE ═══ -->
+    <section class="approach-section">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="badge badge-cyan">The 4-Stage Protocol</span>
+          <h2>A disciplined path to autonomous operations.</h2>
+          <p>Every engagement follows this exact lifecycle — no shortcuts, no speculation, no scope creep.</p>
         </div>
 
-        <div class="protocol-card card-spotlight reveal-on-scroll stagger-2">
-          <div class="protocol-num">02</div>
-          <div class="protocol-pill">PHASE 02 • 3 WEEKS</div>
-          <h3 class="protocol-card-title">Sandbox &amp; Validation</h3>
-          <p class="protocol-card-desc">
-            We engineer a high-fidelity prototype operating on real anonymized data schemas. Subsystem models are benchmarked for precision, inference latency, and edge fallback behavior.
-          </p>
-          <div class="protocol-card-deliverable">
-            <span>Deliverable:</span>
-            <strong>Working Sandbox Prototype &amp; Test Suite</strong>
-          </div>
-        </div>
+        <div class="timeline">
 
-        <div class="protocol-card card-spotlight reveal-on-scroll stagger-3">
-          <div class="protocol-num">03</div>
-          <div class="protocol-pill">PHASE 03 • 4 WEEKS</div>
-          <h3 class="protocol-card-title">Production Cutover</h3>
-          <p class="protocol-card-desc">
-            We deploy directly into your cloud VPC or on-premise infrastructure. Hardware sensors, ERP endpoints, and operator dashboards are bridged with automated human-in-the-loop safeguards.
-          </p>
-          <div class="protocol-card-deliverable">
-            <span>Deliverable:</span>
-            <strong>Live Industrial Production Cutover</strong>
+          <div class="tl-item reveal">
+            <div class="tl-marker">01</div>
+            <div class="tl-content">
+              <div class="tl-meta">Phase 01 • 2 Weeks</div>
+              <h3>Operational Discovery</h3>
+              <p>We map manual bottlenecks, physical workflows, and legacy data structures. We interview operators, inspect messy unstructured inputs, and establish quantitative acceptance criteria before a single line of code is written.</p>
+              <div class="tl-deliverable">
+                <span>Deliverable:</span>
+                <strong>Technical Architecture Spec &amp; Feasibility Score</strong>
+              </div>
+            </div>
           </div>
-        </div>
 
-        <div class="protocol-card card-spotlight reveal-on-scroll stagger-4">
-          <div class="protocol-num">04</div>
-          <div class="protocol-pill">PHASE 04 • CONTINUOUS</div>
-          <h3 class="protocol-card-title">Autonomous MLOps</h3>
-          <p class="protocol-card-desc">
-            Autonomous health monitoring, data drift prevention, model fine-tuning, and dedicated engineering support to ensure 99.9% operational reliability without internal dev overhead.
-          </p>
-          <div class="protocol-card-deliverable">
-            <span>Deliverable:</span>
-            <strong>Telemetry Dashboard &amp; 99.9% Uptime SLA</strong>
+          <div class="tl-item reveal">
+            <div class="tl-marker">02</div>
+            <div class="tl-content">
+              <div class="tl-meta">Phase 02 • 3 Weeks</div>
+              <h3>Sandbox &amp; Validation</h3>
+              <p>We engineer a high-fidelity prototype operating on real anonymized data schemas. Subsystem models are benchmarked for precision, inference latency, and edge fallback behavior before any production exposure.</p>
+              <div class="tl-deliverable">
+                <span>Deliverable:</span>
+                <strong>Working Sandbox Prototype &amp; Test Suite</strong>
+              </div>
+            </div>
           </div>
-        </div>
 
+          <div class="tl-item reveal">
+            <div class="tl-marker">03</div>
+            <div class="tl-content">
+              <div class="tl-meta">Phase 03 • 4 Weeks</div>
+              <h3>Production Cutover</h3>
+              <p>We deploy directly into your cloud VPC or on-premise infrastructure. Hardware sensors, ERP endpoints, and operator dashboards are bridged with automated human-in-the-loop safeguards for zero-risk go-live.</p>
+              <div class="tl-deliverable">
+                <span>Deliverable:</span>
+                <strong>Live Industrial Production Cutover</strong>
+              </div>
+            </div>
+          </div>
+
+          <div class="tl-item reveal">
+            <div class="tl-marker">04</div>
+            <div class="tl-content">
+              <div class="tl-meta">Phase 04 • Continuous</div>
+              <h3>Autonomous MLOps</h3>
+              <p>Autonomous health monitoring, data drift prevention, model fine-tuning, and dedicated engineering support to ensure 99.9% operational reliability without internal dev overhead. Your system keeps getting smarter.</p>
+              <div class="tl-deliverable">
+                <span>Deliverable:</span>
+                <strong>Telemetry Dashboard &amp; 99.9% Uptime SLA</strong>
+              </div>
+            </div>
+          </div>
+
+        </div>
       </div>
+    </section>
 
-      <!-- DIVISION OF OWNERSHIP (Sovereign Engineering Model) -->
-      <section class="reveal-on-scroll" style="background: rgba(8, 12, 24, 0.65); border: 1px solid var(--border-subtle); border-radius: 28px; padding: 60px 48px; margin-bottom: 90px; backdrop-filter: blur(20px);">
-        <div style="text-align: center; max-width: 700px; margin: 0 auto 40px;">
-          <div class="badge-pill" style="margin-bottom: 16px;">
-            <span class="beacon-dot"></span>
-            <span>OPERATING PARTNERSHIP MODEL</span>
-          </div>
-          <h2 style="font-family: var(--font-editorial); font-size: clamp(28px, 3.5vw, 40px); font-weight: 800; letter-spacing: -0.03em; margin-bottom: 14px;">
-            One unified partnership. Complete alignment.
-          </h2>
-          <p style="font-size: 16px; color: var(--text-muted); line-height: 1.6;">
-            We divide responsibilities cleanly so your executive team stays focused on strategic growth while our engineering team orchestrates the technical complexity.
-          </p>
+    <!-- ═══ PARTNERSHIP MODEL ═══ -->
+    <section class="ownership-section">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="badge badge-violet">Operating Partnership</span>
+          <h2>One unified partnership. Complete alignment.</h2>
+          <p>We divide responsibilities cleanly so your executive team stays focused on growth while our engineers orchestrate all technical complexity.</p>
         </div>
 
         <div class="ownership-grid">
-          
-          <!-- Client Side -->
-          <div class="ownership-card card-spotlight client-side">
-            <div class="ownership-card-header">
-              <h3 class="ownership-card-title">What You Own</h3>
-              <span class="badge-pill" style="font-size: 11px;">The Business</span>
-            </div>
 
+          <!-- What You Own -->
+          <div class="ownership-card reveal">
+            <div class="ownership-card-head">
+              <h3>What You Own</h3>
+              <span class="badge badge-cyan">The Business</span>
+            </div>
             <div class="ownership-rows">
               <div class="ownership-row">
-                <svg class="row-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00F2FE" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M20 6L9 17l-5-5"/>
-                </svg>
+                <span class="check-icon">✓</span>
                 <div>
                   <strong>100% Intellectual Property &amp; Codebase Ownership</strong>
                   <p>All repositories, custom pipelines, fine-tuned weights, and schemas are transferred directly to your organization. Zero per-seat SaaS lock-in.</p>
                 </div>
               </div>
-
               <div class="ownership-row">
-                <svg class="row-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00F2FE" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M20 6L9 17l-5-5"/>
-                </svg>
+                <span class="check-icon">✓</span>
                 <div>
                   <strong>Operational Acceptance Criteria &amp; Domain Authority</strong>
-                  <p>You define the success standards, accuracy thresholds, and business rules tailored to your estimators, warehouse crews, and controllers.</p>
+                  <p>You define success standards, accuracy thresholds, and business rules tailored to your estimators, warehouse crews, and controllers.</p>
                 </div>
               </div>
-
               <div class="ownership-row">
-                <svg class="row-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00F2FE" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M20 6L9 17l-5-5"/>
-                </svg>
+                <span class="check-icon">✓</span>
                 <div>
                   <strong>Strategic Commercial Rollout &amp; Governance</strong>
                   <p>Your leadership guides rollout priorities and workflow change management across departments without touching low-level plumbing.</p>
@@ -186,38 +178,29 @@
             </div>
           </div>
 
-          <!-- Istaroth Side -->
-          <div class="ownership-card card-spotlight istaroth-side">
-            <div class="ownership-card-header">
-              <h3 class="ownership-card-title" style="color: var(--cyan);">What We Own</h3>
-              <span class="badge-pill" style="font-size: 11px; background: rgba(0, 242, 254, 0.1); color: var(--cyan); border-color: rgba(0, 242, 254, 0.3);">The Engineering</span>
+          <!-- What We Own -->
+          <div class="ownership-card ours reveal reveal-d1">
+            <div class="ownership-card-head">
+              <h3 style="color: var(--cyan);">What We Own</h3>
+              <span class="badge badge-cyan">The Engineering</span>
             </div>
-
             <div class="ownership-rows">
               <div class="ownership-row">
-                <svg class="row-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00F2FE" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M20 6L9 17l-5-5"/>
-                </svg>
+                <span class="check-icon">✓</span>
                 <div>
                   <strong>AI System Architecture &amp; Model Orchestration</strong>
                   <p>We evaluate, benchmark, fine-tune, and containerize the optimal vision, OCR, and reasoning models for your specific data domain.</p>
                 </div>
               </div>
-
               <div class="ownership-row">
-                <svg class="row-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00F2FE" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M20 6L9 17l-5-5"/>
-                </svg>
+                <span class="check-icon">✓</span>
                 <div>
                   <strong>Hardware &amp; Legacy ERP System Integration</strong>
-                  <p>We build robust bidirectional connectors to physical scale indicators, CCTV cameras, and legacy enterprise systems (SAP, Tally, SQL).</p>
+                  <p>We build robust bidirectional connectors to physical scale indicators, CCTV cameras, and legacy enterprise systems — SAP, Tally, SQL.</p>
                 </div>
               </div>
-
               <div class="ownership-row">
-                <svg class="row-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00F2FE" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M20 6L9 17l-5-5"/>
-                </svg>
+                <span class="check-icon">✓</span>
                 <div>
                   <strong>Autonomous MLOps, Monitoring &amp; Reliability</strong>
                   <p>Continuous pipeline supervision, drift alerting, latency optimizations, and an ironclad 99.9% operational uptime guarantee.</p>
@@ -227,51 +210,47 @@
           </div>
 
         </div>
-      </section>
-
-      <!-- Final Call to Action -->
-      <div class="reveal-on-scroll" style="text-align: center; margin-bottom: 60px;">
-        <a href="contact-us.html" class="button-gradient" style="padding: 16px 36px; font-size: 15.5px; border-radius: 9999px;">
-          Initiate an Architecture Diagnostic With Us →
-        </a>
       </div>
+    </section>
 
-    </div>
-  </main>
-
-  <!-- Consistent Corporate Footer -->
-  <footer class="footer-corporate">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-col-brand">
-          <a href="index.html" class="nav-brand" style="margin-bottom: 16px;">
-            <svg class="brand-glyph" viewBox="0 0 36 36" fill="none">
-              <circle cx="18" cy="18" r="15" stroke="rgba(255,255,255,0.18)" stroke-width="2"/>
-              <path d="M18 3C26.2843 3 33 9.71573 33 18C33 26.2843 26.2843 33 18 33" stroke="url(#cyan-grad)" stroke-width="2.5" stroke-linecap="round"/>
-              <circle cx="18" cy="18" r="5" fill="url(#cyan-grad)"/>
-            </svg>
-            <span>Istaroth<span style="color: var(--cyan);">AI</span></span>
-          </a>
-          <p class="footer-bio">Applied AI and autonomous systems engineering studio for mission-critical enterprise operations.</p>
-          <div class="footer-status-pill">
-            <span class="live-dot-green"></span>
-            PRODUCTION SYSTEMS ACTIVE
+    <!-- ═══ CTA ═══ -->
+    <section class="section-cta">
+      <div class="container">
+        <div class="cta-box reveal">
+          <span class="badge badge-cyan" style="margin-bottom: 22px; display: inline-flex;">
+            <span class="pulse pulse-cyan"></span>Start The Process
+          </span>
+          <h2>Ready to initiate a discovery?</h2>
+          <p>Talk directly with a systems architect. We'll analyze your operational bottlenecks in a 30-minute technical session.</p>
+          <div class="cta-actions">
+            <a href="contact-us.html" class="btn-primary">Initiate an Architecture Diagnostic →</a>
           </div>
         </div>
+      </div>
+    </section>
 
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand-name">Istaroth<span>AI</span></div>
+          <p class="footer-tagline">Applied AI and autonomous systems engineering studio for mission-critical enterprise operations.</p>
+          <div class="footer-status"><span class="pulse pulse-green"></span> Production Systems Active</div>
+        </div>
         <div class="footer-col">
-          <div class="footer-heading">Selected Work</div>
-          <ul class="footer-links">
+          <h6>Selected Work</h6>
+          <ul>
             <li><a href="work.html">Reference Systems Overview</a></li>
-            <li><a href="bidintel.html">BidIntel Precon Platform ↗</a></li>
-            <li><a href="yardsync.html">YardSync Gate Platform ↗</a></li>
-            <li><a href="ledgerflow.html">LedgerFlow AP Platform ↗</a></li>
+            <li><a href="bidintel.html">BidIntel Platform ↗</a></li>
+            <li><a href="yardsync.html">YardSync Platform ↗</a></li>
+            <li><a href="ledgerflow.html">LedgerFlow Platform ↗</a></li>
           </ul>
         </div>
-
         <div class="footer-col">
-          <div class="footer-heading">Studio</div>
-          <ul class="footer-links">
+          <h6>Studio</h6>
+          <ul>
             <li><a href="what-we-do.html">What We Do</a></li>
             <li><a href="our-approach.html">Our Approach</a></li>
             <li><a href="work.html">Selected Work</a></li>
@@ -279,17 +258,13 @@
             <li><a href="contact-us.html">Contact Us</a></li>
           </ul>
         </div>
-
         <div class="footer-col">
-          <div class="footer-heading">Contact</div>
-          <ul class="footer-links">
-            <li><a href="mailto:reddykarthik370@gmail.com">reddykarthik370@gmail.com</a></li>
-          </ul>
+          <h6>Contact</h6>
+          <ul><li><a href="mailto:reddykarthik370@gmail.com">reddykarthik370@gmail.com</a></li></ul>
         </div>
       </div>
-
       <div class="footer-bottom">
-        <span>&copy; 2026 IstarothAI. Autonomous Systems Engineering Studio.</span>
+        <span>© 2026 IstarothAI. Autonomous Systems Engineering Studio.</span>
         <span>All systems sovereign. Zero vendor lock-in.</span>
       </div>
     </div>

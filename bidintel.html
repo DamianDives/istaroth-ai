@@ -250,15 +250,27 @@
         padding: 16px 12px;
       }
       .top-subnav {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 12px;
+        flex-direction: row;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 8px;
         padding: 10px 0 16px;
       }
       .subnav-left {
         flex-wrap: wrap;
-        gap: 8px;
-        width: 100%;
+        gap: 6px;
+        width: auto;
+        flex: 1;
+        min-width: 0;
+      }
+      /* Hide Product Overview button on mobile - save space */
+      .top-subnav > div:last-child {
+        display: none;
+      }
+      .demo-pill {
+        font-size: 10px;
+        padding: 3px 8px;
+        letter-spacing: 0.03em;
       }
       .project-header-card {
         padding: 18px 16px;
@@ -327,6 +339,24 @@
       .chat-bubble {
         padding: 12px 14px;
         font-size: 12.5px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .app-container {
+        padding: 12px 10px;
+      }
+      /* On very small screens: stack brand + badge on separate lines */
+      .subnav-left {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+      }
+      .subnav-left > span:first-of-type {
+        display: none; /* hide the | separator */
+      }
+      .metric-card-val {
+        font-size: 17px;
       }
     }
   </style>

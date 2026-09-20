@@ -161,13 +161,18 @@
       .top-toolbar {
         flex-direction: column;
         align-items: flex-start;
-        gap: 12px;
-        padding: 10px 0 16px;
+        gap: 10px;
+        padding: 10px 0 14px;
       }
       .toolbar-brand {
         flex-wrap: wrap;
-        gap: 8px;
+        gap: 6px;
         width: 100%;
+        align-items: center;
+      }
+      /* Hide RS232 status text on small screens — save space */
+      .toolbar-rs232 {
+        display: none;
       }
       .stats-bar {
         grid-template-columns: repeat(2, 1fr);
@@ -180,23 +185,28 @@
         font-size: 10px;
       }
       .stat-widget-val {
-        font-size: 19px;
+        font-size: 20px;
       }
       .panel-card {
-        padding: 18px 14px;
+        padding: 16px 12px;
+        gap: 16px;
       }
       .panel-title-bar {
         flex-direction: column;
-        align-items: flex-start;
-        gap: 8px;
+        align-items: stretch;
+        gap: 10px;
+      }
+      .panel-title-bar button {
+        width: 100%;
+        justify-content: center;
       }
       .scale-digits {
-        font-size: 28px;
+        font-size: 30px;
       }
       .scale-tare-net {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        gap: 8px;
+        gap: 6px;
         text-align: center;
         font-size: 11px;
       }
@@ -206,7 +216,7 @@
         -webkit-overflow-scrolling: touch;
       }
       .truck-queue-table {
-        min-width: 480px;
+        min-width: 460px;
         font-size: 12px;
       }
       .truck-queue-table th, .truck-queue-table td {
@@ -216,6 +226,37 @@
         padding: 14px;
         font-size: 11.5px;
         word-break: break-word;
+      }
+      /* Gate pass receipt rows: wrap on tiny screens */
+      .gatepass-receipt > div {
+        flex-wrap: wrap;
+        gap: 4px;
+      }
+      /* Scale capture button: full width */
+      #btn-capture-weight {
+        width: 100%;
+        justify-content: center;
+      }
+      .weighbridge-scale-display {
+        padding: 14px 12px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .stats-bar {
+        gap: 8px;
+      }
+      .stat-widget-val {
+        font-size: 18px;
+      }
+      .scale-digits {
+        font-size: 26px;
+        letter-spacing: 0.02em;
+      }
+      /* On very small screens, tare/net/diff: stack 2 columns */
+      .scale-tare-net {
+        grid-template-columns: repeat(3, 1fr);
+        font-size: 10.5px;
       }
     }
   </style>
@@ -239,7 +280,7 @@
         </span>
       </div>
 
-      <div style="display: flex; gap: 12px;">
+      <div class="toolbar-rs232">
         <span class="mono-text" style="font-size: 12px; color: var(--emerald); align-self: center;">
           RS232 IoT Scale: CONNECTED (9600 BAUD)
         </span>

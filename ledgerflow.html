@@ -145,12 +145,18 @@
       .top-toolbar {
         flex-direction: column;
         align-items: flex-start;
-        gap: 12px;
-        padding: 10px 0 16px;
+        gap: 10px;
+        padding: 10px 0 14px;
       }
-      .top-toolbar > div {
+      /* Hide ERP link status on mobile to save space */
+      .top-toolbar .erp-status {
+        display: none;
+      }
+      .top-toolbar > div:first-child {
         flex-wrap: wrap;
+        gap: 8px;
         width: 100%;
+        align-items: center;
       }
       .stats-bar {
         grid-template-columns: repeat(2, 1fr);
@@ -163,10 +169,27 @@
         font-size: 10px;
       }
       .stat-widget-val {
-        font-size: 19px;
+        font-size: 20px;
       }
       .panel-card {
-        padding: 18px 14px;
+        padding: 16px 12px;
+        gap: 16px;
+      }
+      /* Left panel: invoice header row stacks */
+      .invoice-panel-header {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+      }
+      .invoice-panel-header button {
+        width: 100%;
+        justify-content: center;
+      }
+      /* 3-way match header */
+      .match-header-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
       }
       .invoice-table-wrap {
         width: 100%;
@@ -174,7 +197,7 @@
         -webkit-overflow-scrolling: touch;
       }
       .invoice-table {
-        min-width: 460px;
+        min-width: 400px;
         font-size: 12px;
       }
       .invoice-table th, .invoice-table td {
@@ -193,10 +216,33 @@
       }
       .settlement-actions-btns {
         flex-direction: column !important;
+        gap: 10px !important;
       }
       .settlement-actions-btns button {
         width: 100% !important;
         justify-content: center !important;
+      }
+      /* Match header right section wraps */
+      #match-badge-status {
+        align-self: flex-start;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .stat-widget-val {
+        font-size: 18px;
+      }
+      .stats-bar {
+        gap: 8px;
+      }
+      /* Trio lines: wrap long values */
+      .trio-line {
+        flex-direction: column;
+        gap: 2px;
+        margin-bottom: 10px;
+      }
+      .trio-line > strong {
+        color: var(--text-pure);
       }
     }
   </style>
@@ -220,7 +266,7 @@
         </span>
       </div>
 
-      <div style="display: flex; gap: 12px;">
+      <div class="erp-status" style="display: flex; gap: 12px;">
         <span class="mono-text" style="font-size: 12px; color: var(--cyan); align-self: center;">
           ERP Link: Tally Prime & SAP S/4HANA (Online)
         </span>
@@ -259,7 +305,7 @@
       
       <!-- Left Column: Invoice Inward Queue -->
       <div class="panel-card">
-        <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 12px; border-bottom: 1px solid var(--border-hairline);">
+        <div class="invoice-panel-header" style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 12px; border-bottom: 1px solid var(--border-hairline); flex-wrap: wrap; gap: 10px;">
           <div>
             <h3 style="font-size: 17px;">Incoming Vendor Invoices</h3>
             <div style="font-size: 12px; color: var(--text-muted);">Select an invoice to run 3-way matching</div>
@@ -317,7 +363,7 @@
 
       <!-- Right Column: 3-Way Match Verification & ERP Payout Engine -->
       <div class="panel-card">
-        <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 12px; border-bottom: 1px solid var(--border-hairline);">
+        <div class="match-header-row" style="display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 12px; border-bottom: 1px solid var(--border-hairline); flex-wrap: wrap; gap: 10px;">
           <div>
             <h3 style="font-size: 17px;" id="match-header-title">3-Way Match Verification: Prime Metallurgy Ltd</h3>
             <div style="font-size: 12px; color: var(--text-muted);">Comparing Vendor Tax Invoice vs Purchase Order vs YardSync Delivery Slip</div>

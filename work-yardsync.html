@@ -23,24 +23,21 @@
   </div>
 
   <!-- Floating Capsule Navigation Bar -->
-  <div class="site-nav-wrapper">
-    <nav class="site-nav-capsule" id="navbar">
-      <a href="index.html" class="nav-brand">
-        <svg width="28" height="28" viewBox="0 0 36 36" fill="none">
-          <circle cx="18" cy="18" r="15" stroke="rgba(255,255,255,0.18)" stroke-width="2"/>
-          <path d="M18 3C26.2843 3 33 9.71573 33 18C33 26.2843 26.2843 33 18 33" stroke="url(#cyan-grad)" stroke-width="2.5" stroke-linecap="round"/>
-          <circle cx="18" cy="18" r="5" fill="url(#cyan-grad)"/>
-          <defs>
-            <linearGradient id="cyan-grad" x1="18" y1="3" x2="33" y2="33" gradientUnits="userSpaceOnUse">
-              <stop stop-color="#00F2FE"/>
-              <stop offset="1" stop-color="#8A3FFC"/>
-            </linearGradient>
-          </defs>
+  <div class="nav-shell">
+    <nav class="nav">
+      <a href="index.html" class="brand">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+          <circle cx="16" cy="16" r="13" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"/>
+          <path d="M16 3C22.627 3 28 8.373 28 15C28 21.627 22.627 27 16 27" stroke="url(#g0)" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="16" cy="16" r="4.5" fill="url(#g0)"/>
+          <defs><linearGradient id="g0" x1="16" y1="3" x2="28" y2="28" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#38BDF8"/><stop offset="1" stop-color="#8B5CF6"/>
+          </linearGradient></defs>
         </svg>
-        <span>Istaroth<span class="brand-dot">AI</span></span>
+        <span>Istaroth<span class="ai-c">AI</span></span>
       </a>
 
-      <ul class="nav-menu">
+      <ul class="nav-links">
         <li><a href="what-we-do.html">What we do</a></li>
         <li><a href="our-approach.html">Our approach</a></li>
         <li><a href="work.html" class="active">Work</a></li>
@@ -48,10 +45,17 @@
         <li><a href="contact-us.html">Contact</a></li>
       </ul>
 
-      <div style="display: flex; align-items: center; gap: 12px;">
-        <a href="contact-us.html" class="button-gradient">Let's talk</a>
-      </div>
+      <a href="contact-us.html" class="nav-btn">Let's talk</a>
+      <button class="ham" id="ham" aria-label="Menu"><span></span><span></span><span></span></button>
     </nav>
+  </div>
+  <div class="drawer" id="drawer">
+    <a href="what-we-do.html">What we do</a>
+    <a href="our-approach.html">Our approach</a>
+    <a href="work.html">Work</a>
+    <a href="about-us.html">About us</a>
+    <a href="contact-us.html">Contact</a>
+    <a href="contact-us.html" class="d-cta">Let's talk →</a>
   </div>
 
   <main style="position: relative; z-index: 2; padding-top: 100px;">
@@ -66,42 +70,31 @@
 
       <!-- Case Study Hero -->
       <div class="hero-editorial-wrap" style="max-width: 100%;">
-        <div class="pill-badge">
-          <span class="live-beacon"></span>
-          <span>REFERENCE PLATFORM 02 • PROOF OF CAPABILITY</span>
-        </div>
-
-        <h1 style="font-size: clamp(38px, 5.5vw, 68px); letter-spacing: -0.04em; font-weight: 800; line-height: 1.1;">
+        <h1 style="font-size: clamp(32px, 5.5vw, 68px); letter-spacing: -0.04em; font-weight: 800; line-height: 1.1; margin-bottom: 20px;">
           YardSync — Automated Inbound <br>
-          <span class="gradient-accent-text">Yard &amp; Weighbridge Flow.</span>
+          <span class="grad">Yard &amp; Weighbridge Flow.</span>
         </h1>
 
-        <p class="hero-editorial-lead" style="max-width: 900px;">
+        <p class="hero-editorial-lead" style="max-width: 900px; font-size: clamp(15px, 2vw, 18px); color: var(--text-400); line-height: 1.6; margin-bottom: 24px;">
           Transforming factory gate logjams into frictionless autonomous checkpoints. YardSync couples WhatsApp driver intake, computer vision delivery challan OCR, and serial weighbridge scales to cut truck turnaround from 75 minutes to 12 minutes.
         </p>
 
         <!-- Signature Metadata Bar -->
         <div class="case-study-meta-bar">
           <div class="meta-pill-item">
-            <span class="meta-pill-label">REFERENCE DEPLOYMENT</span>
+            <span class="meta-pill-label">DEPLOYMENT</span>
             <span class="meta-pill-value">YardSync Platform</span>
           </div>
           <div class="meta-pill-item">
-            <span class="meta-pill-label">SERVICE DEMONSTRATED</span>
+            <span class="meta-pill-label">SERVICE</span>
             <span class="meta-pill-value">IoT Edge &amp; Gate Automation</span>
           </div>
           <div class="meta-pill-item">
-            <span class="meta-pill-label">TARGET ENTERPRISES</span>
+            <span class="meta-pill-label">SECTOR</span>
             <span class="meta-pill-value">Steel, Cement &amp; Logistics</span>
           </div>
           <div class="meta-pill-item">
-            <span class="meta-pill-label">DEPLOYMENT STATUS</span>
-            <span class="meta-pill-value" style="color: var(--emerald); display: flex; align-items: center; gap: 6px;">
-              <span class="live-beacon"></span> Live Operational Console
-            </span>
-          </div>
-          <div class="meta-pill-item">
-            <span class="meta-pill-label">LIVE INSTANCE</span>
+            <span class="meta-pill-label">LIVE CONSOLE</span>
             <span class="meta-pill-value">
               <a href="yardsync.html">Launch Yard Console ↗</a>
             </span>
@@ -109,18 +102,18 @@
         </div>
 
         <!-- Action CTAs -->
-        <div style="display: flex; gap: 16px; margin-bottom: 50px; flex-wrap: wrap;">
-          <a href="yardsync.html" class="button-gradient" style="padding: 14px 32px; font-size: 15px;">
-            🚀 Open Live YardSync Platform ↗
+        <div style="display: flex; gap: 14px; margin-bottom: 50px; flex-wrap: wrap;">
+          <a href="yardsync.html" class="btn btn-g">
+            Open Live YardSync Platform ↗
           </a>
-          <a href="contact-us.html" class="button-outline" style="padding: 14px 28px; font-size: 15px;">
+          <a href="contact-us.html" class="btn btn-o">
             Book Yard Audit Call
           </a>
         </div>
       </div>
 
-      <!-- High-Fidelity macOS Browser Frame (Modeled on Cosmiron ResRishti) -->
-      <div class="macos-browser-frame" style="margin-bottom: 80px;">
+      <!-- High-Fidelity macOS Browser Frame -->
+      <div class="macos-browser-frame" style="margin-bottom: 60px;">
         <div class="macos-browser-header">
           <div class="macos-traffic-lights">
             <span class="traffic-light red"></span>
@@ -131,49 +124,49 @@
             <span>🔒</span>
             <span>https://yardsync.istaroth.ai/dispatch/gate-02/telemetry</span>
           </div>
-          <div style="font-family: var(--font-mono); font-size: 11px; color: var(--emerald);">
+          <div style="font-family: var(--mono); font-size: 11px; color: var(--emerald);">
             SCALE STATUS: ONLINE (RS-232 9600 BAUD)
           </div>
         </div>
 
         <div class="macos-browser-body">
-          <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 24px;">
+          <div class="cs-browser-split">
             
             <!-- Left: Active Inbound Stream -->
             <div>
-              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px; flex-wrap: wrap; gap: 8px;">
                 <div>
-                  <h4 style="font-size: 18px; margin-bottom: 4px;">Inbound Queue • Factory North Gate</h4>
-                  <span style="font-size: 12px; color: var(--text-muted);">Real-time ANPR Camera &amp; Weighbridge Telemetry</span>
+                  <h4 style="font-size: 17px; margin-bottom: 4px;">Inbound Queue • Factory North Gate</h4>
+                  <span style="font-size: 12px; color: var(--text-400);">Real-time ANPR Camera &amp; Weighbridge Telemetry</span>
                 </div>
-                <span class="pill-badge" style="background: rgba(16, 185, 129, 0.1); color: var(--emerald);">12s Avg Processing</span>
+                <span class="status-pill ok">12s Avg Processing</span>
               </div>
 
               <div style="display: flex; flex-direction: column; gap: 12px;">
-                <div style="background: #101522; border: 1px solid var(--border-light); border-radius: 12px; padding: 18px;">
-                  <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
-                    <span style="font-weight: 700; color: var(--text-pure); font-size: 15px;">Carrier Vehicle #KA-04-MB-4821 (Multi-Axle Truck)</span>
-                    <span class="badge-status ok">✓ Gate Pass #YS-9024 Issued</span>
+                <div style="background: var(--bg-3); border: 1px solid var(--border); border-radius: var(--r-sm); padding: 16px;">
+                  <div style="display: flex; justify-content: space-between; margin-bottom: 8px; flex-wrap: wrap; gap: 6px;">
+                    <span style="font-weight: 700; color: var(--text-100); font-size: 14.5px;">Carrier Vehicle #KA-04-MB-4821 (Multi-Axle Truck)</span>
+                    <span class="status-badge ok" style="color: var(--emerald); font-size: 11px;">✓ Gate Pass #YS-9024 Issued</span>
                   </div>
-                  <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; font-size: 12.5px; color: var(--text-muted);">
-                    <div>Material: <strong style="color: var(--text-pure);">TMT Rebar (Fe 550D)</strong></div>
-                    <div>Gross Wt: <strong style="color: var(--cyan); font-family: var(--font-mono);">41,850 kg</strong></div>
+                  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; font-size: 12.5px; color: var(--text-400);">
+                    <div>Material: <strong style="color: var(--text-100);">TMT Rebar (Fe 550D)</strong></div>
+                    <div>Gross Wt: <strong style="color: var(--cyan); font-family: var(--mono);">41,850 kg</strong></div>
                     <div>PO Match: <strong style="color: var(--emerald);">PO #4110 (100%)</strong></div>
                   </div>
-                  <div style="margin-top: 12px; font-size: 12px; color: var(--text-dim); display: flex; justify-content: space-between;">
+                  <div style="margin-top: 12px; font-size: 12px; color: var(--text-600); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 6px;">
                     <span>Intake Source: WhatsApp Bot (+91 98450 XXXXX)</span>
                     <span style="color: var(--cyan);">Tally GRN #GRN-9024 Auto-Posted</span>
                   </div>
                 </div>
 
-                <div style="background: rgba(255, 255, 255, 0.02); border: 1px solid var(--border-hairline); border-radius: 12px; padding: 16px;">
-                  <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
-                    <span style="font-weight: 700; color: var(--text-muted);">Truck KA-04-E-4419 (Ashok Leyland 3520)</span>
-                    <span class="badge-status warn">Scale Taring in Progress</span>
+                <div style="background: rgba(255, 255, 255, 0.02); border: 1px solid var(--border); border-radius: var(--r-sm); padding: 14px 16px;">
+                  <div style="display: flex; justify-content: space-between; margin-bottom: 8px; flex-wrap: wrap; gap: 6px;">
+                    <span style="font-weight: 700; color: var(--text-400);">Truck KA-04-E-4419 (Ashok Leyland 3520)</span>
+                    <span class="status-badge warn" style="color: var(--amber); font-size: 11px;">Scale Taring in Progress</span>
                   </div>
-                  <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; font-size: 12.5px; color: var(--text-muted);">
+                  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; font-size: 12.5px; color: var(--text-400);">
                     <div>Material: Structural Angles</div>
-                    <div>Scale Reading: <span style="font-family: var(--font-mono); color: var(--amber);">32,180 kg</span></div>
+                    <div>Scale Reading: <span style="font-family: var(--mono); color: var(--amber);">32,180 kg</span></div>
                     <div>Challan OCR: Verified (24.2 MT)</div>
                   </div>
                 </div>
@@ -181,32 +174,32 @@
             </div>
 
             <!-- Right: Weighbridge & OCR Status -->
-            <div style="background: #101522; border: 1px solid var(--border-light); border-radius: 14px; padding: 20px; display: flex; flex-direction: column; justify-content: space-between;">
+            <div style="background: var(--bg-3); border: 1px solid var(--border); border-radius: var(--r-md); padding: 18px; display: flex; flex-direction: column; justify-content: space-between; gap: 16px;">
               <div>
-                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--border-hairline);">
-                  <strong style="font-size: 14px;">Yard Operational Core</strong>
-                  <span class="mono-text" style="font-size: 11px; color: var(--emerald);">99.98% UPTIME</span>
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; padding-bottom: 10px; border-bottom: 1px solid var(--border);">
+                  <strong style="font-size: 13.5px;">Yard Operational Core</strong>
+                  <span style="font-family: var(--mono); font-size: 11px; color: var(--emerald);">99.98% UPTIME</span>
                 </div>
 
-                <div style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 20px;">
-                  <div style="background: rgba(255,255,255,0.02); padding: 10px; border-radius: 8px; border: 1px solid var(--border-hairline); font-size: 12px;">
-                    <div style="color: var(--text-dim); margin-bottom: 4px;">WEIGHBRIDGE I/O</div>
-                    <div style="color: var(--cyan); font-family: var(--font-mono); font-weight: 700;">Avery Weigh-Tronix (E1205) Connected</div>
+                <div style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 16px;">
+                  <div style="background: rgba(255,255,255,0.02); padding: 10px 12px; border-radius: var(--r-sm); border: 1px solid var(--border); font-size: 12px;">
+                    <div style="color: var(--text-600); margin-bottom: 4px; font-size: 10.5px; font-family: var(--mono);">WEIGHBRIDGE I/O</div>
+                    <div style="color: var(--cyan); font-family: var(--mono); font-weight: 700;">Avery Weigh-Tronix (E1205) Connected</div>
                   </div>
 
-                  <div style="background: rgba(255,255,255,0.02); padding: 10px; border-radius: 8px; border: 1px solid var(--border-hairline); font-size: 12px;">
-                    <div style="color: var(--text-dim); margin-bottom: 4px;">OCR VISION ENGINE</div>
-                    <div style="color: var(--text-pure); font-weight: 600;">Delivery Challan Line Parsing (0.8s)</div>
+                  <div style="background: rgba(255,255,255,0.02); padding: 10px 12px; border-radius: var(--r-sm); border: 1px solid var(--border); font-size: 12px;">
+                    <div style="color: var(--text-600); margin-bottom: 4px; font-size: 10.5px; font-family: var(--mono);">OCR VISION ENGINE</div>
+                    <div style="color: var(--text-100); font-weight: 600;">Delivery Challan Line Parsing (0.8s)</div>
                   </div>
 
-                  <div style="background: rgba(255,255,255,0.02); padding: 10px; border-radius: 8px; border: 1px solid var(--border-hairline); font-size: 12px;">
-                    <div style="color: var(--text-dim); margin-bottom: 4px;">ERP WEBHOOK</div>
+                  <div style="background: rgba(255,255,255,0.02); padding: 10px 12px; border-radius: var(--r-sm); border: 1px solid var(--border); font-size: 12px;">
+                    <div style="color: var(--text-600); margin-bottom: 4px; font-size: 10.5px; font-family: var(--mono);">ERP WEBHOOK</div>
                     <div style="color: var(--emerald); font-weight: 600;">SAP / Tally Prime REST Bridge</div>
                   </div>
                 </div>
               </div>
 
-              <a href="yardsync.html" class="button-gradient" style="font-size: 13px; padding: 12px; width: 100%; text-align: center;">
+              <a href="yardsync.html" class="btn btn-g" style="font-size: 12.5px; padding: 10px; width: 100%; text-align: center; justify-content: center;">
                 Launch Live Yard Console →
               </a>
             </div>
@@ -216,27 +209,27 @@
       </div>
 
       <!-- Problem vs Solution Breakdown -->
-      <section style="margin-bottom: 80px;">
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
+      <section style="margin-bottom: 60px;">
+        <div class="cs-challenge-grid">
           
-          <div style="background: rgba(244, 63, 94, 0.03); border: 1px solid rgba(244, 63, 94, 0.2); border-radius: 20px; padding: 36px;">
+          <div class="cs-card-red">
             <span class="friction-tag">The Yard Bottleneck</span>
-            <h3 style="font-size: 26px; margin: 12px 0 16px; color: #FDA4AF;">75-Minute Gate Delays &amp; Forged Slips</h3>
-            <p style="color: var(--text-muted); font-size: 15px; line-height: 1.7; margin-bottom: 16px;">
-              Manufacturing plants receive 100+ trucks daily. Drivers arrive with paper delivery challans that are dog-eared, ink-stained, or illegible. Security personnel write down details by hand in physical paper registers.
+            <h3 style="font-size: clamp(20px, 3.5vw, 24px); margin: 10px 0 14px; color: #FDA4AF;">75-Minute Gate Delays &amp; Forged Slips</h3>
+            <p style="color: var(--text-400); font-size: 14px; line-height: 1.65; margin-bottom: 14px;">
+              Manufacturing plants receive 100+ trucks daily. Drivers arrive with paper delivery challans that are dog-eared, ink-stained, or illegible. Security personnel write down details by hand in physical registers.
             </p>
-            <p style="color: var(--text-muted); font-size: 15px; line-height: 1.7;">
-              Operators then re-type weights from the weighbridge terminal into spreadsheets. Discrepancies between vendor-claimed weight and scale weight lead to bitter disputes, vehicle detention fines, and inventory leakage.
+            <p style="color: var(--text-400); font-size: 14px; line-height: 1.65;">
+              Operators then re-type weights from the weighbridge terminal into spreadsheets. Discrepancies between vendor-claimed weight and scale weight lead to bitter disputes and inventory leakage.
             </p>
           </div>
 
-          <div style="background: rgba(0, 242, 254, 0.03); border: 1px solid rgba(0, 242, 254, 0.2); border-radius: 20px; padding: 36px;">
+          <div class="cs-card-cyan">
             <span class="velocity-tag">The YardSync Engine</span>
-            <h3 style="font-size: 26px; margin: 12px 0 16px; color: #7DD3FC;">Sub-90 Second Autonomous Gate Clearance</h3>
-            <p style="color: var(--text-muted); font-size: 15px; line-height: 1.7; margin-bottom: 16px;">
+            <h3 style="font-size: clamp(20px, 3.5vw, 24px); margin: 10px 0 14px; color: #7DD3FC;">Sub-90 Second Autonomous Gate Clearance</h3>
+            <p style="color: var(--text-400); font-size: 14px; line-height: 1.65; margin-bottom: 14px;">
               Truck drivers send a WhatsApp message with their delivery challan as they approach. Computer vision extracts the PO number, vendor name, material line items, and quantities instantly.
             </p>
-            <p style="color: var(--text-muted); font-size: 15px; line-height: 1.7;">
+            <p style="color: var(--text-400); font-size: 14px; line-height: 1.65;">
               As the vehicle rolls onto the weighbridge, YardSync captures gross weight directly over RS-232, checks for tolerance limits against the PO, and auto-prints or texts a digital QR gate pass in under 90 seconds.
             </p>
           </div>
@@ -245,64 +238,63 @@
       </section>
 
       <!-- Quantified Results -->
-      <section style="background: var(--bg-surface); border: 1px solid var(--border-light); border-radius: 24px; padding: 60px; margin-bottom: 80px;">
-        <div style="text-align: center; max-width: 600px; margin: 0 auto 48px;">
-          <span class="pill-badge" style="margin-bottom: 12px;">Operational Outcomes</span>
-          <h3 style="font-size: 34px;">Yard Velocity by the Numbers</h3>
+      <section style="background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r-xl); padding: clamp(28px, 5vw, 48px); margin-bottom: 60px;">
+        <div style="text-align: center; max-width: 600px; margin: 0 auto 36px;">
+          <span class="sec-tag">Operational Outcomes</span>
+          <h3 style="font-size: clamp(24px, 4vw, 34px); margin-top: 8px;">Yard Velocity by the Numbers</h3>
         </div>
 
-        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; text-align: center;">
+        <div class="cs-roi-grid">
           <div>
-            <div style="font-family: var(--font-editorial); font-size: 48px; font-weight: 800; color: var(--cyan);">84%</div>
-            <div style="font-size: 14px; color: var(--text-muted); margin-top: 6px;">Reduction in Gate Detention Time</div>
+            <div class="cs-roi-val" style="color: var(--cyan);">84%</div>
+            <div style="font-size: 13.5px; color: var(--text-400);">Reduction in Detention Time</div>
           </div>
           <div>
-            <div style="font-family: var(--font-editorial); font-size: 48px; font-weight: 800; color: var(--emerald);">12 min</div>
-            <div style="font-size: 14px; color: var(--text-muted); margin-top: 6px;">Average Total Truck Turnaround</div>
+            <div class="cs-roi-val" style="color: var(--emerald);">12 min</div>
+            <div style="font-size: 13.5px; color: var(--text-400);">Average Total Truck Turnaround</div>
           </div>
           <div>
-            <div style="font-family: var(--font-editorial); font-size: 48px; font-weight: 800; color: var(--violet);">100%</div>
-            <div style="font-size: 14px; color: var(--text-muted); margin-top: 6px;">Automated Weighbridge Logging</div>
+            <div class="cs-roi-val" style="color: var(--violet);">100%</div>
+            <div style="font-size: 13.5px; color: var(--text-400);">Automated Scale Logging</div>
           </div>
           <div>
-            <div style="font-family: var(--font-editorial); font-size: 48px; font-weight: 800; color: var(--amber);">Zero</div>
-            <div style="font-size: 14px; color: var(--text-muted); margin-top: 6px;">Manual Data Entry into ERPs</div>
+            <div class="cs-roi-val" style="color: var(--cyan);">Zero</div>
+            <div style="font-size: 13.5px; color: var(--text-400);">Manual ERP Data Entry</div>
           </div>
         </div>
       </section>
 
-      <!-- Enterprise Capability Takeaway (How This Applies to You) -->
-      <section style="background: var(--bg-surface); border: 1px solid var(--border-light); border-radius: 24px; padding: 50px; margin-bottom: 60px; text-align: center;">
+      <!-- Enterprise Capability Takeaway -->
+      <section style="background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r-xl); padding: clamp(28px, 5vw, 48px); margin-bottom: 60px; text-align: center;">
         <div style="max-width: 760px; margin: 0 auto;">
-          <div class="pill-badge" style="margin-bottom: 12px;">
-            <span class="live-beacon"></span>
-            <span>HOW THIS APPLIES TO YOUR ENTERPRISE</span>
-          </div>
-          <h3 style="font-size: 32px; margin-bottom: 14px;">Need Hardware-Grade Gate Automation for Your Plants?</h3>
-          <p style="color: var(--text-muted); font-size: 15.5px; line-height: 1.7; margin-bottom: 28px;">
-            YardSync demonstrates how IstarothAI bridges harsh industrial hardware (RS-232 scales, ANPR cameras, boom barriers) with corporate ERPs like SAP and Tally. We build custom on-prem edge deployments that operate even during cloud network blackouts, with 100% enterprise IP transfer.
+          <span class="sec-tag">Enterprise Deployment</span>
+          <h3 style="font-size: clamp(22px, 3.5vw, 30px); margin: 12px 0 14px;">Need Hardware-Grade Gate Automation for Your Plants?</h3>
+          <p style="color: var(--text-400); font-size: 15px; line-height: 1.65; margin-bottom: 24px;">
+            YardSync demonstrates how IstarothAI bridges harsh industrial hardware (RS-232 scales, ANPR cameras, boom barriers) with corporate ERPs like SAP and Tally with 100% enterprise IP transfer.
           </p>
-          <a href="contact-us.html" class="button-gradient" style="padding: 13px 32px; font-size: 14px;">
+          <a href="contact-us.html" class="btn btn-g" style="padding: 13px 28px; font-size: 14px;">
             Commission a Plant Gate Diagnostic →
           </a>
         </div>
       </section>
 
       <!-- Next Project Navigation -->
-      <div style="display: flex; justify-content: space-between; align-items: center; padding: 40px 0; border-top: 1px solid var(--border-hairline); margin-bottom: 40px;">
-        <a href="work-bidintel.html" style="color: var(--text-muted); text-decoration: none; font-size: 14px;">← Previous: BidIntel Precon AI</a>
-        <a href="work-ledgerflow.html" class="button-outline">Next Case Study: LedgerFlow AP Engine →</a>
+      <div style="display: flex; justify-content: space-between; align-items: center; padding: 28px 0; border-top: 1px solid var(--border); margin-bottom: 40px; flex-wrap: wrap; gap: 14px;">
+        <a href="work-bidintel.html" style="color: var(--text-400); text-decoration: none; font-size: 14px;">← Previous: BidIntel Precon AI</a>
+        <a href="work-ledgerflow.html" class="btn btn-o" style="font-size: 13px; padding: 8px 18px;">Next: LedgerFlow AP Engine →</a>
       </div>
 
     </div>
   </main>
 
   <!-- Footer -->
-  <footer class="footer-cosmiron">
-    <div class="container">
-      <div class="footer-sub">
-        <span>&copy; 2026 IstarothAI. YardSync Industrial Logistics.</span>
-        <a href="contact-us.html" style="color: var(--cyan); text-decoration: none;">Request a Plant Demonstration →</a>
+  <footer class="foot">
+    <div class="container foot-btm">
+      <p>© 2026 Istaroth AI. All rights reserved.</p>
+      <div class="foot-links">
+        <a href="contact-us.html">Contact</a>
+        <a href="work.html">Case Studies</a>
+        <a href="index.html">Home</a>
       </div>
     </div>
   </footer>

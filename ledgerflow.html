@@ -153,14 +153,17 @@
         width: 100%;
       }
       .stats-bar {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
         gap: 10px;
       }
       .stat-widget {
-        padding: 14px 16px;
+        padding: 12px 14px;
+      }
+      .stat-widget-lbl {
+        font-size: 10px;
       }
       .stat-widget-val {
-        font-size: 22px;
+        font-size: 19px;
       }
       .panel-card {
         padding: 18px 14px;
@@ -171,7 +174,7 @@
         -webkit-overflow-scrolling: touch;
       }
       .invoice-table {
-        min-width: 480px;
+        min-width: 460px;
         font-size: 12px;
       }
       .invoice-table th, .invoice-table td {
@@ -187,6 +190,13 @@
       .discrepancy-callout {
         padding: 12px 14px;
         font-size: 12px;
+      }
+      .settlement-actions-btns {
+        flex-direction: column !important;
+      }
+      .settlement-actions-btns button {
+        width: 100% !important;
+        justify-content: center !important;
       }
     }
   </style>
@@ -351,11 +361,11 @@
         </div>
 
         <div style="background: #04070D; border: 1px solid var(--border-hairline); border-radius: var(--radius-sm); padding: 18px;">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
             <span style="font-weight: 700; font-size: 14px;">Automated Settlement Actions</span>
             <span class="mono-text" style="font-size: 11px; color: var(--emerald);">TALLY XML PAYLOAD READY</span>
           </div>
-          <div style="display: flex; gap: 12px;">
+          <div class="settlement-actions-btns" style="display: flex; gap: 12px;">
             <button class="button-gradient" id="btn-approve-payment" style="font-size: 13px; padding: 10px 22px;">
               ✓ Authorize Bank Payout Batch
             </button>

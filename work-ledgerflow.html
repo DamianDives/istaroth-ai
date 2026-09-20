@@ -23,24 +23,21 @@
   </div>
 
   <!-- Floating Capsule Navigation Bar -->
-  <div class="site-nav-wrapper">
-    <nav class="site-nav-capsule" id="navbar">
-      <a href="index.html" class="nav-brand">
-        <svg width="28" height="28" viewBox="0 0 36 36" fill="none">
-          <circle cx="18" cy="18" r="15" stroke="rgba(255,255,255,0.18)" stroke-width="2"/>
-          <path d="M18 3C26.2843 3 33 9.71573 33 18C33 26.2843 26.2843 33 18 33" stroke="url(#cyan-grad)" stroke-width="2.5" stroke-linecap="round"/>
-          <circle cx="18" cy="18" r="5" fill="url(#cyan-grad)"/>
-          <defs>
-            <linearGradient id="cyan-grad" x1="18" y1="3" x2="33" y2="33" gradientUnits="userSpaceOnUse">
-              <stop stop-color="#00F2FE"/>
-              <stop offset="1" stop-color="#8A3FFC"/>
-            </linearGradient>
-          </defs>
+  <div class="nav-shell">
+    <nav class="nav">
+      <a href="index.html" class="brand">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+          <circle cx="16" cy="16" r="13" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"/>
+          <path d="M16 3C22.627 3 28 8.373 28 15C28 21.627 22.627 27 16 27" stroke="url(#g0)" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="16" cy="16" r="4.5" fill="url(#g0)"/>
+          <defs><linearGradient id="g0" x1="16" y1="3" x2="28" y2="28" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#38BDF8"/><stop offset="1" stop-color="#8B5CF6"/>
+          </linearGradient></defs>
         </svg>
-        <span>Istaroth<span class="brand-dot">AI</span></span>
+        <span>Istaroth<span class="ai-c">AI</span></span>
       </a>
 
-      <ul class="nav-menu">
+      <ul class="nav-links">
         <li><a href="what-we-do.html">What we do</a></li>
         <li><a href="our-approach.html">Our approach</a></li>
         <li><a href="work.html" class="active">Work</a></li>
@@ -48,10 +45,17 @@
         <li><a href="contact-us.html">Contact</a></li>
       </ul>
 
-      <div style="display: flex; align-items: center; gap: 12px;">
-        <a href="contact-us.html" class="button-gradient">Let's talk</a>
-      </div>
+      <a href="contact-us.html" class="nav-btn">Let's talk</a>
+      <button class="ham" id="ham" aria-label="Menu"><span></span><span></span><span></span></button>
     </nav>
+  </div>
+  <div class="drawer" id="drawer">
+    <a href="what-we-do.html">What we do</a>
+    <a href="our-approach.html">Our approach</a>
+    <a href="work.html">Work</a>
+    <a href="about-us.html">About us</a>
+    <a href="contact-us.html">Contact</a>
+    <a href="contact-us.html" class="d-cta">Let's talk →</a>
   </div>
 
   <main style="position: relative; z-index: 2; padding-top: 100px;">
@@ -66,42 +70,31 @@
 
       <!-- Case Study Hero -->
       <div class="hero-editorial-wrap" style="max-width: 100%;">
-        <div class="pill-badge">
-          <span class="live-beacon"></span>
-          <span>REFERENCE PLATFORM 03 • PROOF OF CAPABILITY</span>
-        </div>
-
-        <h1 style="font-size: clamp(38px, 5.5vw, 68px); letter-spacing: -0.04em; font-weight: 800; line-height: 1.1;">
+        <h1 style="font-size: clamp(32px, 5.5vw, 68px); letter-spacing: -0.04em; font-weight: 800; line-height: 1.1; margin-bottom: 20px;">
           LedgerFlow — Autonomous 3-Way <br>
-          <span class="gradient-accent-text">Invoice &amp; ERP Reconciliation.</span>
+          <span class="grad">Invoice &amp; ERP Reconciliation.</span>
         </h1>
 
-        <p class="hero-editorial-lead" style="max-width: 900px;">
+        <p class="hero-editorial-lead" style="max-width: 900px; font-size: clamp(15px, 2vw, 18px); color: var(--text-400); line-height: 1.6; margin-bottom: 24px;">
           Replacing manual line-by-line accounting audits with mathematical certainty. LedgerFlow intercepts supplier PDF bills, validates against Purchase Orders and warehouse gate receipts, checks tax codes, and releases clean payouts directly to ERPs.
         </p>
 
         <!-- Signature Metadata Bar -->
         <div class="case-study-meta-bar">
           <div class="meta-pill-item">
-            <span class="meta-pill-label">REFERENCE DEPLOYMENT</span>
+            <span class="meta-pill-label">DEPLOYMENT</span>
             <span class="meta-pill-value">LedgerFlow AP/AR</span>
           </div>
           <div class="meta-pill-item">
-            <span class="meta-pill-label">SERVICE DEMONSTRATED</span>
+            <span class="meta-pill-label">SERVICE</span>
             <span class="meta-pill-value">Autonomous 3-Way Match</span>
           </div>
           <div class="meta-pill-item">
-            <span class="meta-pill-label">TARGET ENTERPRISES</span>
+            <span class="meta-pill-label">SECTOR</span>
             <span class="meta-pill-value">Enterprise Finance &amp; CFOs</span>
           </div>
           <div class="meta-pill-item">
-            <span class="meta-pill-label">DEPLOYMENT STATUS</span>
-            <span class="meta-pill-value" style="color: var(--emerald); display: flex; align-items: center; gap: 6px;">
-              <span class="live-beacon"></span> Live Operational Console
-            </span>
-          </div>
-          <div class="meta-pill-item">
-            <span class="meta-pill-label">LIVE INSTANCE</span>
+            <span class="meta-pill-label">LIVE CONSOLE</span>
             <span class="meta-pill-value">
               <a href="ledgerflow.html">Launch Console ↗</a>
             </span>
@@ -109,18 +102,18 @@
         </div>
 
         <!-- Action CTAs -->
-        <div style="display: flex; gap: 16px; margin-bottom: 50px; flex-wrap: wrap;">
-          <a href="ledgerflow.html" class="button-gradient" style="padding: 14px 32px; font-size: 15px;">
-            🚀 Open Live LedgerFlow Console ↗
+        <div style="display: flex; gap: 14px; margin-bottom: 50px; flex-wrap: wrap;">
+          <a href="ledgerflow.html" class="btn btn-g">
+            Open Live LedgerFlow Console ↗
           </a>
-          <a href="contact-us.html" class="button-outline" style="padding: 14px 28px; font-size: 15px;">
+          <a href="contact-us.html" class="btn btn-o">
             Schedule Finance Diagnostic
           </a>
         </div>
       </div>
 
       <!-- High-Fidelity macOS Browser Frame -->
-      <div class="macos-browser-frame" style="margin-bottom: 80px;">
+      <div class="macos-browser-frame" style="margin-bottom: 60px;">
         <div class="macos-browser-header">
           <div class="macos-traffic-lights">
             <span class="traffic-light red"></span>
@@ -131,64 +124,64 @@
             <span>🔒</span>
             <span>https://ledgerflow.istaroth.ai/audit/reconciliation-queue</span>
           </div>
-          <div style="font-family: var(--font-mono); font-size: 11px; color: var(--emerald);">
+          <div style="font-family: var(--mono); font-size: 11px; color: var(--emerald);">
             STATUS: 3-WAY MATCH COMPLETE (100% CONFIDENCE)
           </div>
         </div>
 
         <div class="macos-browser-body">
-          <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 24px;">
+          <div class="cs-browser-split">
             
             <!-- Left: Match Reconciliation Matrix -->
             <div>
-              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px; flex-wrap: wrap; gap: 8px;">
                 <div>
-                  <h4 style="font-size: 18px; margin-bottom: 4px;">Supplier Invoice Audit • Metallurgy Supplies Ltd</h4>
-                  <span style="font-size: 12px; color: var(--text-muted);">Invoice #TS-49210 • ₹42,80,000.00</span>
+                  <h4 style="font-size: 17px; margin-bottom: 4px;">Supplier Invoice Audit • Metallurgy Supplies Ltd</h4>
+                  <span style="font-size: 12px; color: var(--text-400);">Invoice #TS-49210 • ₹42,80,000.00</span>
                 </div>
-                <span class="pill-badge" style="background: rgba(16, 185, 129, 0.1); color: var(--emerald);">Reconciled</span>
+                <span class="status-pill ok">Reconciled</span>
               </div>
 
-              <div style="background: #101522; border: 1px solid var(--border-light); border-radius: 12px; padding: 18px; margin-bottom: 14px;">
-                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px solid var(--border-hairline);">
+              <div style="background: var(--bg-3); border: 1px solid var(--border); border-radius: var(--r-sm); padding: 16px; margin-bottom: 14px;">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 12px; margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px solid var(--border);">
                   <div>
-                    <span style="font-size: 11px; color: var(--text-dim); text-transform: uppercase;">1. Invoice Line</span>
-                    <div style="font-size: 14px; font-weight: 700; color: var(--text-pure); margin-top: 4px;">42.8 MT Rebar</div>
-                    <div style="font-size: 12px; color: var(--cyan); font-family: var(--font-mono);">₹1,00,000 / MT</div>
+                    <span style="font-size: 10.5px; color: var(--text-600); text-transform: uppercase; font-family: var(--mono);">1. Invoice Line</span>
+                    <div style="font-size: 14px; font-weight: 700; color: var(--text-100); margin-top: 4px;">42.8 MT Rebar</div>
+                    <div style="font-size: 12px; color: var(--cyan); font-family: var(--mono);">₹1,00,000 / MT</div>
                   </div>
                   <div>
-                    <span style="font-size: 11px; color: var(--text-dim); text-transform: uppercase;">2. Purchase Order #4110</span>
+                    <span style="font-size: 10.5px; color: var(--text-600); text-transform: uppercase; font-family: var(--mono);">2. Purchase Order #4110</span>
                     <div style="font-size: 14px; font-weight: 700; color: var(--emerald); margin-top: 4px;">42.8 MT Approved</div>
-                    <div style="font-size: 12px; color: var(--emerald); font-family: var(--font-mono);">Rate Locked</div>
+                    <div style="font-size: 12px; color: var(--emerald); font-family: var(--mono);">Rate Locked</div>
                   </div>
                   <div>
-                    <span style="font-size: 11px; color: var(--text-dim); text-transform: uppercase;">3. Gate Receipt #GRN-9024</span>
+                    <span style="font-size: 10.5px; color: var(--text-600); text-transform: uppercase; font-family: var(--mono);">3. Gate Receipt #GRN-9024</span>
                     <div style="font-size: 14px; font-weight: 700; color: var(--emerald); margin-top: 4px;">42,800 kg Weighed</div>
                     <div style="font-size: 12px; color: var(--emerald);">Scale Net Verified</div>
                   </div>
                 </div>
 
-                <div style="display: flex; justify-content: space-between; align-items: center; font-size: 12px;">
-                  <span style="color: var(--text-muted);">GSTIN 27AAACT0000A1Z5 verified via API • HSN 7214 verified</span>
+                <div style="display: flex; justify-content: space-between; align-items: center; font-size: 12px; flex-wrap: wrap; gap: 6px;">
+                  <span style="color: var(--text-400);">GSTIN 27AAACT0000A1Z5 verified via API • HSN 7214 verified</span>
                   <span style="color: var(--emerald); font-weight: 700;">Zero Variance • Auto-Approved</span>
                 </div>
               </div>
 
-              <div style="background: rgba(255, 255, 255, 0.02); border: 1px solid var(--border-hairline); border-radius: 12px; padding: 14px; display: flex; justify-content: space-between; font-size: 13px;">
+              <div style="background: rgba(255, 255, 255, 0.02); border: 1px solid var(--border); border-radius: var(--r-sm); padding: 14px 16px; display: flex; justify-content: space-between; font-size: 12.5px; flex-wrap: wrap; gap: 8px;">
                 <span>ERP Sync: Tally Prime Voucher #PV-8812 created</span>
-                <span style="color: var(--cyan);">Batch ID: #HDFC-DISBURSE-9921</span>
+                <span style="color: var(--cyan); font-family: var(--mono);">Batch ID: #HDFC-DISBURSE-9921</span>
               </div>
             </div>
 
             <!-- Right: Discrepancy Prevention Stats -->
-            <div style="background: #101522; border: 1px solid var(--border-light); border-radius: 14px; padding: 20px; display: flex; flex-direction: column; justify-content: space-between;">
+            <div style="background: var(--bg-3); border: 1px solid var(--border); border-radius: var(--r-md); padding: 18px; display: flex; flex-direction: column; justify-content: space-between; gap: 16px;">
               <div>
-                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--border-hairline);">
-                  <strong style="font-size: 14px;">Audit Safeguards</strong>
-                  <span class="mono-text" style="font-size: 11px; color: var(--emerald);">ZERO-TOLERANCE</span>
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; padding-bottom: 10px; border-bottom: 1px solid var(--border);">
+                  <strong style="font-size: 13.5px;">Audit Safeguards</strong>
+                  <span style="font-family: var(--mono); font-size: 11px; color: var(--emerald);">ZERO-TOLERANCE</span>
                 </div>
 
-                <div style="display: flex; flex-direction: column; gap: 10px; font-size: 12.5px; color: var(--text-muted); margin-bottom: 20px;">
+                <div style="display: flex; flex-direction: column; gap: 10px; font-size: 12.5px; color: var(--text-400); margin-bottom: 16px;">
                   <div style="display: flex; align-items: center; gap: 8px;">
                     <span style="color: var(--emerald);">✓</span>
                     <span>Duplicate Invoice Detection (Hash check)</span>
@@ -208,7 +201,7 @@
                 </div>
               </div>
 
-              <a href="ledgerflow.html" class="button-gradient" style="font-size: 13px; padding: 12px; width: 100%; text-align: center;">
+              <a href="ledgerflow.html" class="btn btn-g" style="font-size: 12.5px; padding: 10px; width: 100%; text-align: center; justify-content: center;">
                 Launch Live LedgerFlow Platform →
               </a>
             </div>
@@ -218,27 +211,27 @@
       </div>
 
       <!-- Problem vs Solution Breakdown -->
-      <section style="margin-bottom: 80px;">
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
+      <section style="margin-bottom: 60px;">
+        <div class="cs-challenge-grid">
           
-          <div style="background: rgba(244, 63, 94, 0.03); border: 1px solid rgba(244, 63, 94, 0.2); border-radius: 20px; padding: 36px;">
+          <div class="cs-card-red">
             <span class="friction-tag">The AP Bottleneck</span>
-            <h3 style="font-size: 26px; margin: 12px 0 16px; color: #FDA4AF;">Weeks of Manual Cross-Checking &amp; Price Drift</h3>
-            <p style="color: var(--text-muted); font-size: 15px; line-height: 1.7; margin-bottom: 16px;">
+            <h3 style="font-size: clamp(20px, 3.5vw, 24px); margin: 10px 0 14px; color: #FDA4AF;">Weeks of Manual Cross-Checking &amp; Price Drift</h3>
+            <p style="color: var(--text-400); font-size: 14px; line-height: 1.65; margin-bottom: 14px;">
               Accounts payable teams process hundreds of vendor invoices monthly. Finance associates manually compare PDF numbers against purchase order PDFs and warehouse Goods Receipt Notes (GRNs) on paper.
             </p>
-            <p style="color: var(--text-muted); font-size: 15px; line-height: 1.7;">
-              Unauthorized 2% rate hikes, freight surcharges, and incorrect GST classifications slip through. Invoices get paid twice or delayed for 45 days, causing vendor disputes and loss of cash discounts.
+            <p style="color: var(--text-400); font-size: 14px; line-height: 1.65;">
+              Unauthorized 2% rate hikes, freight surcharges, and incorrect GST classifications slip through. Invoices get paid twice or delayed for 45 days, causing vendor disputes.
             </p>
           </div>
 
-          <div style="background: rgba(0, 242, 254, 0.03); border: 1px solid rgba(0, 242, 254, 0.2); border-radius: 20px; padding: 36px;">
+          <div class="cs-card-cyan">
             <span class="velocity-tag">The LedgerFlow Engine</span>
-            <h3 style="font-size: 26px; margin: 12px 0 16px; color: #7DD3FC;">Autonomous 3-Way Deterministic Matching</h3>
-            <p style="color: var(--text-muted); font-size: 15px; line-height: 1.7; margin-bottom: 16px;">
-              LedgerFlow automatically ingests vendor invoices from email or portal uploads. It extracts every line item, HSN code, unit rate, and tax calculation with 99.8% precision.
+            <h3 style="font-size: clamp(20px, 3.5vw, 24px); margin: 10px 0 14px; color: #7DD3FC;">Autonomous 3-Way Deterministic Matching</h3>
+            <p style="color: var(--text-400); font-size: 14px; line-height: 1.65; margin-bottom: 14px;">
+              LedgerFlow automatically ingests vendor invoices from email or portal uploads. It extracts line items, HSN codes, unit rates, and tax calculations with 99.8% precision.
             </p>
-            <p style="color: var(--text-muted); font-size: 15px; line-height: 1.7;">
+            <p style="color: var(--text-400); font-size: 14px; line-height: 1.65;">
               It pulls the corresponding PO from ERP and physical receipt from the warehouse. If all three match within pre-configured tolerance thresholds, it auto-creates the accounting voucher and prepares the bank payout file.
             </p>
           </div>
@@ -247,64 +240,63 @@
       </section>
 
       <!-- Quantified Outcomes -->
-      <section style="background: var(--bg-surface); border: 1px solid var(--border-light); border-radius: 24px; padding: 60px; margin-bottom: 80px;">
-        <div style="text-align: center; max-width: 600px; margin: 0 auto 48px;">
-          <span class="pill-badge" style="margin-bottom: 12px;">Financial Accuracy</span>
-          <h3 style="font-size: 34px;">Reconciliation Metrics</h3>
+      <section style="background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r-xl); padding: clamp(28px, 5vw, 48px); margin-bottom: 60px;">
+        <div style="text-align: center; max-width: 600px; margin: 0 auto 36px;">
+          <span class="sec-tag">Financial Accuracy</span>
+          <h3 style="font-size: clamp(24px, 4vw, 34px); margin-top: 8px;">Reconciliation Metrics</h3>
         </div>
 
-        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; text-align: center;">
+        <div class="cs-roi-grid">
           <div>
-            <div style="font-family: var(--font-editorial); font-size: 48px; font-weight: 800; color: var(--cyan);">10x</div>
-            <div style="font-size: 14px; color: var(--text-muted); margin-top: 6px;">Faster Vendor Payment Cycles</div>
+            <div class="cs-roi-val" style="color: var(--cyan);">10x</div>
+            <div style="font-size: 13.5px; color: var(--text-400);">Faster Payment Cycles</div>
           </div>
           <div>
-            <div style="font-family: var(--font-editorial); font-size: 48px; font-weight: 800; color: var(--emerald);">100%</div>
-            <div style="font-size: 14px; color: var(--text-muted); margin-top: 6px;">Duplicate Billing Elimination</div>
+            <div class="cs-roi-val" style="color: var(--emerald);">100%</div>
+            <div style="font-size: 13.5px; color: var(--text-400);">Duplicate Billing Elimination</div>
           </div>
           <div>
-            <div style="font-family: var(--font-editorial); font-size: 48px; font-weight: 800; color: var(--violet);">4.2%</div>
-            <div style="font-size: 14px; color: var(--text-muted); margin-top: 6px;">Cash Saved via Early Pay Rebates</div>
+            <div class="cs-roi-val" style="color: var(--violet);">4.2%</div>
+            <div style="font-size: 13.5px; color: var(--text-400);">Cash Saved via Early Pay Rebates</div>
           </div>
           <div>
-            <div style="font-family: var(--font-editorial); font-size: 48px; font-weight: 800; color: var(--amber);">Zero</div>
-            <div style="font-size: 14px; color: var(--text-muted); margin-top: 6px;">Manual Voucher Typing Errors</div>
+            <div class="cs-roi-val" style="color: var(--cyan);">Zero</div>
+            <div style="font-size: 13.5px; color: var(--text-400);">Manual Voucher Typing Errors</div>
           </div>
         </div>
       </section>
 
-      <!-- Enterprise Capability Takeaway (How This Applies to You) -->
-      <section style="background: var(--bg-surface); border: 1px solid var(--border-light); border-radius: 24px; padding: 50px; margin-bottom: 60px; text-align: center;">
+      <!-- Enterprise Capability Takeaway -->
+      <section style="background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r-xl); padding: clamp(28px, 5vw, 48px); margin-bottom: 60px; text-align: center;">
         <div style="max-width: 760px; margin: 0 auto;">
-          <div class="pill-badge" style="margin-bottom: 12px;">
-            <span class="live-beacon"></span>
-            <span>HOW THIS APPLIES TO YOUR ENTERPRISE</span>
-          </div>
-          <h3 style="font-size: 32px; margin-bottom: 14px;">Need Autonomous Financial Reconciliation for Your Finance Ops?</h3>
-          <p style="color: var(--text-muted); font-size: 15.5px; line-height: 1.7; margin-bottom: 28px;">
-            LedgerFlow demonstrates how IstarothAI replaces manual accounting audit backlogs with deterministic mathematical rules. We engineer and integrate bespoke 3-way matching pipelines directly with your SAP, Oracle NetSuite, or Tally Prime ledgers, hosted inside your private cloud perimeter.
+          <span class="sec-tag">Enterprise Deployment</span>
+          <h3 style="font-size: clamp(22px, 3.5vw, 30px); margin: 12px 0 14px;">Need Autonomous Financial Reconciliation for Your Finance Ops?</h3>
+          <p style="color: var(--text-400); font-size: 15px; line-height: 1.65; margin-bottom: 24px;">
+            LedgerFlow demonstrates how IstarothAI replaces manual accounting audit backlogs with deterministic mathematical rules. We engineer bespoke 3-way matching pipelines directly with SAP, Oracle NetSuite, or Tally Prime ledgers inside your private cloud perimeter.
           </p>
-          <a href="contact-us.html" class="button-gradient" style="padding: 13px 32px; font-size: 14px;">
+          <a href="contact-us.html" class="btn btn-g" style="padding: 13px 28px; font-size: 14px;">
             Commission a Financial Ops Diagnostic →
           </a>
         </div>
       </section>
 
       <!-- Next Project Navigation -->
-      <div style="display: flex; justify-content: space-between; align-items: center; padding: 40px 0; border-top: 1px solid var(--border-hairline); margin-bottom: 40px;">
-        <a href="work-yardsync.html" style="color: var(--text-muted); text-decoration: none; font-size: 14px;">← Previous: YardSync Logistics</a>
-        <a href="work.html" class="button-outline">View All Work &amp; Case Studies →</a>
+      <div style="display: flex; justify-content: space-between; align-items: center; padding: 28px 0; border-top: 1px solid var(--border); margin-bottom: 40px; flex-wrap: wrap; gap: 14px;">
+        <a href="work-yardsync.html" style="color: var(--text-400); text-decoration: none; font-size: 14px;">← Previous: YardSync Logistics</a>
+        <a href="work.html" class="btn btn-o" style="font-size: 13px; padding: 8px 18px;">View All Work &amp; Case Studies →</a>
       </div>
 
     </div>
   </main>
 
   <!-- Footer -->
-  <footer class="footer-cosmiron">
-    <div class="container">
-      <div class="footer-sub">
-        <span>&copy; 2026 IstarothAI. LedgerFlow Autonomous Finance.</span>
-        <a href="contact-us.html" style="color: var(--cyan); text-decoration: none;">Schedule a Financial Diagnostic →</a>
+  <footer class="foot">
+    <div class="container foot-btm">
+      <p>© 2026 Istaroth AI. All rights reserved.</p>
+      <div class="foot-links">
+        <a href="contact-us.html">Contact</a>
+        <a href="work.html">Case Studies</a>
+        <a href="index.html">Home</a>
       </div>
     </div>
   </footer>

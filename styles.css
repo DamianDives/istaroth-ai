@@ -1104,3 +1104,173 @@ h1,h2,h3,h4,h5,h6{
   }
 }
 
+/* ════════════════════════════════════════════════════════
+   MISSING UTILITY & COMPONENT CLASSES
+   (Used across work pages, case studies & consoles)
+════════════════════════════════════════════════════════ */
+
+/* btn-o: Outline gradient border button */
+.btn-o {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 12px 28px; border-radius: var(--pill);
+  font-family: var(--font); font-size: 14.5px; font-weight: 600;
+  cursor: pointer; transition: transform var(--t1) var(--spring), box-shadow var(--t1) ease, background var(--t1) ease;
+  white-space: nowrap;
+  color: var(--cyan); border: 1px solid rgba(56,189,248,0.35);
+  background: rgba(56,189,248,0.05);
+}
+.btn-o:hover { background: rgba(56,189,248,0.12); border-color: rgba(56,189,248,0.6); transform: translateY(-1px); }
+
+/* sec-tag: Section label pill */
+.sec-tag {
+  display: inline-block;
+  font-family: var(--mono); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--cyan); padding: 4px 12px; border-radius: var(--pill);
+  background: var(--cyan-a12); border: 1px solid rgba(56,189,248,0.22);
+  margin-bottom: 8px;
+}
+
+/* feat-card: Feature/architecture card */
+.feat-card {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: var(--r-lg); padding: 24px;
+  transition: border-color var(--t2) ease, transform var(--t2) var(--spring);
+}
+.feat-card:hover { border-color: rgba(56,189,248,0.25); transform: translateY(-3px); }
+.feat-card h4 { margin-bottom: 8px; }
+
+/* status-badge: Generic inline status badges */
+.status-badge {
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 3px 9px; border-radius: 5px;
+  font-family: var(--mono); font-size: 11px; font-weight: 700;
+  letter-spacing: 0.04em; text-transform: uppercase;
+}
+.status-badge.ok, .status-badge[class*="ok"] {
+  background: rgba(16,185,129,0.15); color: var(--emerald); border: 1px solid rgba(16,185,129,0.3);
+}
+.status-badge.warn {
+  background: rgba(245,158,11,0.15); color: #F59E0B; border: 1px solid rgba(245,158,11,0.3);
+}
+.status-badge.danger {
+  background: rgba(244,63,94,0.15); color: var(--rose); border: 1px solid rgba(244,63,94,0.3);
+}
+.status-badge.done {
+  background: rgba(56,189,248,0.12); color: var(--cyan); border: 1px solid rgba(56,189,248,0.25);
+}
+
+/* status-pill: Larger pill badges (used in work page macOS frames) */
+.status-pill {
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 4px 12px; border-radius: var(--pill);
+  font-family: var(--mono); font-size: 11px; font-weight: 700;
+  letter-spacing: 0.04em; text-transform: uppercase;
+}
+.status-pill.ok { background: rgba(16,185,129,0.12); color: var(--emerald); border: 1px solid rgba(16,185,129,0.25); }
+
+/* button-gradient: Primary gradient action button (console pages) */
+.button-gradient {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 10px 22px; border-radius: var(--pill);
+  font-family: var(--font); font-size: 14px; font-weight: 600;
+  background: linear-gradient(135deg, var(--cyan), #60A5FA 50%, var(--violet));
+  color: #03050D; border: none; cursor: pointer;
+  box-shadow: 0 3px 14px var(--cyan-a20);
+  transition: transform var(--t1) var(--spring), box-shadow var(--t1) ease;
+}
+.button-gradient:hover { transform: translateY(-2px); box-shadow: 0 6px 24px var(--cyan-a35); }
+
+/* button-outline: Ghost/outline action button (console pages) */
+.button-outline {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 8px 18px; border-radius: var(--pill);
+  font-family: var(--font); font-size: 13px; font-weight: 600;
+  color: var(--text-200); border: 1px solid var(--border-lg);
+  background: rgba(255,255,255,0.04); cursor: pointer;
+  transition: all var(--t1) ease;
+}
+.button-outline:hover { border-color: rgba(56,189,248,0.35); color: var(--cyan); background: rgba(56,189,248,0.06); }
+
+/* pill-badge: Status pill with optional beacon (console headers) */
+.pill-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 3px 10px; border-radius: var(--pill);
+  font-family: var(--mono); font-size: 11px; font-weight: 600;
+  background: rgba(56,189,248,0.08); border: 1px solid rgba(56,189,248,0.25);
+  color: var(--cyan);
+}
+
+/* mono-text: Monospace text utility */
+.mono-text {
+  font-family: var(--mono);
+}
+
+/* back-link: Console back navigation */
+.back-link {
+  color: var(--text-400); text-decoration: none; font-size: 13px;
+  display: inline-flex; align-items: center; gap: 6px;
+  transition: color var(--t1) ease;
+}
+.back-link:hover { color: var(--cyan); }
+
+/* foot (minimal case-study footer) */
+.foot {
+  border-top: 1px solid var(--border);
+  padding: 28px 0;
+  margin-top: 40px;
+}
+.foot .foot-btm {
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 12px;
+  font-size: 13px; color: var(--text-600);
+}
+.foot-links {
+  display: flex; gap: 20px;
+}
+.foot-links a {
+  font-size: 13px; color: var(--text-400);
+  transition: color var(--t1) ease;
+}
+.foot-links a:hover { color: var(--text-100); }
+
+/* Ambient Glow & Hero Dual Beams (decorative, case study pages) */
+.ambient-glow {
+  position: fixed; inset: 0; z-index: 0; pointer-events: none;
+  background: radial-gradient(ellipse 60% 50% at 50% -10%, rgba(56,189,248,0.06) 0%, transparent 70%);
+}
+.hero-dual-beams {
+  position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden;
+}
+.beam-cyan-left {
+  position: absolute; top: -200px; left: -100px;
+  width: 600px; height: 600px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(56,189,248,0.05) 0%, transparent 65%);
+  filter: blur(40px);
+}
+.beam-amber-right {
+  position: absolute; top: -200px; right: -100px;
+  width: 600px; height: 600px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(139,92,246,0.05) 0%, transparent 65%);
+  filter: blur(40px);
+}
+
+/* hero-editorial-wrap & lead (case study hero) */
+.hero-editorial-wrap { position: relative; z-index: 2; }
+.hero-editorial-lead {
+  font-size: clamp(15px, 1.8vw, 18px);
+  color: var(--text-400); line-height: 1.7;
+  margin-bottom: 24px;
+}
+
+/* ─── Console pages: amber color alias ─── */
+:root { --amber: #F59E0B; --amber-a12: rgba(245,158,11,0.12); }
+
+/* ─── Responsive mobile fixes for foot & buttons on tiny screens ─── */
+@media (max-width: 560px) {
+  .foot .foot-btm { flex-direction: column; text-align: center; }
+  .foot-links { justify-content: center; }
+  .button-gradient, .button-outline { width: 100%; justify-content: center; }
+  .btn-o { width: 100%; justify-content: center; padding: 11px 22px; font-size: 13.5px; }
+}
+

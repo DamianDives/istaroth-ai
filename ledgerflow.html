@@ -127,6 +127,68 @@
       font-size: 13px;
       margin-bottom: 18px;
     }
+
+    /* ─── Mobile & Tablet Responsive Rules ─── */
+    @media (max-width: 1024px) {
+      .layout-main {
+        grid-template-columns: 1fr;
+      }
+      .stats-bar {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .ledgerflow-shell {
+        padding: 16px 12px;
+      }
+      .top-toolbar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 10px 0 16px;
+      }
+      .top-toolbar > div {
+        flex-wrap: wrap;
+        width: 100%;
+      }
+      .stats-bar {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+      .stat-widget {
+        padding: 14px 16px;
+      }
+      .stat-widget-val {
+        font-size: 22px;
+      }
+      .panel-card {
+        padding: 18px 14px;
+      }
+      .invoice-table-wrap {
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+      .invoice-table {
+        min-width: 480px;
+        font-size: 12px;
+      }
+      .invoice-table th, .invoice-table td {
+        padding: 10px 8px;
+      }
+      .match-trio-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+      .trio-box {
+        padding: 14px;
+      }
+      .discrepancy-callout {
+        padding: 12px 14px;
+        font-size: 12px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -197,38 +259,40 @@
           </button>
         </div>
 
-        <table class="invoice-table">
-          <thead>
-            <tr>
-              <th>Vendor</th>
-              <th>Inv #</th>
-              <th>Amount</th>
-              <th>Status</th>
-            </tr>
-          </thead>
-          <tbody id="invoice-tbody">
-            <tr class="invoice-row selected" data-vendor="Prime Metallurgy Ltd" data-inv="INV-2026-9024" data-amount="₹14,93,100" data-po="PO-892" data-grn="GRN-9024" data-match="CLEAN">
-              <td><strong>Prime Metallurgy Ltd</strong><br><span style="font-size: 11px; color: var(--text-muted);">TMT Rebar 16mm</span></td>
-              <td class="mono-text">#9024</td>
-              <td class="mono-text">₹14.93L</td>
-              <td><span class="status-badge ok">100% MATCH</span></td>
-            </tr>
+        <div class="invoice-table-wrap">
+          <table class="invoice-table">
+            <thead>
+              <tr>
+                <th>Vendor</th>
+                <th>Inv #</th>
+                <th>Amount</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="invoice-tbody">
+              <tr class="invoice-row selected" data-vendor="Prime Metallurgy Ltd" data-inv="INV-2026-9024" data-amount="₹14,93,100" data-po="PO-892" data-grn="GRN-9024" data-match="CLEAN">
+                <td><strong>Prime Metallurgy Ltd</strong><br><span style="font-size: 11px; color: var(--text-muted);">TMT Rebar 16mm</span></td>
+                <td class="mono-text">#9024</td>
+                <td class="mono-text">₹14.93L</td>
+                <td><span class="status-badge ok">100% MATCH</span></td>
+              </tr>
 
-            <tr class="invoice-row" data-vendor="National Cement Group" data-inv="INV-2026-4410" data-amount="₹15,36,000" data-po="PO-904" data-grn="GRN-8812" data-match="PRICE_CREEP">
-              <td><strong>National Cement Group</strong><br><span style="font-size: 11px; color: var(--text-muted);">53 Grade Cement</span></td>
-              <td class="mono-text">#4410</td>
-              <td class="mono-text">₹15.36L</td>
-              <td><span class="status-badge danger">PRICE CREEP</span></td>
-            </tr>
+              <tr class="invoice-row" data-vendor="National Cement Group" data-inv="INV-2026-4410" data-amount="₹15,36,000" data-po="PO-904" data-grn="GRN-8812" data-match="PRICE_CREEP">
+                <td><strong>National Cement Group</strong><br><span style="font-size: 11px; color: var(--text-muted);">53 Grade Cement</span></td>
+                <td class="mono-text">#4410</td>
+                <td class="mono-text">₹15.36L</td>
+                <td><span class="status-badge danger">PRICE CREEP</span></td>
+              </tr>
 
-            <tr class="invoice-row" data-vendor="Apex Structural Steel" data-inv="INV-2026-3109" data-amount="₹9,84,000" data-po="PO-911" data-grn="GRN-9102" data-match="CLEAN">
-              <td><strong>Apex Structural Steel</strong><br><span style="font-size: 11px; color: var(--text-muted);">MS Angles & Joists</span></td>
-              <td class="mono-text">#3109</td>
-              <td class="mono-text">₹9.84L</td>
-              <td><span class="status-badge ok">100% MATCH</span></td>
-            </tr>
-          </tbody>
-        </table>
+              <tr class="invoice-row" data-vendor="Apex Structural Steel" data-inv="INV-2026-3109" data-amount="₹9,84,000" data-po="PO-911" data-grn="GRN-9102" data-match="CLEAN">
+                <td><strong>Apex Structural Steel</strong><br><span style="font-size: 11px; color: var(--text-muted);">MS Angles & Joists</span></td>
+                <td class="mono-text">#3109</td>
+                <td class="mono-text">₹9.84L</td>
+                <td><span class="status-badge ok">100% MATCH</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
         <div style="background: rgba(16, 185, 129, 0.04); border: 1px solid rgba(16, 185, 129, 0.2); border-radius: var(--radius-sm); padding: 14px;">
           <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 6px;">

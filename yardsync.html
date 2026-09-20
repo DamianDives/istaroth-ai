@@ -143,6 +143,75 @@
       border-bottom: 1px dashed var(--border-hairline);
       margin-bottom: 14px;
     }
+
+    /* ─── Mobile & Tablet Responsive Rules ─── */
+    @media (max-width: 1024px) {
+      .layout-main {
+        grid-template-columns: 1fr;
+      }
+      .stats-bar {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .yardsync-shell {
+        padding: 16px 12px;
+      }
+      .top-toolbar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 10px 0 16px;
+      }
+      .toolbar-brand {
+        flex-wrap: wrap;
+        gap: 8px;
+        width: 100%;
+      }
+      .stats-bar {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+      .stat-widget {
+        padding: 14px 16px;
+      }
+      .stat-widget-val {
+        font-size: 22px;
+      }
+      .panel-card {
+        padding: 18px 14px;
+      }
+      .panel-title-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+      .scale-digits {
+        font-size: 32px;
+      }
+      .scale-tare-net {
+        flex-direction: column;
+        gap: 8px;
+        align-items: center;
+      }
+      .truck-table-wrap {
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+      .truck-queue-table {
+        min-width: 520px;
+        font-size: 12px;
+      }
+      .truck-queue-table th, .truck-queue-table td {
+        padding: 10px 8px;
+      }
+      .gatepass-receipt {
+        padding: 14px;
+        font-size: 11.5px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -213,36 +282,38 @@
           </button>
         </div>
 
-        <table class="truck-queue-table">
-          <thead>
-            <tr>
-              <th>Vehicle #</th>
-              <th>Vendor / Material</th>
-              <th>Challan Wt</th>
-              <th>Status</th>
-            </tr>
-          </thead>
-          <tbody id="truck-table-body">
-            <tr class="truck-row selected" data-vehicle="MH-12-Q-8821" data-vendor="Prime Metallurgy Ltd" data-po="PO-892" data-material="TMT Rebar 16mm Fe-550" data-challan="27,650 kg" data-gross="41,850 kg" data-tare="14,200 kg" data-driver="Suresh Yadav (98201-99201)">
-              <td><strong>MH-12-Q-8821</strong></td>
-              <td>Prime Metallurgy Ltd<br><span style="font-size: 11px; color: var(--text-dim);">PO #892</span></td>
-              <td class="mono-text">27,650 kg</td>
-              <td><span class="status-badge ok">ON WEIGHBRIDGE</span></td>
-            </tr>
-            <tr class="truck-row" data-vehicle="KA-04-E-4102" data-vendor="National Cement Group" data-po="PO-904" data-material="Grade 53 OPC Cement" data-challan="32,000 kg" data-gross="48,200 kg" data-tare="16,200 kg" data-driver="Ramesh Patil (98450-11223)">
-              <td><strong>KA-04-E-4102</strong></td>
-              <td>National Cement Group<br><span style="font-size: 11px; color: var(--text-dim);">PO #904</span></td>
-              <td class="mono-text">32,000 kg</td>
-              <td><span class="status-badge warn">OCR VERIFIED</span></td>
-            </tr>
-            <tr class="truck-row" data-vehicle="TS-07-UA-9011" data-vendor="JSW Steel Infra" data-po="PO-911" data-material="Structural MS Angles" data-challan="18,400 kg" data-gross="29,800 kg" data-tare="11,400 kg" data-driver="Bikram Singh (98111-22334)">
-              <td><strong>TS-07-UA-9011</strong></td>
-              <td>JSW Steel Infra<br><span style="font-size: 11px; color: var(--text-dim);">PO #911</span></td>
-              <td class="mono-text">18,400 kg</td>
-              <td><span class="status-badge ok">GATE PASS ISSUED</span></td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="truck-table-wrap">
+          <table class="truck-queue-table">
+            <thead>
+              <tr>
+                <th>Vehicle #</th>
+                <th>Vendor / Material</th>
+                <th>Challan Wt</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="truck-table-body">
+              <tr class="truck-row selected" data-vehicle="MH-12-Q-8821" data-vendor="Prime Metallurgy Ltd" data-po="PO-892" data-material="TMT Rebar 16mm Fe-550" data-challan="27,650 kg" data-gross="41,850 kg" data-tare="14,200 kg" data-driver="Suresh Yadav (98201-99201)">
+                <td><strong>MH-12-Q-8821</strong></td>
+                <td>Prime Metallurgy Ltd<br><span style="font-size: 11px; color: var(--text-dim);">PO #892</span></td>
+                <td class="mono-text">27,650 kg</td>
+                <td><span class="status-badge ok">ON WEIGHBRIDGE</span></td>
+              </tr>
+              <tr class="truck-row" data-vehicle="KA-04-E-4102" data-vendor="National Cement Group" data-po="PO-904" data-material="Grade 53 OPC Cement" data-challan="32,000 kg" data-gross="48,200 kg" data-tare="16,200 kg" data-driver="Ramesh Patil (98450-11223)">
+                <td><strong>KA-04-E-4102</strong></td>
+                <td>National Cement Group<br><span style="font-size: 11px; color: var(--text-dim);">PO #904</span></td>
+                <td class="mono-text">32,000 kg</td>
+                <td><span class="status-badge warn">OCR VERIFIED</span></td>
+              </tr>
+              <tr class="truck-row" data-vehicle="TS-07-UA-9011" data-vendor="JSW Steel Infra" data-po="PO-911" data-material="Structural MS Angles" data-challan="18,400 kg" data-gross="29,800 kg" data-tare="11,400 kg" data-driver="Bikram Singh (98111-22334)">
+                <td><strong>TS-07-UA-9011</strong></td>
+                <td>JSW Steel Infra<br><span style="font-size: 11px; color: var(--text-dim);">PO #911</span></td>
+                <td class="mono-text">18,400 kg</td>
+                <td><span class="status-badge ok">GATE PASS ISSUED</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
         <!-- WhatsApp Driver Intake Card -->
         <div style="background: rgba(0, 242, 254, 0.03); border: 1px solid rgba(0, 242, 254, 0.15); border-radius: var(--radius-sm); padding: 16px;">

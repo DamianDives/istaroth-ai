@@ -145,7 +145,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* ─── Subtle Card Mouse Spotlight Effect (Cosmiron aesthetic) ─── */
   function initCardSpotlight() {
-    const cards = document.querySelectorAll('.card, .p-card, .why-card, .practice-card');
+    const cards = document.querySelectorAll('.card, .p-card, .why-card, .practice-card, .service-card, .comp-card');
     cards.forEach((card) => {
       card.addEventListener('mousemove', (e) => {
         const rect = card.getBoundingClientRect();
@@ -158,3 +158,38 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   initCardSpotlight();
 });
+
+/* ─── Global Comparison Filter (Manual vs Autonomous AI) ───────── */
+window.filterComp = function(type) {
+  const tabs = document.querySelectorAll('.comp-tab');
+  tabs.forEach(t => t.classList.remove('active'));
+
+  const activeTab = document.getElementById(`tab-${type}`);
+  if (activeTab) activeTab.classList.add('active');
+
+  const cards = document.querySelectorAll('.comp-card');
+  cards.forEach(card => {
+    const isAi = card.classList.contains('highlight');
+    if (type === 'all') {
+      card.style.display = 'flex';
+      card.style.opacity = '1';
+      card.style.transform = 'translateY(0)';
+    } else if (type === 'manual') {
+      if (!isAi) {
+        card.style.display = 'flex';
+        card.style.opacity = '1';
+        card.style.transform = 'translateY(0)';
+      } else {
+        card.style.display = 'none';
+      }
+    } else if (type === 'ai') {
+      if (isAi) {
+        card.style.display = 'flex';
+        card.style.opacity = '1';
+        card.style.transform = 'translateY(0)';
+      } else {
+        card.style.display = 'none';
+      }
+    }
+  });
+};

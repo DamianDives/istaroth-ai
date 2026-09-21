@@ -12,6 +12,12 @@
   
   <link rel="stylesheet" href="styles.css">
   <style>
+    main.main-workspace {
+      position: relative;
+      z-index: 2;
+      padding-top: 105px;
+      padding-bottom: 80px;
+    }
     .project-card {
       background: var(--bg-card);
       border: 1px solid var(--border);
@@ -24,6 +30,8 @@
       align-items: center;
       flex-wrap: wrap;
       gap: 16px;
+      min-width: 0;
+      box-sizing: border-box;
     }
     .metrics-summary-grid {
       display: grid;
@@ -40,6 +48,8 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      min-width: 0;
+      box-sizing: border-box;
     }
     .metric-card-label {
       font-size: 11px;
@@ -54,6 +64,7 @@
       font-weight: 800;
       letter-spacing: -0.02em;
       color: var(--text-100);
+      word-break: break-word;
     }
     .metric-card-sub {
       font-size: 12px;
@@ -61,9 +72,12 @@
     }
     .workspace-split {
       display: grid;
-      grid-template-columns: 1.8fr 1fr;
+      grid-template-columns: 1.6fr 1fr;
       gap: 24px;
       margin-bottom: 40px;
+      min-width: 0;
+      width: 100%;
+      max-width: 100%;
     }
     .panel-card {
       background: var(--bg-card);
@@ -74,6 +88,10 @@
       display: flex;
       flex-direction: column;
       gap: 20px;
+      min-width: 0;
+      max-width: 100%;
+      box-sizing: border-box;
+      overflow: hidden;
     }
     .tab-group {
       display: flex;
@@ -98,14 +116,18 @@
     }
     .matrix-table-wrap {
       width: 100%;
+      max-width: 100%;
       overflow-x: auto;
       -webkit-overflow-scrolling: touch;
       border: 1px solid var(--border);
       border-radius: var(--r-sm);
       background: rgba(0, 0, 0, 0.25);
+      display: block;
+      box-sizing: border-box;
     }
     .matrix-table {
       width: 100%;
+      min-width: 480px;
       border-collapse: collapse;
       font-size: 13px;
       white-space: nowrap;
@@ -135,6 +157,7 @@
       font-weight: 700;
       font-family: var(--mono);
       display: inline-block;
+      white-space: nowrap;
     }
     .badge-excluded {
       background: rgba(244, 63, 94, 0.15);
@@ -146,6 +169,7 @@
       font-weight: 700;
       font-family: var(--mono);
       display: inline-block;
+      white-space: nowrap;
     }
     .badge-clarify {
       background: rgba(245, 158, 11, 0.15);
@@ -157,23 +181,27 @@
       font-weight: 700;
       font-family: var(--mono);
       display: inline-block;
+      white-space: nowrap;
     }
     .copilot-chat {
       background: #04060A;
       border: 1px solid var(--border);
       border-radius: var(--r-sm);
-      height: 280px;
+      height: 260px;
       overflow-y: auto;
       padding: 14px;
       display: flex;
       flex-direction: column;
       gap: 12px;
+      min-width: 0;
+      box-sizing: border-box;
     }
     .chat-bubble {
       padding: 10px 14px;
       border-radius: var(--r-sm);
       font-size: 12.5px;
       line-height: 1.5;
+      word-break: break-word;
     }
     .chat-bubble.assistant {
       background: rgba(255, 255, 255, 0.04);
@@ -197,6 +225,10 @@
       font-size: 12.5px;
       cursor: pointer;
       transition: all var(--t1) ease;
+      white-space: normal;
+      word-break: break-word;
+      line-height: 1.4;
+      box-sizing: border-box;
     }
     .quick-prompt-btn:hover {
       background: rgba(56, 189, 248, 0.08);
@@ -218,10 +250,18 @@
       cursor: pointer;
       box-shadow: 0 2px 14px var(--cyan-a20);
       transition: transform var(--t1) var(--spring), box-shadow var(--t1) ease;
+      box-sizing: border-box;
     }
     .btn-action-primary:hover {
       transform: translateY(-1px);
       box-shadow: 0 4px 22px var(--cyan-a35);
+    }
+    .table-scroll-hint {
+      display: none;
+      font-size: 11px;
+      color: var(--text-400);
+      margin-top: 6px;
+      text-align: right;
     }
 
     /* ─── Responsive Breakpoints ─── */
@@ -234,35 +274,49 @@
       }
     }
 
-    @media (max-width: 768px) {
-      .metrics-summary-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
+    @media (max-width: 860px) {
+      main.main-workspace {
+        padding-top: 80px;
+        padding-bottom: 60px;
       }
-      .project-card {
-        padding: 18px 16px;
-        flex-direction: column;
-        align-items: stretch;
-      }
-      .project-card button {
-        width: 100%;
-      }
-      .panel-card {
-        padding: 18px 14px;
-        gap: 16px;
+      .table-scroll-hint {
+        display: block;
       }
     }
 
-    @media (max-width: 480px) {
+    @media (max-width: 640px) {
       .metrics-summary-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
         gap: 10px;
       }
       .metric-card {
-        padding: 14px 16px;
+        padding: 12px 14px;
+      }
+      .metric-card-label {
+        font-size: 10px;
       }
       .metric-card-val {
-        font-size: 22px;
+        font-size: 19px;
+      }
+      .project-card {
+        padding: 16px 14px;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+      }
+      .project-card button {
+        width: 100%;
+        justify-content: center;
+      }
+      .panel-card {
+        padding: 16px 12px;
+        gap: 14px;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .metrics-summary-grid {
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -312,7 +366,7 @@
     <a href="contact-us.html" class="d-cta">Let's talk →</a>
   </div>
 
-  <main style="position: relative; z-index: 2; padding-top: 105px; padding-bottom: 80px;">
+  <main class="main-workspace">
     <div class="container">
       
       <!-- Back Link -->
@@ -322,12 +376,12 @@
         </a>
       </div>
 
-      <!-- Page Header (clean, no extra badge tag) -->
-      <div style="margin-bottom: 28px;">
-        <h1 style="font-size: clamp(26px, 4.5vw, 42px); font-weight: 800; letter-spacing: -0.03em; margin-bottom: 8px; line-height: 1.15;">
+      <!-- Page Header -->
+      <div style="margin-bottom: 26px;">
+        <h1 style="font-size: clamp(24px, 4.5vw, 40px); font-weight: 800; letter-spacing: -0.03em; margin-bottom: 8px; line-height: 1.15;">
           BidIntel — <span class="grad">Preconstruction Leveling Matrix</span>
         </h1>
-        <p style="font-size: clamp(14px, 1.6vw, 16px); color: var(--text-400); max-width: 760px; line-height: 1.6;">
+        <p style="font-size: clamp(13.5px, 1.6vw, 15.5px); color: var(--text-400); max-width: 760px; line-height: 1.6;">
           Multimodal BOQ extraction, scope gap detection, and normalized bid leveling copilot for commercial general contractors.
         </p>
       </div>
@@ -335,11 +389,11 @@
       <!-- Project Header Card -->
       <div class="project-card">
         <div>
-          <div style="font-size: 11.5px; font-weight: 700; color: var(--cyan); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px;">
+          <div style="font-size: 11px; font-weight: 700; color: var(--cyan); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px;">
             PROJECT RMC-2608 • HEALTHCARE OUTPATIENT
           </div>
-          <h2 style="font-size: clamp(20px, 3vw, 26px); font-weight: 800; margin-bottom: 6px;">Riverfront Medical Center</h2>
-          <p style="font-size: 13px; color: var(--text-400);">Package: 26 00 00 – Electrical Systems • Due Date: 18 Sep 2026 • BOQ Rev: 3.2</p>
+          <h2 style="font-size: clamp(19px, 3vw, 24px); font-weight: 800; margin-bottom: 6px;">Riverfront Medical Center</h2>
+          <p style="font-size: 12.5px; color: var(--text-400);">Package: 26 00 00 – Electrical Systems • Due Date: 18 Sep 2026 • BOQ Rev: 3.2</p>
         </div>
         <button class="btn-action-primary" id="btn-re-normalize">
           ⚡ Re-Normalize Bids
@@ -378,9 +432,9 @@
         
         <!-- Left: Leveling Matrix -->
         <div class="panel-card">
-          <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 12px; border-bottom: 1px solid var(--border); flex-wrap: wrap; gap: 10px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 12px; border-bottom: 1px solid var(--border); flex-wrap: wrap; gap: 10px; min-width: 0;">
             <div>
-              <h3 style="font-size: 17px; margin-bottom: 2px;">Bid-Leveling Matrix</h3>
+              <h3 style="font-size: 16.5px; margin-bottom: 2px;">Bid-Leveling Matrix</h3>
               <div style="font-size: 12px; color: var(--text-400);">Filter rows or click badges to compare scopes</div>
             </div>
             <div class="tab-group">
@@ -422,18 +476,19 @@
                 <tr data-has-diff="true">
                   <td><strong>Fire Alarm Integration</strong></td>
                   <td><span class="badge-included">✓ INCLUDED</span></td>
-                  <td><span class="badge-clarify">? CLARIFICATION REQ</span></td>
+                  <td><span class="badge-clarify">? CLARIFY</span></td>
                   <td><span class="badge-included">✓ INCLUDED</span></td>
                 </tr>
                 <tr data-has-diff="false">
                   <td><strong>Warranty Period</strong></td>
                   <td><span class="badge-included">24 Months</span></td>
                   <td><span class="badge-included">24 Months</span></td>
-                  <td><span class="badge-included">12 Months (+$22k)</span></td>
+                  <td><span class="badge-included">12 Mo (+22k)</span></td>
                 </tr>
               </tbody>
             </table>
           </div>
+          <div class="table-scroll-hint">⟷ Scroll table horizontally for all details</div>
 
           <div style="background: rgba(56, 189, 248, 0.05); border: 1px solid rgba(56, 189, 248, 0.2); border-radius: var(--r-sm); padding: 14px;">
             <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
@@ -450,7 +505,7 @@
         <div class="panel-card">
           <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 12px; border-bottom: 1px solid var(--border);">
             <div>
-              <h3 style="font-size: 17px; margin-bottom: 2px;">Precon Copilot Feed</h3>
+              <h3 style="font-size: 16.5px; margin-bottom: 2px;">Precon Copilot Feed</h3>
               <div style="font-size: 12px; color: var(--text-400);">Automated proposal audit evidence</div>
             </div>
             <span class="status-badge ok" style="background: var(--cyan-a20); color: var(--cyan); border: 1px solid rgba(56, 189, 248, 0.3);">ACTIVE</span>

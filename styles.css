@@ -823,10 +823,40 @@ h1,h2,h3,h4,h5,h6{
 @media (max-width:860px){
   .nav-links,.nav-btn{display:none;}
   .ham{display:flex;}
-  .container{padding:0 18px;}
-  /* Prevent nav from exceeding mobile viewport */
-  .nav-wrap{padding:0 12px;}
-  .nav{padding:0 6px 0 16px;}
+  .container{padding:0 14px;}
+  /* Dock nav bar cleanly to the top of screen on mobile with solid opaque backdrop */
+  .nav-wrap{
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    width:100%;
+    height:60px;
+    padding:6px 14px;
+    background:#07080E;
+    border-bottom:1px solid var(--border);
+    pointer-events:auto;
+    z-index:1000;
+    box-sizing:border-box;
+  }
+  .nav{
+    height:46px;
+    padding:0 8px 0 16px;
+    box-shadow:none;
+    border-radius:var(--pill);
+    background:rgba(255,255,255,0.04);
+    border:1px solid var(--border);
+  }
+
+  /* Ensure grid columns and cards never exceed mobile viewport */
+  .layout-main, .workspace-split, .panel-card {
+    min-width:0 !important;
+    max-width:100% !important;
+    box-sizing:border-box !important;
+  }
+  .panel-card {
+    overflow:hidden !important;
+  }
 
   .hero{padding-top:116px;}
   .hero h1{font-size:clamp(30px,7.5vw,46px);}

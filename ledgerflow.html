@@ -12,6 +12,12 @@
   
   <link rel="stylesheet" href="styles.css">
   <style>
+    main.main-workspace {
+      position: relative;
+      z-index: 2;
+      padding-top: 105px;
+      padding-bottom: 80px;
+    }
     .stats-bar {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -27,6 +33,8 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      min-width: 0;
+      box-sizing: border-box;
     }
     .stat-widget-lbl {
       font-size: 11px;
@@ -41,6 +49,7 @@
       font-weight: 800;
       letter-spacing: -0.02em;
       color: var(--text-100);
+      word-break: break-word;
     }
     .stat-widget-sub {
       font-size: 12px;
@@ -48,9 +57,12 @@
     }
     .layout-main {
       display: grid;
-      grid-template-columns: 1fr 1.6fr;
+      grid-template-columns: 1fr 1.5fr;
       gap: 24px;
       margin-bottom: 40px;
+      min-width: 0;
+      width: 100%;
+      max-width: 100%;
     }
     .panel-card {
       background: var(--bg-card);
@@ -61,17 +73,35 @@
       display: flex;
       flex-direction: column;
       gap: 20px;
+      min-width: 0;
+      max-width: 100%;
+      box-sizing: border-box;
+      overflow: hidden;
+    }
+    .invoice-panel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+      flex-wrap: wrap;
+      gap: 10px;
+      min-width: 0;
     }
     .invoice-table-wrap {
       width: 100%;
+      max-width: 100%;
       overflow-x: auto;
       -webkit-overflow-scrolling: touch;
       border: 1px solid var(--border);
       border-radius: var(--r-sm);
       background: rgba(0, 0, 0, 0.25);
+      display: block;
+      box-sizing: border-box;
     }
     .invoice-table {
       width: 100%;
+      min-width: 480px;
       border-collapse: collapse;
       font-size: 13px;
       white-space: nowrap;
@@ -110,6 +140,7 @@
       font-weight: 700;
       letter-spacing: 0.04em;
       font-family: var(--mono);
+      white-space: nowrap;
     }
     .status-badge.ok {
       background: var(--emerald-a20);
@@ -121,10 +152,21 @@
       color: var(--rose);
       border: 1px solid rgba(244, 63, 94, 0.3);
     }
+    .match-header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+      flex-wrap: wrap;
+      gap: 10px;
+      min-width: 0;
+    }
     .match-trio-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 14px;
+      min-width: 0;
     }
     .trio-box {
       background: rgba(0, 0, 0, 0.35);
@@ -132,6 +174,8 @@
       border-radius: var(--r-sm);
       padding: 16px;
       font-size: 12.5px;
+      min-width: 0;
+      box-sizing: border-box;
     }
     .trio-title {
       font-weight: 700;
@@ -147,10 +191,13 @@
       justify-content: space-between;
       margin-bottom: 8px;
       color: var(--text-400);
+      flex-wrap: wrap;
+      gap: 4px;
     }
     .trio-line strong {
       color: var(--text-100);
       font-family: var(--mono);
+      word-break: break-all;
     }
     .discrepancy-callout {
       background: rgba(244, 63, 94, 0.08);
@@ -158,6 +205,14 @@
       border-radius: var(--r-sm);
       padding: 14px 16px;
       font-size: 13px;
+      min-width: 0;
+      box-sizing: border-box;
+    }
+    .settlement-actions-btns {
+      display: flex;
+      gap: 12px;
+      width: 100%;
+      box-sizing: border-box;
     }
     .btn-action-primary {
       display: inline-flex;
@@ -174,6 +229,7 @@
       cursor: pointer;
       box-shadow: 0 2px 14px var(--cyan-a20);
       transition: transform var(--t1) var(--spring), box-shadow var(--t1) ease;
+      box-sizing: border-box;
     }
     .btn-action-primary:hover {
       transform: translateY(-1px);
@@ -193,10 +249,18 @@
       border: 1px solid var(--border-lg);
       cursor: pointer;
       transition: background var(--t1) ease, border-color var(--t1) ease;
+      box-sizing: border-box;
     }
     .btn-action-secondary:hover {
       background: rgba(255, 255, 255, 0.1);
       border-color: rgba(255, 255, 255, 0.25);
+    }
+    .table-scroll-hint {
+      display: none;
+      font-size: 11px;
+      color: var(--text-400);
+      margin-top: 6px;
+      text-align: right;
     }
 
     /* ─── Responsive Breakpoints ─── */
@@ -209,25 +273,37 @@
       }
     }
 
-    @media (max-width: 768px) {
-      .stats-bar {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
+    @media (max-width: 860px) {
+      main.main-workspace {
+        padding-top: 80px;
+        padding-bottom: 60px;
+      }
+      .table-scroll-hint {
+        display: block;
       }
       .match-trio-grid {
         grid-template-columns: 1fr;
         gap: 12px;
       }
-      .settlement-actions-btns {
-        flex-direction: column !important;
-        gap: 10px !important;
+    }
+
+    @media (max-width: 640px) {
+      .stats-bar {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
       }
-      .settlement-actions-btns button {
-        width: 100% !important;
+      .stat-widget {
+        padding: 12px 14px;
+      }
+      .stat-widget-lbl {
+        font-size: 10px;
+      }
+      .stat-widget-val {
+        font-size: 19px;
       }
       .panel-card {
-        padding: 18px 14px;
-        gap: 16px;
+        padding: 16px 12px;
+        gap: 14px;
       }
       .invoice-panel-header {
         flex-direction: column;
@@ -241,28 +317,26 @@
       .match-header-row {
         flex-direction: column;
         align-items: flex-start !important;
-        gap: 10px;
+        gap: 8px;
       }
       #match-badge-status {
         align-self: flex-start;
       }
+      .settlement-actions-btns {
+        flex-direction: column !important;
+        gap: 10px !important;
+      }
+      .settlement-actions-btns button {
+        width: 100% !important;
+        justify-content: center !important;
+        padding: 12px 14px !important;
+        white-space: normal !important;
+      }
     }
 
-    @media (max-width: 480px) {
+    @media (max-width: 380px) {
       .stats-bar {
         grid-template-columns: 1fr;
-        gap: 10px;
-      }
-      .stat-widget {
-        padding: 14px 16px;
-      }
-      .stat-widget-val {
-        font-size: 22px;
-      }
-      .trio-line {
-        flex-direction: column;
-        gap: 2px;
-        margin-bottom: 10px;
       }
     }
   </style>
@@ -312,7 +386,7 @@
     <a href="contact-us.html" class="d-cta">Let's talk →</a>
   </div>
 
-  <main style="position: relative; z-index: 2; padding-top: 105px; padding-bottom: 80px;">
+  <main class="main-workspace">
     <div class="container">
       
       <!-- Back Link -->
@@ -322,12 +396,12 @@
         </a>
       </div>
 
-      <!-- Page Header (clean, no extra badge tag) -->
-      <div style="margin-bottom: 28px;">
-        <h1 style="font-size: clamp(26px, 4.5vw, 42px); font-weight: 800; letter-spacing: -0.03em; margin-bottom: 8px; line-height: 1.15;">
+      <!-- Page Header -->
+      <div style="margin-bottom: 26px;">
+        <h1 style="font-size: clamp(24px, 4.5vw, 40px); font-weight: 800; letter-spacing: -0.03em; margin-bottom: 8px; line-height: 1.15;">
           LedgerFlow — <span class="grad">Autonomous 3-Way AP Audit</span>
         </h1>
-        <p style="font-size: clamp(14px, 1.6vw, 16px); color: var(--text-400); max-width: 760px; line-height: 1.6;">
+        <p style="font-size: clamp(13.5px, 1.6vw, 15.5px); color: var(--text-400); max-width: 760px; line-height: 1.6;">
           Autonomous 3-way matching between vendor tax invoices, purchase orders, and warehouse gate receipts. Eliminates phantom price creep and auto-syncs clean vouchers to ERP.
         </p>
       </div>
@@ -364,12 +438,12 @@
         
         <!-- Left Column: Invoice Inward Queue -->
         <div class="panel-card">
-          <div class="invoice-panel-header" style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 12px; border-bottom: 1px solid var(--border); flex-wrap: wrap; gap: 10px;">
+          <div class="invoice-panel-header">
             <div>
-              <h3 style="font-size: 17px; margin-bottom: 2px;">Incoming Vendor Invoices</h3>
-              <div style="font-size: 12.5px; color: var(--text-400);">Select an invoice to run 3-way matching</div>
+              <h3 style="font-size: 16.5px; margin-bottom: 2px;">Incoming Vendor Invoices</h3>
+              <div style="font-size: 12px; color: var(--text-400);">Select an invoice to run 3-way matching</div>
             </div>
-            <button class="btn-action-secondary" id="btn-upload-inv" style="font-size: 12px; padding: 7px 14px;">
+            <button class="btn-action-secondary" id="btn-upload-inv" style="font-size: 12px; padding: 8px 14px;">
               + Ingest Bill
             </button>
           </div>
@@ -408,6 +482,7 @@
               </tbody>
             </table>
           </div>
+          <div class="table-scroll-hint">⟷ Scroll table horizontally for all details</div>
 
           <div style="background: rgba(16, 185, 129, 0.05); border: 1px solid rgba(16, 185, 129, 0.2); border-radius: var(--r-sm); padding: 14px;">
             <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
@@ -422,10 +497,10 @@
 
         <!-- Right Column: 3-Way Match Verification & ERP Payout Engine -->
         <div class="panel-card">
-          <div class="match-header-row" style="display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 12px; border-bottom: 1px solid var(--border); flex-wrap: wrap; gap: 10px;">
+          <div class="match-header-row">
             <div>
-              <h3 style="font-size: 17px; margin-bottom: 2px;" id="match-header-title">3-Way Match Verification: Prime Metallurgy Ltd</h3>
-              <div style="font-size: 12.5px; color: var(--text-400);">Comparing Vendor Tax Invoice vs Purchase Order vs YardSync Delivery Slip</div>
+              <h3 style="font-size: 16.5px; margin-bottom: 2px;" id="match-header-title">3-Way Match Verification: Prime Metallurgy Ltd</h3>
+              <div style="font-size: 12px; color: var(--text-400);">Comparing Vendor Tax Invoice vs Purchase Order vs YardSync Delivery Slip</div>
             </div>
             <span class="status-badge ok" id="match-badge-status">100% VERIFIED</span>
           </div>
@@ -466,12 +541,12 @@
           </div>
 
           <!-- Settlement Box -->
-          <div style="background: rgba(0, 0, 0, 0.3); border: 1px solid var(--border); border-radius: var(--r-sm); padding: 18px;">
+          <div style="background: rgba(0, 0, 0, 0.3); border: 1px solid var(--border); border-radius: var(--r-sm); padding: 16px; min-width: 0; box-sizing: border-box;">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
-              <span style="font-weight: 700; font-size: 14px;">Automated Settlement Actions</span>
-              <span class="mono-text" style="font-size: 11px; color: var(--emerald);">ERP PAYLOAD READY</span>
+              <span style="font-weight: 700; font-size: 13.5px;">Automated Settlement Actions</span>
+              <span class="mono-text" style="font-size: 10.5px; color: var(--emerald);">ERP PAYLOAD READY</span>
             </div>
-            <div class="settlement-actions-btns" style="display: flex; gap: 12px;">
+            <div class="settlement-actions-btns">
               <button class="btn-action-primary" id="btn-approve-payment">
                 ✓ Authorize Bank Payout Batch
               </button>

@@ -12,6 +12,12 @@
   
   <link rel="stylesheet" href="styles.css">
   <style>
+    main.main-workspace {
+      position: relative;
+      z-index: 2;
+      padding-top: 105px;
+      padding-bottom: 80px;
+    }
     .stats-bar {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -27,6 +33,8 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      min-width: 0;
+      box-sizing: border-box;
     }
     .stat-widget-lbl {
       font-size: 11px;
@@ -41,6 +49,7 @@
       font-weight: 800;
       letter-spacing: -0.02em;
       color: var(--text-100);
+      word-break: break-word;
     }
     .stat-widget-sub {
       font-size: 12px;
@@ -48,9 +57,12 @@
     }
     .layout-main {
       display: grid;
-      grid-template-columns: 1fr 1.6fr;
+      grid-template-columns: 1fr 1.5fr;
       gap: 24px;
       margin-bottom: 40px;
+      min-width: 0;
+      width: 100%;
+      max-width: 100%;
     }
     .panel-card {
       background: var(--bg-card);
@@ -61,17 +73,35 @@
       display: flex;
       flex-direction: column;
       gap: 20px;
+      min-width: 0;
+      max-width: 100%;
+      box-sizing: border-box;
+      overflow: hidden;
+    }
+    .truck-panel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+      flex-wrap: wrap;
+      gap: 10px;
+      min-width: 0;
     }
     .truck-table-wrap {
       width: 100%;
+      max-width: 100%;
       overflow-x: auto;
       -webkit-overflow-scrolling: touch;
       border: 1px solid var(--border);
       border-radius: var(--r-sm);
       background: rgba(0, 0, 0, 0.25);
+      display: block;
+      box-sizing: border-box;
     }
     .truck-table {
       width: 100%;
+      min-width: 480px;
       border-collapse: collapse;
       font-size: 13px;
       white-space: nowrap;
@@ -110,6 +140,7 @@
       font-weight: 700;
       letter-spacing: 0.04em;
       font-family: var(--mono);
+      white-space: nowrap;
     }
     .status-badge.ok {
       background: var(--emerald-a20);
@@ -127,10 +158,12 @@
       border-radius: var(--r-md);
       padding: 20px;
       box-shadow: inset 0 0 24px rgba(56, 189, 248, 0.06);
+      max-width: 100%;
+      box-sizing: border-box;
     }
     .scale-digits {
       font-family: var(--mono);
-      font-size: clamp(28px, 5vw, 44px);
+      font-size: clamp(26px, 5vw, 42px);
       font-weight: 700;
       color: var(--cyan);
       letter-spacing: 0.05em;
@@ -145,19 +178,47 @@
       border-top: 1px solid rgba(255, 255, 255, 0.08);
       font-size: 12px;
     }
+    .anpr-driver-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+      gap: 12px;
+      min-width: 0;
+    }
     .anpr-plate-display {
       background: #000;
       border: 2px solid #F59E0B;
       border-radius: var(--r-sm);
-      padding: 8px 16px;
+      padding: 7px 14px;
       display: inline-flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
       font-family: var(--mono);
-      font-size: 18px;
+      font-size: 17px;
       font-weight: 700;
       color: #FBBF24;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.08em;
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+    .driver-intake-col {
+      text-align: right;
+      min-width: 0;
+    }
+    .driver-name-text {
+      font-weight: 700;
+      color: var(--text-100);
+      font-size: 13.5px;
+      margin-top: 4px;
+      word-break: break-word;
+    }
+    .scale-actions-btns {
+      display: flex;
+      gap: 12px;
+      width: 100%;
+      box-sizing: border-box;
     }
     .btn-action-primary {
       display: inline-flex;
@@ -174,6 +235,7 @@
       cursor: pointer;
       box-shadow: 0 2px 14px var(--cyan-a20);
       transition: transform var(--t1) var(--spring), box-shadow var(--t1) ease;
+      box-sizing: border-box;
     }
     .btn-action-primary:hover {
       transform: translateY(-1px);
@@ -193,10 +255,18 @@
       border: 1px solid var(--border-lg);
       cursor: pointer;
       transition: background var(--t1) ease, border-color var(--t1) ease;
+      box-sizing: border-box;
     }
     .btn-action-secondary:hover {
       background: rgba(255, 255, 255, 0.1);
       border-color: rgba(255, 255, 255, 0.25);
+    }
+    .table-scroll-hint {
+      display: none;
+      font-size: 11px;
+      color: var(--text-400);
+      margin-top: 6px;
+      text-align: right;
     }
 
     /* ─── Responsive Breakpoints ─── */
@@ -209,14 +279,33 @@
       }
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 860px) {
+      main.main-workspace {
+        padding-top: 80px;
+        padding-bottom: 60px;
+      }
+      .table-scroll-hint {
+        display: block;
+      }
+    }
+
+    @media (max-width: 640px) {
       .stats-bar {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+      .stat-widget {
+        padding: 12px 14px;
+      }
+      .stat-widget-lbl {
+        font-size: 10px;
+      }
+      .stat-widget-val {
+        font-size: 19px;
       }
       .panel-card {
-        padding: 18px 14px;
-        gap: 16px;
+        padding: 16px 12px;
+        gap: 14px;
       }
       .truck-panel-header {
         flex-direction: column;
@@ -227,29 +316,37 @@
         width: 100%;
         justify-content: center;
       }
+      .scale-tare-net {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+      .anpr-driver-row {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .driver-intake-col {
+        text-align: left;
+        width: 100%;
+      }
+      .anpr-plate-display {
+        font-size: 15px;
+        padding: 6px 12px;
+      }
       .scale-actions-btns {
         flex-direction: column !important;
         gap: 10px !important;
       }
       .scale-actions-btns button {
         width: 100% !important;
+        justify-content: center !important;
+        padding: 12px 14px !important;
+        white-space: normal !important;
       }
     }
 
-    @media (max-width: 480px) {
+    @media (max-width: 380px) {
       .stats-bar {
         grid-template-columns: 1fr;
-        gap: 10px;
-      }
-      .stat-widget {
-        padding: 14px 16px;
-      }
-      .stat-widget-val {
-        font-size: 22px;
-      }
-      .scale-tare-net {
-        grid-template-columns: 1fr;
-        gap: 8px;
       }
     }
   </style>
@@ -299,7 +396,7 @@
     <a href="contact-us.html" class="d-cta">Let's talk →</a>
   </div>
 
-  <main style="position: relative; z-index: 2; padding-top: 105px; padding-bottom: 80px;">
+  <main class="main-workspace">
     <div class="container">
       
       <!-- Back Link -->
@@ -309,12 +406,12 @@
         </a>
       </div>
 
-      <!-- Page Header (clean, no extra badge tag) -->
-      <div style="margin-bottom: 28px;">
-        <h1 style="font-size: clamp(26px, 4.5vw, 42px); font-weight: 800; letter-spacing: -0.03em; margin-bottom: 8px; line-height: 1.15;">
+      <!-- Page Header -->
+      <div style="margin-bottom: 26px;">
+        <h1 style="font-size: clamp(24px, 4.5vw, 40px); font-weight: 800; letter-spacing: -0.03em; margin-bottom: 8px; line-height: 1.15;">
           YardSync — <span class="grad">Autonomous Gate &amp; Weighbridge</span>
         </h1>
-        <p style="font-size: clamp(14px, 1.6vw, 16px); color: var(--text-400); max-width: 760px; line-height: 1.6;">
+        <p style="font-size: clamp(13.5px, 1.6vw, 15.5px); color: var(--text-400); max-width: 760px; line-height: 1.6;">
           Real-time ANPR edge cameras, digital weighbridge RS-232 integration, and automated driver self-check-in via WhatsApp.
         </p>
       </div>
@@ -351,12 +448,12 @@
         
         <!-- Left Column: Inbound Queue -->
         <div class="panel-card">
-          <div class="truck-panel-header" style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 12px; border-bottom: 1px solid var(--border); flex-wrap: wrap; gap: 10px;">
+          <div class="truck-panel-header">
             <div>
-              <h3 style="font-size: 17px; margin-bottom: 2px;">Inbound Queue &amp; WhatsApp Intake</h3>
-              <div style="font-size: 12.5px; color: var(--text-400);">Select a vehicle to inspect or trigger scale capture</div>
+              <h3 style="font-size: 16.5px; margin-bottom: 2px;">Inbound Queue &amp; WhatsApp Intake</h3>
+              <div style="font-size: 12px; color: var(--text-400);">Select a vehicle to inspect or trigger scale capture</div>
             </div>
-            <button class="btn-action-secondary" id="btn-simulate-arrival" style="font-size: 12px; padding: 7px 14px;">
+            <button class="btn-action-secondary" id="btn-simulate-arrival" style="font-size: 12px; padding: 8px 14px;">
               + Simulate Truck Arrival
             </button>
           </div>
@@ -395,6 +492,7 @@
               </tbody>
             </table>
           </div>
+          <div class="table-scroll-hint">⟷ Scroll table horizontally for all details</div>
 
           <div style="background: rgba(56, 189, 248, 0.05); border: 1px solid rgba(56, 189, 248, 0.2); border-radius: var(--r-sm); padding: 14px;">
             <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
@@ -409,10 +507,10 @@
 
         <!-- Right Column: Weighbridge Console & ANPR -->
         <div class="panel-card">
-          <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 12px; border-bottom: 1px solid var(--border); flex-wrap: wrap; gap: 10px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 12px; border-bottom: 1px solid var(--border); flex-wrap: wrap; gap: 10px; min-width: 0;">
             <div>
-              <h3 style="font-size: 17px; margin-bottom: 2px;">Active Scale &amp; ANPR Inspection</h3>
-              <div style="font-size: 12.5px; color: var(--text-400);">RS-232 Scale Bridge Telemetry • Gate 02</div>
+              <h3 style="font-size: 16.5px; margin-bottom: 2px;">Active Scale &amp; ANPR Inspection</h3>
+              <div style="font-size: 12px; color: var(--text-400);">RS-232 Scale Bridge Telemetry • Gate 02</div>
             </div>
             <span class="mono-text" style="font-size: 11px; color: var(--emerald);">CONNECTED (9600 BAUD)</span>
           </div>
@@ -420,8 +518,8 @@
           <!-- Digital Scale Display -->
           <div class="scale-display">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; flex-wrap: wrap; gap: 8px;">
-              <span class="mono-text" style="font-size: 11px; color: var(--text-400);">WEIGHBRIDGE TERMINAL #02 (AVERY-BERKEL)</span>
-              <span class="status-badge ok">LIVE TELEMETRY</span>
+              <span class="mono-text" style="font-size: 10.5px; color: var(--text-400);">TERMINAL #02 (AVERY-BERKEL)</span>
+              <span class="status-badge ok" style="font-size: 10px;">LIVE TELEMETRY</span>
             </div>
             
             <div class="scale-digits" id="live-scale-gross">41,850 KG</div>
@@ -429,41 +527,41 @@
             <div class="scale-tare-net">
               <div>
                 <span style="color: var(--text-400); text-transform: uppercase; font-size: 10.5px;">Tare (Empty)</span>
-                <div style="font-family: var(--mono); font-weight: 700; color: var(--text-100); font-size: 14px;" id="live-scale-tare">14,200 kg</div>
+                <div style="font-family: var(--mono); font-weight: 700; color: var(--text-100); font-size: 13.5px;" id="live-scale-tare">14,200 kg</div>
               </div>
               <div>
                 <span style="color: var(--text-400); text-transform: uppercase; font-size: 10.5px;">Net Weight</span>
-                <div style="font-family: var(--mono); font-weight: 700; color: var(--emerald); font-size: 14px;" id="live-scale-net">27,650 kg</div>
+                <div style="font-family: var(--mono); font-weight: 700; color: var(--emerald); font-size: 13.5px;" id="live-scale-net">27,650 kg</div>
               </div>
               <div>
                 <span style="color: var(--text-400); text-transform: uppercase; font-size: 10.5px;">Variance vs Challan</span>
-                <div style="font-family: var(--mono); font-weight: 700; color: var(--cyan); font-size: 14px;">0.00% (Clean)</div>
+                <div style="font-family: var(--mono); font-weight: 700; color: var(--cyan); font-size: 13.5px;">0.00% (Clean)</div>
               </div>
             </div>
           </div>
 
           <!-- ANPR & Driver Verification Box -->
-          <div style="background: rgba(0, 0, 0, 0.3); border: 1px solid var(--border); border-radius: var(--r-sm); padding: 18px;">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 10px;">
+          <div style="background: rgba(0, 0, 0, 0.3); border: 1px solid var(--border); border-radius: var(--r-sm); padding: 16px; min-width: 0; box-sizing: border-box;">
+            <div class="anpr-driver-row">
               <div>
-                <span style="font-size: 11px; color: var(--text-400); text-transform: uppercase; letter-spacing: 0.05em;">ANPR License Plate Identified</span>
+                <span class="anpr-label">ANPR License Plate</span>
                 <div class="anpr-plate-display" style="margin-top: 6px;">
                   <span id="gp-vehicle">MH-12-Q-8821</span>
                 </div>
               </div>
-              <div style="text-align: right;">
-                <span style="font-size: 11px; color: var(--text-400); text-transform: uppercase;">Driver Self-Intake</span>
-                <div style="font-weight: 700; color: var(--text-100); font-size: 13.5px; margin-top: 4px;" id="lbl-driver-name">Ramesh Kumar (WhatsApp Verified)</div>
+              <div class="driver-intake-col">
+                <span class="anpr-label">Driver Self-Intake</span>
+                <div class="driver-name-text" id="lbl-driver-name">Ramesh Kumar (WhatsApp Verified)</div>
               </div>
             </div>
 
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; font-size: 12px; margin-bottom: 16px; padding: 12px; background: rgba(255, 255, 255, 0.02); border-radius: var(--r-sm);">
-              <div><span style="color: var(--text-400);">Supplier:</span> <strong id="gp-vendor">Prime Metallurgy Ltd (PO-892)</strong></div>
-              <div><span style="color: var(--text-400);">Material:</span> <strong id="gp-material">TMT Rebar 16mm</strong></div>
-              <div><span style="color: var(--text-400);">Verified Net:</span> <strong id="gp-net" style="color: var(--emerald);">27,650 KG</strong></div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; font-size: 12px; margin-bottom: 16px; padding: 12px; background: rgba(255, 255, 255, 0.02); border-radius: var(--r-sm); min-width: 0;">
+              <div><span style="color: var(--text-400);">Supplier:</span> <br><strong id="gp-vendor">Prime Metallurgy Ltd (PO-892)</strong></div>
+              <div><span style="color: var(--text-400);">Material:</span> <br><strong id="gp-material">TMT Rebar 16mm</strong></div>
+              <div><span style="color: var(--text-400);">Verified Net:</span> <br><strong id="gp-net" style="color: var(--emerald);">27,650 KG</strong></div>
             </div>
 
-            <div class="scale-actions-btns" style="display: flex; gap: 12px;">
+            <div class="scale-actions-btns">
               <button class="btn-action-primary" id="btn-capture-weight">
                 ⚡ Capture Scale Reading
               </button>

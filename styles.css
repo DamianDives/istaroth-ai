@@ -1708,7 +1708,7 @@ h1,h2,h3,h4,h5,h6{
 /* Light mode: ticker */
 .ticker-wrap { background: rgba(15,23,42,0.04); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
 /* ================================================================
-   LIGHT THEME OVERRIDES � full surface + component corrections
+   LIGHT THEME OVERRIDES � full surface + component corrections
    ================================================================ */
 
 /* Nav */
@@ -1857,4 +1857,807 @@ body::before { display: none; }
 .how-step-num { display: none !important; }
 
 /* Remove comp-tabs section filter buttons on comparison */
-/* (keep them � they're functional) */
+/* (keep them � they're functional) */
+
+/* ================================================================
+   UI IMPROVEMENT PASS 2 � better rhythm, depth, card design
+   ================================================================ */
+
+/* -- Global spacing tightening -- */
+.sec-services  { padding: 72px 0 80px; }
+.sec-comparison { padding: 72px 0 80px; }
+.sec-why  { padding: 72px 0 80px; }
+.sec-process { padding: 72px 0 80px; }
+.sec-platforms { padding: 72px 0 80px; }
+.sec-cta { padding: 72px 0 88px; }
+
+/* -- Hero: tinted indigo band + clean layout -- */
+.hero {
+  padding-top: 130px;
+  padding-bottom: 80px;
+  background: linear-gradient(180deg, #EEF0FF 0%, #F7F8FA 60%);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero-ambient { display: none; }
+.hero-mesh { display: none; }
+
+/* Big display heading */
+.hero h1 {
+  font-size: clamp(40px, 5.5vw, 72px);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.08;
+  color: var(--text-100);
+  margin-bottom: 20px;
+}
+.hero-sub {
+  font-size: clamp(16px, 1.8vw, 19px);
+  color: var(--text-400);
+  max-width: 560px;
+  margin: 0 auto 36px;
+  line-height: 1.65;
+}
+.hero-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 48px;
+}
+
+/* Hero sector pills */
+.hero-sectors {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+.sector-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 15px;
+  border-radius: var(--pill);
+  background: #FFFFFF;
+  border: 1.5px solid var(--border);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-300);
+  letter-spacing: 0.01em;
+  box-shadow: 0 1px 3px rgba(17,24,39,0.06);
+}
+.sector-badge .dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.dot.dot-c { background: var(--primary); }
+.dot.dot-g { background: var(--emerald); }
+.dot.dot-v { background: var(--violet); }
+
+/* -- Section headers: left-aligned, stronger -- */
+.sec-head {
+  max-width: 700px;
+  margin-bottom: 52px;
+}
+.sec-head h2 {
+  font-size: clamp(28px, 3.2vw, 42px);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.12;
+  color: var(--text-100);
+  margin-bottom: 12px;
+}
+.sec-head p {
+  font-size: 16px;
+  color: var(--text-400);
+  line-height: 1.7;
+  max-width: 560px;
+}
+
+/* -- Service cards: accent left border, bigger icon -- */
+.services-grid-6 { gap: 20px; }
+.service-card {
+  background: #FFFFFF;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 32px 28px 28px;
+  box-shadow: 0 1px 3px rgba(17,24,39,0.04);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow 0.22s ease, transform 0.22s var(--spring);
+}
+.service-card::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; bottom: 0;
+  width: 3px;
+  background: var(--primary);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+.service-card:has(.svc-icon-chat)::after   { background: var(--violet); }
+.service-card:has(.svc-icon-voice)::after  { background: var(--emerald); }
+.service-card:has(.svc-icon-wa)::after     { background: #059669; }
+.service-card:has(.svc-icon-auto)::after   { background: var(--amber); }
+.service-card:has(.svc-icon-ai)::after     { background: #DB2777; }
+.service-card:hover { 
+  box-shadow: 0 8px 32px rgba(17,24,39,0.1);
+  transform: translateY(-3px);
+}
+.service-card:hover::after { opacity: 1; }
+.service-card::before { display: none; }
+
+.svc-head {
+  display: flex; align-items: center;
+  gap: 14px; margin-bottom: 16px;
+}
+.svc-icon-badge {
+  width: 44px; height: 44px;
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  border: 1.5px solid;
+}
+.svc-icon-badge svg { width: 22px; height: 22px; stroke-width: 1.75; }
+.service-card h3 {
+  font-size: 19px; font-weight: 700;
+  letter-spacing: -0.025em;
+  color: var(--text-100);
+  margin-bottom: 8px;
+}
+.service-card > p {
+  font-size: 14.5px; color: var(--text-400);
+  line-height: 1.65; margin-bottom: 20px; flex-grow: 1;
+}
+.svc-features {
+  list-style: none;
+  border-top: 1px solid var(--border);
+  padding-top: 16px;
+  display: flex; flex-direction: column; gap: 9px;
+}
+.svc-features li {
+  font-size: 13.5px; color: var(--text-300);
+  display: flex; align-items: center; gap: 8px;
+}
+.svc-features li .chk {
+  color: var(--primary); font-weight: 700; font-size: 13px;
+}
+
+/* Services CTA row */
+.services-cta-row { margin-top: 36px; display: flex; justify-content: center; }
+
+/* -- Buttons proper styling -- */
+.btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 11px 24px; border-radius: var(--pill);
+  font-size: 14.5px; font-weight: 600;
+  cursor: pointer; transition: all 0.18s ease;
+  border: none; text-decoration: none;
+}
+.btn-p {
+  background: linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%);
+  color: #FFFFFF;
+  box-shadow: 0 2px 12px rgba(79,70,229,0.28);
+}
+.btn-p:hover { box-shadow: 0 4px 20px rgba(79,70,229,0.40); transform: translateY(-1px); }
+.btn-g {
+  background: #FFFFFF;
+  color: var(--text-200);
+  border: 1.5px solid var(--border-lg);
+}
+.btn-g:hover { border-color: rgba(79,70,229,0.3); color: var(--primary); }
+.btn-o {
+  background: transparent;
+  color: var(--primary);
+  border: 1.5px solid var(--primary-bd);
+}
+.btn-o:hover { background: var(--primary-lt); }
+
+/* -- Section dividers: alternating bg -- */
+.sec-comparison { background: var(--bg); }
+.sec-why { background: #FFFFFF; }
+.sec-process { background: var(--bg); }
+
+/* -- Comparison cards visual fix -- */
+.comp-card {
+  border-radius: 20px;
+  padding: 28px 24px;
+  border: 1.5px solid var(--border);
+  background: #FFFFFF;
+}
+.comp-card-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 11px; font-weight: 700;
+  padding: 4px 10px; border-radius: 6px;
+  letter-spacing: 0.04em; text-transform: uppercase;
+  margin-bottom: 14px;
+}
+.comp-card-badge.badge-danger {
+  background: rgba(225,29,72,0.07);
+  color: var(--rose);
+  border: 1px solid rgba(225,29,72,0.18);
+}
+.comp-card-badge.badge-success {
+  background: var(--primary-lt);
+  color: var(--primary);
+  border: 1px solid var(--primary-bd);
+}
+.comp-card h3 { font-size: 20px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 10px; }
+.comp-card p { font-size: 14.5px; color: var(--text-400); line-height: 1.65; margin-bottom: 18px; }
+
+/* -- Why cards -- */
+.why-card {
+  background: #FFFFFF;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 28px 24px;
+  box-shadow: 0 1px 3px rgba(17,24,39,0.04);
+  transition: box-shadow 0.2s ease, transform 0.2s var(--spring);
+}
+.why-card:hover { box-shadow: 0 6px 24px rgba(17,24,39,0.08); transform: translateY(-2px); }
+.why-num {
+  font-family: var(--mono);
+  font-size: 11px; color: var(--primary);
+  font-weight: 600; letter-spacing: 0.08em;
+  text-transform: uppercase; margin-bottom: 12px;
+  display: block;
+}
+.why-icon {
+  font-size: 28px; margin-bottom: 14px;
+  color: var(--primary);
+  display: flex; align-items: center;
+}
+.why-icon svg { width: 28px; height: 28px; stroke-width: 1.75; }
+
+/* -- Process / stage cards -- */
+.impl-stage {
+  background: #FFFFFF;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 28px 24px;
+  box-shadow: 0 1px 3px rgba(17,24,39,0.04);
+}
+.stage-label {
+  font-family: var(--mono);
+  font-size: 11px; color: var(--text-600);
+  font-weight: 600; letter-spacing: 0.08em;
+  text-transform: uppercase; margin-bottom: 12px;
+  display: block;
+}
+.stage-time {
+  display: inline-flex; align-items: center; gap: 5px;
+  background: var(--primary-lt); color: var(--primary);
+  border: 1px solid var(--primary-bd);
+  border-radius: 6px; padding: 3px 9px;
+  font-size: 11.5px; font-weight: 600;
+  margin-bottom: 16px;
+}
+.impl-stage h4 { font-size: 17px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 8px; }
+.impl-stage p  { font-size: 14px; color: var(--text-400); line-height: 1.65; }
+
+/* -- Platform/Work cards -- */
+.platform-card {
+  background: #FFFFFF;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(17,24,39,0.05);
+  transition: box-shadow 0.22s ease, transform 0.22s var(--spring);
+}
+.platform-card:hover { box-shadow: 0 8px 32px rgba(17,24,39,0.1); transform: translateY(-3px); }
+
+/* -- CTA box -- */
+.cta-box {
+  background: linear-gradient(135deg, #EEF0FF 0%, #F5F0FF 100%);
+  border: 1.5px solid rgba(79,70,229,0.15);
+  border-radius: 28px;
+  padding: 64px 48px;
+  text-align: center;
+}
+.cta-box h2 { font-size: clamp(26px, 3vw, 40px); font-weight: 800; letter-spacing: -0.03em; margin-bottom: 14px; }
+.cta-box p { font-size: 16px; color: var(--text-400); max-width: 520px; margin: 0 auto 36px; line-height: 1.7; }
+.cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+/* -- Footer improvements -- */
+.footer {
+  background: #FFFFFF;
+  border-top: 1px solid var(--border);
+  padding: 60px 0 32px;
+}
+.footer-grid { display: grid; grid-template-columns: 1.8fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 48px; }
+@media (max-width: 800px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 500px) { .footer-grid { grid-template-columns: 1fr; } }
+.f-brand {
+  font-size: 20px; font-weight: 800;
+  letter-spacing: -0.02em; color: var(--text-100);
+  margin-bottom: 10px; display: block;
+}
+.f-brand span { color: var(--primary); }
+.f-tag { font-size: 14px; color: var(--text-400); line-height: 1.65; max-width: 240px; }
+.footer-col h6 {
+  font-size: 13px; font-weight: 700;
+  color: var(--text-100); letter-spacing: 0;
+  text-transform: none; margin-bottom: 16px;
+}
+.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.footer-col a { font-size: 14px; color: var(--text-400); transition: color 0.15s ease; }
+.footer-col a:hover { color: var(--primary); }
+.foot-btm {
+  display: flex; align-items: center; justify-content: space-between;
+  padding-top: 24px; border-top: 1px solid var(--border);
+  font-size: 13px; color: var(--text-600);
+  flex-wrap: wrap; gap: 8px;
+}
+
+/* -- Nav improvements -- */
+.nav-brand { font-size: 17px; font-weight: 800; color: var(--text-100); }
+.nav-links a { font-size: 14px; font-weight: 500; }
+.nav-btn { font-size: 13.5px; }
+
+/* -- Wwd accordion improvements -- */
+.wwd-service-header { padding: 24px 28px; }
+.wwd-service-body { padding: 0 28px 28px; }
+.wwd-service-title h3 { font-size: 19px; font-weight: 700; letter-spacing: -0.025em; }
+.wwd-chevron { font-size: 14px; }
+
+/* -- How steps -- */
+.how-step { border-radius: 18px; padding: 32px 28px; }
+.how-step h3 { font-size: 18px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 10px; }
+.how-step p { font-size: 14.5px; }
+.how-step-icon svg { width: 28px; height: 28px; }
+
+/* -- Contact page -- */
+.c-card { border-radius: 16px; }
+.c-form { border-radius: 20px; background: #FFFFFF; border: 1px solid var(--border); padding: 36px 32px; }
+
+/* -- Mobile: stack sectors cleanly -- */
+@media (max-width: 640px) {
+  .hero-sectors { gap: 8px; }
+  .sector-badge { font-size: 12px; padding: 6px 12px; }
+  .cta-box { padding: 40px 24px; }
+}
+/* ================================================================
+   TYPEWRITER + SECTOR PILLS + ACCORDION HOVER NEON
+   ================================================================ */
+
+/* ── Typewriter hero ── */
+.hero-type-wrap {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 2px;
+  position: relative;
+}
+.hero-type {
+  background: linear-gradient(90deg, #4F46E5, #7C3AED);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 800;
+  min-width: 2px;
+  display: inline-block;
+  filter: drop-shadow(0 0 16px rgba(99, 102, 241, 0.28));
+  transition: filter 0.3s ease;
+}
+@keyframes heroCursorBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+.hero-cursor {
+  display: inline-block;
+  color: #4F46E5;
+  font-weight: 300;
+  font-size: 0.9em;
+  line-height: 1;
+  margin-left: 2px;
+  -webkit-text-fill-color: #4F46E5;
+  animation: heroCursorBlink 0.85s infinite ease-in-out;
+  vertical-align: baseline;
+}
+
+/* ── Sector badge variants with Lucide icons ── */
+.sector-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: var(--pill);
+  font-size: 13.5px;
+  font-weight: 600;
+  border: 1.5px solid;
+  cursor: default;
+  transition: transform 0.2s var(--spring), box-shadow 0.2s ease, border-color 0.2s ease;
+}
+.sector-badge:hover {
+  transform: translateY(-2.5px);
+}
+.sb-icon {
+  width: 15px;
+  height: 15px;
+  stroke-width: 2;
+  flex-shrink: 0;
+}
+.sb-indigo {
+  background: rgba(79,70,229,0.06); border-color: rgba(79,70,229,0.18); color: #4F46E5;
+}
+.sb-indigo:hover {
+  box-shadow: 0 0 18px rgba(79,70,229,0.3); border-color: rgba(79,70,229,0.4);
+}
+.sb-green {
+  background: rgba(5,150,105,0.06); border-color: rgba(5,150,105,0.18); color: #059669;
+}
+.sb-green:hover {
+  box-shadow: 0 0 18px rgba(5,150,105,0.3); border-color: rgba(5,150,105,0.4);
+}
+.sb-violet {
+  background: rgba(124,58,237,0.06); border-color: rgba(124,58,237,0.18); color: #7C3AED;
+}
+.sb-violet:hover {
+  box-shadow: 0 0 18px rgba(124,58,237,0.3); border-color: rgba(124,58,237,0.4);
+}
+.sb-amber {
+  background: rgba(217,119,6,0.06); border-color: rgba(217,119,6,0.18); color: #B45309;
+}
+.sb-amber:hover {
+  box-shadow: 0 0 18px rgba(217,119,6,0.28); border-color: rgba(217,119,6,0.38);
+}
+.sb-cyan {
+  background: rgba(14,165,233,0.06); border-color: rgba(14,165,233,0.18); color: #0284c7;
+}
+.sb-cyan:hover {
+  box-shadow: 0 0 18px rgba(14,165,233,0.3); border-color: rgba(14,165,233,0.4);
+}
+.sb-pink {
+  background: rgba(219,39,119,0.06); border-color: rgba(219,39,119,0.18); color: #DB2777;
+}
+.sb-pink:hover {
+  box-shadow: 0 0 18px rgba(219,39,119,0.28); border-color: rgba(219,39,119,0.38);
+}
+
+/* ── WwD Accordion: Smooth hover open + Neon Glow + Specular Shine ── */
+.wwd-service-item {
+  position: relative;
+  background: #FFFFFF;
+  border: 1.5px solid var(--border);
+  border-radius: 20px;
+  margin-bottom: 20px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.28s ease,
+              box-shadow 0.28s ease,
+              background 0.28s ease;
+}
+
+.wwd-service-item:hover,
+.wwd-service-item.open {
+  transform: translateY(-2px);
+}
+
+/* Neon laser beam on top border */
+.wwd-service-item::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3.5px;
+  opacity: 0;
+  transform: scaleX(0.2);
+  transition: opacity 0.32s ease, transform 0.32s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.32s ease;
+  z-index: 3;
+}
+.wwd-service-item:hover::before,
+.wwd-service-item.open::before {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+/* Specular light sweep on hover */
+.wwd-service-item::after {
+  content: '';
+  position: absolute;
+  top: 0; left: -120%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.75) 50%,
+    transparent 100%
+  );
+  transform: skewX(-25deg);
+  pointer-events: none;
+  z-index: 2;
+}
+.wwd-service-item:hover::after {
+  left: 150%;
+  transition: left 0.75s ease-in-out;
+}
+
+/* Neon Themes for each individual Service */
+/* 01: Website Design — Cyan / Electric Blue */
+#svc-web:hover, #svc-web.open {
+  border-color: rgba(6, 182, 212, 0.65);
+  box-shadow: 0 0 24px rgba(6, 182, 212, 0.22),
+              0 8px 32px rgba(14, 165, 233, 0.12),
+              inset 0 0 16px rgba(6, 182, 212, 0.04);
+}
+#svc-web::before {
+  background: linear-gradient(90deg, transparent, #06b6d4 25%, #38bdf8 50%, #06b6d4 75%, transparent);
+  box-shadow: 0 0 16px #06b6d4, 0 0 32px rgba(6, 182, 212, 0.6);
+}
+#svc-web.open .wwd-service-icon,
+#svc-web:hover .wwd-service-icon {
+  box-shadow: 0 0 20px rgba(6, 182, 212, 0.35);
+  border-color: rgba(6, 182, 212, 0.45);
+}
+
+/* 02: AI Chatbot — Cyber Violet */
+#svc-chat:hover, #svc-chat.open {
+  border-color: rgba(139, 92, 246, 0.65);
+  box-shadow: 0 0 24px rgba(139, 92, 246, 0.22),
+              0 8px 32px rgba(124, 58, 237, 0.12),
+              inset 0 0 16px rgba(139, 92, 246, 0.04);
+}
+#svc-chat::before {
+  background: linear-gradient(90deg, transparent, #8b5cf6 25%, #a855f7 50%, #8b5cf6 75%, transparent);
+  box-shadow: 0 0 16px #8b5cf6, 0 0 32px rgba(139, 92, 246, 0.6);
+}
+#svc-chat.open .wwd-service-icon,
+#svc-chat:hover .wwd-service-icon {
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.35);
+  border-color: rgba(139, 92, 246, 0.45);
+}
+
+/* 03: AI Voice Agent — Emerald / Neon Mint */
+#svc-voice:hover, #svc-voice.open {
+  border-color: rgba(16, 185, 129, 0.65);
+  box-shadow: 0 0 24px rgba(16, 185, 129, 0.22),
+              0 8px 32px rgba(5, 150, 105, 0.12),
+              inset 0 0 16px rgba(16, 185, 129, 0.04);
+}
+#svc-voice::before {
+  background: linear-gradient(90deg, transparent, #10b981 25%, #34d399 50%, #10b981 75%, transparent);
+  box-shadow: 0 0 16px #10b981, 0 0 32px rgba(16, 185, 129, 0.6);
+}
+#svc-voice.open .wwd-service-icon,
+#svc-voice:hover .wwd-service-icon {
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.35);
+  border-color: rgba(16, 185, 129, 0.45);
+}
+
+/* 04: WhatsApp Bot — Vivid WhatsApp Green */
+#svc-wa:hover, #svc-wa.open {
+  border-color: rgba(34, 197, 94, 0.65);
+  box-shadow: 0 0 24px rgba(34, 197, 94, 0.22),
+              0 8px 32px rgba(22, 163, 74, 0.12),
+              inset 0 0 16px rgba(34, 197, 94, 0.04);
+}
+#svc-wa::before {
+  background: linear-gradient(90deg, transparent, #22c55e 25%, #4ade80 50%, #22c55e 75%, transparent);
+  box-shadow: 0 0 16px #22c55e, 0 0 32px rgba(34, 197, 94, 0.6);
+}
+#svc-wa.open .wwd-service-icon,
+#svc-wa:hover .wwd-service-icon {
+  box-shadow: 0 0 20px rgba(34, 197, 94, 0.35);
+  border-color: rgba(34, 197, 94, 0.45);
+}
+
+/* 05: Workflow Automation — Electric Amber */
+#svc-auto:hover, #svc-auto.open {
+  border-color: rgba(245, 158, 11, 0.65);
+  box-shadow: 0 0 24px rgba(245, 158, 11, 0.22),
+              0 8px 32px rgba(217, 119, 6, 0.12),
+              inset 0 0 16px rgba(245, 158, 11, 0.04);
+}
+#svc-auto::before {
+  background: linear-gradient(90deg, transparent, #f59e0b 25%, #fbbf24 50%, #f59e0b 75%, transparent);
+  box-shadow: 0 0 16px #f59e0b, 0 0 32px rgba(245, 158, 11, 0.6);
+}
+#svc-auto.open .wwd-service-icon,
+#svc-auto:hover .wwd-service-icon {
+  box-shadow: 0 0 20px rgba(245, 158, 11, 0.35);
+  border-color: rgba(245, 158, 11, 0.45);
+}
+
+/* 06: Custom AI Systems — Hot Magenta / Neon Pink */
+#svc-ai:hover, #svc-ai.open {
+  border-color: rgba(236, 72, 153, 0.65);
+  box-shadow: 0 0 24px rgba(236, 72, 153, 0.22),
+              0 8px 32px rgba(219, 39, 119, 0.12),
+              inset 0 0 16px rgba(236, 72, 153, 0.04);
+}
+#svc-ai::before {
+  background: linear-gradient(90deg, transparent, #ec4899 25%, #f472b6 50%, #ec4899 75%, transparent);
+  box-shadow: 0 0 16px #ec4899, 0 0 32px rgba(236, 72, 153, 0.6);
+}
+#svc-ai.open .wwd-service-icon,
+#svc-ai:hover .wwd-service-icon {
+  box-shadow: 0 0 20px rgba(236, 72, 153, 0.35);
+  border-color: rgba(236, 72, 153, 0.45);
+}
+
+/* ── Service Header & Title ── */
+.wwd-service-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 24px 28px;
+  user-select: none;
+}
+.wwd-service-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 1.5px solid;
+  transition: transform 0.28s var(--spring), box-shadow 0.28s ease, border-color 0.28s ease;
+}
+.wwd-service-icon svg {
+  width: 24px;
+  height: 24px;
+  stroke-width: 2;
+}
+.wwd-service-item:hover .wwd-service-icon,
+.wwd-service-item.open .wwd-service-icon {
+  transform: scale(1.06);
+}
+
+.wwd-service-title {
+  flex-grow: 1;
+}
+.wwd-service-title h3 {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: var(--text-100);
+  margin-bottom: 4px;
+}
+.wwd-service-title p {
+  font-size: 14.5px;
+  color: var(--text-400);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Chevron with smooth SVG rotation */
+.wwd-chevron {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-400);
+  flex-shrink: 0;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              background 0.2s ease,
+              border-color 0.2s ease,
+              color 0.2s ease;
+}
+.wwd-chevron svg {
+  width: 18px;
+  height: 18px;
+  stroke-width: 2.2;
+}
+.wwd-service-item.open .wwd-chevron {
+  transform: rotate(180deg);
+  background: var(--primary-lt);
+  border-color: var(--primary-bd);
+  color: var(--primary);
+}
+
+/* ── Smooth Body Animation ── */
+.wwd-service-body {
+  display: block !important;
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 28px !important;
+  border-top: 0 solid transparent;
+  transition: max-height 0.42s cubic-bezier(0.16, 1, 0.3, 1),
+              padding 0.35s ease,
+              border-color 0.25s ease;
+}
+.wwd-service-item.open .wwd-service-body {
+  max-height: 650px;
+  padding-top: 24px !important;
+  padding-bottom: 32px !important;
+  border-top: 1px solid var(--border);
+}
+
+.wwd-service-body-inner {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 36px;
+}
+@media (max-width: 768px) {
+  .wwd-service-body-inner {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .wwd-service-header {
+    padding: 20px;
+    gap: 14px;
+  }
+}
+
+.wwd-body-desc {
+  font-size: 15px;
+  color: var(--text-300);
+  line-height: 1.7;
+}
+.wwd-body-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.wwd-body-list li {
+  font-size: 14px;
+  color: var(--text-200);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.wwd-body-list li::before {
+  content: '✓';
+  color: var(--primary);
+  font-weight: 800;
+  font-size: 13px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--primary-lt);
+  border: 1px solid var(--primary-bd);
+  flex-shrink: 0;
+}
+
+/* ── How step icon upgrade ── */
+.how-step {
+  transition: transform 0.22s var(--spring), box-shadow 0.22s ease, border-color 0.22s ease;
+}
+.how-step:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(15, 23, 42, 0.08);
+  border-color: rgba(79, 70, 229, 0.25);
+}
+.how-step-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: rgba(79, 70, 229, 0.07);
+  border: 1.5px solid rgba(79, 70, 229, 0.16);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary);
+  margin-bottom: 20px;
+  transition: transform 0.25s var(--spring), box-shadow 0.25s ease, background 0.25s ease;
+}
+.how-step:hover .how-step-icon {
+  transform: scale(1.1) translateY(-2px);
+  box-shadow: 0 0 18px rgba(79, 70, 229, 0.3);
+  background: rgba(79, 70, 229, 0.12);
+  border-color: rgba(79, 70, 229, 0.35);
+}
+.how-step-icon svg {
+  width: 26px;
+  height: 26px;
+  stroke-width: 2;
+}
+
+/* ── WwD hero section ── */
+.wwd-hero {
+  background: linear-gradient(180deg, #EEF0FF 0%, #F7F8FA 55%);
+}

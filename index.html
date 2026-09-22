@@ -54,8 +54,8 @@
   <div class="container hero-body">
     
     <h1 class="sr d1">
-      We build AI that works<br>
-      <span class="grad">for your business.</span>
+      We build AI that<br>
+      <span class="hero-type-wrap"><span class="hero-type" id="heroType">works for your business.</span><span class="hero-cursor">|</span></span>
     </h1>
 
     <p class="hero-sub sr d2">
@@ -69,12 +69,12 @@
 
     <!-- Service Tags Strip -->
     <div class="hero-sectors sr d4">
-      <span class="sector-badge"><span class="dot dot-c"></span>AI Chatbot</span>
-      <span class="sector-badge"><span class="dot dot-g"></span>Voice Agent</span>
-      <span class="sector-badge"><span class="dot dot-v"></span>WhatsApp Bot</span>
-      <span class="sector-badge"><span class="dot dot-c"></span>Workflow Automation</span>
-      <span class="sector-badge"><span class="dot dot-g"></span>Website Design</span>
-      <span class="sector-badge"><span class="dot dot-v"></span>Custom AI Systems</span>
+      <span class="sector-badge sb-indigo"><i data-lucide="bot" class="sb-icon"></i>AI Chatbot</span>
+      <span class="sector-badge sb-green"><i data-lucide="mic" class="sb-icon"></i>Voice Agent</span>
+      <span class="sector-badge sb-violet"><i data-lucide="message-circle" class="sb-icon"></i>WhatsApp Bot</span>
+      <span class="sector-badge sb-amber"><i data-lucide="settings-2" class="sb-icon"></i>Workflow Automation</span>
+      <span class="sector-badge sb-cyan"><i data-lucide="globe" class="sb-icon"></i>Website Design</span>
+      <span class="sector-badge sb-pink"><i data-lucide="brain-circuit" class="sb-icon"></i>Custom AI</span>
     </div>
 
     <div class="hero-mesh"></div>
@@ -583,5 +583,51 @@
 </footer>
 
 <script src="app.js"></script>
-<script>if(typeof lucide !== "undefined") lucide.createIcons();</script></body>
+<script>if(typeof lucide !== "undefined") lucide.createIcons();</script>
+<script>
+// ── TYPEWRITER HERO ──
+const phrases = [
+  { text: 'works for your business.',      c1: '#4F46E5', c2: '#7C3AED' },
+  { text: 'answers calls like a human.',   c1: '#059669', c2: '#0D9488' },
+  { text: 'closes deals on WhatsApp 24/7.',c1: '#10B981', c2: '#059669' },
+  { text: 'automates your daily workflows.',c1: '#D97706', c2: '#EA580C' },
+  { text: 'delivers measurable ROI.',      c1: '#2563EB', c2: '#4F46E5' },
+  { text: 'your team actually loves.',     c1: '#DB2777', c2: '#9333EA' }
+];
+let pi = 0, ci = 0, deleting = false;
+const el = document.getElementById('heroType');
+
+function type() {
+  if (!el) return;
+  const p = phrases[pi];
+  el.style.backgroundImage = 'linear-gradient(90deg, ' + p.c1 + ', ' + p.c2 + ')';
+  el.style.webkitBackgroundImage = 'linear-gradient(90deg, ' + p.c1 + ', ' + p.c2 + ')';
+  el.style.webkitBackgroundClip = 'text';
+  el.style.backgroundClip = 'text';
+  el.style.webkitTextFillColor = 'transparent';
+
+  if (!deleting) {
+    el.textContent = p.text.slice(0, ci + 1);
+    ci++;
+    if (ci === p.text.length) {
+      setTimeout(() => { deleting = true; tick(); }, 2000);
+      return;
+    }
+    setTimeout(tick, 50);
+  } else {
+    el.textContent = p.text.slice(0, ci - 1);
+    ci--;
+    if (ci === 0) {
+      deleting = false;
+      pi = (pi + 1) % phrases.length;
+      setTimeout(tick, 300);
+      return;
+    }
+    setTimeout(tick, 25);
+  }
+}
+function tick() { type(); }
+setTimeout(tick, 600);
+</script>
+</body>
 </html>

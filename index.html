@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-</head>
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script></head>
 <body>
 
 <!-- NAV -->
@@ -96,7 +96,7 @@
       <div class="service-card sr d1">
         <div class="svc-head">
           <span class="svc-code">01 // WEB</span>
-          <div class="svc-icon-badge svc-icon-web">🌐</div>
+          <div class="svc-icon-badge svc-icon-web"><i data-lucide="globe"></i></div>
         </div>
         <h3>Website Design</h3>
         <p>Fast, modern websites that convert visitors into clients — built with clean code, strong SEO, and a design that matches your brand.</p>
@@ -111,7 +111,7 @@
       <div class="service-card sr d2">
         <div class="svc-head">
           <span class="svc-code">02 // CHATBOT</span>
-          <div class="svc-icon-badge svc-icon-chat">🤖</div>
+          <div class="svc-icon-badge svc-icon-chat"><i data-lucide="bot"></i></div>
         </div>
         <h3>AI Chatbot</h3>
         <p>A smart chatbot trained on your business — answers FAQs, qualifies leads, and handles customer queries 24/7 without lifting a finger.</p>
@@ -126,7 +126,7 @@
       <div class="service-card sr d3">
         <div class="svc-head">
           <span class="svc-code">03 // VOICE</span>
-          <div class="svc-icon-badge svc-icon-voice">🎙️</div>
+          <div class="svc-icon-badge svc-icon-voice"><i data-lucide="mic"></i></div>
         </div>
         <h3>AI Voice Agent</h3>
         <p>An AI that picks up calls, speaks naturally, and handles bookings, support queries, and follow-ups — like a real team member, around the clock.</p>
@@ -141,7 +141,7 @@
       <div class="service-card sr d4">
         <div class="svc-head">
           <span class="svc-code">04 // WHATSAPP</span>
-          <div class="svc-icon-badge svc-icon-wa">💬</div>
+          <div class="svc-icon-badge svc-icon-wa"><i data-lucide="message-circle"></i></div>
         </div>
         <h3>WhatsApp Bot</h3>
         <p>Automate your WhatsApp — respond to inquiries, send order updates, collect payments, and qualify leads where your customers already are.</p>
@@ -156,7 +156,7 @@
       <div class="service-card sr d1">
         <div class="svc-head">
           <span class="svc-code">05 // AUTOMATION</span>
-          <div class="svc-icon-badge svc-icon-auto">⚙️</div>
+          <div class="svc-icon-badge svc-icon-auto"><i data-lucide="settings-2"></i></div>
         </div>
         <h3>Workflow Automation</h3>
         <p>We map out the repetitive work in your business and build systems that do it automatically — from data entry and reporting to approvals and alerts.</p>
@@ -171,7 +171,7 @@
       <div class="service-card sr d2">
         <div class="svc-head">
           <span class="svc-code">06 // CUSTOM AI</span>
-          <div class="svc-icon-badge svc-icon-ai">🧠</div>
+          <div class="svc-icon-badge svc-icon-ai"><i data-lucide="brain-circuit"></i></div>
         </div>
         <h3>Custom AI Systems</h3>
         <p>For problems that don't fit a pre-packaged tool — we engineer tailored AI pipelines, computer vision systems, and document intelligence solutions from scratch.</p>
@@ -583,5 +583,5 @@
 </footer>
 
 <script src="app.js"></script>
-</body>
+<script>if(typeof lucide !== "undefined") lucide.createIcons();</script></body>
 </html>

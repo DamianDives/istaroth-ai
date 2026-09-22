@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-</head>
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script></head>
 <body>
 
 <!-- NAV -->
@@ -81,7 +81,7 @@
     <div class="wwd-service-item sr d1" id="svc-web">
       <div class="wwd-service-header" onclick="toggleService('svc-web')">
         <span class="wwd-service-num">01</span>
-        <div class="wwd-service-icon svc-icon-web">🌐</div>
+        <div class="wwd-service-icon svc-icon-web"><i data-lucide="globe"></i></div>
         <div class="wwd-service-title">
           <h3>Website Design</h3>
           <p>Clean, fast, custom-built websites that make a strong first impression.</p>
@@ -112,7 +112,7 @@
     <div class="wwd-service-item sr d2" id="svc-chat">
       <div class="wwd-service-header" onclick="toggleService('svc-chat')">
         <span class="wwd-service-num">02</span>
-        <div class="wwd-service-icon svc-icon-chat">🤖</div>
+        <div class="wwd-service-icon svc-icon-chat"><i data-lucide="bot"></i></div>
         <div class="wwd-service-title">
           <h3>AI Chatbot</h3>
           <p>A smart assistant trained on your business — live on your website or app.</p>
@@ -143,7 +143,7 @@
     <div class="wwd-service-item sr d3" id="svc-voice">
       <div class="wwd-service-header" onclick="toggleService('svc-voice')">
         <span class="wwd-service-num">03</span>
-        <div class="wwd-service-icon svc-icon-voice">🎙️</div>
+        <div class="wwd-service-icon svc-icon-voice"><i data-lucide="mic"></i></div>
         <div class="wwd-service-title">
           <h3>AI Voice Agent</h3>
           <p>An AI that answers calls, books appointments, and handles support — naturally.</p>
@@ -174,7 +174,7 @@
     <div class="wwd-service-item sr d4" id="svc-wa">
       <div class="wwd-service-header" onclick="toggleService('svc-wa')">
         <span class="wwd-service-num">04</span>
-        <div class="wwd-service-icon svc-icon-wa">💬</div>
+        <div class="wwd-service-icon svc-icon-wa"><i data-lucide="message-circle"></i></div>
         <div class="wwd-service-title">
           <h3>WhatsApp Bot</h3>
           <p>Automate conversations where your customers already are — WhatsApp.</p>
@@ -205,7 +205,7 @@
     <div class="wwd-service-item sr d1" id="svc-auto">
       <div class="wwd-service-header" onclick="toggleService('svc-auto')">
         <span class="wwd-service-num">05</span>
-        <div class="wwd-service-icon svc-icon-auto">⚙️</div>
+        <div class="wwd-service-icon svc-icon-auto"><i data-lucide="settings-2"></i></div>
         <div class="wwd-service-title">
           <h3>Workflow Automation</h3>
           <p>We map the repetitive work in your business and make it happen automatically.</p>
@@ -236,7 +236,7 @@
     <div class="wwd-service-item sr d2" id="svc-ai">
       <div class="wwd-service-header" onclick="toggleService('svc-ai')">
         <span class="wwd-service-num">06</span>
-        <div class="wwd-service-icon svc-icon-ai">🧠</div>
+        <div class="wwd-service-icon svc-icon-ai"><i data-lucide="brain-circuit"></i></div>
         <div class="wwd-service-title">
           <h3>Custom AI Systems</h3>
           <p>For problems that don't fit a ready-made product — we build it from scratch.</p>
@@ -377,5 +377,5 @@
     document.getElementById('svc-web').classList.add('open');
   });
 </script>
-</body>
+<script>if(typeof lucide !== "undefined") lucide.createIcons();</script></body>
 </html>

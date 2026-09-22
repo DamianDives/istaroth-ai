@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>What We Do — IstarothAI</title>
-  <meta name="description" content="Explore IstarothAI's core capabilities: physical yard automation, preconstruction bid leveling, autonomous financial reconciliation, and bespoke enterprise systems.">
+  <title>What We Do — Istaroth</title>
+  <meta name="description" content="Istaroth builds AI chatbots, voice agents, WhatsApp bots, websites, and workflow automations. See exactly what we offer and how it works.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -12,21 +12,19 @@
 </head>
 <body>
 
-<!-- ═══ NAVBAR ═══ -->
+<!-- NAV -->
 <div class="nav-wrap">
   <nav class="nav" id="navbar">
     <a href="index.html" class="nav-brand">
       <svg class="nav-logo" viewBox="0 0 32 32" fill="none">
         <circle cx="16" cy="16" r="13" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"/>
-        <path d="M16 3C22.627 3 28 8.373 28 15C28 21.627 22.627 27 16 27" stroke="url(#g_nav)" stroke-width="2" stroke-linecap="round"/>
-        <circle cx="16" cy="16" r="4.5" fill="url(#g_nav)"/>
-        <defs>
-          <linearGradient id="g_nav" x1="16" y1="3" x2="28" y2="28" gradientUnits="userSpaceOnUse">
-            <stop stop-color="#38BDF8"/><stop offset="1" stop-color="#8B5CF6"/>
-          </linearGradient>
-        </defs>
+        <path d="M16 3C22.627 3 28 8.373 28 15C28 21.627 22.627 27 16 27" stroke="url(#gwwd)" stroke-width="2" stroke-linecap="round"/>
+        <circle cx="16" cy="16" r="4.5" fill="url(#gwwd)"/>
+        <defs><linearGradient id="gwwd" x1="16" y1="3" x2="28" y2="28" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#38BDF8"/><stop offset="1" stop-color="#8B5CF6"/>
+        </linearGradient></defs>
       </svg>
-      <span>Istaroth<span class="ai-c">AI</span></span>
+      <span>Istaroth</span>
     </a>
     <ul class="nav-links">
       <li><a href="what-we-do.html" class="active">What we do</a></li>
@@ -36,13 +34,9 @@
       <li><a href="contact-us.html">Contact</a></li>
     </ul>
     <a href="contact-us.html" class="nav-btn">Let's talk</a>
-    <button class="ham" id="ham" aria-label="Toggle Menu">
-      <span></span><span></span><span></span>
-    </button>
+    <button class="ham" id="ham" aria-label="Menu"><span></span><span></span><span></span></button>
   </nav>
 </div>
-
-<!-- Mobile Drawer -->
 <div class="drawer" id="drawer">
   <a href="what-we-do.html" class="active">What we do</a>
   <a href="our-approach.html">Our approach</a>
@@ -54,201 +48,292 @@
 
 <main>
 
-  <!-- ═══ SUBPAGE HERO ═══ -->
-  <section class="page-hero">
-    <div class="page-ambient"></div>
-    <div class="container">
-      <h1 class="sr d1">
-        One unified studio.<br>
-        <span class="grad">End-to-end autonomous systems.</span>
-      </h1>
-      <p class="sr d2">
-        We don't sell speculative slide decks or superficial chatbots. We engineer full-stack deterministic systems that operate inside physical plant gates, ERP ledgers, and critical commercial workflows.
-      </p>
-      <div class="hero-actions sr d3" style="margin-top:28px;">
-        <a href="contact-us.html" class="btn btn-p">Start an Engagement →</a>
-        <a href="work.html" class="btn btn-g">Explore Deployed Work</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Moving Marquee Ticker -->
-  <div class="ticker-wrap">
-    <div class="ticker-track">
-      <div class="ticker-item"><span class="dot"></span><strong>Plant Logistics:</strong> Unattended Weighbridges</div>
-      <div class="ticker-item"><span class="dot"></span><strong>Precon Intelligence:</strong> Subcontractor BOQ Normalization</div>
-      <div class="ticker-item"><span class="dot"></span><strong>Financial Auditing:</strong> 3-Way Real-time PO-GRN Matching</div>
-      <div class="ticker-item"><span class="dot"></span><strong>IoT Telemetry:</strong> RS-232 Hardware Integration</div>
-      <div class="ticker-item"><span class="dot"></span><strong>Sovereignty:</strong> Private VPC &amp; Zero Data Leaks</div>
-      <!-- Loop duplicate -->
-      <div class="ticker-item"><span class="dot"></span><strong>Plant Logistics:</strong> Unattended Weighbridges</div>
-      <div class="ticker-item"><span class="dot"></span><strong>Precon Intelligence:</strong> Subcontractor BOQ Normalization</div>
-      <div class="ticker-item"><span class="dot"></span><strong>Financial Auditing:</strong> 3-Way Real-time PO-GRN Matching</div>
-      <div class="ticker-item"><span class="dot"></span><strong>IoT Telemetry:</strong> RS-232 Hardware Integration</div>
-      <div class="ticker-item"><span class="dot"></span><strong>Sovereignty:</strong> Private VPC &amp; Zero Data Leaks</div>
+<!-- ═══ HERO ═══ -->
+<section class="wwd-hero">
+  <div class="hero-ambient"></div>
+  <div class="container">
+    <div class="hero-eyebrow sr d1"><span class="dot dot-c"></span>Services</div>
+    <h1 class="sr d1">
+      AI that does<br>
+      <span class="grad">the heavy lifting.</span>
+    </h1>
+    <p class="sr d2">
+      We build practical AI solutions that save your team time, bring in more leads, and keep customers happy — without the enterprise price tag.
+    </p>
+    <div class="hero-actions sr d3">
+      <a href="contact-us.html" class="btn btn-p">Start a project →</a>
+      <a href="work.html" class="btn btn-g">See our work</a>
     </div>
   </div>
+</section>
 
-  <!-- ═══ CORE PRACTICES ═══ -->
-  <section style="padding: 80px 0 90px;">
-    <div class="container">
-      <div class="sec-head sr">
-        <h2>Engineered for mission-critical reliability.</h2>
-        <p>Four specialized domains where we replace manual human latency with mathematically verifiable software pipelines.</p>
-      </div>
+<!-- ═══ SERVICES ACCORDION ═══ -->
+<section class="wwd-services">
+  <div class="container">
 
-      <div class="grid-2">
-
-        <!-- Practice 01 -->
-        <div class="practice-card sr d1">
-          <span class="practice-tag">PRACTICE 01 • PHYSICAL LOGISTICS</span>
-          <h3>Autonomous Gate &amp; Yard Systems</h3>
-          <p>
-            Eliminate truck queue bottlenecks, handwritten delivery slips, and weighbridge disputes. We connect ANPR edge cameras, RS-232 serial scale bridges, and self-service mobile interfaces directly to enterprise ERPs.
-          </p>
-          <ul class="practice-items">
-            <li><span>✓</span> Unattended Gate Pass Issuance &amp; Verification</li>
-            <li><span>✓</span> Multimodal Vision OCR for Paper Challans &amp; Billets</li>
-            <li><span>✓</span> Real-Time Digital Tare &amp; Gross Scale Telemetry</li>
-            <li><span>✓</span> Automated Driver WhatsApp Check-in Bot</li>
-          </ul>
-          <div style="margin-top:24px;padding-top:18px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;">
-            <span style="font-family:var(--mono);font-size:11px;color:var(--emerald);">Deployed in YardSync</span>
-            <a href="yardsync.html" style="font-size:13px;color:var(--cyan);font-weight:600;">View System →</a>
-          </div>
-        </div>
-
-        <!-- Practice 02 -->
-        <div class="practice-card sr d2">
-          <span class="practice-tag">PRACTICE 02 • COMMERCIAL PRECON</span>
-          <h3>Preconstruction &amp; Bid Leveling AI</h3>
-          <p>
-            Commercial EPCs and general contractors lose millions to undetected scope exclusions hidden inside subcontractor proposals. We build AI engines that parse 200+ page bids into normalized, apples-to-apples comparison sheets.
-          </p>
-          <ul class="practice-items">
-            <li><span>✓</span> Multi-Format Document Ingestion (PDF, Excel, Scans)</li>
-            <li><span>✓</span> Automatic Scope Gap &amp; Hidden Exclusion Detection</li>
-            <li><span>✓</span> Mathematical Outlier Highlighting on Line-Items</li>
-            <li><span>✓</span> Real-time Clarification Draft Generator for Subcontractors</li>
-          </ul>
-          <div style="margin-top:24px;padding-top:18px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;">
-            <span style="font-family:var(--mono);font-size:11px;color:var(--cyan);">Deployed in BidIntel</span>
-            <a href="bidintel.html" style="font-size:13px;color:var(--cyan);font-weight:600;">View System →</a>
-          </div>
-        </div>
-
-        <!-- Practice 03 -->
-        <div class="practice-card sr d3">
-          <span class="practice-tag">PRACTICE 03 • FINANCIAL AUDIT</span>
-          <h3>3-Way Reconciliation &amp; AP Automation</h3>
-          <p>
-            Manual invoice reconciliation burns hundreds of finance hours every month. We construct deterministic reconciliation engines that cross-examine Purchase Orders, Warehouse GRNs, and Invoices at millisecond latency.
-          </p>
-          <ul class="practice-items">
-            <li><span>✓</span> Line-Item Tolerance Validation (Price, Quantity, Tax)</li>
-            <li><span>✓</span> Duplicate &amp; Anomalous Billing Pattern Detection</li>
-            <li><span>✓</span> Direct API Posting to SAP S/4HANA &amp; Oracle Financials</li>
-            <li><span>✓</span> Zero-Intervention Straight-Through Processing (STP)</li>
-          </ul>
-          <div style="margin-top:24px;padding-top:18px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;">
-            <span style="font-family:var(--mono);font-size:11px;color:var(--violet);">Deployed in LedgerFlow</span>
-            <a href="ledgerflow.html" style="font-size:13px;color:var(--cyan);font-weight:600;">View System →</a>
-          </div>
-        </div>
-
-        <!-- Practice 04 -->
-        <div class="practice-card sr d4">
-          <span class="practice-tag">PRACTICE 04 • ENTERPRISE SOVEREIGNTY</span>
-          <h3>Custom LLM Architectures &amp; Private VPC</h3>
-          <p>
-            Never risk proprietary pricing data, vendor agreements, or confidential operational blueprints on public third-party APIs. We deploy air-gapped, sovereign AI pipelines inside your enterprise cloud with complete data ownership.
-          </p>
-          <ul class="practice-items">
-            <li><span>✓</span> Air-Gapped Private VPC Deployments (AWS, Azure, GCP)</li>
-            <li><span>✓</span> Fine-Tuned Domain Models for Industry Nomenclature</li>
-            <li><span>✓</span> Strict Role-Based Access Control (RBAC) &amp; Audit Logging</li>
-            <li><span>✓</span> 100% IP Transfer — You Own the Code, Data, &amp; Weights</li>
-          </ul>
-          <div style="margin-top:24px;padding-top:18px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;">
-            <span style="font-family:var(--mono);font-size:11px;color:var(--text-400);">Enterprise Bespoke</span>
-            <a href="contact-us.html" style="font-size:13px;color:var(--cyan);font-weight:600;">Consult Architects →</a>
-          </div>
-        </div>
-
-      </div>
+    <div class="sec-head sr" style="margin-bottom:48px;">
+      <div class="badge badge-c" style="margin-bottom:12px;"><span class="dot dot-c"></span>What We Build</div>
+      <h2>Six things we're really good at.</h2>
+      <p>Click any service to see exactly what's included and who it's built for.</p>
     </div>
-  </section>
 
-  <!-- ═══ ARCHITECTURE STACK (Interactive / Visual) ═══ -->
-  <section style="padding: 70px 0 90px; border-top: 1px solid var(--border); background: rgba(11,13,24,0.4);">
-    <div class="container">
-      <div class="sec-head sr">
-        <h2>How the Istaroth stack works.</h2>
-        <p>A deterministic data flow designed for maximum velocity, fail-safe redundancy, and enterprise compliance.</p>
+    <!-- 01: Website Design -->
+    <div class="wwd-service-item sr d1" id="svc-web">
+      <div class="wwd-service-header" onclick="toggleService('svc-web')">
+        <span class="wwd-service-num">01</span>
+        <div class="wwd-service-icon svc-icon-web">🌐</div>
+        <div class="wwd-service-title">
+          <h3>Website Design</h3>
+          <p>Clean, fast, custom-built websites that make a strong first impression.</p>
+        </div>
+        <div class="wwd-chevron">▾</div>
       </div>
-
-      <div class="card sr" style="padding: 36px 30px;">
-        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;" class="grid-4">
-          
-          <div style="padding: 20px; background: rgba(255,255,255,0.02); border: 1px solid var(--border); border-radius: var(--r-md);">
-            <div style="font-family:var(--mono);font-size:11px;color:var(--cyan);margin-bottom:8px;">LAYER 01</div>
-            <h4 style="font-size:16px;margin-bottom:8px;">Ingestion Edge</h4>
-            <p style="font-size:13px;color:var(--text-400);line-height:1.6;">ANPR cameras, RS-232 serial scales, WhatsApp webhooks, and raw PDF proposal parsers.</p>
+      <div class="wwd-service-body">
+        <div class="wwd-service-body-inner">
+          <div>
+            <p class="wwd-body-desc">Your website is your best salesperson — it works 24/7 and never asks for a raise. We design and build custom websites from scratch, focused on conversion, speed, and mobile performance. No page builders, no templates that look like everyone else.</p>
+            <p class="wwd-body-desc" style="margin-top:16px;">We work closely with you to understand your brand and your customers, then translate that into a site that feels genuinely yours.</p>
           </div>
-
-          <div style="padding: 20px; background: rgba(255,255,255,0.02); border: 1px solid var(--border); border-radius: var(--r-md);">
-            <div style="font-family:var(--mono);font-size:11px;color:var(--cyan);margin-bottom:8px;">LAYER 02</div>
-            <h4 style="font-size:16px;margin-bottom:8px;">Multimodal AI Engine</h4>
-            <p style="font-size:13px;color:var(--text-400);line-height:1.6;">Vision models and specialized document extractors normalize messy real-world data into typed JSON.</p>
+          <div>
+            <ul class="wwd-body-list">
+              <li>Custom design from scratch — no templates</li>
+              <li>Mobile-first, fast-loading (Core Web Vitals optimised)</li>
+              <li>SEO foundations baked in from day one</li>
+              <li>Contact forms, booking integrations, live chat hooks</li>
+              <li>Delivered in days, not months</li>
+              <li>Ongoing support &amp; edits available</li>
+            </ul>
           </div>
-
-          <div style="padding: 20px; background: rgba(255,255,255,0.02); border: 1px solid var(--border); border-radius: var(--r-md);">
-            <div style="font-family:var(--mono);font-size:11px;color:var(--violet);margin-bottom:8px;">LAYER 03</div>
-            <h4 style="font-size:16px;margin-bottom:8px;">Deterministic Logic</h4>
-            <p style="font-size:13px;color:var(--text-400);line-height:1.6;">Zero-hallucination mathematical verification, tolerance audits, scope checks, and compliance rules.</p>
-          </div>
-
-          <div style="padding: 20px; background: rgba(255,255,255,0.02); border: 1px solid var(--border); border-radius: var(--r-md);">
-            <div style="font-family:var(--mono);font-size:11px;color:var(--emerald);margin-bottom:8px;">LAYER 04</div>
-            <h4 style="font-size:16px;margin-bottom:8px;">Enterprise Settlement</h4>
-            <p style="font-size:13px;color:var(--text-400);line-height:1.6;">Automated gate barrier opening, SAP clearing voucher posting, and real-time dashboard telemetry.</p>
-          </div>
-
         </div>
       </div>
     </div>
-  </section>
 
-  <!-- ═══ CTA BLOCK ═══ -->
-  <section class="sec-cta">
-    <div class="container">
-      <div class="cta-box sr">
-        <h2>Have an operational bottleneck?</h2>
-        <p>Schedule a 30-minute technical evaluation directly with our systems architects. We'll assess your data, workflows, and build an implementation blueprint.</p>
-        <div class="cta-acts">
-          <a href="contact-us.html" class="btn btn-p">Book Discovery Session →</a>
-          <a href="our-approach.html" class="btn btn-g">Review Our Methodology</a>
+    <!-- 02: AI Chatbot -->
+    <div class="wwd-service-item sr d2" id="svc-chat">
+      <div class="wwd-service-header" onclick="toggleService('svc-chat')">
+        <span class="wwd-service-num">02</span>
+        <div class="wwd-service-icon svc-icon-chat">🤖</div>
+        <div class="wwd-service-title">
+          <h3>AI Chatbot</h3>
+          <p>A smart assistant trained on your business — live on your website or app.</p>
+        </div>
+        <div class="wwd-chevron">▾</div>
+      </div>
+      <div class="wwd-service-body">
+        <div class="wwd-service-body-inner">
+          <div>
+            <p class="wwd-body-desc">Most chatbots are frustrating because they're generic. Ours are different — we train them specifically on your products, services, FAQs, and tone of voice, so they sound like a knowledgeable member of your team, not a bot reading from a script.</p>
+            <p class="wwd-body-desc" style="margin-top:16px;">They handle the questions your team answers 50 times a day, qualify leads, and only escalate to a human when it actually matters.</p>
+          </div>
+          <div>
+            <ul class="wwd-body-list">
+              <li>Trained on your documents, FAQs &amp; product info</li>
+              <li>Embeds directly on your website or app</li>
+              <li>Handles lead capture &amp; qualification automatically</li>
+              <li>Escalates complex queries to your team</li>
+              <li>Available in multiple languages</li>
+              <li>Full conversation history &amp; analytics dashboard</li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
-  </section>
+
+    <!-- 03: AI Voice Agent -->
+    <div class="wwd-service-item sr d3" id="svc-voice">
+      <div class="wwd-service-header" onclick="toggleService('svc-voice')">
+        <span class="wwd-service-num">03</span>
+        <div class="wwd-service-icon svc-icon-voice">🎙️</div>
+        <div class="wwd-service-title">
+          <h3>AI Voice Agent</h3>
+          <p>An AI that answers calls, books appointments, and handles support — naturally.</p>
+        </div>
+        <div class="wwd-chevron">▾</div>
+      </div>
+      <div class="wwd-service-body">
+        <div class="wwd-service-body-inner">
+          <div>
+            <p class="wwd-body-desc">Phone calls are still the preferred channel for a huge portion of customers — but staffing a phone line 24/7 is expensive. Our voice agents sound natural, respond in real time, and can handle everything from bookings and FAQs to follow-up calls and reminders.</p>
+            <p class="wwd-body-desc" style="margin-top:16px;">They're not IVR menus with press-1-for-this. They hold actual conversations, understand context, and only pass to a human when truly needed.</p>
+          </div>
+          <div>
+            <ul class="wwd-body-list">
+              <li>Natural, low-latency voice conversations</li>
+              <li>Inbound call handling (support, bookings, FAQs)</li>
+              <li>Outbound campaigns (follow-ups, reminders, surveys)</li>
+              <li>CRM integration — logs every call automatically</li>
+              <li>Works across English, Hindi, and regional languages</li>
+              <li>24/7 availability with zero staffing overhead</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 04: WhatsApp Bot -->
+    <div class="wwd-service-item sr d4" id="svc-wa">
+      <div class="wwd-service-header" onclick="toggleService('svc-wa')">
+        <span class="wwd-service-num">04</span>
+        <div class="wwd-service-icon svc-icon-wa">💬</div>
+        <div class="wwd-service-title">
+          <h3>WhatsApp Bot</h3>
+          <p>Automate conversations where your customers already are — WhatsApp.</p>
+        </div>
+        <div class="wwd-chevron">▾</div>
+      </div>
+      <div class="wwd-service-body">
+        <div class="wwd-service-body-inner">
+          <div>
+            <p class="wwd-body-desc">WhatsApp has a 98% open rate — no other channel comes close. We build bots on the official WhatsApp Business API that handle inquiries, share order updates, collect payments, send promotions, and nurture leads — all in the app your customers check 50 times a day.</p>
+            <p class="wwd-body-desc" style="margin-top:16px;">We set up automated flows, message templates, and quick replies so your business keeps moving even when you're not at your desk.</p>
+          </div>
+          <div>
+            <ul class="wwd-body-list">
+              <li>Official WhatsApp Business API (not grey-market)</li>
+              <li>Automated conversation flows &amp; smart routing</li>
+              <li>Broadcast campaigns &amp; drip sequences</li>
+              <li>Product catalogs, media, buttons &amp; list messages</li>
+              <li>Payment links &amp; order tracking integration</li>
+              <li>Handoff to live agent with full chat history</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 05: Workflow Automation -->
+    <div class="wwd-service-item sr d1" id="svc-auto">
+      <div class="wwd-service-header" onclick="toggleService('svc-auto')">
+        <span class="wwd-service-num">05</span>
+        <div class="wwd-service-icon svc-icon-auto">⚙️</div>
+        <div class="wwd-service-title">
+          <h3>Workflow Automation</h3>
+          <p>We map the repetitive work in your business and make it happen automatically.</p>
+        </div>
+        <div class="wwd-chevron">▾</div>
+      </div>
+      <div class="wwd-service-body">
+        <div class="wwd-service-body-inner">
+          <div>
+            <p class="wwd-body-desc">Every business has tasks that someone's doing manually that really shouldn't be — copying data between tools, sending follow-up emails, generating reports, chasing approvals. We find those tasks, audit the process, and build systems that handle them automatically.</p>
+            <p class="wwd-body-desc" style="margin-top:16px;">We connect your existing tools (your CRM, ERP, Google Sheets, email, whatever you use) and build the logic between them, so information flows without you touching it.</p>
+          </div>
+          <div>
+            <ul class="wwd-body-list">
+              <li>Deep audit of your existing digital workflows</li>
+              <li>Connects CRM, ERP, Sheets, email &amp; more</li>
+              <li>Automated reports, alerts &amp; notifications</li>
+              <li>Approval chains &amp; multi-step logic flows</li>
+              <li>Eliminates manual data entry &amp; copy-paste errors</li>
+              <li>Custom triggers — time-based, event-based, or rule-based</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 06: Custom AI Systems -->
+    <div class="wwd-service-item sr d2" id="svc-ai">
+      <div class="wwd-service-header" onclick="toggleService('svc-ai')">
+        <span class="wwd-service-num">06</span>
+        <div class="wwd-service-icon svc-icon-ai">🧠</div>
+        <div class="wwd-service-title">
+          <h3>Custom AI Systems</h3>
+          <p>For problems that don't fit a ready-made product — we build it from scratch.</p>
+        </div>
+        <div class="wwd-chevron">▾</div>
+      </div>
+      <div class="wwd-service-body">
+        <div class="wwd-service-body-inner">
+          <div>
+            <p class="wwd-body-desc">Some problems are too specific for off-the-shelf tools. We engineer custom AI systems for industries with precise operational needs — document intelligence pipelines that parse complex formats, computer vision systems for physical environments, and mathematical solvers for high-stakes numbers.</p>
+            <p class="wwd-body-desc" style="margin-top:16px;">Everything we build is 100% yours — full source code, full IP ownership, and no dependency on us once it's deployed.</p>
+          </div>
+          <div>
+            <ul class="wwd-body-list">
+              <li>Document parsing, OCR &amp; intelligent data extraction</li>
+              <li>Computer vision for cameras &amp; edge hardware</li>
+              <li>Custom LLM fine-tuning on your proprietary data</li>
+              <li>Deterministic solvers (no hallucinations on critical numbers)</li>
+              <li>Private cloud or air-gapped on-premise deployment</li>
+              <li>100% client source code &amp; IP ownership</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══ HOW WE WORK ═══ -->
+<section class="sec-how">
+  <div class="container">
+    <div class="sec-head sr" style="margin-bottom:0;">
+      <div class="badge badge-v" style="margin-bottom:12px;"><span class="dot dot-v"></span>Our Process</div>
+      <h2>Simple. Transparent. No surprises.</h2>
+      <p>We keep it lean — you're never left wondering what's happening or when it'll be done.</p>
+    </div>
+    <div class="how-steps">
+
+      <div class="how-step sr d1">
+        <div class="how-step-num">Step 01</div>
+        <span class="how-step-icon">🔍</span>
+        <h3>Discover</h3>
+        <p>We start with a free 30-minute call to understand your business, your current tools, and exactly where AI can make the biggest difference. No jargon, no pitch — just straight talk about what's possible.</p>
+      </div>
+
+      <div class="how-step sr d2">
+        <div class="how-step-num">Step 02</div>
+        <span class="how-step-icon">🔨</span>
+        <h3>Build</h3>
+        <p>Once we agree on scope, we move fast. You get regular updates, a shared workspace to track progress, and a direct line to the person building it — not an account manager. Most projects ship in 1–3 weeks.</p>
+      </div>
+
+      <div class="how-step sr d3">
+        <div class="how-step-num">Step 03</div>
+        <span class="how-step-icon">🚀</span>
+        <h3>Deploy & Support</h3>
+        <p>We handle deployment end to end and stay available post-launch. You get full documentation, a handover session, and support for any issues. And if you want us to maintain and improve it over time, we can do that too.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CTA ═══ -->
+<section class="sec-wwd-cta">
+  <div class="container">
+    <div class="wwd-cta-inner sr">
+      <div class="badge badge-c" style="margin-bottom:16px;display:inline-flex;"><span class="dot dot-c"></span>Ready to start?</div>
+      <h2>Tell us what you're trying to solve.</h2>
+      <p>We'll figure out together whether AI is the right answer — and if it is, we'll show you exactly how we'd approach it. No commitment required.</p>
+      <div class="wwd-cta-btns">
+        <a href="contact-us.html" class="btn btn-p">Book a free call →</a>
+        <a href="work.html" class="btn btn-g">See what we've built</a>
+      </div>
+    </div>
+  </div>
+</section>
 
 </main>
 
-<!-- ═══ FOOTER ═══ -->
+<!-- FOOTER -->
 <footer class="footer">
   <div class="container">
     <div class="footer-grid">
       <div>
-        <div class="f-brand">Istaroth<span>AI</span></div>
-        <p class="f-tag">Engineering bespoke autonomous intelligence systems for mission-critical enterprise operations.</p>
+        <div class="f-brand">Istaroth<span>.tech</span></div>
+        <p class="f-tag">AI solutions built for real businesses — chatbots, voice agents, workflow automation, and custom systems.</p>
       </div>
       <div class="footer-col">
-        <h6>Reference Systems</h6>
+        <h6>Services</h6>
         <ul>
-          <li><a href="bidintel.html">BidIntel Precon ↗</a></li>
-          <li><a href="yardsync.html">YardSync Logistics ↗</a></li>
-          <li><a href="ledgerflow.html">LedgerFlow Audit ↗</a></li>
+          <li><a href="what-we-do.html">Website Design</a></li>
+          <li><a href="what-we-do.html">AI Chatbot</a></li>
+          <li><a href="what-we-do.html">AI Voice Agent</a></li>
+          <li><a href="what-we-do.html">WhatsApp Bot</a></li>
+          <li><a href="what-we-do.html">Workflow Automation</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -262,20 +347,35 @@
         </ul>
       </div>
       <div class="footer-col">
-        <h6>Connect</h6>
+        <h6>Contact</h6>
         <ul>
+          <li><a href="mailto:hello@istaroth.tech">hello@istaroth.tech</a></li>
+          <li><a href="mailto:contact@istaroth.tech">contact@istaroth.tech</a></li>
           <li><a href="mailto:reddykarthik370@gmail.com">reddykarthik370@gmail.com</a></li>
-          <li><a href="contact-us.html">Request Systems Audit</a></li>
         </ul>
       </div>
     </div>
     <div class="foot-btm">
-      <span>© 2026 IstarothAI. Autonomous Systems Engineering Studio.</span>
-      <span>All systems sovereign. Zero vendor lock-in.</span>
+      <span>© 2026 Istaroth. AI Solutions Studio.</span>
+      <span>istaroth.tech</span>
     </div>
   </div>
 </footer>
 
 <script src="app.js"></script>
+<script>
+  function toggleService(id) {
+    const item = document.getElementById(id);
+    const isOpen = item.classList.contains('open');
+    // Close all
+    document.querySelectorAll('.wwd-service-item').forEach(el => el.classList.remove('open'));
+    // Open clicked if it was closed
+    if (!isOpen) item.classList.add('open');
+  }
+  // Open first by default
+  document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('svc-web').classList.add('open');
+  });
+</script>
 </body>
 </html>

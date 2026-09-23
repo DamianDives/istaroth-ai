@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
 /* ==========================================================================
-   ISTAROTH.AI — Modern Autonomous Systems Engineering Studio
+   ISTAROTH.AI - Modern Autonomous Systems Engineering Studio
    Inspired by Cosmiron.ai: razor-sharp typography, moving radiant beams,
    infinite capability marquee, floating cosmic ambient glows, and responsive cards
    ========================================================================== */
@@ -115,7 +115,7 @@ h1,h2,h3,h4,h5,h6{
   font-weight:700;
 }
 
-/* Gradient hero text — indigo→violet, works great on light bg */
+/* Gradient hero text - indigo→violet, works great on light bg */
 @keyframes flow-grad {
   0%   { background-position: 0% 50%; }
   50%  { background-position: 100% 50%; }
@@ -449,9 +449,9 @@ h1,h2,h3,h4,h5,h6{
 }
 .sector-badge{
   display:inline-flex;align-items:center;gap:8px;
-  padding:9px 18px;border-radius:var(--pill);
-  font-family:var(--mono);font-size:11px;font-weight:500;
-  letter-spacing:0.05em;text-transform:uppercase;
+  padding:8px 16px;border-radius:var(--pill);
+  font-family:var(--font-sans);font-size:13.5px;font-weight:600;
+  letter-spacing:-0.01em;text-transform:none;
   color:var(--text-300);
   background:rgba(12,16,32,0.68);
   border:1px solid rgba(255,255,255,0.08);
@@ -767,7 +767,7 @@ h1,h2,h3,h4,h5,h6{
 }
 
 /* ════════════════════════════════════════════════════════
-   WHY ISTAROTH — Principles Grid
+   WHY ISTAROTH - Principles Grid
 ════════════════════════════════════════════════════════ */
 .sec-why{padding:80px 0 90px;border-top:1px solid var(--border);}
 .grid-4-why{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
@@ -853,7 +853,7 @@ h1,h2,h3,h4,h5,h6{
 }
 
 /* ════════════════════════════════════════════════════════
-   OUR APPROACH — TIMELINE & OWNERSHIP
+   OUR APPROACH - TIMELINE & OWNERSHIP
 ════════════════════════════════════════════════════════ */
 .sec-approach{padding:72px 0 90px;border-top:1px solid var(--border);}
 .timeline{display:flex;flex-direction:column;}
@@ -940,7 +940,7 @@ h1,h2,h3,h4,h5,h6{
 .c-form iframe{width:100%;min-height:720px;display:block;border:none;}
 
 /* ════════════════════════════════════════════════════════
-   WHAT WE DO — Practice Grid & Capabilities
+   WHAT WE DO - Practice Grid & Capabilities
 ════════════════════════════════════════════════════════ */
 .practice-card{
   padding:36px 30px;
@@ -974,7 +974,7 @@ h1,h2,h3,h4,h5,h6{
 .practice-items li span{color:var(--cyan);font-weight:700;flex-shrink:0;}
 
 /* ════════════════════════════════════════════════════════
-   ABOUT US — Story & Values
+   ABOUT US - Story & Values
 ════════════════════════════════════════════════════════ */
 .about-hero-grid{
   display:grid;grid-template-columns:1.2fr 1fr;
@@ -2266,8 +2266,11 @@ body::before { display: none; }
   gap: 8px;
   padding: 8px 16px;
   border-radius: var(--pill);
+  font-family: var(--font-sans);
   font-size: 13.5px;
   font-weight: 600;
+  letter-spacing: -0.01em;
+  text-transform: none;
   border: 1.5px solid;
   cursor: default;
   transition: transform 0.2s var(--spring), box-shadow 0.2s ease, border-color 0.2s ease;
@@ -2378,7 +2381,7 @@ body::before { display: none; }
 }
 
 /* Neon Themes for each individual Service */
-/* 01: Website Design — Cyan / Electric Blue */
+/* 01: Website Design - Cyan / Electric Blue */
 #svc-web:hover, #svc-web.open {
   border-color: rgba(6, 182, 212, 0.65);
   box-shadow: 0 0 24px rgba(6, 182, 212, 0.22),
@@ -2395,7 +2398,7 @@ body::before { display: none; }
   border-color: rgba(6, 182, 212, 0.45);
 }
 
-/* 02: AI Chatbot — Cyber Violet */
+/* 02: AI Chatbot - Cyber Violet */
 #svc-chat:hover, #svc-chat.open {
   border-color: rgba(139, 92, 246, 0.65);
   box-shadow: 0 0 24px rgba(139, 92, 246, 0.22),
@@ -2412,7 +2415,7 @@ body::before { display: none; }
   border-color: rgba(139, 92, 246, 0.45);
 }
 
-/* 03: AI Voice Agent — Emerald / Neon Mint */
+/* 03: AI Voice Agent - Emerald / Neon Mint */
 #svc-voice:hover, #svc-voice.open {
   border-color: rgba(16, 185, 129, 0.65);
   box-shadow: 0 0 24px rgba(16, 185, 129, 0.22),
@@ -2429,7 +2432,7 @@ body::before { display: none; }
   border-color: rgba(16, 185, 129, 0.45);
 }
 
-/* 04: WhatsApp Bot — Vivid WhatsApp Green */
+/* 04: WhatsApp Bot - Vivid WhatsApp Green */
 #svc-wa:hover, #svc-wa.open {
   border-color: rgba(34, 197, 94, 0.65);
   box-shadow: 0 0 24px rgba(34, 197, 94, 0.22),
@@ -2446,7 +2449,7 @@ body::before { display: none; }
   border-color: rgba(34, 197, 94, 0.45);
 }
 
-/* 05: Workflow Automation — Electric Amber */
+/* 05: Workflow Automation - Electric Amber */
 #svc-auto:hover, #svc-auto.open {
   border-color: rgba(245, 158, 11, 0.65);
   box-shadow: 0 0 24px rgba(245, 158, 11, 0.22),
@@ -2463,7 +2466,7 @@ body::before { display: none; }
   border-color: rgba(245, 158, 11, 0.45);
 }
 
-/* 06: Custom AI Systems — Hot Magenta / Neon Pink */
+/* 06: Custom AI Systems - Hot Magenta / Neon Pink */
 #svc-ai:hover, #svc-ai.open {
   border-color: rgba(236, 72, 153, 0.65);
   box-shadow: 0 0 24px rgba(236, 72, 153, 0.22),

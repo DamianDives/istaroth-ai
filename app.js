@@ -1,5 +1,5 @@
 /* ==========================================================================
-   ISTAROTH.AI — Dynamic Interaction Controller
+   ISTAROTH.AI - Dynamic Interaction Controller
    Scroll reveal, stat counter rollups, mobile drawer, navbar effects,
    card mouse light glow
    ========================================================================== */

@@ -190,6 +190,46 @@ h1,h2,h3,h4,h5,h6{
   }
 }
 
+/* ── Subtitle Kinetic Animations ── */
+.apple-sub-shimmer {
+  background: linear-gradient(
+    105deg,
+    #475569 0%,
+    #1E293B 22%,
+    #4F46E5 48%,
+    #0EA5E9 62%,
+    #475569 82%
+  );
+  background-size: 240% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: appleSubShimmerFlow 8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  display: inline;
+}
+@keyframes appleSubShimmerFlow {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.sub-glow {
+  color: #4338CA;
+  font-weight: 600;
+  display: inline;
+  background: linear-gradient(135deg, #4F46E5 0%, #0EA5E9 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+/* Silky hover response for all subtitles */
+.hero-sub, .sec-head p, .page-hero p, .sc-content p {
+  transition: color 0.3s ease, transform 0.3s ease, filter 0.3s ease;
+}
+.hero-sub:hover, .sec-head p:hover, .page-hero p:hover {
+  filter: contrast(110%);
+}
+
 /* ════════════════════════════════════════════════════════
    NAVBAR (Universal Capsule)
 ════════════════════════════════════════════════════════ */
@@ -760,20 +800,22 @@ h1,h2,h3,h4,h5,h6{
 .tech-row{display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin-bottom:26px;}
 .sc-actions{display:flex;gap:10px;flex-wrap:wrap;}
 
-/* App Frame UI Mock */
+/* App Frame UI Mock - Clean White / Cream macOS Style */
 .frame{
-  background:var(--bg-3);border:1px solid var(--border-lg);
+  background:#FFFFFF;
+  border:1px solid rgba(15,23,42,0.12);
   border-radius:var(--r-xl);overflow:hidden;
-  box-shadow:0 28px 70px rgba(0,0,0,0.65),0 0 50px rgba(56,189,248,0.03);
-  transition:transform var(--t2) var(--spring),box-shadow var(--t2) ease;
+  box-shadow:0 20px 48px -6px rgba(15,23,42,0.12),0 1px 3px rgba(15,23,42,0.05);
+  transition:transform var(--t2) var(--spring),box-shadow var(--t2) ease,border-color var(--t2) ease;
 }
 .frame:hover{
   transform:translateY(-4px) scale(1.005);
-  box-shadow:0 38px 90px rgba(0,0,0,0.75),0 0 60px rgba(56,189,248,0.06);
+  box-shadow:0 28px 60px -8px rgba(15,23,42,0.18),0 0 32px rgba(99,102,241,0.08);
+  border-color:rgba(99,102,241,0.3);
 }
 .f-bar{
-  background:rgba(5,7,15,0.95);height:40px;
-  border-bottom:1px solid var(--border);
+  background:#F8FAFC;height:42px;
+  border-bottom:1px solid rgba(15,23,42,0.08);
   display:flex;align-items:center;justify-content:space-between;
   padding:0 14px;gap:10px;
 }
@@ -781,35 +823,53 @@ h1,h2,h3,h4,h5,h6{
 .fd{width:10px;height:10px;border-radius:50%;}
 .fd-r{background:#FF5F56;}.fd-y{background:#FFBD2E;}.fd-g{background:#27C93F;}
 .f-url{
-  flex:1;background:rgba(255,255,255,0.04);border:1px solid var(--border);
-  border-radius:5px;padding:3px 9px;
-  font-family:var(--mono);font-size:10.5px;color:var(--text-600);
+  flex:1;background:#FFFFFF;border:1px solid rgba(15,23,42,0.1);
+  border-radius:6px;padding:4px 10px;
+  font-family:var(--mono);font-size:11px;color:#334155;
   overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+  box-shadow:0 1px 2px rgba(15,23,42,0.04);
 }
-.f-status{font-family:var(--mono);font-size:10px;font-weight:600;white-space:nowrap;}
-.f-body{padding:18px;background:rgba(3,5,10,0.98);}
+.f-status{
+  font-family:var(--mono);font-size:10px;font-weight:700;white-space:nowrap;
+  padding:3px 8px;border-radius:var(--pill);
+}
+.f-status.fv-g{background:rgba(16,185,129,0.12);color:#059669;}
+.f-status.fv-c{background:rgba(14,165,233,0.12);color:#0284C7;}
+.f-status.fv-v{background:rgba(139,92,246,0.12);color:#7C3AED;}
+.f-body{
+  padding:18px;
+  background:#FCFBF9; /* warm elegant cream */
+}
 .frow{
   display:flex;justify-content:space-between;align-items:center;
-  padding:9px 11px;background:rgba(255,255,255,0.024);
-  border:1px solid var(--border);border-radius:var(--r-sm);margin-bottom:8px;
+  padding:10px 12px;background:#FFFFFF;
+  border:1px solid rgba(15,23,42,0.08);border-radius:var(--r-sm);margin-bottom:8px;
+  box-shadow:0 1px 2px rgba(15,23,42,0.03);
+  transition:border-color 0.2s ease,background 0.2s ease;
+}
+.frow:hover{
+  border-color:rgba(99,102,241,0.25);
+  background:#F8FAFC;
 }
 .frow:last-child{margin-bottom:0;}
-.fl{font-family:var(--mono);font-size:11.5px;color:var(--text-400);}
-.fv{font-family:var(--mono);font-size:11.5px;font-weight:600;}
-.fv-c{color:var(--cyan);}.fv-g{color:var(--emerald);}.fv-r{color:var(--rose);}.fv-v{color:var(--violet);}
-.fhdr{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px;}
-.ftitle{font-size:13.5px;font-weight:700;color:var(--text-100);}
-.fsub{font-family:var(--mono);font-size:10px;color:var(--text-600);margin-top:2px;}
+.fl{font-family:var(--mono);font-size:11.5px;color:#475569;font-weight:500;}
+.fv{font-family:var(--mono);font-size:11.5px;font-weight:700;}
+.fv-c{color:#0284C7;}.fv-g{color:#059669;}.fv-r{color:#E11D48;}.fv-v{color:#7C3AED;}
+.fhdr{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px;}
+.ftitle{font-size:13.5px;font-weight:700;color:#0F172A;}
+.fsub{font-family:var(--mono);font-size:10.5px;color:#64748B;margin-top:2px;}
 .fchip{
-  padding:2px 8px;border-radius:var(--pill);
-  font-family:var(--mono);font-size:9px;font-weight:600;border:1px solid;
+  padding:3px 9px;border-radius:var(--pill);
+  font-family:var(--mono);font-size:9.5px;font-weight:700;border:1px solid;
 }
-.fc-g{background:var(--emerald-a20);color:var(--emerald);border-color:rgba(16,185,129,0.3);}
-.fc-v{background:var(--violet-a12);color:var(--violet);border-color:rgba(139,92,246,0.3);}
-.fc-c{background:var(--cyan-a12);color:var(--cyan);border-color:rgba(56,189,248,0.3);}
+.fc-g{background:rgba(16,185,129,0.1);color:#047857;border-color:rgba(16,185,129,0.28);}
+.fc-v{background:rgba(139,92,246,0.1);color:#6D28D9;border-color:rgba(139,92,246,0.28);}
+.fc-c{background:rgba(14,165,233,0.1);color:#0369A1;border-color:rgba(14,165,233,0.28);}
 .flog{
-  margin-top:10px;display:flex;align-items:center;gap:6px;
-  font-family:var(--mono);font-size:10.5px;color:var(--text-600);
+  margin-top:12px;padding-top:10px;
+  border-top:1px solid rgba(15,23,42,0.06);
+  display:flex;align-items:center;gap:6px;
+  font-family:var(--mono);font-size:10.5px;color:#64748B;
 }
 
 /* ════════════════════════════════════════════════════════

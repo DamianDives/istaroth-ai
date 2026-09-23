@@ -2,10 +2,31 @@
   "version": 2,
   "name": "istaroth-ai",
   "cleanUrls": true,
-  "routes": [
+  "redirects": [
     {
-      "src": "/(.*)",
-      "dest": "/$1"
+      "source": "/work",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/work/(.*)",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/bidintel(.*)",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/yardsync(.*)",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/ledgerflow(.*)",
+      "destination": "/",
+      "permanent": true
     }
   ]
 }

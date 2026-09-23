@@ -88,7 +88,7 @@
 
 /* ── Reset ─────────────────────────────────────────────── */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;color-scheme:light;background:var(--bg);overflow-x:hidden;}
+html{color-scheme:light;background:var(--bg);overflow-x:hidden;}
 body{
   background:var(--bg);
   color:var(--text-200);
@@ -98,7 +98,7 @@ body{
   -moz-osx-font-smoothing:grayscale;
   overflow-x:hidden;
   width:100%;
-  max-width:100vw;
+  max-width:100%;
 }
 a{color:inherit;text-decoration:none;}
 img{max-width:100%;display:block;}
@@ -130,34 +130,21 @@ h1,h2,h3,h4,h5,h6{
   background-clip: text;
 }
 
-/* ── Scroll Reveal with Safe Fallback & Apple Blur Fade ─────────────────── */
-@keyframes srSafetyFade {
-  to {
-    opacity: 1;
-    filter: blur(0px);
-    transform: translateY(0) scale(1);
-  }
-}
+/* ── Hardware-Accelerated Smooth Scroll Reveal ─────────────────── */
 .sr{
   opacity:0;
-  filter:blur(12px);
-  transform:translateY(24px) scale(0.985);
-  animation: srSafetyFade 0.5s ease 1.2s forwards;
-  transition:opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
-              filter 0.8s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change:opacity, filter, transform;
+  transform:translateY(16px);
+  transition:opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .sr.in, .sr.visible{
-  animation: none;
   opacity:1;
-  filter:blur(0px);
-  transform:translateY(0) scale(1);
+  transform:translateY(0);
 }
-.sr.d1{transition-delay:0.08s;}
-.sr.d2{transition-delay:0.16s;}
-.sr.d3{transition-delay:0.24s;}
-.sr.d4{transition-delay:0.32s;}
+.sr.d1{transition-delay:0.06s;}
+.sr.d2{transition-delay:0.12s;}
+.sr.d3{transition-delay:0.18s;}
+.sr.d4{transition-delay:0.24s;}
 
 /* ── Apple-Style Text Animations ── */
 .apple-shimmer-text {
@@ -230,19 +217,6 @@ h1,h2,h3,h4,h5,h6{
 }
 
 p.apple-sub-shimmer, .apple-sub-shimmer {
-  background: linear-gradient(
-    90deg,
-    #1E293B 0%,
-    #334155 calc(var(--scroll-p, 20%) - 10%),
-    #4F46E5 var(--scroll-p, 20%),
-    #0EA5E9 calc(var(--scroll-p, 20%) + 14%),
-    #64748B calc(var(--scroll-p, 20%) + 28%),
-    #334155 100%
-  );
-  background-size: 100% 100%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
   display: block !important;
   width: 100% !important;
   max-width: 660px !important;
@@ -250,7 +224,8 @@ p.apple-sub-shimmer, .apple-sub-shimmer {
   margin-left: auto !important;
   margin-right: auto !important;
   clear: both !important;
-  line-height: inherit;
+  color: var(--text-400);
+  line-height: 1.7;
 }
 span.apple-sub-shimmer {
   display: inline !important;
@@ -265,15 +240,11 @@ span.apple-sub-shimmer {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   position: relative;
-  transition: all 0.3s ease;
 }
 
-/* Silky hover response for all subtitles */
+/* Stable subtitle typography */
 .hero-sub, .sec-head p, .page-hero p, .sc-content p {
-  transition: color 0.3s ease, transform 0.3s ease, filter 0.3s ease;
-}
-.hero-sub:hover, .sec-head p:hover, .page-hero p:hover {
-  filter: contrast(110%);
+  color: var(--text-400);
 }
 
 /* ════════════════════════════════════════════════════════

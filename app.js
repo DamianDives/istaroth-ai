@@ -5,12 +5,11 @@
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
-  /* ─── Scroll Reveal (with instant viewport reveal & fallback) ────── */
+  /* ─── Scroll Reveal (Pure IntersectionObserver) ─────────────────── */
   function initReveal() {
     const revealEls = document.querySelectorAll('.sr, .reveal');
     if (!revealEls.length) return;
 
-    // Check if IntersectionObserver is supported
     if ('IntersectionObserver' in window) {
       const observer = new IntersectionObserver((entries) => {
         entries.forEach((e) => {
@@ -21,27 +20,10 @@ document.addEventListener('DOMContentLoaded', () => {
         });
       }, {
         threshold: 0.05,
-        rootMargin: '0px 0px 50px 0px' // trigger slightly before it comes into view
+        rootMargin: '0px 0px 60px 0px'
       });
 
-      revealEls.forEach((el) => {
-        // If element is already in viewport on load, show with silky entrance
-        const rect = el.getBoundingClientRect();
-        if (rect.top < window.innerHeight) {
-          requestAnimationFrame(() => {
-            setTimeout(() => {
-              el.classList.add('in', 'visible');
-            }, 40);
-          });
-        } else {
-          observer.observe(el);
-        }
-      });
-
-      // Safety timeout: ensure everything reveals after 1.2s max in case of lag/slow scroll
-      setTimeout(() => {
-        revealEls.forEach(el => el.classList.add('in', 'visible'));
-      }, 1200);
+      revealEls.forEach((el) => observer.observe(el));
     } else {
       revealEls.forEach(el => el.classList.add('in', 'visible'));
     }
@@ -162,27 +144,51 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   initCardSpotlight();
 
-  /* ─── Scroll-Driven Apple Text Color Scrub ─────────────────────────── */
+  /* ─── High-Performance Scroll-Driven Headings Color Scrub ──────── */
   function initScrollColorScrub() {
-    const scrubEls = document.querySelectorAll('.sec-head h2, .wwd-services h2, .page-hero h1, .scroll-scrub-title, .apple-sub-shimmer');
+    const scrubEls = document.querySelectorAll('.sec-head h2, .wwd-services h2, .page-hero h1, .scroll-scrub-title');
     if (!scrubEls.length) return;
+
+    if (!('IntersectionObserver' in window)) {
+      scrubEls.forEach(el => el.style.setProperty('--scroll-p', '60%'));
+      return;
+    }
+
+    const visibleEls = new Set();
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          visibleEls.add(entry.target);
+        } else {
+          visibleEls.delete(entry.target);
+        }
+      });
+    }, {
+      rootMargin: '100px 0px 100px 0px'
+    });
+
+    scrubEls.forEach(el => observer.observe(el));
 
     let ticking = false;
     function updateScrub() {
+      if (visibleEls.size === 0) {
+        ticking = false;
+        return;
+      }
       const windowH = window.innerHeight || 800;
-      scrubEls.forEach(el => {
+      visibleEls.forEach(el => {
         const rect = el.getBoundingClientRect();
-        const start = windowH * 0.95;
-        const end = windowH * 0.35;
+        const start = windowH * 0.92;
+        const end = windowH * 0.25;
         let progress = (start - rect.top) / (start - end);
-        progress = Math.max(0, Math.min(1.2, progress));
+        progress = Math.max(0, Math.min(1.15, progress));
         el.style.setProperty('--scroll-p', `${(progress * 100).toFixed(1)}%`);
       });
       ticking = false;
     }
 
     window.addEventListener('scroll', () => {
-      if (!ticking) {
+      if (!ticking && visibleEls.size > 0) {
         requestAnimationFrame(updateScrub);
         ticking = true;
       }

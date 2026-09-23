@@ -159,6 +159,9 @@ document.addEventListener('DOMContentLoaded', () => {
         card.style.setProperty('--mouse-y', `${y}px`);
       });
     });
+  }
+  initCardSpotlight();
+
   /* ─── Scroll-Driven Apple Text Color Scrub ─────────────────────────── */
   function initScrollColorScrub() {
     const scrubEls = document.querySelectorAll('.sec-head h2, .wwd-services h2, .page-hero h1, .scroll-scrub-title, .apple-sub-shimmer');

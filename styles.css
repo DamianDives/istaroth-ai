@@ -2645,14 +2645,10 @@ body::before { display: none; }
 
 /* ── Typewriter hero ── */
 .hero-type-wrap {
-  display: inline-flex;
-  align-items: baseline;
-  gap: 2px;
+  display: inline-block;
   position: relative;
-  padding-bottom: 0.22em;
-  margin-bottom: -0.22em;
-  overflow: visible;
   vertical-align: baseline;
+  text-align: center;
 }
 .hero-type {
   background: linear-gradient(90deg, #4F46E5, #7C3AED);
@@ -2660,11 +2656,7 @@ body::before { display: none; }
   -webkit-text-fill-color: transparent;
   background-clip: text;
   font-weight: 800;
-  min-width: 2px;
-  display: inline-block;
-  padding-bottom: 0.22em;
-  margin-bottom: -0.22em;
-  line-height: 1.25;
+  display: inline;
   vertical-align: baseline;
   filter: drop-shadow(0 0 16px rgba(99, 102, 241, 0.28));
   transition: filter 0.3s ease;
@@ -2683,6 +2675,18 @@ body::before { display: none; }
   -webkit-text-fill-color: #4F46E5;
   animation: heroCursorBlink 0.85s infinite ease-in-out;
   vertical-align: baseline;
+}
+
+@media (max-width: 640px) {
+  .hero-type-wrap {
+    min-height: 2.6em;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 100%;
+    line-height: 1.25;
+  }
 }
 
 /* ── Sector badge variants & colors ── */

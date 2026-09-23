@@ -159,8 +159,36 @@ document.addEventListener('DOMContentLoaded', () => {
         card.style.setProperty('--mouse-y', `${y}px`);
       });
     });
+  /* ─── Scroll-Driven Apple Text Color Scrub ─────────────────────────── */
+  function initScrollColorScrub() {
+    const scrubEls = document.querySelectorAll('.sec-head h2, .wwd-services h2, .page-hero h1, .scroll-scrub-title, .apple-sub-shimmer');
+    if (!scrubEls.length) return;
+
+    let ticking = false;
+    function updateScrub() {
+      const windowH = window.innerHeight || 800;
+      scrubEls.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        const start = windowH * 0.95;
+        const end = windowH * 0.35;
+        let progress = (start - rect.top) / (start - end);
+        progress = Math.max(0, Math.min(1.2, progress));
+        el.style.setProperty('--scroll-p', `${(progress * 100).toFixed(1)}%`);
+      });
+      ticking = false;
+    }
+
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        requestAnimationFrame(updateScrub);
+        ticking = true;
+      }
+    }, { passive: true });
+
+    // Initial calculation
+    requestAnimationFrame(updateScrub);
   }
-  initCardSpotlight();
+  initScrollColorScrub();
 });
 
 /* ─── Global Comparison Filter (Manual vs Autonomous AI) ───────── */

@@ -197,19 +197,27 @@ document.addEventListener('DOMContentLoaded', () => {
 /* ─── Global Comparison Filter (Manual vs Autonomous AI) ───────── */
 window.filterComp = function(type) {
   const tabs = document.querySelectorAll('.comp-tab');
+  const targetTab = document.getElementById(`tab-${type}`);
+  const isAlreadyActive = targetTab && targetTab.classList.contains('active');
+
   tabs.forEach(t => t.classList.remove('active'));
 
-  const activeTab = document.getElementById(`tab-${type}`);
-  if (activeTab) activeTab.classList.add('active');
+  let activeType = type;
+  if (isAlreadyActive) {
+    // Tapping the active tab deselects it and shows all cards
+    activeType = 'all';
+  } else if (targetTab) {
+    targetTab.classList.add('active');
+  }
 
   const cards = document.querySelectorAll('.comp-card');
   cards.forEach(card => {
     const isAi = card.classList.contains('highlight');
-    if (type === 'all') {
+    if (activeType === 'all') {
       card.style.display = 'flex';
       card.style.opacity = '1';
       card.style.transform = 'translateY(0)';
-    } else if (type === 'manual') {
+    } else if (activeType === 'manual') {
       if (!isAi) {
         card.style.display = 'flex';
         card.style.opacity = '1';
@@ -217,7 +225,7 @@ window.filterComp = function(type) {
       } else {
         card.style.display = 'none';
       }
-    } else if (type === 'ai') {
+    } else if (activeType === 'ai') {
       if (isAi) {
         card.style.display = 'flex';
         card.style.opacity = '1';

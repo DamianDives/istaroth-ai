@@ -55,7 +55,7 @@
     
     <h1 class="sr d1 apple-mask-reveal">
       We build AI that<br>
-      <span class="hero-type-wrap apple-shimmer-text"><span class="hero-type" id="heroType">works for your business.</span><span class="hero-cursor">|</span></span>
+      <span class="hero-type-wrap"><span class="hero-type" id="heroType">works for your business.</span><span class="hero-cursor">|</span></span>
     </h1>
 
     <p class="hero-sub sr d2">
@@ -645,6 +645,10 @@ function type() {
   el.style.webkitBackgroundClip = 'text';
   el.style.backgroundClip = 'text';
   el.style.webkitTextFillColor = 'transparent';
+  el.style.display = 'inline-block';
+  el.style.paddingBottom = '0.22em';
+  el.style.marginBottom = '-0.22em';
+  el.style.lineHeight = '1.25';
 
   if (!deleting) {
     el.textContent = p.text.slice(0, ci + 1);

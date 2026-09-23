@@ -164,6 +164,10 @@ h1,h2,h3,h4,h5,h6{
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: appleTextShimmer 6s ease-in-out infinite;
+  display: inline-block;
+  padding-bottom: 0.18em;
+  margin-bottom: -0.18em;
+  line-height: 1.22;
 }
 @keyframes appleTextShimmer {
   0% { background-position: 0% 50%; }
@@ -442,7 +446,7 @@ h1,h2,h3,h4,h5,h6{
 ════════════════════════════════════════════════════════ */
 .hero h1{
   font-size:clamp(34px,5.5vw,68px);
-  font-weight:800;letter-spacing:-0.035em;line-height:1.08;
+  font-weight:800;letter-spacing:-0.035em;line-height:1.22;
   margin-bottom:22px;
 }
 .hero-sub{
@@ -1131,8 +1135,8 @@ h1,h2,h3,h4,h5,h6{
 }
 
 @media (max-width:560px){
-  .grid-4,.grid-4-why,.grid-3,.grid-2{grid-template-columns:1fr;}
-  .hero h1{font-size:clamp(28px,8.5vw,38px);}
+  .grid-4,.grid-3,.grid-2{grid-template-columns:1fr;}
+  .hero h1{font-size:clamp(28px,8.5vw,38px);line-height:1.24;}
   .sc-content h3{font-size:clamp(20px,5.5vw,26px);}
   /* Buttons: full width only in hero-actions, not everywhere */
   .hero-actions .btn{width:100%;}
@@ -1929,7 +1933,7 @@ body::before { display: none; }
   font-size: clamp(40px, 5.5vw, 72px);
   font-weight: 800;
   letter-spacing: -0.035em;
-  line-height: 1.08;
+  line-height: 1.22;
   color: var(--text-100);
   margin-bottom: 20px;
 }
@@ -2374,6 +2378,10 @@ body::before { display: none; }
   align-items: baseline;
   gap: 2px;
   position: relative;
+  padding-bottom: 0.22em;
+  margin-bottom: -0.22em;
+  overflow: visible;
+  vertical-align: baseline;
 }
 .hero-type {
   background: linear-gradient(90deg, #4F46E5, #7C3AED);
@@ -2383,6 +2391,10 @@ body::before { display: none; }
   font-weight: 800;
   min-width: 2px;
   display: inline-block;
+  padding-bottom: 0.22em;
+  margin-bottom: -0.22em;
+  line-height: 1.25;
+  vertical-align: baseline;
   filter: drop-shadow(0 0 16px rgba(99, 102, 241, 0.28));
   transition: filter 0.3s ease;
 }
@@ -2761,3 +2773,217 @@ body::before { display: none; }
 .wwd-hero {
   background: linear-gradient(180deg, #EEF0FF 0%, #F7F8FA 55%);
 }
+
+/* ════════════════════════════════════════════════════════
+   MOBILE POLISH & ANTI-BLOAT REFINEMENTS (Max-Width: 768px)
+   Eliminates bulky stacked monoliths and makes mobile feel
+   refined, app-like, and scannable like Apple / Linear.
+════════════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+  /* 1. WHY PARTNER GRID: 2x2 Clean Compact Cards instead of 1 giant stacked column */
+  .grid-4-why {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px !important;
+  }
+  .why-card {
+    padding: 16px 14px !important;
+    border-radius: 14px !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  .why-icon {
+    margin-bottom: 8px !important;
+  }
+  .why-icon svg {
+    width: 22px !important;
+    height: 22px !important;
+  }
+  .why-title {
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    margin-bottom: 4px !important;
+    line-height: 1.25 !important;
+    letter-spacing: -0.01em !important;
+  }
+  .why-desc {
+    font-size: 12px !important;
+    line-height: 1.45 !important;
+    color: var(--text-400) !important;
+  }
+
+  /* 2. COMPARISON CARDS: Sleek & Distinct Visual Separation */
+  .sec-comp {
+    padding: 50px 0 60px !important;
+  }
+  .comp-tabs-wrap {
+    margin-bottom: 24px !important;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 6px;
+  }
+  .comp-tabs {
+    flex-wrap: nowrap !important;
+    gap: 6px !important;
+    padding: 4px !important;
+  }
+  .comp-tab {
+    padding: 8px 14px !important;
+    font-size: 12px !important;
+    white-space: nowrap !important;
+  }
+  .comp-grid {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+  .comp-card {
+    padding: 16px 14px !important;
+    border-radius: 14px !important;
+  }
+  .comp-badge {
+    padding: 4px 10px !important;
+    font-size: 10.5px !important;
+    margin-bottom: 10px !important;
+  }
+  .comp-card h3 {
+    font-size: 16px !important;
+    margin-bottom: 6px !important;
+    line-height: 1.3 !important;
+  }
+  .comp-card p {
+    font-size: 13px !important;
+    line-height: 1.55 !important;
+    margin-bottom: 14px !important;
+  }
+  .comp-card.highlight {
+    background: linear-gradient(180deg, #F8FAFF 0%, #FFFFFF 100%) !important;
+    border: 1.5px solid rgba(79, 70, 229, 0.3) !important;
+    box-shadow: 0 4px 16px rgba(79, 70, 229, 0.06) !important;
+  }
+  .comp-kpi-row {
+    gap: 8px !important;
+    margin-top: 10px !important;
+  }
+  .comp-kpi-box {
+    padding: 8px 10px !important;
+    border-radius: 10px !important;
+  }
+  .kpi-lbl {
+    font-size: 9.5px !important;
+  }
+  .kpi-val {
+    font-size: 13px !important;
+  }
+
+  /* 3. TIMELINE (OUR APPROACH): Compact & Proportional */
+  .tl {
+    grid-template-columns: 44px 1fr !important;
+    gap: 14px !important;
+    padding-bottom: 26px !important;
+  }
+  .tl-marker {
+    width: 44px !important;
+    height: 44px !important;
+    font-size: 15px !important;
+    border-radius: 10px !important;
+  }
+  .tl:not(:last-child)::before {
+    left: 21px !important;
+    top: 46px !important;
+  }
+  .tl-body {
+    padding-top: 4px !important;
+  }
+  .tl-body h3 {
+    font-size: 17px !important;
+    margin-bottom: 5px !important;
+    line-height: 1.3 !important;
+  }
+  .tl-body > p {
+    font-size: 13px !important;
+    line-height: 1.55 !important;
+    margin-bottom: 0 !important;
+  }
+
+  /* 4. SHOWCASE SECTION ON MOBILE */
+  .sec-showcase {
+    padding: 48px 0 54px !important;
+  }
+  .showcase {
+    padding: 24px 0 !important;
+    gap: 18px !important;
+  }
+  .sc-content h3 {
+    font-size: 18.5px !important;
+    margin-bottom: 8px !important;
+    line-height: 1.3 !important;
+  }
+  .sc-content p {
+    font-size: 13px !important;
+    line-height: 1.55 !important;
+    margin-bottom: 12px !important;
+  }
+  .sc-domain {
+    font-size: 11px !important;
+    margin-bottom: 12px !important;
+    line-height: 1.4 !important;
+  }
+  .tech-row {
+    gap: 5px !important;
+    margin-bottom: 14px !important;
+  }
+  .chip {
+    font-size: 10.5px !important;
+    padding: 3px 8px !important;
+  }
+  .frame {
+    border-radius: 14px !important;
+  }
+  .f-bar {
+    padding: 8px 12px !important;
+  }
+  .f-url {
+    font-size: 10px !important;
+  }
+  .f-body {
+    padding: 12px !important;
+  }
+  .ftitle {
+    font-size: 12.5px !important;
+  }
+  .fsub {
+    font-size: 11px !important;
+  }
+  .frow {
+    font-size: 11.5px !important;
+    padding: 6px 0 !important;
+  }
+  .flog {
+    font-size: 10.5px !important;
+    padding-top: 8px !important;
+  }
+
+  /* 5. PROCESS IMPLEMENTATION STAGES ON MOBILE */
+  .process-grid {
+    gap: 12px !important;
+  }
+  .impl-stage {
+    padding: 16px 14px !important;
+    border-radius: 14px !important;
+  }
+  .impl-stage h3 {
+    font-size: 16px !important;
+    margin-bottom: 6px !important;
+  }
+  .impl-stage p {
+    font-size: 13px !important;
+    line-height: 1.5 !important;
+  }
+}
+
+@media (max-width: 360px) {
+  .grid-4-why {
+    grid-template-columns: 1fr !important;
+  }
+}
+

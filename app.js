@@ -25,10 +25,14 @@ document.addEventListener('DOMContentLoaded', () => {
       });
 
       revealEls.forEach((el) => {
-        // If element is already in viewport on load, show immediately
+        // If element is already in viewport on load, show with silky entrance
         const rect = el.getBoundingClientRect();
         if (rect.top < window.innerHeight) {
-          el.classList.add('in', 'visible');
+          requestAnimationFrame(() => {
+            setTimeout(() => {
+              el.classList.add('in', 'visible');
+            }, 40);
+          });
         } else {
           observer.observe(el);
         }

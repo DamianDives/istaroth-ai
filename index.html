@@ -53,9 +53,9 @@
   <div class="hero-ambient"></div>
   <div class="container hero-body">
     
-    <h1 class="sr d1">
+    <h1 class="sr d1 apple-mask-reveal">
       We build AI that<br>
-      <span class="hero-type-wrap"><span class="hero-type" id="heroType">works for your business.</span><span class="hero-cursor">|</span></span>
+      <span class="hero-type-wrap apple-shimmer-text"><span class="hero-type" id="heroType">works for your business.</span><span class="hero-cursor">|</span></span>
     </h1>
 
     <p class="hero-sub sr d2">
@@ -69,12 +69,12 @@
 
     <!-- Service Tags Strip -->
     <div class="hero-sectors sr d4">
-      <span class="sector-badge sb-indigo"><i data-lucide="bot" class="sb-icon"></i>AI Chatbots</span>
-      <span class="sector-badge sb-green"><i data-lucide="mic" class="sb-icon"></i>Voice Agents</span>
-      <span class="sector-badge sb-violet"><i data-lucide="message-circle" class="sb-icon"></i>WhatsApp Automation</span>
-      <span class="sector-badge sb-amber"><i data-lucide="settings-2" class="sb-icon"></i>Workflow Automation</span>
-      <span class="sector-badge sb-cyan"><i data-lucide="globe" class="sb-icon"></i>Website &amp; App Design</span>
-      <span class="sector-badge sb-pink"><i data-lucide="brain-circuit" class="sb-icon"></i>Custom AI Solutions</span>
+      <span class="sector-badge"><i data-lucide="bot" class="sb-icon text-indigo"></i>AI Chatbots</span>
+      <span class="sector-badge"><i data-lucide="mic" class="sb-icon text-emerald"></i>Voice Agents</span>
+      <span class="sector-badge"><i data-lucide="message-circle" class="sb-icon text-violet"></i>WhatsApp Automation</span>
+      <span class="sector-badge"><i data-lucide="settings-2" class="sb-icon text-amber"></i>Workflow Automation</span>
+      <span class="sector-badge"><i data-lucide="globe" class="sb-icon text-cyan"></i>Website &amp; App Design</span>
+      <span class="sector-badge"><i data-lucide="brain-circuit" class="sb-icon text-rose"></i>Custom AI Solutions</span>
     </div>
 
     <div class="hero-mesh"></div>
@@ -219,85 +219,157 @@
     <div class="comp-grid sr d2">
       <!-- Point 01: Precon & Tenders -->
       <div class="comp-card" data-category="both">
-        <div class="comp-card-badge badge-danger">Outdated Manual Operation</div>
+        <div class="comp-badge comp-badge-manual">
+          <span class="comp-dot dot-manual"></span>
+          <span>Legacy Manual Process</span>
+        </div>
         <h3>Manual Contract &amp; Proposal Reviews</h3>
         <p>Estimators and managers spend days combing through 300+ page contracts and bids by hand. Overlooked exclusions, tax miscalculations, or scope gaps lead to costly project losses.</p>
-        <div class="comp-metric metric-danger">
-          <span>Review Time: 4-6 Days</span>
-          <span>Error Risk: Frequently Missed Gaps</span>
+        <div class="comp-kpi-row">
+          <div class="comp-kpi-box kpi-manual">
+            <span class="kpi-lbl">Turnaround</span>
+            <span class="kpi-val">4–6 Days</span>
+          </div>
+          <div class="comp-kpi-box kpi-manual">
+            <span class="kpi-lbl">Risk Profile</span>
+            <span class="kpi-val">Unchecked Gaps</span>
+          </div>
         </div>
       </div>
 
       <div class="comp-card highlight" data-category="both">
-        <div class="comp-card-badge badge-success">Istaroth Intelligent Automation</div>
+        <div class="comp-badge comp-badge-ai">
+          <span class="comp-dot dot-ai"></span>
+          <span>Autonomous Intelligence</span>
+        </div>
         <h3>Instant AI Bid &amp; Contract Analysis</h3>
         <p>AI reads, extracts, and compares every vendor quote line-by-line in minutes. It instantly highlights pricing discrepancies, missing scope items, and hidden costs before you sign.</p>
-        <div class="comp-metric metric-success">
-          <span>Review Time: &lt; 5 Minutes</span>
-          <span>Accuracy: 99.4% Verified Match</span>
+        <div class="comp-kpi-row">
+          <div class="comp-kpi-box kpi-ai">
+            <span class="kpi-lbl">Turnaround</span>
+            <span class="kpi-val">&lt; 5 Minutes</span>
+          </div>
+          <div class="comp-kpi-box kpi-ai">
+            <span class="kpi-lbl">Accuracy</span>
+            <span class="kpi-val">99.4% Verified</span>
+          </div>
         </div>
       </div>
 
       <!-- Point 02: Yard & Scale Operations -->
       <div class="comp-card" data-category="both">
-        <div class="comp-card-badge badge-danger">Outdated Manual Operation</div>
+        <div class="comp-badge comp-badge-manual">
+          <span class="comp-dot dot-manual"></span>
+          <span>Legacy Manual Process</span>
+        </div>
         <h3>Slow Paper-Based Gate Check-Ins</h3>
         <p>Truck drivers wait in long queues while security staff write physical paper passes and manually retype scale weights into computers, causing bottlenecks and entry delays.</p>
-        <div class="comp-metric metric-danger">
-          <span>Gate Delay: 35-45 mins</span>
-          <span>Tracking: Manual paper slips</span>
+        <div class="comp-kpi-row">
+          <div class="comp-kpi-box kpi-manual">
+            <span class="kpi-lbl">Gate Delay</span>
+            <span class="kpi-val">35–45 Mins</span>
+          </div>
+          <div class="comp-kpi-box kpi-manual">
+            <span class="kpi-lbl">Verification</span>
+            <span class="kpi-val">Paper Slips</span>
+          </div>
         </div>
       </div>
 
       <div class="comp-card highlight" data-category="both">
-        <div class="comp-card-badge badge-success">Istaroth Intelligent Automation</div>
+        <div class="comp-badge comp-badge-ai">
+          <span class="comp-dot dot-ai"></span>
+          <span>Autonomous Intelligence</span>
+        </div>
         <h3>Automated Smart Gate &amp; Weighbridge</h3>
         <p>Smart cameras automatically read license plates, record scale weights directly, verify orders, and issue digital gate passes directly to drivers via WhatsApp in under 45 seconds.</p>
-        <div class="comp-metric metric-success">
-          <span>Gate Clearance: &lt; 45 Seconds</span>
-          <span>Tracking: 100% Touchless &amp; Digital</span>
+        <div class="comp-kpi-row">
+          <div class="comp-kpi-box kpi-ai">
+            <span class="kpi-lbl">Gate Clearance</span>
+            <span class="kpi-val">&lt; 45 Seconds</span>
+          </div>
+          <div class="comp-kpi-box kpi-ai">
+            <span class="kpi-lbl">Verification</span>
+            <span class="kpi-val">100% Touchless</span>
+          </div>
         </div>
       </div>
 
       <!-- Point 03: AP Invoice Matching -->
       <div class="comp-card" data-category="both">
-        <div class="comp-card-badge badge-danger">Outdated Manual Operation</div>
+        <div class="comp-badge comp-badge-manual">
+          <span class="comp-dot dot-manual"></span>
+          <span>Legacy Manual Process</span>
+        </div>
         <h3>Manual Invoice &amp; Receipt Matching</h3>
         <p>Finance teams manually cross-check vendor bills against purchase orders and delivery notes by hand. Discrepancies take days to catch, slowing down payments and risking overbilling.</p>
-        <div class="comp-metric metric-danger">
-          <span>Approval Cycle: 7-10 Days</span>
-          <span>Audit Check: Sample Checks Only</span>
+        <div class="comp-kpi-row">
+          <div class="comp-kpi-box kpi-manual">
+            <span class="kpi-lbl">Audit Cycle</span>
+            <span class="kpi-val">7–10 Days</span>
+          </div>
+          <div class="comp-kpi-box kpi-manual">
+            <span class="kpi-lbl">Coverage</span>
+            <span class="kpi-val">Spot Checks</span>
+          </div>
         </div>
       </div>
 
       <div class="comp-card highlight" data-category="both">
-        <div class="comp-card-badge badge-success">Istaroth Intelligent Automation</div>
+        <div class="comp-badge comp-badge-ai">
+          <span class="comp-dot dot-ai"></span>
+          <span>Autonomous Intelligence</span>
+        </div>
         <h3>Automated 3-Way Invoice Matching</h3>
         <p>AI instantly compares incoming invoices with orders and delivery receipts. It flags price mismatches or duplicate billings immediately and routes approved invoices directly into your accounts.</p>
-        <div class="comp-metric metric-success">
-          <span>Processing Time: &lt; 1 Second</span>
-          <span>Audit Coverage: 100% of Transactions</span>
+        <div class="comp-kpi-row">
+          <div class="comp-kpi-box kpi-ai">
+            <span class="kpi-lbl">Audit Cycle</span>
+            <span class="kpi-val">Instant (&lt; 1s)</span>
+          </div>
+          <div class="comp-kpi-box kpi-ai">
+            <span class="kpi-lbl">Coverage</span>
+            <span class="kpi-val">100% Verified</span>
+          </div>
         </div>
       </div>
 
       <!-- Point 04: Software Sovereignty -->
       <div class="comp-card" data-category="both">
-        <div class="comp-card-badge badge-danger">Outdated Manual Operation</div>
+        <div class="comp-badge comp-badge-manual">
+          <span class="comp-dot dot-manual"></span>
+          <span>Legacy Manual Process</span>
+        </div>
         <h3>Expensive Subscriptions &amp; Cloud Risk</h3>
         <p>Paying high recurring monthly fees per employee for generic software tools that hold your confidential company data on public third-party servers with zero customization.</p>
-        <div class="comp-metric metric-danger">
-          <span>Ownership: 0% (Forever Rented)</span>
-          <span>Data Control: Public Third-Party Servers</span>
+        <div class="comp-kpi-row">
+          <div class="comp-kpi-box kpi-manual">
+            <span class="kpi-lbl">Ownership</span>
+            <span class="kpi-val">0% Rented</span>
+          </div>
+          <div class="comp-kpi-box kpi-manual">
+            <span class="kpi-lbl">Data Control</span>
+            <span class="kpi-val">Public Cloud</span>
+          </div>
         </div>
       </div>
 
       <div class="comp-card highlight" data-category="both">
-        <div class="comp-card-badge badge-success">Istaroth Intelligent Automation</div>
+        <div class="comp-badge comp-badge-ai">
+          <span class="comp-dot dot-ai"></span>
+          <span>Autonomous Intelligence</span>
+        </div>
         <h3>Private AI Owned by Your Business</h3>
         <p>Your AI tools run securely within your own private company cloud or servers. You own 100% of the code, intellectual property, and data permanently with zero monthly per-user fees.</p>
-        <div class="comp-metric metric-success">
-          <span>Ownership: 100% Yours Forever</span>
-          <span>Data Privacy: Completely Private &amp; Secure</span>
+        <div class="comp-kpi-row">
+          <div class="comp-kpi-box kpi-ai">
+            <span class="kpi-lbl">Ownership</span>
+            <span class="kpi-val">100% Client-Owned</span>
+          </div>
+          <div class="comp-kpi-box kpi-ai">
+            <span class="kpi-lbl">Data Control</span>
+            <span class="kpi-val">Private &amp; Secure</span>
+          </div>
         </div>
       </div>
     </div>
@@ -314,8 +386,6 @@
     <div class="grid-4">
 
       <div class="p-card sr d1">
-        <div class="p-num">Stage 01</div>
-        <div class="p-label"><span class="dot dot-c"></span>2 Weeks</div>
         <h3>Discovery &amp; Workflow Audit</h3>
         <p>We analyze your operational data to pinpoint high-ROI automation vectors, failure modes, and legacy system constraints.</p>
         <ul class="p-list">
@@ -325,8 +395,6 @@
       </div>
 
       <div class="p-card sr d2">
-        <div class="p-num">Stage 02</div>
-        <div class="p-label"><span class="dot dot-c"></span>3 Weeks</div>
         <h3>Custom AI Architecture</h3>
         <p>We architect deterministic models and domain pipelines tailored to your enterprise data schema and throughput requirements.</p>
         <ul class="p-list">
@@ -336,8 +404,6 @@
       </div>
 
       <div class="p-card sr d3">
-        <div class="p-num">Stage 03</div>
-        <div class="p-label"><span class="dot dot-c"></span>4 Weeks</div>
         <h3>Production Deployment</h3>
         <p>Direct integration into your private VPC, ERP backends, and physical hardware with zero downtime and full operator handoff.</p>
         <ul class="p-list">
@@ -347,8 +413,6 @@
       </div>
 
       <div class="p-card sr d4">
-        <div class="p-num">Stage 04</div>
-        <div class="p-label"><span class="dot dot-c"></span>Continuous</div>
         <h3>Autonomous MLOps &amp; Growth</h3>
         <p>24/7 telemetry, drift detection, and continuous latency tuning that compounds your ROI and protects operational reliability.</p>
         <ul class="p-list">

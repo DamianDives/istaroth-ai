@@ -961,9 +961,12 @@ span.apple-sub-shimmer {
 /* ════════════════════════════════════════════════════════
    PAGE HERO (Subpages)
 ════════════════════════════════════════════════════════ */
+/* ════════════════════════════════════════════════════════
+   PAGE HERO (Subpages)
+════════════════════════════════════════════════════════ */
 .page-hero {
-  padding-top: 150px;
-  padding-bottom: 64px;
+  padding-top: 116px;
+  padding-bottom: 48px;
   text-align: center !important;
   position: relative;
   overflow: hidden;
@@ -978,7 +981,7 @@ span.apple-sub-shimmer {
   font-size: clamp(32px, 5vw, 60px);
   font-weight: 800;
   letter-spacing: -0.035em;
-  margin: 16px auto 18px !important;
+  margin: 14px auto 14px !important;
   line-height: 1.15;
   display: block !important;
   width: 100% !important;
@@ -991,7 +994,7 @@ span.apple-sub-shimmer {
   color: var(--text-400);
   max-width: 640px !important;
   margin: 0 auto !important;
-  line-height: 1.7;
+  line-height: 1.65;
   display: block !important;
   width: 100% !important;
   text-align: center !important;
@@ -1001,9 +1004,9 @@ span.apple-sub-shimmer {
 /* ════════════════════════════════════════════════════════
    OUR APPROACH - TIMELINE & OWNERSHIP
 ════════════════════════════════════════════════════════ */
-.sec-approach{padding:72px 0 90px;border-top:1px solid var(--border);}
+.sec-approach{padding:52px 0 64px;border-top:1px solid var(--border);}
 .timeline{display:flex;flex-direction:column;}
-.tl{display:grid;grid-template-columns:76px 1fr;gap:32px;position:relative;padding-bottom:52px;}
+.tl{display:grid;grid-template-columns:76px 1fr;gap:28px;position:relative;padding-bottom:40px;}
 .tl:last-child{padding-bottom:0;}
 .tl:not(:last-child)::before{
   content:'';position:absolute;
@@ -1023,32 +1026,32 @@ span.apple-sub-shimmer {
   border-color:rgba(56,189,248,0.5);
   box-shadow:0 0 32px rgba(56,189,248,0.18);
 }
-.tl-body{padding-top:14px;}
-.tl-meta{font-family:var(--mono);font-size:10.5px;color:var(--text-600);letter-spacing:0.07em;text-transform:uppercase;margin-bottom:8px;}
-.tl-body h3{font-size:clamp(18px,2.2vw,25px);font-weight:800;letter-spacing:-0.025em;margin-bottom:10px;}
-.tl-body>p{font-size:14.5px;color:var(--text-400);line-height:1.7;max-width:640px;margin-bottom:18px;}
+.tl-body{padding-top:10px;}
+.tl-meta{font-family:var(--mono);font-size:10.5px;color:var(--text-600);letter-spacing:0.07em;text-transform:uppercase;margin-bottom:6px;}
+.tl-body h3{font-size:clamp(18px,2.2vw,24px);font-weight:800;letter-spacing:-0.025em;margin-bottom:8px;}
+.tl-body>p{font-size:14px;color:var(--text-400);line-height:1.65;max-width:640px;margin-bottom:14px;}
 .tl-del{
   display:inline-flex;align-items:center;gap:8px;
-  padding:7px 14px;border-radius:var(--pill);
+  padding:6px 12px;border-radius:var(--pill);
   background:rgba(56,189,248,0.06);border:1px solid rgba(56,189,248,0.15);
-  font-size:12.5px;color:var(--text-400);
+  font-size:12px;color:var(--text-400);
 }
 .tl-del strong{color:var(--text-200);}
 
-.sec-own{padding:72px 0 90px;border-top:1px solid var(--border);}
+.sec-own{padding:52px 0 64px;border-top:1px solid var(--border);}
 .own-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
 .own-card{
-  padding:34px 30px;background:var(--bg-card);
+  padding:28px 24px;background:var(--bg-card);
   border:1px solid var(--border);border-radius:var(--r-xl);backdrop-filter:blur(14px);
   transition:border-color var(--t2) ease,transform var(--t2) var(--spring);
 }
 .own-card.ours{border-color:rgba(56,189,248,0.2);}
 .own-card:hover{transform:translateY(-3px);}
 .own-card.ours:hover{border-color:rgba(56,189,248,0.35);}
-.own-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;}
-.own-head h3{font-size:20px;font-weight:700;letter-spacing:-0.02em;}
-.own-rows{display:flex;flex-direction:column;gap:18px;}
-.own-row{display:flex;align-items:flex-start;gap:13px;}
+.own-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;}
+.own-head h3{font-size:19px;font-weight:700;letter-spacing:-0.02em;}
+.own-rows{display:flex;flex-direction:column;gap:14px;}
+.own-row{display:flex;align-items:flex-start;gap:12px;}
 .check{
   width:22px;height:22px;border-radius:50%;flex-shrink:0;
   background:var(--cyan-a12);border:1px solid rgba(56,189,248,0.25);
@@ -1063,18 +1066,18 @@ span.apple-sub-shimmer {
 ════════════════════════════════════════════════════════ */
 .contact-wrap{
   max-width:820px;margin:0 auto;
-  padding:36px 0 90px;
+  padding:24px 0 64px;
 }
 .c-card{
-  padding:24px;background:var(--bg-card);
+  padding:20px;background:var(--bg-card);
   border:1px solid var(--border);border-radius:var(--r-lg);
-  backdrop-filter:blur(12px);margin-bottom:14px;
+  backdrop-filter:blur(12px);margin-bottom:12px;
   transition:border-color var(--t2) ease;
 }
 .c-card:hover{border-color:rgba(56,189,248,0.25);}
 .c-label{
   font-family:var(--mono);font-size:10px;letter-spacing:0.08em;
-  text-transform:uppercase;color:var(--text-600);margin-bottom:8px;
+  text-transform:uppercase;color:var(--text-600);margin-bottom:6px;
 }
 .c-card a,.c-card p{font-size:14px;color:var(--text-200);line-height:1.55;transition:color var(--t1) ease;}
 .c-card a:hover{color:var(--cyan);}
@@ -1715,7 +1718,7 @@ span.apple-sub-shimmer {
 
 /* ═══ What We Do Page ═══ */
 .wwd-hero {
-  padding: 140px 0 80px;
+  padding: 116px 0 52px;
   position: relative;
   text-align: center !important;
 }
@@ -1726,11 +1729,11 @@ span.apple-sub-shimmer {
   text-align: center !important;
 }
 .wwd-hero h1 {
-  font-size: clamp(38px, 5vw, 68px);
+  font-size: clamp(36px, 5vw, 64px);
   font-weight: 800;
   letter-spacing: -0.03em;
   line-height: 1.15;
-  margin: 16px auto 20px !important;
+  margin: 14px auto 16px !important;
   display: block !important;
   width: 100% !important;
   max-width: 860px !important;
@@ -1738,11 +1741,11 @@ span.apple-sub-shimmer {
   clear: both !important;
 }
 .wwd-hero p  {
-  font-size: clamp(15px, 1.8vw, 18px);
+  font-size: clamp(15px, 1.8vw, 17.5px);
   color: var(--text-400);
   max-width: 620px !important;
-  margin: 0 auto 36px !important;
-  line-height: 1.7;
+  margin: 0 auto 28px !important;
+  line-height: 1.65;
   display: block !important;
   width: 100% !important;
   text-align: center !important;
@@ -1750,7 +1753,7 @@ span.apple-sub-shimmer {
 }
 
 /* Service accordion cards on what-we-do page */
-.wwd-services { padding: 80px 0 100px; }
+.wwd-services { padding: 52px 0 64px; }
 .wwd-service-item {
   border: 1px solid var(--border);
   border-radius: var(--r-xl);

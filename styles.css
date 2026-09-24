@@ -2660,21 +2660,7 @@ body::before { display: none; }
   filter: drop-shadow(0 0 16px rgba(99, 102, 241, 0.28));
   transition: filter 0.3s ease;
 }
-@keyframes heroCursorBlink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
-}
-.hero-cursor {
-  display: inline-block;
-  color: #6366F1;
-  font-weight: 300;
-  font-size: 0.9em;
-  line-height: 1;
-  margin-left: 2px;
-  -webkit-text-fill-color: #6366F1;
-  animation: heroCursorBlink 0.85s infinite ease-in-out;
-  vertical-align: baseline;
-}
+
 
 @media (max-width: 640px) {
   .hero-type-wrap {

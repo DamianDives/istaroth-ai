@@ -150,11 +150,11 @@ h1,h2,h3,h4,h5,h6{
 .apple-shimmer-text {
   background: linear-gradient(
     110deg,
-    #1E1B4B 0%,
-    #4338CA 22%,
-    #38BDF8 45%,
-    #818CF8 68%,
-    #1E1B4B 90%
+    #0F172A 0%,
+    #4338CA 24%,
+    #059669 48%,
+    #7C3AED 72%,
+    #0F172A 100%
   );
   background-size: 220% auto;
   -webkit-background-clip: text;
@@ -191,11 +191,11 @@ h1,h2,h3,h4,h5,h6{
   background: linear-gradient(
     90deg,
     #0F172A 0%,
-    #312E81 calc(var(--scroll-p, 20%) - 16%),
-    #4F46E5 calc(var(--scroll-p, 20%) - 2%),
-    #06B6D4 var(--scroll-p, 20%),
-    #3B82F6 calc(var(--scroll-p, 20%) + 12%),
-    #1E293B calc(var(--scroll-p, 20%) + 28%),
+    #4338CA calc(var(--scroll-p, 20%) - 18%),
+    #7C3AED calc(var(--scroll-p, 20%) - 6%),
+    #059669 var(--scroll-p, 20%),
+    #D97706 calc(var(--scroll-p, 20%) + 10%),
+    #6366F1 calc(var(--scroll-p, 20%) + 24%),
     #0F172A 100%
   );
   background-size: 100% 100%;
@@ -213,7 +213,7 @@ h1,h2,h3,h4,h5,h6{
   transition: filter 0.25s ease;
 }
 .sec-head h2:hover, .page-hero h1:hover, .wwd-hero h1:hover, .hero h1:hover {
-  filter: drop-shadow(0 0 16px rgba(79, 70, 229, 0.25));
+  filter: drop-shadow(0 0 16px rgba(124, 58, 237, 0.22));
 }
 
 p.apple-sub-shimmer, .apple-sub-shimmer {
@@ -233,10 +233,9 @@ span.apple-sub-shimmer {
 }
 
 .sub-glow {
-  color: #4338CA;
   font-weight: 600;
   display: inline;
-  background: linear-gradient(135deg, #4F46E5 0%, #0EA5E9 100%);
+  background: linear-gradient(135deg, #6366F1 0%, #059669 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   position: relative;
@@ -294,12 +293,12 @@ span.apple-sub-shimmer {
 .nav-btn{
   display:inline-flex;align-items:center;padding:8px 20px;
   border-radius:var(--pill);font-size:13.5px;font-weight:600;
-  background:linear-gradient(135deg,var(--cyan),#60A5FA 50%,var(--violet));
-  color:#03050D;border:none;cursor:pointer;
-  box-shadow:0 2px 16px var(--cyan-a20);
+  background:linear-gradient(135deg,#6366F1,#8B5CF6 50%,#059669);
+  color:#FFFFFF;border:none;cursor:pointer;
+  box-shadow:0 2px 16px rgba(99,102,241,0.28);
   transition:transform var(--t1) var(--spring),box-shadow var(--t1) ease;
 }
-.nav-btn:hover{transform:translateY(-1px);box-shadow:0 6px 28px var(--cyan-a35);}
+.nav-btn:hover{transform:translateY(-1px);box-shadow:0 6px 28px rgba(99,102,241,0.45);}
 
 /* Mobile Hamburger */
 .ham{
@@ -335,8 +334,8 @@ span.apple-sub-shimmer {
 .drawer .d-cta{
   margin-top:28px;display:flex;align-items:center;justify-content:center;
   padding:16px 28px;border-radius:var(--pill);font-size:15px;font-weight:700;
-  background:linear-gradient(135deg,var(--cyan),#60A5FA,var(--violet));
-  color:#03050D;border:none;
+  background:linear-gradient(135deg,#6366F1,#8B5CF6 50%,#059669);
+  color:#FFFFFF;border:none;
 }
 
 /* ════════════════════════════════════════════════════════
@@ -2053,19 +2052,19 @@ body::before { display: none; }
    UI IMPROVEMENT PASS 2 � better rhythm, depth, card design
    ================================================================ */
 
-/* -- Global spacing tightening -- */
-.sec-services  { padding: 72px 0 80px; }
-.sec-comparison { padding: 72px 0 80px; }
-.sec-why  { padding: 72px 0 80px; }
-.sec-process { padding: 72px 0 80px; }
-.sec-platforms { padding: 72px 0 80px; }
-.sec-cta { padding: 72px 0 88px; }
+/* -- Global spacing tightening (Compact & Punchy Rhythm) -- */
+.sec-services  { padding: 52px 0 58px; }
+.sec-comparison { padding: 52px 0 58px; }
+.sec-why  { padding: 52px 0 58px; }
+.sec-process { padding: 52px 0 58px; }
+.sec-platforms { padding: 52px 0 58px; }
+.sec-cta { padding: 52px 0 64px; }
 
-/* -- Hero: tinted indigo band + clean layout -- */
+/* -- Hero: tinted ambient band + clean layout -- */
 .hero {
-  padding-top: 130px;
-  padding-bottom: 80px;
-  background: linear-gradient(180deg, #EEF0FF 0%, #F7F8FA 60%);
+  padding-top: 112px;
+  padding-bottom: 56px;
+  background: linear-gradient(180deg, #F0F4FF 0%, #F8FAFC 60%);
   text-align: center !important;
   position: relative;
   overflow: hidden;
@@ -2081,12 +2080,12 @@ body::before { display: none; }
 
 /* Big display heading */
 .hero h1 {
-  font-size: clamp(40px, 5.5vw, 72px);
+  font-size: clamp(38px, 5.2vw, 68px);
   font-weight: 800;
   letter-spacing: -0.035em;
-  line-height: 1.22;
+  line-height: 1.2;
   color: var(--text-100);
-  margin: 0 auto 20px !important;
+  margin: 0 auto 16px !important;
   display: block !important;
   width: 100% !important;
   max-width: 900px !important;
@@ -2094,10 +2093,10 @@ body::before { display: none; }
   clear: both !important;
 }
 .hero-sub {
-  font-size: clamp(16px, 1.8vw, 19px);
+  font-size: clamp(15.5px, 1.6vw, 18px);
   color: var(--text-400);
   max-width: 620px !important;
-  margin: 0 auto 36px !important;
+  margin: 0 auto 28px !important;
   line-height: 1.65;
   display: block !important;
   width: 100% !important;
@@ -2109,7 +2108,7 @@ body::before { display: none; }
   gap: 12px;
   justify-content: center;
   flex-wrap: wrap;
-  margin-bottom: 48px;
+  margin-bottom: 32px;
 }
 
 /* Hero sector pills */
@@ -2145,19 +2144,19 @@ body::before { display: none; }
 /* -- Section headers: centered, block stacked -- */
 .sec-head {
   max-width: 760px;
-  margin: 0 auto 52px !important;
+  margin: 0 auto 38px !important;
   text-align: center !important;
   display: flex !important;
   flex-direction: column !important;
   align-items: center !important;
 }
 .sec-head h2 {
-  font-size: clamp(28px, 3.2vw, 42px);
+  font-size: clamp(26px, 3.2vw, 40px);
   font-weight: 800;
   letter-spacing: -0.03em;
   line-height: 1.18;
   color: var(--text-100);
-  margin: 0 auto 14px !important;
+  margin: 0 auto 12px !important;
   display: block !important;
   width: 100% !important;
   text-align: center !important;
@@ -2176,12 +2175,12 @@ body::before { display: none; }
 }
 
 /* -- Service cards: accent left border, bigger icon -- */
-.services-grid-6 { gap: 20px; }
+.services-grid-6 { gap: 16px; }
 .service-card {
   background: #FFFFFF;
   border: 1px solid var(--border);
-  border-radius: 20px;
-  padding: 32px 28px 28px;
+  border-radius: 18px;
+  padding: 26px 24px 22px;
   box-shadow: 0 1px 3px rgba(17,24,39,0.04);
   display: flex;
   flex-direction: column;
@@ -2258,17 +2257,17 @@ body::before { display: none; }
   border: none; text-decoration: none;
 }
 .btn-p {
-  background: linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%);
+  background: linear-gradient(135deg, #4F46E5 0%, #6366F1 50%, #059669 100%);
   color: #FFFFFF;
-  box-shadow: 0 2px 12px rgba(79,70,229,0.28);
+  box-shadow: 0 4px 14px rgba(79,70,229,0.25);
 }
-.btn-p:hover { box-shadow: 0 4px 20px rgba(79,70,229,0.40); transform: translateY(-1px); }
+.btn-p:hover { box-shadow: 0 6px 22px rgba(79,70,229,0.38); transform: translateY(-1px); }
 .btn-g {
   background: #FFFFFF;
   color: var(--text-200);
   border: 1.5px solid var(--border-lg);
 }
-.btn-g:hover { border-color: rgba(79,70,229,0.3); color: var(--primary); }
+.btn-g:hover { border-color: rgba(99,102,241,0.35); color: #4F46E5; }
 .btn-o {
   background: transparent;
   color: var(--primary);
@@ -2283,8 +2282,8 @@ body::before { display: none; }
 
 /* -- Comparison cards visual fix (Apple / Linear KPI Architecture) -- */
 .comp-card {
-  border-radius: 20px;
-  padding: 30px 26px;
+  border-radius: 18px;
+  padding: 24px 22px;
   border: 1px solid var(--border);
   background: #FFFFFF;
   box-shadow: 0 2px 8px -2px rgba(17,24,39,0.04), 0 1px 3px rgba(17,24,39,0.02);
@@ -2414,8 +2413,8 @@ body::before { display: none; }
 .why-card {
   background: #FFFFFF;
   border: 1px solid rgba(15, 23, 42, 0.08);
-  border-radius: 20px;
-  padding: 30px 24px;
+  border-radius: 18px;
+  padding: 24px 20px;
   box-shadow: 0 4px 16px -2px rgba(15, 23, 42, 0.05);
   position: relative;
   overflow: hidden;
@@ -2573,19 +2572,19 @@ body::before { display: none; }
 .cta-box {
   background: linear-gradient(135deg, #EEF0FF 0%, #F5F0FF 100%);
   border: 1.5px solid rgba(79,70,229,0.15);
-  border-radius: 28px;
-  padding: 64px 48px;
+  border-radius: 24px;
+  padding: 46px 36px;
   text-align: center;
 }
-.cta-box h2 { font-size: clamp(26px, 3vw, 40px); font-weight: 800; letter-spacing: -0.03em; margin-bottom: 14px; }
-.cta-box p { font-size: 16px; color: var(--text-400); max-width: 520px; margin: 0 auto 36px; line-height: 1.7; }
+.cta-box h2 { font-size: clamp(26px, 3vw, 40px); font-weight: 800; letter-spacing: -0.03em; margin-bottom: 12px; }
+.cta-box p { font-size: 15.5px; color: var(--text-400); max-width: 520px; margin: 0 auto 28px; line-height: 1.65; }
 .cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
 
 /* -- Footer improvements -- */
 .footer {
   background: #FFFFFF;
   border-top: 1px solid var(--border);
-  padding: 60px 0 32px;
+  padding: 48px 0 28px;
 }
 .footer-grid { display: grid; grid-template-columns: 1.8fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 48px; }
 @media (max-width: 800px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
@@ -2651,7 +2650,7 @@ body::before { display: none; }
   text-align: center;
 }
 .hero-type {
-  background: linear-gradient(90deg, #4F46E5, #7C3AED);
+  background: linear-gradient(90deg, #6366F1, #8B5CF6 50%, #059669 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -2667,12 +2666,12 @@ body::before { display: none; }
 }
 .hero-cursor {
   display: inline-block;
-  color: #4F46E5;
+  color: #6366F1;
   font-weight: 300;
   font-size: 0.9em;
   line-height: 1;
   margin-left: 2px;
-  -webkit-text-fill-color: #4F46E5;
+  -webkit-text-fill-color: #6366F1;
   animation: heroCursorBlink 0.85s infinite ease-in-out;
   vertical-align: baseline;
 }
@@ -2696,14 +2695,12 @@ body::before { display: none; }
   stroke-width: 2.2;
   flex-shrink: 0;
 }
-.text-indigo { color: #4F46E5; }
+.text-indigo { color: #0284C7; }
 .text-emerald { color: #059669; }
 .text-violet { color: #7C3AED; }
 .text-amber { color: #D97706; }
-.text-cyan { color: #0284C7; }
+.text-cyan { color: #0EA5E9; }
 .text-rose { color: #E11D48; }
-  box-shadow: 0 0 18px rgba(219,39,119,0.28); border-color: rgba(219,39,119,0.38);
-}
 
 /* ── WwD Accordion: Smooth hover open + Neon Glow + Specular Shine ── */
 .wwd-service-item {
